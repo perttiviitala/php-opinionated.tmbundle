@@ -2,209 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>comment</key>
-	<string>TODO:
-• Try to improve parameters list syntax – scope numbers, ‘=’, ‘,’ and possibly be intelligent about entity ordering
-• Is meta.function-call the correct scope? I've added it to my theme but by default it's not highlighted</string>
 	<key>fileTypes</key>
-	<array>
-		<string>php</string>
-	</array>
-	<key>firstLineMatch</key>
-	<string>&lt;?php</string>
+	<array/>
 	<key>foldingStartMarker</key>
 	<string>(/\*|\{\s*$|&lt;&lt;&lt;HTML)</string>
 	<key>foldingStopMarker</key>
 	<string>(\*/|^\s*\}|^HTML;)</string>
-	<key>injections</key>
-	<dict>
-		<key>^text.html - (meta.embedded | meta.tag), L:^text.html meta.tag, L:text.html.php source.js</key>
-		<dict>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>begin</key>
-					<string>(^\s*)(?=&lt;\?(?![^?]*\?&gt;))</string>
-					<key>beginCaptures</key>
-					<dict>
-						<key>0</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.whitespace.embedded.leading.php</string>
-						</dict>
-					</dict>
-					<key>end</key>
-					<string>(?!\G)(\s*$\n)?</string>
-					<key>endCaptures</key>
-					<dict>
-						<key>0</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.whitespace.embedded.trailing.php</string>
-						</dict>
-					</dict>
-					<key>patterns</key>
-					<array>
-						<dict>
-							<key>begin</key>
-							<string>&lt;\?(?i:php|=)?</string>
-							<key>beginCaptures</key>
-							<dict>
-								<key>0</key>
-								<dict>
-									<key>name</key>
-									<string>punctuation.section.embedded.begin.php</string>
-								</dict>
-							</dict>
-							<key>contentName</key>
-							<string>source.php</string>
-							<key>end</key>
-							<string>(\?)&gt;</string>
-							<key>endCaptures</key>
-							<dict>
-								<key>0</key>
-								<dict>
-									<key>name</key>
-									<string>punctuation.section.embedded.end.php</string>
-								</dict>
-								<key>1</key>
-								<dict>
-									<key>name</key>
-									<string>source.php</string>
-								</dict>
-							</dict>
-							<key>name</key>
-							<string>meta.embedded.block.php</string>
-							<key>patterns</key>
-							<array>
-								<dict>
-									<key>include</key>
-									<string>#language</string>
-								</dict>
-							</array>
-						</dict>
-					</array>
-				</dict>
-				<dict>
-					<key>begin</key>
-					<string>&lt;\?(?i:php|=)?(?![^?]*\?&gt;)</string>
-					<key>beginCaptures</key>
-					<dict>
-						<key>0</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.section.embedded.begin.php</string>
-						</dict>
-					</dict>
-					<key>contentName</key>
-					<string>source.php</string>
-					<key>end</key>
-					<string>(\?)&gt;</string>
-					<key>endCaptures</key>
-					<dict>
-						<key>0</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.section.embedded.end.php</string>
-						</dict>
-						<key>1</key>
-						<dict>
-							<key>name</key>
-							<string>source.php</string>
-						</dict>
-					</dict>
-					<key>name</key>
-					<string>meta.embedded.block.php</string>
-					<key>patterns</key>
-					<array>
-						<dict>
-							<key>include</key>
-							<string>#language</string>
-						</dict>
-					</array>
-				</dict>
-				<dict>
-					<key>begin</key>
-					<string>&lt;\?(?i:php|=)?</string>
-					<key>beginCaptures</key>
-					<dict>
-						<key>0</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.section.embedded.begin.php</string>
-						</dict>
-					</dict>
-					<key>end</key>
-					<string>&gt;</string>
-					<key>endCaptures</key>
-					<dict>
-						<key>0</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.section.embedded.end.php</string>
-						</dict>
-					</dict>
-					<key>name</key>
-					<string>meta.embedded.line.php</string>
-					<key>patterns</key>
-					<array>
-						<dict>
-							<key>captures</key>
-							<dict>
-								<key>1</key>
-								<dict>
-									<key>name</key>
-									<string>source.php</string>
-								</dict>
-								<key>2</key>
-								<dict>
-									<key>name</key>
-									<string>punctuation.section.embedded.end.php</string>
-								</dict>
-								<key>3</key>
-								<dict>
-									<key>name</key>
-									<string>source.php</string>
-								</dict>
-							</dict>
-							<key>match</key>
-							<string>\G(\s*)((\?))(?=&gt;)</string>
-							<key>name</key>
-							<string>meta.special.empty-tag.php</string>
-						</dict>
-						<dict>
-							<key>begin</key>
-							<string>\G</string>
-							<key>contentName</key>
-							<string>source.php</string>
-							<key>end</key>
-							<string>(\?)(?=&gt;)</string>
-							<key>endCaptures</key>
-							<dict>
-								<key>0</key>
-								<dict>
-									<key>name</key>
-									<string>punctuation.section.embedded.end.php</string>
-								</dict>
-								<key>1</key>
-								<dict>
-									<key>name</key>
-									<string>source.php</string>
-								</dict>
-							</dict>
-							<key>patterns</key>
-							<array>
-								<dict>
-									<key>include</key>
-									<string>#language</string>
-								</dict>
-							</array>
-						</dict>
-					</array>
-				</dict>
-			</array>
-		</dict>
-	</dict>
 	<key>keyEquivalent</key>
 	<string>^~P</string>
 	<key>name</key>
@@ -213,7 +16,7 @@
 	<array>
 		<dict>
 			<key>include</key>
-			<string>text.html.basic</string>
+			<string>#language</string>
 		</dict>
 	</array>
 	<key>repository</key>
@@ -4005,7 +3808,7 @@
 		</dict>
 	</dict>
 	<key>scopeName</key>
-	<string>text.html.php</string>
+	<string>source.php</string>
 	<key>uuid</key>
 	<string>22986475-8CA5-11D9-AEDD-000D93C8BE28</string>
 </dict>
