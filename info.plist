@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>contactEmailRot13</key>
+	<string>creggv.ivvgnyn@tznvy.pbz</string>
+	<key>contactName</key>
+	<string>Pertti Viitala</string>
+	<key>description</key>
+	<string>Support for the &lt;a href="https://www.php.net/"&gt;PHP&lt;/a&gt; programming language.</string>
+	<key>name</key>
+	<string>PHP opinionated</string>
+	<key>uuid</key>
+	<string>BE00C6C2-DC71-4F3A-8192-05D659A9E97E</string>
+</dict>
+</plist>
