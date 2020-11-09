@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>autoScrollOutput</key>
+	<true/>
+	<key>beforeRunningCommand</key>
+	<string>saveModifiedFiles</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby18 -KU
+require "#{ENV["TM_SUPPORT_PATH"]}/lib/tm/executor"
+require "#{ENV["TM_SUPPORT_PATH"]}/lib/tm/save_current_document"
+
+TextMate.save_if_untitled
+
+cmd = [ENV['TM_PHP'] || 'php'] + ['-d display_errors=0', '-d log_errors=1', '-d error_log=']
+cmd &lt;&lt; ENV["TM_FILEPATH"]
+
+TextMate::Executor.run( cmd, :version_args =&gt; ["--version"],
+                             :version_regex =&gt; /\A([^\(\n]+).*$(?:\n.*)*/,
+                             :version_replace =&gt; '\1',
+                             :use_hashbang =&gt; !ENV.has_key?('TM_PHP'),
+                             :create_error_pipe =&gt; true )
+
+</string>
+	<key>input</key>
+	<string>document</string>
+	<key>inputFormat</key>
+	<string>text</string>
+	<key>keyEquivalent</key>
+	<string>@r</string>
+	<key>name</key>
+	<string>Run</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>html</string>
+	<key>outputLocation</key>
+	<string>newWindow</string>
+	<key>scope</key>
+	<string>source.php</string>
+	<key>semanticClass</key>
+	<string>process.run.script.php</string>
+	<key>uuid</key>
+	<string>774E75DA-A747-4CB4-B8AF-DE720B01E295</string>
+	<key>version</key>
+	<integer>2</integer>
+</dict>
+</plist>

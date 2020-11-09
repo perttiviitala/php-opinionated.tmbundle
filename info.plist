@@ -12,5 +12,12 @@
 	<string>PHP opinionated</string>
 	<key>uuid</key>
 	<string>BE00C6C2-DC71-4F3A-8192-05D659A9E97E</string>
+	<key>mainMenu</key>
+	<dict>
+		<key>items</key>
+		<array>
+			<string>774E75DA-A747-4CB4-B8AF-DE720B01E295</string>
+		</array>
+	</dict>
 </dict>
 </plist>
