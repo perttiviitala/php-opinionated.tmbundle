@@ -601,7 +601,7 @@
 							<key>contentName</key>
 							<string>text.html</string>
 							<key>end</key>
-							<string>^(\3)\b</string>
+							<string>^\s*(\3)\b</string>
 							<key>endCaptures</key>
 							<dict>
 								<key>0</key>
@@ -649,7 +649,7 @@
 							<key>contentName</key>
 							<string>text.xml</string>
 							<key>end</key>
-							<string>^(\3)\b</string>
+							<string>^\s*(\3)\b</string>
 							<key>endCaptures</key>
 							<dict>
 								<key>0</key>
@@ -697,7 +697,7 @@
 							<key>contentName</key>
 							<string>source.sql</string>
 							<key>end</key>
-							<string>^(\3)\b</string>
+							<string>^\s*(\3)\b</string>
 							<key>endCaptures</key>
 							<dict>
 								<key>0</key>
@@ -745,7 +745,7 @@
 							<key>contentName</key>
 							<string>source.js</string>
 							<key>end</key>
-							<string>^(\3)\b</string>
+							<string>^\s*(\3)\b</string>
 							<key>endCaptures</key>
 							<dict>
 								<key>0</key>
@@ -793,7 +793,7 @@
 							<key>contentName</key>
 							<string>source.json</string>
 							<key>end</key>
-							<string>^(\3)\b</string>
+							<string>^\s*(\3)\b</string>
 							<key>endCaptures</key>
 							<dict>
 								<key>0</key>
@@ -841,7 +841,7 @@
 							<key>contentName</key>
 							<string>source.css</string>
 							<key>end</key>
-							<string>^(\3)\b</string>
+							<string>^\s*(\3)\b</string>
 							<key>endCaptures</key>
 							<dict>
 								<key>0</key>
@@ -889,7 +889,7 @@
 							<key>contentName</key>
 							<string>string.regexp.heredoc.php</string>
 							<key>end</key>
-							<string>^(\3)\b</string>
+							<string>^\s*(\3)\b</string>
 							<key>endCaptures</key>
 							<dict>
 								<key>0</key>
@@ -1008,7 +1008,7 @@
 								</dict>
 							</dict>
 							<key>end</key>
-							<string>^(\3)\b</string>
+							<string>^\s*(\3)\b</string>
 							<key>endCaptures</key>
 							<dict>
 								<key>1</key>
