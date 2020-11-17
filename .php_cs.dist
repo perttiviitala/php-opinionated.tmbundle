@@ -1,0 +1,32 @@
+<?php
+
+namespace PhpCsFixer;
+
+// Documentation at https://github.com/FriendsOfPHP/PHP-CS-Fixer/tree/master/doc
+
+return Config::create()
+	->setUsingCache(false)
+	->setFinder(Finder::create()
+		->exclude('vendor')
+		->in(__DIR__)
+	)
+	->setIndent("\t")
+	->setRules([
+		'@Symfony' => true,
+		'@Symfony:risky' => true,
+		// part of being opinionated
+		'braces' => [
+			'position_after_functions_and_oop_constructs' => 'same',
+			'position_after_control_structures' => 'same',
+			'position_after_anonymous_constructs' => 'same',
+		],
+		// dark side, not enough to just set to false
+		'yoda_style' => [
+			'equal' => false,
+			'identical' => false,
+			'less_and_greater' => false,
+			'always_move_variable' => true,
+		],
+		'multiline_whitespace_before_semicolons' => true,
+		'single_line_comment_style' => true,
+	]);

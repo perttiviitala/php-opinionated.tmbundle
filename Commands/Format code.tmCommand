@@ -16,7 +16,7 @@ cat /dev/stdin &gt; $tmpfile
 
 # force --quiet to prevent output containing info from this
 ${TM_PHP_CS_FIXER:-php-cs-fixer} \
-	fix --quiet $TM_PHP_CS_FIXER_OPTIONS \
+	fix --quiet --allow-risky=yes $TM_PHP_CS_FIXER_OPTIONS \
 	$tmpfile
 
 # replace output with fixed contents
@@ -41,6 +41,7 @@ cat $tmpfile
 			<string>php-cs-fixer</string>
 			<key>locations</key>
 			<array>
+				<string>vendor/bin/php-cs-fixer</string>
 				<string>/usr/local/bin/php-cs-fixer</string>
 			</array>
 			<key>variable</key>
