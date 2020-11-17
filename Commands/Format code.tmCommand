@@ -7,7 +7,7 @@
 	<key>command</key>
 	<string>#!/bin/sh
 # FIXME Find a parent directory with .php_cs file
-cd $TM_PROJECT_DIRECTORY
+cd "$TM_PROJECT_DIRECTORY"
 
 # php-cs-fixer can not read or write results to stdout
 # so we go around this with tempfiles

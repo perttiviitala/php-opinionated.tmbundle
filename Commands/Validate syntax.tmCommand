@@ -6,7 +6,7 @@
 	<string>nop</string>
 	<key>command</key>
 	<string>#!/bin/sh
-errors=$(eval ${TM_PHP:-php} -l $TM_FILEPATH 2&gt;&amp;1 &gt; /dev/null)
+errors=$(eval ${TM_PHP:-php} -l \"$TM_FILEPATH\" 2&gt;&amp;1 &gt; /dev/null)
 echo "$errors"
 </string>
 	<key>input</key>
