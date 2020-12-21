@@ -14,6 +14,7 @@ require "#{ENV["TM_SUPPORT_PATH"]}/lib/tm/save_current_document"
 TextMate.save_if_untitled
 
 cmd = [ENV['TM_PHP'] || 'php'] + ['-d display_errors=0', '-d log_errors=1', '-d error_log=']
+cmd += ["-d auto_prepend_file=#{ENV["TM_BUNDLE_SUPPORT"]}/lib/bootstrap.php"]
 cmd &lt;&lt; ENV["TM_FILEPATH"]
 
 TextMate::Executor.run( cmd, :version_args =&gt; ["--version"],
