@@ -4,6 +4,8 @@
 <dict>
 	<key>fileTypes</key>
 	<array/>
+	<key>firstLineMatch</key>
+	<string>&lt;?php</string>
 	<key>foldingStartMarker</key>
 	<string>(/\*|\{\s*$|&lt;&lt;&lt;HTML)</string>
 	<key>foldingStopMarker</key>

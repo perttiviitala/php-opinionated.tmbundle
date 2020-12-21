@@ -6,8 +6,6 @@
 	<array>
 		<string>html.php</string>
 	</array>
-	<key>firstLineMatch</key>
-	<string>&lt;?php</string>
 	<key>injections</key>
 	<dict>
 		<key>R:text.html.php - (meta.embedded.block.php | comment)</key>
