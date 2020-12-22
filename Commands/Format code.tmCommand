@@ -26,6 +26,8 @@ cat $tmpfile
 	<string>document</string>
 	<key>inputFormat</key>
 	<string>text</string>
+	<key>keyEquivalent</key>
+	<string>^H</string>
 	<key>name</key>
 	<string>Format code</string>
 	<key>outputCaret</key>
