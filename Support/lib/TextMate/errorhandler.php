@@ -19,36 +19,29 @@ function errorHandler($errno, $errstr, $errfile, $errline) {
 	}
 
 	$trace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS);
-	// rename call to this function as trigger_error
-	$trace[0]['function'] = 'trigger_error';
-	// if error was triggered by user with trigger_error, remove our duplicate call from stack
-	if ($trace[1]['function'] == 'trigger_error' ?? null) {
+	// remove our internal call to this handler
+	array_shift($trace);
+	// remove duplicate trigger_error call from the stack
+	if (($trace[0]['function'] ?? null) == 'trigger_error') {
 		array_shift($trace);
 	}
 
 	reportError(
 		$type,
 		$errstr,
+		$errfile,
+		$errline,
 		$trace,
 	);
 }
 
 function throwableHandler(\Throwable $throwable) {
-	// add point of throw to trace, no separate message for it
-	$trace = $throwable->getTrace();
-	array_unshift(
-		$trace,
-		[
-			'file' => $throwable->getFile(),
-			'line' => $throwable->getLine(),
-			'function' => 'throw',
-		]
-	);
-
 	reportError(
 		\get_class($throwable),
 		$throwable->getMessage(),
-		$trace,
+		$throwable->getFile(),
+		$throwable->getLine(),
+		$throwable->getTrace(),
 	);
 	// any uncaught throwable will halt execution but exit with 0
 	exit(1);
@@ -75,7 +68,7 @@ function shutdownHandler() {
 	}
 }
 
-function reportError($type, $message, $trace) {
+function reportError(string $type, string $message, string $file, int $line, array $trace): void {
 	$trimPath = function ($path) {
 		$paths = [];
 		if (isset($_SERVER['TM_PROJECT_DIRECTORY'])) {
@@ -93,18 +86,14 @@ function reportError($type, $message, $trace) {
 		return $path;
 	};
 
+	// add point of occurance to stack
+	$trace[] = ['function' => '{main}', 'file' => $file, 'line' => $line];
+
 	$backtrace = [];
 	foreach ($trace as $index => $trace) {
-		$file = $trace['file'] ?? null;
-		$line = $trace['line'] ?? null;
 		$method = isset($trace['class'])
 			? $trace['class'].$trace['type'].$trace['function']
 			: $trace['function'] ?? null;
-
-		// this is our internal call
-		if ($index === 0 && $file === __FILE__) {
-			continue;
-		}
 
 		// these are boring as hell and do not aid
 		if (!$file && (!$method || $method === '{closure}')) {
@@ -118,12 +107,16 @@ function reportError($type, $message, $trace) {
 				<td>in <strong>%s</strong> at line %d</td>
 			</tr>
 			HTML,
-			$file,
+			htmlentities($file),
 			$line,
-			$method,
-			$file ? $trimPath($file) : 'unknown',
+			htmlentities($method),
+			htmlentities($file ? $trimPath($file) : 'unknown'),
 			$line,
 		);
+
+		// these are overwritten by purpose to offset file/line for humans
+		$file = $trace['file'] ?? $file;
+		$line = $trace['line'] ?? $line;
 	}
 
 	$backtrace = sprintf(
@@ -152,8 +145,8 @@ function reportError($type, $message, $trace) {
 				%s
 			</div>
 			HTML,
-			$type,
-			$message,
+			htmlentities($type),
+			htmlentities($message),
 			$backtrace,
 		)
 	);
@@ -165,7 +158,7 @@ function reportError($type, $message, $trace) {
 	// TextMate goes unresponsive if you try to write too many times to error file descriptor
 	static $counter = 0;
 	if (++$counter >= ($_SERVER['TM_PHP_ERROR_LIMIT'] ?? 5)) {
-		trigger_error('Limiting errors to 5, stopping execution', E_USER_WARNING);
+		trigger_error('Limiting errors to 5, stopping execution', E_USER_ERROR);
 		exit(1);
 	}
 }
