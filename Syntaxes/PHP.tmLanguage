@@ -373,16 +373,16 @@
 				<dict>
 					<key>begin</key>
 					<string>(?ix)
-						(?:														# Optional
-							(\?)?
+						(?:                                                  # Optional
+						    (\?)?
 						    (?: (array|bool|float|int|string|mixed)          # scalar-type
-							  | (callable|iterable)								# base-type-declaration
-							  | ([a-z_0-9\\]*[a-z_][a-z_0-9]*)
-							)
-							\s+
+						      | (callable|iterable)                          # base-type-declaration
+						      | ([a-z_0-9\\]*[a-z_][a-z_0-9]*)
+						    )
+						    \s+
 						)?
-						(?:(&amp;)\s*)?												# Reference
-						((\$+)[a-z_\x{7f}-\x{ff}][a-z0-9_\x{7f}-\x{ff}]*)		# Variable name
+						(?:(&amp;)\s*)?                                      # Reference
+						((\$+)[a-z_\x{7f}-\x{ff}][a-z0-9_\x{7f}-\x{ff}]*)    # Variable name
 					</string>
 					<key>beginCaptures</key>
 					<dict>
@@ -1745,16 +1745,17 @@
 					<string>meta.function.arguments.php</string>
 					<key>end</key>
 					<string>(?ix)
-						(\))											# Close arguments
-						(?:												# Optional return type
-							\s*(:)\s*
-							(\?)?
-							(?:
+						(\))                                            # Close arguments
+						(?:                                             # Optional return type
+						    \s*(:)\s*
+						    (\?)?
+						    (?:
 						        (array|bool|float|int|string|mixed)     # scalar-type
-							  | (callable|iterable)						# base-type-declaration
-							  | (void)
-							  | ([a-z_0-9\\]*[a-z_][a-z_0-9]*)			# qualified-name
-							)
+						      | (callable|iterable)                     # base-type-declaration
+						      | (void)
+						      | (self|parent|static)                    # late static binding
+						      | ([a-z_0-9\\]*[a-z_][a-z_0-9]*)          # qualified-name
+						    )
 						)?
 					</string>
 					<key>endCaptures</key>
@@ -1790,6 +1791,11 @@
 							<string>storage.type.void.php</string>
 						</dict>
 						<key>7</key>
+						<dict>
+							<key>name</key>
+							<string>storage.type.$7.php</string>
+						</dict>
+						<key>8</key>
 						<dict>
 							<key>patterns</key>
 							<array>
@@ -2276,11 +2282,11 @@
 					</dict>
 					<key>match</key>
 					<string>(?x)(\??-&gt;)
-            				(?:
-            				    ([A-Za-z_][A-Za-z_0-9]*)\s*\(
-            				    |
-            				    ((\$+)?[a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*)
-            				)?</string>
+					(?:
+					    ([A-Za-z_][A-Za-z_0-9]*)\s*\(
+					    |
+					    ((\$+)?[a-zA-Z_\x{7f}-\x{ff}][a-zA-Z0-9_\x{7f}-\x{ff}]*)
+					)?</string>
 				</dict>
 			</array>
 		</dict>
