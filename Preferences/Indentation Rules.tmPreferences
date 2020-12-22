@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Indentation Rules</string>
+	<key>scope</key>
+	<string>source.php -string</string>
+	<key>settings</key>
+	<dict>
+		<key>decreaseIndentPattern</key>
+		<string>(?x)
+		^ (.* \*/)? \s*
+		(   (\})
+		|   (\)+[;,])
+		|   (\][;,])
+		|   \b (else:)
+		|   \b ((end(if|for(each)?|while|switch));)
+		|   \b (case .* :)
+		)
+		</string>
+		<key>increaseIndentPattern</key>
+		<string>(?x)
+		(   \{ (?! .+ \} ) .*
+		|   \b array\(
+		|   (\[)
+		|   \b (else(if)?|for(each)?|while|switch) .* :
+		|   \b (default|case) .* :
+		)   \s* (/[/*] .*)? $
+		</string>
+		<key>indentNextLinePattern</key>
+		<string>(?x)^
+		(?! .*? (&lt;\?|\?&gt;) )
+		(?! \s* ($|//|/\*|\#))
+		(?! .* [;:{}(,] \s* ((//|/\*|\#).*)? $)
+		</string>
+		<key>unIndentedLinePattern</key>
+		<string>^\s*$</string>
+	</dict>
+	<key>uuid</key>
+	<string>BDE43E80-D87D-4264-9821-97C772E2F48E</string>
+</dict>
+</plist>
