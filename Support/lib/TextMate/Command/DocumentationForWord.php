@@ -97,6 +97,7 @@ final class DocumentationForWord {
 		'continue' => ['control-structures.continue'],
 		'switch' => ['control-structures.switch'],
 		'case' => ['control-structures.switch'],
+		'match' => ['control-structures.match'],
 		'declare' => ['control-structures.declare'],
 		'return' => ['function.return'],
 		'require' => ['function.require'],
