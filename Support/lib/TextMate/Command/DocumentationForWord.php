@@ -23,10 +23,9 @@ final class DocumentationForWord {
 		'resource' => ['language.types.resource'],
 		'null' => ['language.types.null'],
 		'callable' => ['language.types.callable'],
-		'mixed' => ['language.pseudo-types'],
-		'number' => ['language.pseudo-types'],
-		'callback' => ['language.pseudo-types'],
-		'void' => ['language.pseudo-types'],
+		'mixed' => ['language.types.declarations', 'mixed'],
+		'void' => ['language.types.declarations', 'void'],
+		'strict_types' => ['language.types.declarations', 'strict'],
 		// Variables
 		'global' => ['language.variables.scope', 'global'],
 		// Constants
