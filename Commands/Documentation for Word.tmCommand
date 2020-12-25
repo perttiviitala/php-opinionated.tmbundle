@@ -10,7 +10,7 @@
 
 require_once getenv('TM_BUNDLE_SUPPORT') . '/lib/bootstrap.php';
 
-$word = getenv('TM_CURRENT_WORD');
+$word = getenv('TM_SELECTED_TEXT') ?: getenv('TM_CURRENT_WORD');
 if (!$word) {
 	fwrite(STDERR, 'Unable to parse a word');
 	exit(206);

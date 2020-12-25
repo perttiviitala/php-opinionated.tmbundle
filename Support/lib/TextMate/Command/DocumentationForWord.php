@@ -66,6 +66,8 @@ final class DocumentationForWord {
 		'<=' => ['language.operators.comparison'],
 		'>=' => ['language.operators.comparison'],
 		'<=>' => ['language.operators.comparison'],
+		'?:' => ['language.operators.comparison', 'ternary'],
+		'??' => ['language.operators.comparison', 'coalesce'],
 		// Operators → Error Control Operators
 		'@' => ['language.operators.errorcontrol'],
 		// Operators → Execution Operators
@@ -106,14 +108,17 @@ final class DocumentationForWord {
 		'goto' => ['control-structures.goto'],
 		// Functions
 		'function' => ['language.functions'],
+		'fn' => ['functions.arrow'],
 		// Classes and Objects
 		// Classes and Objects → Basics
 		'class' => ['language.oop5.basic', 'class'],
 		'new' => ['language.oop5.basic', 'new'],
 		'extends' => ['language.oop5.basic', 'extends'],
-		'::class' => ['language.oop5.basic', 'class.class'], // wont actually ever get here
+		'::class' => ['language.oop5.basic', 'class.class'],
+		'?->' => ['language.oop5.basic', 'nullsafe'],
 		// Classes and Objects → Properties
 		// Classes and Objects → Class Constants
+		'const' => ['language.oop5.constants'],
 		// Classes and Objects → Autoloading Classes
 		// Classes and Objects → Constructors and Destructors
 		'__construct' => ['language.oop5.decon', 'constructor'],
@@ -157,7 +162,6 @@ final class DocumentationForWord {
 		'clone' => ['language.oop5.cloning', 'clone'],
 		'__clone' => ['language.oop5.cloning', 'clone'],
 		// Classes and Objects → Comparing Objects
-		// Classes and Objects → Type Hinting
 		// Classes and Objects → Late Static Bindings
 		// Classes and Objects → Objects and references
 		// Classes and Objects → Object Serialization
@@ -193,19 +197,29 @@ final class DocumentationForWord {
 		return self::LANGUAGES[0];
 	}
 
-	public static function manualUrlForWord(string $word): ?string {
-		[$page, $anchor] = self::REFERENCES[$word] ?? [];
+	private static function formatManualUrl(string $page, ?string $anchor = null): string {
 		if ($anchor) {
+			// ancor repeats the page name ('foo', 'bar') => 'foo.php#foo.bar'
 			return sprintf('https://www.php.net/manual/%s/%s.php#%2$s.%s', self::locale(), $page, $anchor);
 		}
-		if ($page) {
-			return sprintf('https://www.php.net/manual/%s/%s.php', self::locale(), $page);
-		}
-		// not a known keyword, use generic search page for built-in functions
-		if (preg_match('/^[a-zA-Z][a-zA-Z0-9_]+$/', $word)) {
-			return sprintf('https://www.php.net/%s/%s', self::locale(), $word);
+
+		return sprintf('https://www.php.net/manual/%s/%s.php', self::locale(), $page);
+	}
+
+	private static function formatUrl(string $page): string {
+		return sprintf('https://www.php.net/%s/%s', self::locale(), $page);
+	}
+
+	public static function manualUrlForWord(string $word): ?string {
+		if (!isset(self::REFERENCES[$word])) {
+			// not a known keyword, use generic search page for built-in functions
+			if (preg_match('/^[a-zA-Z][a-zA-Z0-9_]+$/', $word)) {
+				return self::formatUrl($word);
+			}
+
+			return null;
 		}
 
-		return null;
+		return self::formatManualUrl(...self::REFERENCES[$word]);
 	}
 }
