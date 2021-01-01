@@ -5,9 +5,19 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>#!/bin/sh
-errors=$(eval ${TM_PHP:-php} -l \"$TM_FILEPATH\" 2&gt;&amp;1 &gt; /dev/null)
-echo "$errors"
+	<string>#!/usr/bin/env zsh
+errors=$(eval ${TM_PHP:-php} -l 2&gt; /dev/null)
+if [[ $? -eq 0 ]]; then
+	exit
+fi
+
+errors=${errors/ in Standard input code/}
+errors=${errors/Parse error: /}
+echo $errors | head -n 2 | tail -n 1
+
+if [[ $errors =~ 'on line ([0-9]+)' ]] &amp;&amp; line=$match[1]; then
+	open "txmt://open?line=$line"
+fi
 </string>
 	<key>input</key>
 	<string>selection</string>
