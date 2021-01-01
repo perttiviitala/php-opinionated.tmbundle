@@ -5,9 +5,15 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>#!/bin/sh
+	<string>#!/usr/bin/env zsh
+[[ -f "${TM_SUPPORT_PATH}/lib/bash_init.sh" ]] &amp;&amp; . "${TM_SUPPORT_PATH}/lib/bash_init.sh"
+
 # FIXME Find a parent directory with .php_cs file
 cd "$TM_PROJECT_DIRECTORY"
+
+if [ ! -f .php_cs ] &amp;&amp; [ ! -f .php_cs.dist ]; then
+	exit_show_tool_tip "Missing .php_cs or .php_cs.dist file, skipping"
+fi
 
 # php-cs-fixer can not read or write results to stdout
 # so we go around this with tempfiles
