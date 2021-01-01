@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env php
+&lt;?php
+
+require_once getenv('TM_BUNDLE_SUPPORT').'/lib/bootstrap.php';
+
+// FIXME replace json with native php array
+$path = getenv('TM_BUNDLE_SUPPORT').'/resources/completions.json';
+$completions = json_decode(file_get_contents($path), true);
+
+// always check current word first
+$options = [getenv('TM_CURRENT_WORD')];
+// these two are mutually exclusive
+if (getenv('TM_SELECTED_TEXT')) {
+	$options[] = getenv('TM_SELECTED_TEXT');
+}
+if (getenv('TM_CURRENT_LINE')) {
+	if (preg_match_all('/(\w+)\(/', substr(getenv('TM_CURRENT_LINE'), 0, getenv('TM_LINE_INDEX')), $matches)) {
+		$options = array_merge($options, array_reverse($matches[1]));
+	}
+}
+
+foreach (array_filter($options) as $option) {
+	if (!isset($completions[$option])) {
+		continue;
+	}
+	echo implode("\n", $completions[$option]);
+	// stop on first match
+	exit;
+}
+
+echo 'Function not found';
+</string>
+	<key>input</key>
+	<string>none</string>
+	<key>inputFormat</key>
+	<string>text</string>
+	<key>keyEquivalent</key>
+	<string>~</string>
+	<key>name</key>
+	<string>Function Tooltip</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>text</string>
+	<key>outputLocation</key>
+	<string>toolTip</string>
+	<key>uuid</key>
+	<string>3C871C9E-B20A-4D69-A3F4-C0E723A20FDD</string>
+	<key>version</key>
+	<integer>2</integer>
+</dict>
+</plist>
