@@ -35,7 +35,7 @@ cat $tmpfile
 	<key>keyEquivalent</key>
 	<string>^H</string>
 	<key>name</key>
-	<string>Format code</string>
+	<string>Reformat Document</string>
 	<key>outputCaret</key>
 	<string>interpolateByLine</string>
 	<key>outputFormat</key>

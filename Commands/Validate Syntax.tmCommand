@@ -26,7 +26,7 @@ fi
 	<key>keyEquivalent</key>
 	<string>^V</string>
 	<key>name</key>
-	<string>Validate syntax</string>
+	<string>Validate Syntax</string>
 	<key>outputCaret</key>
 	<string>afterOutput</string>
 	<key>outputFormat</key>

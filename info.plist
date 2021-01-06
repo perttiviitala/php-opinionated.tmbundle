@@ -17,9 +17,59 @@
 		<key>items</key>
 		<array>
 			<string>774E75DA-A747-4CB4-B8AF-DE720B01E295</string>
+			<string>------------------------------------</string>
+			<string>15AC74DA-2F05-4EF9-BBBC-26BBAA5877BD</string>
+			<string>3C871C9E-B20A-4D69-A3F4-C0E723A20FDD</string>
+			<string>------------------------------------</string>
 			<string>9E6DDCD7-F043-443F-BC1D-F7051B2B50ED</string>
 			<string>02B7C458-F237-47D5-8EF9-05F7E2708625</string>
+			<string>------------------------------------</string>
+			<string>273ADF46-07E7-470A-B3E7-5040306A1589</string>
+			<string>D928AFFE-91E2-4656-BF37-401657426E6D</string>
+			<string>359BED8E-86DA-43B7-8E2B-8ECBEAF0AE68</string>
 		</array>
+		<key>submenus</key>
+		<dict>
+			<key>273ADF46-07E7-470A-B3E7-5040306A1589</key>
+			<dict>
+				<key>items</key>
+				<array>
+					<string>47C05E11-1208-47F4-95A3-2D170B69E46C</string>
+				</array>
+				<key>name</key>
+				<string>Declarations</string>
+			</dict>
+			<key>D928AFFE-91E2-4656-BF37-401657426E6D</key>
+			<dict>
+				<key>items</key>
+				<array>
+					<string>76E97DBA-0AD0-4211-8D92-ED107A6AC238</string>
+					<string>038D0DCA-2CB9-4AE9-8E2E-3FFD94E43B9A</string>
+					<string>9D492649-6920-4871-BBE8-0D8617BD40DF</string>
+					<string>1E986EB1-86B0-45FB-ACE2-64725E013A01</string>
+					<string>F299A998-F5EE-4D0E-B378-B5C460CDD1DE</string>
+					<string>613CDC83-4D59-42E6-913C-190635CA12BA</string>
+					<string>6F6E1B2E-B799-445D-9929-2188CB0C0194</string>
+					<string>CCBD8C65-0716-4B9C-80B2-612A36C08AFC</string>
+					<string>1A87FF3F-64F2-4920-A9BD-73B264129D80</string>
+					<string>81B10E15-B513-408B-B0E3-BBF8D232A4C4</string>
+				</array>
+				<key>name</key>
+				<string>Control Structures</string>
+			</dict>
+			<key>359BED8E-86DA-43B7-8E2B-8ECBEAF0AE68</key>
+			<dict>
+				<key>items</key>
+				<array>
+					<string>98C69580-627F-4A79-AA9F-E036D5383B99</string>
+					<string>23C1A62B-B839-4CC5-9D05-56B777D9F97D</string>
+					<string>212901F7-1197-46F3-9F2C-86357EB0BA4E</string>
+					<string>785F47C3-A45C-4810-B751-4658560A93BE</string>
+				</array>
+				<key>name</key>
+				<string>Idioms</string>
+			</dict>
+		</dict>
 	</dict>
 </dict>
 </plist>
