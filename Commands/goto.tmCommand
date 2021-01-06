@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env php
+&lt;?php
+
+$scope = file_get_contents('php://stdin');
+
+preg_match_all('/(?:^|\n)\s*([a-z_][a-z_0-9]*):\n/i', $scope, $matches);
+if (!$matches[1]) {
+	echo 'goto ${1:// no label found}';
+	exit;
+}
+
+$labels = array_unique($matches[1]);
+echo sprintf('goto ${1|%s|};', implode(',', $labels));</string>
+	<key>input</key>
+	<string>scope</string>
+	<key>inputFormat</key>
+	<string>text</string>
+	<key>name</key>
+	<string>goto</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>snippet</string>
+	<key>outputLocation</key>
+	<string>atCaret</string>
+	<key>scope</key>
+	<string>source.php</string>
+	<key>tabTrigger</key>
+	<string>goto</string>
+	<key>uuid</key>
+	<string>81B10E15-B513-408B-B0E3-BBF8D232A4C4</string>
+	<key>version</key>
+	<integer>2</integer>
+</dict>
+</plist>

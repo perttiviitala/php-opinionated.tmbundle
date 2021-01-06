@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>require ${1:__DIR__}.'/${2:file}.php';$0</string>
+	<key>name</key>
+	<string>require</string>
+	<key>scope</key>
+	<string>source.php</string>
+	<key>tabTrigger</key>
+	<string>require</string>
+	<key>uuid</key>
+	<string>1A87FF3F-64F2-4920-A9BD-73B264129D80</string>
+</dict>
+</plist>

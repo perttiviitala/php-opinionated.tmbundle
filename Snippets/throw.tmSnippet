@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>throw new ${1:\\${2|RuntimeException,BadFunctionCallException,BadMethodCallException,DomainException,InvalidArgumentException,LengthException,OutOfRangeException,OutOfBoundsException,OverflowException,RangeException,UnderflowException,UnexpectedValueException|}}("${4:Message}");$0</string>
+	<key>name</key>
+	<string>throw</string>
+	<key>scope</key>
+	<string>source.php</string>
+	<key>tabTrigger</key>
+	<string>throw</string>
+	<key>uuid</key>
+	<string>98C69580-627F-4A79-AA9F-E036D5383B99</string>
+</dict>
+</plist>
