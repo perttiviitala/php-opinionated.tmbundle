@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>${1|public,protected,private|}${1/.+/ /}function ${2:name}(${3:\$${4:value}${5: = ${6:null}}})${7/.+/: /}${7|void,string,self,iterable,array,bool,int|} {
+	${8:// ...}
+}$0</string>
+	<key>name</key>
+	<string>function</string>
+	<key>scope</key>
+	<string>source.php</string>
+	<key>tabTrigger</key>
+	<string>fun</string>
+	<key>uuid</key>
+	<string>47C05E11-1208-47F4-95A3-2D170B69E46C</string>
+</dict>
+</plist>
