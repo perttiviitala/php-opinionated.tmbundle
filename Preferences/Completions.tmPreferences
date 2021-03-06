@@ -25,7 +25,6 @@
 			<string>apache_lookup_uri</string>
 			<string>apache_note</string>
 			<string>apache_request_headers</string>
-			<string>apache_reset_timeout</string>
 			<string>apache_response_headers</string>
 			<string>apache_setenv</string>
 			<string>apcu_add</string>
@@ -132,7 +131,6 @@
 			<string>bind_textdomain_codeset</string>
 			<string>bindec</string>
 			<string>bindtextdomain</string>
-			<string>blenc_encrypt</string>
 			<string>boolval</string>
 			<string>bson_decode</string>
 			<string>bson_encode</string>
@@ -220,15 +218,6 @@
 			<string>count</string>
 			<string>count_chars</string>
 			<string>Countable</string>
-			<string>Counter</string>
-			<string>counter_bump</string>
-			<string>counter_bump_value</string>
-			<string>counter_create</string>
-			<string>counter_get</string>
-			<string>counter_get_meta</string>
-			<string>counter_get_value</string>
-			<string>counter_reset</string>
-			<string>counter_reset_value</string>
 			<string>crc32</string>
 			<string>create_function</string>
 			<string>crypt</string>
@@ -424,7 +413,6 @@
 			<string>datefmt_set_lenient</string>
 			<string>datefmt_set_pattern</string>
 			<string>datefmt_set_timezone</string>
-			<string>datefmt_set_timezone_id</string>
 			<string>DateInterval</string>
 			<string>DatePeriod</string>
 			<string>DateTime</string>
@@ -556,14 +544,6 @@
 			<string>dbplus_update</string>
 			<string>dbplus_xlockrel</string>
 			<string>dbplus_xunlockrel</string>
-			<string>dbx_close</string>
-			<string>dbx_compare</string>
-			<string>dbx_connect</string>
-			<string>dbx_error</string>
-			<string>dbx_escape_string</string>
-			<string>dbx_fetch_row</string>
-			<string>dbx_query</string>
-			<string>dbx_sort</string>
 			<string>dcgettext</string>
 			<string>dcngettext</string>
 			<string>debug_backtrace</string>
@@ -573,7 +553,6 @@
 			<string>dechex</string>
 			<string>decoct</string>
 			<string>define</string>
-			<string>define_syslog_variables</string>
 			<string>defined</string>
 			<string>deflate_add</string>
 			<string>deflate_init</string>
@@ -698,12 +677,12 @@
 			<string>enchant_broker_request_pwl_dict</string>
 			<string>enchant_broker_set_dict_path</string>
 			<string>enchant_broker_set_ordering</string>
-			<string>enchant_dict_add_to_personal</string>
+			<string>enchant_dict_add</string>
 			<string>enchant_dict_add_to_session</string>
 			<string>enchant_dict_check</string>
 			<string>enchant_dict_describe</string>
 			<string>enchant_dict_get_error</string>
-			<string>enchant_dict_is_in_session</string>
+			<string>enchant_dict_is_added</string>
 			<string>enchant_dict_quick_check</string>
 			<string>enchant_dict_store_replacement</string>
 			<string>enchant_dict_suggest</string>
@@ -1400,22 +1379,6 @@
 			<string>idn_to_ascii</string>
 			<string>idn_to_utf8</string>
 			<string>ignore_user_abort</string>
-			<string>iis_add_server</string>
-			<string>iis_get_dir_security</string>
-			<string>iis_get_script_map</string>
-			<string>iis_get_server_by_comment</string>
-			<string>iis_get_server_by_path</string>
-			<string>iis_get_server_rights</string>
-			<string>iis_get_service_state</string>
-			<string>iis_remove_server</string>
-			<string>iis_set_app_settings</string>
-			<string>iis_set_dir_security</string>
-			<string>iis_set_script_map</string>
-			<string>iis_set_server_rights</string>
-			<string>iis_start_server</string>
-			<string>iis_start_service</string>
-			<string>iis_stop_server</string>
-			<string>iis_stop_service</string>
 			<string>image2wbmp</string>
 			<string>image_type_to_extension</string>
 			<string>image_type_to_mime_type</string>
@@ -1788,9 +1751,6 @@
 			<string>json_last_error_msg</string>
 			<string>JsonException</string>
 			<string>JsonSerializable</string>
-			<string>Judy</string>
-			<string>judy_type</string>
-			<string>judy_version</string>
 			<string>juliantojd</string>
 			<string>key</string>
 			<string>krsort</string>
@@ -2485,9 +2445,6 @@
 			<string>normalizer_get_raw_decomposition</string>
 			<string>normalizer_is_normalized</string>
 			<string>normalizer_normalize</string>
-			<string>nsapi_request_headers</string>
-			<string>nsapi_response_headers</string>
-			<string>nsapi_virtual</string>
 			<string>number_format</string>
 			<string>NumberFormatter</string>
 			<string>numfmt_create</string>
@@ -2657,6 +2614,11 @@
 			<string>opendir</string>
 			<string>openlog</string>
 			<string>openssl_cipher_iv_length</string>
+			<string>openssl_cms_decrypt</string>
+			<string>openssl_cms_encrypt</string>
+			<string>openssl_cms_read</string>
+			<string>openssl_cms_sign</string>
+			<string>openssl_cms_verify</string>
 			<string>openssl_csr_export</string>
 			<string>openssl_csr_export_to_file</string>
 			<string>openssl_csr_get_public_key</string>
@@ -2683,6 +2645,7 @@
 			<string>openssl_pkcs7_read</string>
 			<string>openssl_pkcs7_sign</string>
 			<string>openssl_pkcs7_verify</string>
+			<string>openssl_pkey_derive</string>
 			<string>openssl_pkey_export</string>
 			<string>openssl_pkey_export_to_file</string>
 			<string>openssl_pkey_free</string>
@@ -3163,6 +3126,7 @@
 			<string>ReflectionProperty</string>
 			<string>ReflectionReference</string>
 			<string>ReflectionType</string>
+			<string>ReflectionUnionType</string>
 			<string>ReflectionZendExtension</string>
 			<string>Reflector</string>
 			<string>RegexIterator</string>
@@ -3236,8 +3200,6 @@
 			<string>scandir</string>
 			<string>scoutapm_get_calls</string>
 			<string>scoutapm_list_instrumented_functions</string>
-			<string>SDO_DAS_Relational</string>
-			<string>SDO_Model_ReflectionDataObject</string>
 			<string>SeasLog</string>
 			<string>seaslog_get_author</string>
 			<string>seaslog_get_version</string>
@@ -3262,7 +3224,6 @@
 			<string>session_module_name</string>
 			<string>session_name</string>
 			<string>session_regenerate_id</string>
-			<string>session_register</string>
 			<string>session_register_shutdown</string>
 			<string>session_reset</string>
 			<string>session_save_path</string>
@@ -3468,6 +3429,7 @@
 			<string>sodium_memzero</string>
 			<string>sodium_pad</string>
 			<string>sodium_unpad</string>
+			<string>SodiumException</string>
 			<string>solr_get_version</string>
 			<string>SolrClient</string>
 			<string>SolrClientException</string>
@@ -3503,15 +3465,11 @@
 			<string>spl_classes</string>
 			<string>spl_object_hash</string>
 			<string>spl_object_id</string>
-			<string>SplBool</string>
 			<string>SplDoublyLinkedList</string>
-			<string>SplEnum</string>
 			<string>SplFileInfo</string>
 			<string>SplFileObject</string>
 			<string>SplFixedArray</string>
-			<string>SplFloat</string>
 			<string>SplHeap</string>
-			<string>SplInt</string>
 			<string>split</string>
 			<string>spliti</string>
 			<string>SplMaxHeap</string>
@@ -3521,10 +3479,8 @@
 			<string>SplPriorityQueue</string>
 			<string>SplQueue</string>
 			<string>SplStack</string>
-			<string>SplString</string>
 			<string>SplSubject</string>
 			<string>SplTempFileObject</string>
-			<string>SplType</string>
 			<string>Spoofchecker</string>
 			<string>sprintf</string>
 			<string>sql_regcase</string>
@@ -3573,7 +3529,10 @@
 			<string>ssh2_exec</string>
 			<string>ssh2_fetch_stream</string>
 			<string>ssh2_fingerprint</string>
+			<string>ssh2_forward_accept</string>
+			<string>ssh2_forward_listen</string>
 			<string>ssh2_methods_negotiated</string>
+			<string>ssh2_poll</string>
 			<string>ssh2_publickey_add</string>
 			<string>ssh2_publickey_init</string>
 			<string>ssh2_publickey_list</string>
@@ -4299,6 +4258,7 @@
 			<string>xmlrpc_server_register_introspection_callback</string>
 			<string>xmlrpc_server_register_method</string>
 			<string>xmlrpc_set_type</string>
+			<string>XMLWriter</string>
 			<string>xmlwriter_end_attribute</string>
 			<string>xmlwriter_end_cdata</string>
 			<string>xmlwriter_end_comment</string>
