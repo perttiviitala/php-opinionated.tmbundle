@@ -19,7 +19,8 @@ fi
 ${TM_PHP:-php} ${TM_PHPCBF:-phpcbf} $TM_PHPCBF_OPTIONS -
 
 # phpcbf returns non 0 exit which causes this to fail
-exit 0</string>
+exit 0
+</string>
 	<key>input</key>
 	<string>document</string>
 	<key>inputFormat</key>
@@ -29,7 +30,7 @@ exit 0</string>
 	<key>keyEquivalent</key>
 	<string>^H</string>
 	<key>name</key>
-	<string>Reformat Document - phpcbf</string>
+	<string>phpcbf</string>
 	<key>outputCaret</key>
 	<string>interpolateByLine</string>
 	<key>outputFormat</key>

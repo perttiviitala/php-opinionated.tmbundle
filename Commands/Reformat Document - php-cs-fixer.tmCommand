@@ -35,7 +35,7 @@ cat $tmpfile
 	<key>keyEquivalent</key>
 	<string>^H</string>
 	<key>name</key>
-	<string>Reformat Document - php-cs-fixer</string>
+	<string>php-cs-fixer</string>
 	<key>outputCaret</key>
 	<string>interpolateByLine</string>
 	<key>outputFormat</key>
