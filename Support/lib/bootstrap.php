@@ -2,7 +2,11 @@
 
 declare(strict_types=1);
 
+// assuming php to be version 7.3 (or slightly older)
 require_once __DIR__.'/php80-polyfill.php';
+
+// default settings on macOS does not report notices
+error_reporting(\E_ALL);
 
 // resolves class TextMate/Bar into $TM_BUNDLE_SUPPORT/Support/lib/TextMate/Bar.php
 spl_autoload_register(function (string $class): void {
@@ -28,7 +32,7 @@ set_error_handler(function (int $errno, string $errstr, ?string $errfile, ?int $
 		}
 	}
 
-	$trace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS);
+	$trace = debug_backtrace(\DEBUG_BACKTRACE_IGNORE_ARGS);
 	// remove our internal call to this handler
 	array_shift($trace);
 	// remove duplicate trigger_error call from the stack
@@ -41,7 +45,7 @@ set_error_handler(function (int $errno, string $errstr, ?string $errfile, ?int $
 		$errstr,
 		$errfile,
 		$errline,
-		$trace,
+		$trace
 	);
 
 	return true;
@@ -53,7 +57,7 @@ set_exception_handler(function (Throwable $throwable): void {
 		$throwable->getMessage(),
 		$throwable->getFile(),
 		$throwable->getLine(),
-		$throwable->getTrace(),
+		$throwable->getTrace()
 	);
 	// any uncaught throwable will halt execution but exit with 0
 	exit(1);
@@ -64,11 +68,15 @@ register_shutdown_function(function (): void {
 	if (!$error) {
 		return;
 	}
+	// respect configuration error levels
+	if (!(error_reporting() & $error['type'])) {
+		return;
+	}
 	(new TextMate\ErrorHandler())->report(
 		'Shutdown error',
 		$error['message'],
 		$error['file'],
 		$error['line'],
-		debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS),
+		debug_backtrace(\DEBUG_BACKTRACE_IGNORE_ARGS)
 	);
 });

@@ -71,7 +71,7 @@ class ErrorHandler {
 		fwrite(
 			isset($_SERVER['TM_ERROR_FD'])
 				? $handle = fopen(sprintf('php://fd/%d', $_SERVER['TM_ERROR_FD']), 'w')
-				: STDOUT,
+				: \STDOUT,
 			sprintf(
 				<<<HTML
 				<div id="exception_report" class="framed">
@@ -95,7 +95,7 @@ class ErrorHandler {
 		// TextMate goes unresponsive if you try to write too many times to error file descriptor
 		static $counter = 0;
 		if (++$counter >= ($_SERVER['TM_PHP_ERROR_LIMIT'] ?? 5)) {
-			trigger_error('Limiting errors to 5, stopping execution', E_USER_ERROR);
+			trigger_error('Limiting errors to 5, stopping execution', \E_USER_ERROR);
 			exit(1);
 		}
 	}
