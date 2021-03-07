@@ -30,8 +30,42 @@ foreach (array_filter($options) as $option) {
 	if (!isset($completions[$option])) {
 		continue;
 	}
-	echo implode("\n", $completions[$option]);
-	// stop on first match
+	$html = sprintf(
+		&lt;&lt;&lt;HTML
+		&lt;style&gt;
+			body {
+				font-size: 12px;
+				color: #EEE;
+				font-family: "Fira Code", "Menlo";
+				background-color: rgba(0, 0, 0, 0.8);
+			}
+			p {
+				margin: 1em;
+			}
+			.lines p:first-child {
+				font-size: 1.1em;
+				font-weight: bold;
+				border-bottom: 1px solid #444;
+			}
+		&lt;/style&gt;
+		&lt;div class="lines"&gt;
+			%s
+		&lt;/div&gt;
+		HTML,
+		implode(
+			array_map(
+				function ($line) {
+					return "&lt;p&gt;{$line}&lt;/p&gt;";
+				},
+				$completions[$option],
+			)
+		)
+	);
+	shell_exec(sprintf(
+		'%s tooltip --html %s',
+		escapeshellarg($_SERVER['DIALOG']),
+		escapeshellarg($html),
+	));
 	exit;
 }
 
@@ -48,7 +82,7 @@ echo 'Function not found';
 	<key>outputCaret</key>
 	<string>afterOutput</string>
 	<key>outputFormat</key>
-	<string>text</string>
+	<string>html</string>
 	<key>outputLocation</key>
 	<string>toolTip</string>
 	<key>uuid</key>
