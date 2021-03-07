@@ -7,9 +7,9 @@
 	<key>firstLineMatch</key>
 	<string>&lt;?php</string>
 	<key>foldingStartMarker</key>
-	<string>(/\*|\{\s*$|&lt;&lt;&lt;HTML)</string>
+	<string>(/\*|\{\s*$)</string>
 	<key>foldingStopMarker</key>
-	<string>(\*/|^\s*\}|^HTML;)</string>
+	<string>(\*/|^\s*\})</string>
 	<key>keyEquivalent</key>
 	<string>^~P</string>
 	<key>name</key>
@@ -2976,67 +2976,55 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bapc_(s(tore|ma_info)|c(ompile_file|lear_cache|a(s|che_info))|inc|de(c|fine_constants|lete(_file)?)|exists|fetch|load_constants|add|bin_(dump(file)?|load(file)?))\b</string>
+					<string>(?i)\b(virtual|apache_(note|get(env|_(modules|version))|setenv|lookup_uri|child_terminate|re(quest_headers|sponse_headers))|getallheaders)\b</string>
 					<key>name</key>
-					<string>support.function.apc.php</string>
+					<string>support.function.apache.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bapcu_(s(tore|ma_info)|c(lear_cache|a(s|che_info))|inc|de(c|lete)|e(ntry|xists)|fetch|add)\b</string>
+					<string>(?i)\bapcu_(add|c(a(s|che_info)|lear_cache)|de(c|lete)|inc|e(n(try|abled)|xists)|fetch|s(tore|ma_info)|key_info)\b</string>
 					<key>name</key>
 					<string>support.function.apcu.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\b(s(huffle|izeof|ort)|n(ext|at(sort|casesort))|c(o(unt|mpact)|urrent)|in_array|u(sort|ksort|asort)|p(os|rev)|e(nd|ach|xtract)|k(sort|ey(_exists)?|rsort)|list|a(sort|r(sort|ray(_(s(hift|um|plice|earch|lice)|c(h(unk|ange_key_case)|o(unt_values|lumn|mbine))|intersect(_(u(key|assoc)|key|assoc))?|diff(_(u(key|assoc)|key|assoc))?|u(n(shift|ique)|intersect(_(uassoc|assoc))?|diff(_(uassoc|assoc))?)|p(op|ush|ad|roduct)|values|key(s|_exists)|f(il(ter|l(_keys)?)|lip)|walk(_recursive)?|r(e(duce|place(_recursive)?|verse)|and)|m(ultisort|erge(_recursive)?|ap)))?))|r(sort|eset|ange))\b</string>
+					<string>(?i)\b(e(nd|ach|xtract)|k(ey|sort|rsort)|list|n(ext|at(sort|casesort))|prev|s(ort|huffle)|a(r(ray(_(m(ap|erge(_recursive)?|ultisort)|p(ad|op|ush|roduct)|s(um|hift|lice|earch|plice)|diff(_(key|u(key|assoc)|assoc))?|f(il(l(_keys)?|ter)|lip)|key(s|_(last|first|exists))|r(and|e(duce|place(_recursive)?|verse))|walk(_recursive)?|c(h(unk|ange_key_case)|o(lumn|mbine|unt_values))|u(diff(_(assoc|uassoc))?|n(ique|shift)|intersect(_(assoc|uassoc))?)|values|intersect(_(key|u(key|assoc)|assoc))?))?|sort)|sort)|c(o(unt|mpact)|urrent)|r(ange|eset|sort)|u(sort|asort|ksort)|in_array)\b</string>
 					<key>name</key>
 					<string>support.function.array.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\b(s(how_source|ys_getloadavg|leep)|highlight_(string|file)|con(stant|nection_(status|aborted))|time_(sleep_until|nanosleep)|ignore_user_abort|d(ie|efine(d)?)|u(sleep|n(iqid|pack))|__halt_compiler|p(hp_(strip_whitespace|check_syntax)|ack)|e(val|xit)|get_browser)\b</string>
+					<string>(?i)\bbc(add|div|m(od|ul)|pow(mod)?|s(ub|qrt|cale)|comp)\b</string>
 					<key>name</key>
-					<string>support.function.basic_functions.php</string>
+					<string>support.function.bc.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bbc(s(cale|ub|qrt)|comp|div|pow(mod)?|add|m(od|ul))\b</string>
+					<string>(?i)\bbz(open|read|c(lose|ompress)|err(no|or|str)|flush|write|decompress)\b</string>
 					<key>name</key>
-					<string>support.function.bcmath.php</string>
+					<string>support.function.bzip2.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bblenc_encrypt\b</string>
-					<key>name</key>
-					<string>support.function.blenc.php</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>(?i)\bMongoDB\\BSON\\(to(JSON|PHP)|from(JSON|PHP))\b</string>
-					<key>name</key>
-					<string>support.function.bson.php</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>(?i)\bbz(c(ompress|lose)|open|decompress|err(str|no|or)|flush|write|read)\b</string>
-					<key>name</key>
-					<string>support.function.bz2.php</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>(?i)\b(cal_(to_jd|info|days_in_month|from_jd)|unixtojd|j(d(to(unix|j(ulian|ewish)|french|gregorian)|dayofweek|monthname)|uliantojd|ewishtojd)|easter_da(ys|te)|frenchtojd|gregoriantojd)\b</string>
+					<string>(?i)\b(cal_(info|to_jd|from_jd|days_in_month)|j(d(to(unix|french|j(ewish|ulian)|gregorian)|dayofweek|monthname)|ewishtojd|uliantojd)|unixtojd|frenchtojd|easter_da(te|ys)|gregoriantojd)\b</string>
 					<key>name</key>
 					<string>support.function.calendar.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\b(c(lass_(exists|alias)|all_user_method(_array)?)|trait_exists|i(s_(subclass_of|a)|nterface_exists)|__autoload|property_exists|get_(c(lass(_(vars|methods))?|alled_class)|object_vars|declared_(classes|traits|interfaces)|parent_class)|method_exists)\b</string>
+					<string>(?i)\bclasskit_(import|method_(add|copy|re(move|name|define)))\b</string>
+					<key>name</key>
+					<string>support.function.classkit.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\b(i(s_(a|subclass_of)|nterface_exists)|get_(c(lass(_(vars|methods))?|alled_class)|object_vars|parent_class|declared_(traits|classes|interfaces))|__autoload|class_(alias|exists)|trait_exists|method_exists|property_exists)\b</string>
 					<key>name</key>
 					<string>support.function.classobj.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\b(com_(create_guid|print_typeinfo|event_sink|load_typelib|get_active_object|message_pump)|variant_(s(ub|et(_type)?)|n(ot|eg)|c(a(st|t)|mp)|i(nt|div|mp)|or|d(iv|ate_(to_timestamp|from_timestamp))|pow|eqv|fix|a(nd|dd|bs)|round|get_type|xor|m(od|ul)))\b</string>
+					<string>(?i)\b(variant_(or|a(bs|dd|nd)|c(a(t|st)|mp)|d(iv|ate_(to_timestamp|from_timestamp))|eqv|fix|i(mp|nt|div)|m(od|ul)|n(eg|ot)|pow|s(et(_type)?|ub)|xor|round|get_type)|com_(event_sink|create_guid|load_typelib|message_pump|print_typeinfo|get_active_object))\b</string>
 					<key>name</key>
 					<string>support.function.com.php</string>
 				</dict>
@@ -3048,97 +3036,139 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bctype_(space|cntrl|digit|upper|p(unct|rint)|lower|al(num|pha)|graph|xdigit)\b</string>
+					<string>(?i)\bctype_(al(num|pha)|cntrl|digit|graph|lower|p(rint|unct)|space|upper|xdigit)\b</string>
 					<key>name</key>
 					<string>support.function.ctype.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bcurl_(s(hare_(setopt|close|init)|trerror|etopt(_array)?)|c(opy_handle|lose)|init|unescape|pause|e(scape|rr(no|or)|xec)|version|file_create|reset|getinfo|multi_(s(trerror|e(topt|lect))|close|in(it|fo_read)|exec|add_handle|remove_handle|getcontent))\b</string>
+					<string>(?i)\bcubrid_(get(_(c(harset|l(ass_name|ient_info))|autocommit|server_info|db_parameter|query_timeout))?|p(ut|repare|connect(_with_url)?)|bind|d(rop|isconnect)|f(etch|ree_result)|c(o(mmit|l(_(get|size)|umn_(names|types))|nnect(_with_url)?)|urrent_oid|lose_(prepare|request))|s(chema|e(q_(put|drop|insert)|t_(a(dd|utocommit)|d(rop|b_parameter)|query_timeout)))|e(xecute|rror_(msg|code(_facility)?))|lo(b(_(get|s(end|ize)|close|export)|2_(new|bind|read|s(eek(64)?|ize(64)?)|tell(64)?|close|write|export|import))|ck_(read|write))|version|n(um_(cols|rows)|ext_result)|rollback|i(nsert_id|s_instance)|move_cursor)\b</string>
+					<key>name</key>
+					<string>support.function.cubrid.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\bcurl_(e(xec|rr(no|or)|scape)|init|c(lose|opy_handle)|pause|reset|s(etopt(_array)?|trerror|hare_(init|close|errno|s(etopt|trerror)))|getinfo|version|unescape|multi_(e(xec|rrno)|in(it|fo_read)|close|s(e(lect|topt)|trerror)|add_handle|getcontent|remove_handle))\b</string>
 					<key>name</key>
 					<string>support.function.curl.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\b(str(totime|ptime|ftime)|checkdate|time(zone_(name_(from_abbr|get)|transitions_get|identifiers_list|o(pen|ffset_get)|version_get|location_get|abbreviations_list))?|idate|date(_(su(n(set|_info|rise)|b)|create(_(immutable(_from_format)?|from_format))?|time(stamp_(set|get)|zone_(set|get)|_set)|i(sodate_set|nterval_(create_from_date_string|format))|offset_get|d(iff|efault_timezone_(set|get)|ate_set)|parse(_from_format)?|format|add|get_last_errors|modify))?|localtime|g(et(timeofday|date)|m(strftime|date|mktime))|m(icrotime|ktime))\b</string>
+					<string>(?i)\b(date(_(parse(_from_format)?|sun(set|rise|_info)|default_timezone_(get|set)))?|time(zone_(version_get|name_from_abbr))?|idate|g(m(date|mktime|strftime)|et(date|timeofday))|m(ktime|icrotime)|str(ftime|ptime|totime)|checkdate|localtime)\b</string>
 					<key>name</key>
 					<string>support.function.datetime.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bdba_(sync|handlers|nextkey|close|insert|op(timize|en)|delete|popen|exists|key_split|f(irstkey|etch)|list|replace)\b</string>
+					<string>(?i)\bdba_(list|op(en|timize)|sync|close|f(etch|irstkey)|popen|delete|exists|insert|nextkey|replace|handlers|key_split)\b</string>
 					<key>name</key>
 					<string>support.function.dba.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bdbx_(sort|c(o(nnect|mpare)|lose)|e(scape_string|rror)|query|fetch_row)\b</string>
+					<string>(?i)\bdbase_(open|pack|c(lose|reate)|num(fields|records)|add_record|get_(record(_with_names)?|header_info)|delete_record|replace_record)\b</string>
 					<key>name</key>
-					<string>support.function.dbx.php</string>
+					<string>support.function.dbase.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\b(scandir|c(h(dir|root)|losedir)|opendir|dir|re(winddir|addir)|getcwd)\b</string>
+					<string>(?i)\bdbplus_(a(dd|ql)|s(ql|avepos|etindex(bynumber)?)|t(cl|remove)|c(urr|hdir|lose)|f(i(nd|rst)|lush|ree(lock|rlocks|alllocks))|info|l(ast|ockrel)|next|open|prev|r(zap|keys|open|query|c(hperm|r(eate|t(like|exact)))|es(olve|torepos)|rename|unlink|secindex)|u(n(do(prepare)?|select|lockrel)|pdate)|err(no|code)|get(lock|unique)|x(lockrel|unlockrel))\b</string>
+					<key>name</key>
+					<string>support.function.dbplus.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\bdio_(open|read|s(eek|tat)|close|fcntl|write|t(runcate|csetattr))\b</string>
+					<key>name</key>
+					<string>support.function.dio.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\b(dir|c(h(dir|root)|losedir)|getcwd|opendir|re(addir|winddir)|scandir)\b</string>
 					<key>name</key>
 					<string>support.function.dir.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\beio_(s(y(nc(_file_range|fs)?|mlink)|tat(vfs)?|e(ndfile|t_m(in_parallel|ax_(idle|p(oll_(time|reqs)|arallel)))|ek))|n(threads|op|pending|re(qs|ady))|c(h(own|mod)|ustom|lose|ancel)|truncate|init|open|dup2|u(nlink|time)|poll|event_loop|f(s(ync|tat(vfs)?)|ch(own|mod)|truncate|datasync|utime|allocate)|write|l(stat|ink)|r(e(name|a(d(dir|link|ahead)?|lpath))|mdir)|g(et_(event_stream|last_error)|rp(_(cancel|limit|add))?)|mk(nod|dir)|busy)\b</string>
+					<string>(?i)\bdom_import_simplexml\b</string>
+					<key>name</key>
+					<string>support.function.dom.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\beio_(g(rp(_(add|limit|cancel))?|et_(last_error|event_stream))|n(op|re(qs|ady)|pending|threads)|busy|dup2|init|l(ink|stat)|open|poll|r(e(a(d(dir|link|ahead)?|lpath)|name)|mdir)|s(e(ek|ndfile|t_m(ax_(idle|p(arallel|oll_(reqs|time)))|in_parallel))|tat(vfs)?|y(nc(fs|_file_range)?|mlink))|c(h(mod|own)|lose|ancel|ustom)|f(s(tat(vfs)?|ync)|ch(mod|own)|utime|allocate|datasync|truncate)|mk(dir|nod)|u(time|nlink)|write|truncate|event_loop)\b</string>
 					<key>name</key>
 					<string>support.function.eio.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\benchant_(dict_(s(tore_replacement|uggest)|check|is_in_session|describe|quick_check|add_to_(session|personal)|get_error)|broker_(set_(ordering|dict_path)|init|d(ict_exists|escribe)|free(_dict)?|list_dicts|request_(dict|pwl_dict)|get_(dict_path|error)))\b</string>
+					<string>(?i)\benchant_(dict_(add(_to_session)?|check|s(uggest|tore_replacement)|describe|is_added|get_error|quick_check)|broker_(free(_dict)?|init|d(escribe|ict_exists)|get_(error|dict_path)|list_dicts|request_(dict|pwl_dict)|set_(ordering|dict_path)))\b</string>
 					<key>name</key>
 					<string>support.function.enchant.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\b(s(plit(i)?|ql_regcase)|ereg(i(_replace)?|_replace)?)\b</string>
-					<key>name</key>
-					<string>support.function.ereg.php</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>(?i)\b(set_e(rror_handler|xception_handler)|trigger_error|debug_(print_backtrace|backtrace)|user_error|error_(clear_last|log|reporting|get_last)|restore_e(rror_handler|xception_handler))\b</string>
+					<string>(?i)\b(error_(log|get_last|reporting|clear_last)|trigger_error|debug_(backtrace|print_backtrace)|set_e(rror_handler|xception_handler)|restore_e(rror_handler|xception_handler))\b</string>
 					<key>name</key>
 					<string>support.function.errorfunc.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\b(s(hell_exec|ystem)|p(assthru|roc_(nice|close|terminate|open|get_status))|e(scapeshell(cmd|arg)|xec))\b</string>
+					<string>(?i)\b(e(xec|scapeshell(arg|cmd))|s(ystem|hell_exec)|p(assthru|roc_(nice|open|close|terminate|get_status)))\b</string>
 					<key>name</key>
 					<string>support.function.exec.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\b(exif_(t(humbnail|agname)|imagetype|read_data)|read_exif_data)\b</string>
+					<string>(?i)\bexif_(t(agname|humbnail)|imagetype|read_data)\b</string>
 					<key>name</key>
 					<string>support.function.exif.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bfann_(s(huffle_train_data|cale_(train(_data)?|input(_train_data)?|output(_train_data)?)|ubset_train_data|et_(s(caling_params|arprop_(step_error_(shift|threshold_factor)|temperature|weight_decay_shift))|ca(scade_(num_candidate_groups|candidate_(stagnation_epochs|change_fraction|limit)|output_(stagnation_epochs|change_fraction)|weight_multiplier|activation_(steepnesses|functions)|m(in_(cand_epochs|out_epochs)|ax_(cand_epochs|out_epochs)))|llback)|train(ing_algorithm|_(stop_function|error_function))|input_scaling_params|output_scaling_params|error_log|quickprop_(decay|mu)|weight(_array)?|learning_(rate|momentum)|activation_(steepness(_(hidden|output|layer))?|function(_(hidden|output|layer))?)|rprop_(increase_factor|de(crease_factor|lta_(zero|m(in|ax))))|bit_fail_limit)|ave(_train)?)|num_(input_train_data|output_train_data)|c(opy|lear_scaling_params|ascadetrain_on_(data|file)|reate_(s(hortcut(_array)?|tandard(_array)?|parse(_array)?)|train(_from_callback)?|from_file))|t(est(_data)?|rain(_(on_(data|file)|epoch))?)|init_weights|d(uplicate_train_data|es(cale_(train|input|output)|troy(_train)?))|print_error|length_train_data|r(un|e(set_(MSE|err(str|no))|ad_train_from_file)|andomize_weights)|get_(sarprop_(step_error_(shift|threshold_factor)|temperature|weight_decay_shift)|n(um_(input|output|layers)|etwork_type)|MSE|c(onnection_(array|rate)|ascade_(num_candidate(s|_groups)|candidate_(stagnation_epochs|change_fraction|limit)|output_(stagnation_epochs|change_fraction)|weight_multiplier|activation_(steepnesses(_count)?|functions(_count)?)|m(in_(cand_epochs|out_epochs)|ax_(cand_epochs|out_epochs))))|t(otal_(neurons|connections)|rain(ing_algorithm|_(stop_function|error_function)))|err(str|no)|quickprop_(decay|mu)|l(earning_(rate|momentum)|ayer_array)|activation_(steepness|function)|rprop_(increase_factor|de(crease_factor|lta_(zero|m(in|ax))))|bi(t_fail(_limit)?|as_array))|merge_train_data)\b</string>
+					<string>(?i)\bexpect_(popen|expectl)\b</string>
+					<key>name</key>
+					<string>support.function.expect.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\bfann_(r(un|e(set_(MSE|err(no|str))|ad_train_from_file)|andomize_weights)|c(opy|reate_(train(_from_callback)?|s(parse(_array)?|hortcut(_array)?|tandard(_array)?)|from_file)|ascadetrain_on_(data|file)|lear_scaling_params)|s(ave(_train)?|et_(weight(_array)?|ca(llback|scade_(m(ax_(out_epochs|cand_epochs)|in_(out_epochs|cand_epochs))|candidate_(limit|change_fraction|stagnation_epochs)|weight_multiplier|activation_(functions|steepnesses)|num_candidate_groups|output_(change_fraction|stagnation_epochs)))|error_log|quickprop_(mu|decay)|learning_(rate|momentum)|bit_fail_limit|s(caling_params|arprop_(temperature|step_error_(shift|threshold_factor)|weight_decay_shift))|rprop_(de(lta_(m(ax|in)|zero)|crease_factor)|increase_factor)|train(ing_algorithm|_(stop_function|error_function))|activation_(function(_(layer|hidden|output))?|steepness(_(layer|hidden|output))?)|input_scaling_params|output_scaling_params)|cale_(input(_train_data)?|train(_data)?|output(_train_data)?)|ubset_train_data|huffle_train_data)|t(est(_data)?|rain(_(epoch|on_(data|file)))?)|d(es(troy(_train)?|cale_(input|train|output))|uplicate_train_data)|get_(MSE|err(no|str)|bi(t_fail(_limit)?|as_array)|n(um_(input|layers|output)|etwork_type)|l(ayer_array|earning_(rate|momentum))|quickprop_(mu|decay)|t(otal_(neurons|connections)|rain(ing_algorithm|_(stop_function|error_function)))|c(onnection_(rate|array)|ascade_(m(ax_(out_epochs|cand_epochs)|in_(out_epochs|cand_epochs))|num_candidate(s|_groups)|candidate_(limit|change_fraction|stagnation_epochs)|weight_multiplier|activation_(functions(_count)?|steepnesses(_count)?)|output_(change_fraction|stagnation_epochs)))|rprop_(de(lta_(m(ax|in)|zero)|crease_factor)|increase_factor)|activation_(function|steepness)|sarprop_(temperature|step_error_(shift|threshold_factor)|weight_decay_shift))|print_error|init_weights|merge_train_data|length_train_data|num_(input_train_data|output_train_data))\b</string>
 					<key>name</key>
 					<string>support.function.fann.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\b(s(ymlink|tat|et_file_buffer)|c(h(own|grp|mod)|opy|learstatcache)|t(ouch|empnam|mpfile)|is_(dir|uploaded_file|executable|file|writ(eable|able)|link|readable)|d(i(sk(_(total_space|free_space)|freespace)|rname)|elete)|u(nlink|mask)|p(close|open|a(thinfo|rse_ini_(string|file)))|f(s(canf|tat|eek)|nmatch|close|t(ell|runcate)|ile(size|ctime|type|inode|owner|_(put_contents|exists|get_contents)|perms|atime|group|mtime)?|open|p(ut(s|csv)|assthru)|eof|flush|write|lock|read|get(s(s)?|c(sv)?))|l(stat|ch(own|grp)|ink(info)?)|r(e(name|wind|a(d(file|link)|lpath(_cache_(size|get))?))|mdir)|glob|m(ove_uploaded_file|kdir)|basename)\b</string>
+					<string>(?i)\bfbsql_(c(lo(se|b_size)|o(mmit|nnect)|reate_(db|blob|clob)|hange_user)|err(no|or)|query|r(e(sult|ad_(blob|clob))|o(llback|ws_fetched))|d(rop_db|ata(base(_password)?|_seek)|b_(query|status))|s(t(op_db|art_db)|e(lect_db|t_(lob_mode|password|transaction|characterset)))|hostname|list_(dbs|fields|tables)|n(um_(rows|fields)|ext_result)|p(assword|connect)|username|warnings|blob_size|f(etch_(row|a(rray|ssoc)|field|object|lengths)|ield_(len|name|seek|t(ype|able)|flags)|ree_result)|insert_id|a(utocommit|ffected_rows)|table_name|get_autostart_info)\b</string>
 					<key>name</key>
-					<string>support.function.file.php</string>
+					<string>support.function.fbsql.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\b(finfo_(set_flags|close|open|file|buffer)|mime_content_type)\b</string>
+					<string>(?i)\bfdf_(open(_string)?|s(ave(_string)?|et_(ap|o(pt|n_import_javascript)|f(ile|lags)|v(alue|ersion)|s(tatus|ubmit_form_action)|encoding|target_frame|javascript_action))|c(lose|reate)|e(rr(no|or)|num_values)|get_(a(p|ttachment)|opt|f(ile|lags)|v(alue|ersion)|status|encoding)|header|remove_item|add_(template|doc_javascript)|next_field_name)\b</string>
+					<key>name</key>
+					<string>support.function.fdf.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\b(finfo(_(file|open|close|buffer|set_flags))?|mime_content_type)\b</string>
 					<key>name</key>
 					<string>support.function.fileinfo.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bfilter_(has_var|i(nput(_array)?|d)|var(_array)?|list)\b</string>
+					<string>(?i)\bfilepro(_(r(etrieve|owcount)|field(name|type|count|width)))?\b</string>
+					<key>name</key>
+					<string>support.function.filepro.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\b(c(opy|h(grp|mod|own)|learstatcache)|f(eof|ile(size|type|atime|ctime|group|inode|mtime|owner|perms|_(exists|get_contents|put_contents))?|get(c(sv)?|s(s)?)|lock|open|read|s(eek|tat|canf)|t(ell|runcate)|close|flush|write|nmatch|p(utcsv|assthru))|glob|l(ink(info)?|stat|ch(grp|own))|s(tat|ymlink)|m(kdir|ove_uploaded_file)|p(open|close|a(thinfo|rse_ini_(file|string)))|r(mdir|e(name|wind|a(d(file|link)|lpath(_cache_(get|size))?)))|t(ouch|empnam|mpfile)|u(mask|nlink)|is_(dir|file|link|readable|writable|executable|uploaded_file)|di(rname|sk_(free_space|total_space))|basename)\b</string>
+					<key>name</key>
+					<string>support.function.filesystem.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\bfilter_(i(d|nput(_array)?)|var(_array)?|list|has_var)\b</string>
 					<key>name</key>
 					<string>support.function.filter.php</string>
 				</dict>
@@ -3150,61 +3180,97 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\b(c(all_user_func(_array)?|reate_function)|unregister_tick_function|f(orward_static_call(_array)?|unc(tion_exists|_(num_args|get_arg(s)?)))|register_(shutdown_function|tick_function)|get_defined_functions)\b</string>
+					<string>(?i)\bftp_(get(_option)?|p(ut|wd|asv)|r(aw(list)?|mdir|ename)|c(dup|h(dir|mod)|lose|onnect)|exec|f(get|put)|m(dtm|lsd|kdir)|s(i(te|ze)|ystype|et_option|sl_connect)|a(lloc|ppend)|login|n(list|b_(get|put|f(get|put)|continue))|delete)\b</string>
+					<key>name</key>
+					<string>support.function.ftp.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\b(f(unc(_(get_arg(s)?|num_args)|tion_exists)|orward_static_call(_array)?)|c(all_user_func(_array)?|reate_function)|get_defined_functions|register_(tick_function|shutdown_function)|unregister_tick_function)\b</string>
 					<key>name</key>
 					<string>support.function.funchand.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\b(ngettext|textdomain|d(ngettext|c(ngettext|gettext)|gettext)|gettext|bind(textdomain|_textdomain_codeset))\b</string>
+					<string>(?i)\bgeoip_(d(b_(avail|filename|get_all_info)|atabase_info|omain_by_name)|i(d_by_name|sp_by_name)|org_by_name|asnum_by_name|re(cord_by_name|gion_(by_name|name_by_code))|co(untry_(code(_by_name|3_by_name)|name_by_name)|ntinent_code_by_name)|netspeedcell_by_name|setup_custom_directory|time_zone_by_country_and_region)\b</string>
+					<key>name</key>
+					<string>support.function.geoip.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\b(gettext|d(gettext|c(gettext|ngettext)|ngettext)|ngettext|textdomain|bind(textdomain|_textdomain_codeset))\b</string>
 					<key>name</key>
 					<string>support.function.gettext.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bgmp_(s(can(1|0)|trval|ign|ub|etbit|qrt(rem)?)|hamdist|ne(g|xtprime)|c(om|lrbit|mp)|testbit|i(n(tval|it|vert)|mport)|or|div(_(q(r)?|r)|exact)?|jacobi|p(o(pcount|w(m)?)|erfect_square|rob_prime)|export|fact|legendre|a(nd|dd|bs)|r(oot(rem)?|andom(_(seed|range|bits))?)|gcd(ext)?|xor|m(od|ul))\b</string>
+					<string>(?i)\bgmp_(or|a(bs|dd|nd)|c(mp|om|lrbit)|gcd(ext)?|l(cm|egendre)|m(od|ul)|ne(g|xtprime)|p(o(w(m)?|pcount)|rob_prime|erfect_(power|square))|s(ub|ign|qrt(rem)?|can(1)?|etbit|trval)|xor|fact|i(n(it|tval|vert)|mport)|r(oot(rem)?|andom(_(bits|seed|range))?)|div(_(q(r)?|r)|exact)|export|jacobi|hamdist|testbit|binomial|kronecker)\b</string>
 					<key>name</key>
 					<string>support.function.gmp.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bhash(_(h(kdf|mac(_file)?)|copy|init|update(_(stream|file))?|pbkdf2|equals|fi(nal|le)|algos))?\b</string>
+					<string>(?i)\bgnupg_(i(nit|mport)|s(ign|et(armor|signmode|errormode))|e(xport|ncrypt(sign)?)|verify|decrypt(verify)?|keyinfo|get(error|protocol)|add(signkey|decryptkey|encryptkey)|clear(signkeys|decryptkeys|encryptkeys))\b</string>
+					<key>name</key>
+					<string>support.function.gnupg.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\bhash(_(copy|fi(le|nal)|h(kdf|mac(_(file|algos))?)|init|algos|equals|pbkdf2|update(_(file|stream))?))?\b</string>
 					<key>name</key>
 					<string>support.function.hash.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\b(iconv(_(s(tr(pos|len|rpos)|ubstr|et_encoding)|get_encoding|mime_(decode(_headers)?|encode)))?|ob_iconv_handler)\b</string>
+					<string>(?i)\b(ibase_(c(lose|o(mmit(_ret)?|nnect))|query|trans|b(ackup|lob_(add|get|echo|i(nfo|mport)|open|c(lose|ancel|reate)))|e(rr(msg|code)|xecute)|gen_id|d(b_info|rop_db|elete_user)|p(repare|connect|aram_info)|r(estore|ollback(_ret)?)|a(dd_user|ffected_rows)|f(etch_(row|assoc|object)|ield_info|ree_(query|result|event_handler))|n(um_(fields|params)|ame_result)|wait_event|m(aintain_db|odify_user)|se(rv(er_info|ice_(attach|detach))|t_event_handler))|fbird_blob_cancel)\b</string>
+					<key>name</key>
+					<string>support.function.ibase.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\bdb2_(e(xec(ute)?|scape_string)|c(l(ose|ient_info)|o(mmit|lumn(s|_privileges)|nn(ect|_error(msg)?))|ursor_type)|p(c(lose|onnect)|r(epare|ocedure(s|_columns)|imary_keys))|r(esult|ollback)|table(s|_privileges)|l(ob_read|ast_insert_id)|n(um_(rows|fields)|ext_result)|f(etch_(row|both|a(rray|ssoc)|object)|ield_(n(um|ame)|type|scale|width|precision|display_size)|ree_(stmt|result)|oreign_keys)|autocommit|bind_param|get_option|s(e(t_option|rver_info)|t(atistics|mt_error(msg)?)|pecial_columns))\b</string>
+					<key>name</key>
+					<string>support.function.ibm-db2.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\b(iconv(_(s(tr(len|pos|rpos)|ubstr|et_encoding)|mime_(decode(_headers)?|encode)|get_encoding))?|ob_iconv_handler)\b</string>
 					<key>name</key>
 					<string>support.function.iconv.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\biis_(s(t(op_serv(ice|er)|art_serv(ice|er))|et_(s(cript_map|erver_rights)|dir_security|app_settings))|add_server|remove_server|get_(s(cript_map|erv(ice_state|er_(rights|by_(comment|path))))|dir_security))\b</string>
-					<key>name</key>
-					<string>support.function.iisfunc.php</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>(?i)\b(i(ptc(parse|embed)|mage(s(y|cale|tring(up)?|et(style|clip|t(hickness|ile)|interpolation|pixel|brush)|avealpha|x)|c(har(up)?|o(nvolution|py(res(ized|ampled)|merge(gray)?)?|lor(s(total|et|forindex)|closest(hwb|alpha)?|transparent|deallocate|exact(alpha)?|a(t|llocate(alpha)?)|resolve(alpha)?|match))|r(op(auto)?|eate(truecolor|from(string|jpeg|png|w(ebp|bmp)|g(if|d(2(part)?)?)|x(pm|bm)|bmp))?))|t(ypes|tf(text|bbox)|ruecolortopalette)|i(struecolor|nterlace)|2wbmp|openpolygon|d(estroy|ashedline)|jpeg|_type_to_(extension|mime_type)|p(s(slantfont|text|e(ncodefont|xtendfont)|freefont|loadfont|bbox)|ng|olygon|alette(copy|totruecolor))|ellipse|f(t(text|bbox)|il(ter|l(toborder|ed(polygon|ellipse|arc|rectangle))?)|ont(height|width)|lip)|w(ebp|bmp)|l(ine|oadfont|ayereffect)|a(ntialias|ffine(matrix(concat|get))?|lphablending|rc)|r(otate|e(solution|ctangle))|g(if|d(2)?|etclip|ammacorrect|rab(screen|window))|xbm|bmp))|jpeg2wbmp|png2wbmp|g(d_info|etimagesize(fromstring)?))\b</string>
+					<string>(?i)\b(g(d_info|etimagesize(fromstring)?)|i(mage(g(d(2)?|if|et(clip|interpolation)|rab(screen|window)|ammacorrect)|s(x|y|cale|tring(up)?|et(clip|t(ile|hickness)|brush|pixel|style|interpolation)|avealpha)|a(rc|ffine(matrix(get|concat))?|ntialias|lphablending)|bmp|p(ng|olygon|alette(copy|totruecolor))|xbm|c(har(up)?|o(py(merge(gray)?|res(ized|ampled))?|lor(a(t|llocate(alpha)?)|s(et|total|forindex)|exact(alpha)?|match|closest(hwb|alpha)?|resolve(alpha)?|deallocate|transparent)|nvolution)|r(op(auto)?|eate(from(g(d(2(part)?)?|if)|bmp|png|x(bm|pm)|jpeg|w(bmp|ebp)|string)|truecolor)?))|f(il(l(ed(arc|ellipse|polygon|rectangle)|toborder)?|ter)|lip|t(bbox|text)|ont(width|height))|jpeg|l(ine|oadfont|ayereffect)|w(bmp|ebp)|2wbmp|t(ypes|tf(bbox|text)|ruecolortopalette)|r(otate|e(ctangle|solution))|d(estroy|ashedline)|ellipse|i(nterlace|struecolor)|openpolygon|_type_to_(extension|mime_type))|ptc(embed|parse))|png2wbmp|jpeg2wbmp)\b</string>
 					<key>name</key>
 					<string>support.function.image.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\b(s(ys_get_temp_dir|et_(time_limit|include_path|magic_quotes_runtime))|cli_(set_process_title|get_process_title)|ini_(set|alter|restore|get(_all)?)|zend_(thread_id|version|logo_guid)|dl|p(hp(credits|info|_(sapi_name|ini_(scanned_files|loaded_file)|uname|logo_guid)|version)|utenv)|extension_loaded|version_compare|assert(_options)?|restore_include_path|g(c_(collect_cycles|disable|enable(d)?|mem_caches)|et(opt|_(c(urrent_user|fg_var)|include(d_files|_path)|defined_constants|extension_funcs|loaded_extensions|re(sources|quired_files)|magic_quotes_(runtime|gpc))|env|lastmod|rusage|my(inode|uid|pid|gid)))|m(emory_get_(usage|peak_usage)|a(in|gic_quotes_runtime)))\b</string>
+					<string>(?i)\bimap_(g(c|et(acl|_quota(root)?|mailboxes|subscribed))|u(id|tf(8(_to_mutf7)?|7_(decode|encode))|n(delete|subscribe))|8bit|b(ody(struct)?|ase64|inary)|l(ist(scan)?|sub|ast_error)|m(ail(_(co(py|mpose)|move)|boxmsginfo)?|sgno|utf7_to_utf8|ime_header_decode)|open|ping|s(ort|e(arch|t(acl|_quota|flag_full))|tatus|avebody|ubscribe)|c(heck|l(ose|earflag_full)|reatemailbox)|a(lerts|ppend)|delete(mailbox)?|e(rrors|xpunge)|qprint|r(e(open|namemailbox)|fc822_(parse_(adrlist|headers)|write_address))|t(hread|imeout)|header(s|info)|num_(msg|recent)|fetch(body|mime|header|_overview|structure))\b</string>
+					<key>name</key>
+					<string>support.function.imap.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\b(dl|assert(_options)?|g(et(env|opt|my(gid|pid|uid|inode)|rusage|lastmod|_(c(fg_var|urrent_user)|resources|include(_path|d_files)|extension_funcs|magic_quotes_(gpc|runtime)|defined_constants|loaded_extensions))|c_(enable(d)?|status|disable|mem_caches|collect_cycles))|p(utenv|hp(info|_(uname|sapi_name|ini_(loaded_file|scanned_files))|credits|version))|ini_(get(_all)?|set|restore)|zend_(version|thread_id)|s(et_(time_limit|include_path)|ys_get_temp_dir)|version_compare|extension_loaded|memory_get_(usage|peak_usage)|restore_include_path|cli_(get_process_title|set_process_title))\b</string>
 					<key>name</key>
 					<string>support.function.info.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bibase_(se(t_event_handler|rv(ice_(detach|attach)|er_info))|n(um_(params|fields)|ame_result)|c(o(nnect|mmit(_ret)?)|lose)|trans|d(elete_user|rop_db|b_info)|p(connect|aram_info|repare)|e(rr(code|msg)|xecute)|query|f(ield_info|etch_(object|assoc|row)|ree_(event_handler|query|result))|wait_event|a(dd_user|ffected_rows)|r(ollback(_ret)?|estore)|gen_id|m(odify_user|aintain_db)|b(lob_(c(lose|ancel|reate)|i(nfo|mport)|open|echo|add|get)|ackup))\b</string>
+					<string>(?i)\bingres_(c(lose|o(mmit|nnect)|ursor|harset)|e(rr(no|or|sqlstate)|xecute|scape_string)|query|p(repare|connect)|n(um_(rows|fields)|ext_error)|r(ollback|esult_seek)|f(etch_(row|a(rray|ssoc)|object|proc_return)|ield_(n(ame|ullable)|type|scale|length|precision)|ree_result)|autocommit(_state)?|set_environment|unbuffered_query)\b</string>
 					<key>name</key>
-					<string>support.function.interbase.php</string>
+					<string>support.function.ingres.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\b(n(ormalizer_(normalize|is_normalized)|umfmt_(set_(symbol|text_attribute|pattern|attribute)|create|parse(_currency)?|format(_currency)?|get_(symbol|text_attribute|pattern|error_(code|message)|locale|attribute)))|collator_(s(ort(_with_sort_keys)?|et_(strength|attribute))|c(ompare|reate)|asort|get_(s(trength|ort_key)|error_(code|message)|locale|attribute))|transliterator_(create(_(inverse|from_rules))?|transliterate|list_ids|get_error_(code|message))|i(ntl(cal_get_error_(code|message)|tz_get_error_(code|message)|_(is_failure|error_name|get_error_(code|message)))|dn_to_(utf8|ascii))|datefmt_(set_(calendar|timezone(_id)?|pattern|lenient)|create|is_lenient|parse|format(_object)?|localtime|get_(calendar(_object)?|time(type|zone(_id)?)|datetype|pattern|error_(code|message)|locale))|locale_(set_default|c(ompose|anonicalize)|parse|filter_matches|lookup|accept_from_http|get_(script|d(isplay_(script|name|variant|language|region)|efault)|primary_language|keywords|all_variants|region))|resourcebundle_(c(ount|reate)|locales|get(_error_(code|message))?)|grapheme_(s(tr(str|i(str|pos)|pos|len|r(ipos|pos))|ubstr)|extract)|msgfmt_(set_pattern|create|parse(_message)?|format(_message)?|get_(pattern|error_(code|message)|locale)))\b</string>
+					<string>(?i)\binotify_(init|r(ead|m_watch)|add_watch|queue_len)\b</string>
+					<key>name</key>
+					<string>support.function.inotify.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\b(i(dn_to_(utf8|ascii)|ntl_(error_name|is_failure|get_error_(code|message)))|grapheme_(s(tr(len|pos|str|i(pos|str)|r(pos|ipos))|ubstr)|extract))\b</string>
 					<key>name</key>
 					<string>support.function.intl.php</string>
 				</dict>
@@ -3216,37 +3282,49 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bldap_(s(tart_tls|ort|e(t_(option|rebind_proc)|arch)|asl_bind)|next_(entry|attribute|reference)|c(o(n(nect|trol_paged_result(_response)?)|unt_entries|mpare)|lose)|t61_to_8859|d(n2ufn|elete)|8859_to_t61|unbind|parse_re(sult|ference)|e(scape|rr(no|2str|or)|xplode_dn)|f(irst_(entry|attribute|reference)|ree_result)|list|add|re(name|ad)|get_(option|dn|entries|values(_len)?|attributes)|mod(ify(_batch)?|_(del|add|replace))|bind)\b</string>
+					<string>(?i)\bldap_(add(_ext)?|bind(_ext)?|e(x(op(_(passwd|whoami|refresh))?|plode_dn)|rr(no|or|2str)|scape)|list|re(ad|name(_ext)?)|s(ort|e(arch|t_(option|rebind_proc))|asl_bind|tart_tls)|d(elete(_ext)?|n2ufn)|get_(dn|option|values(_len)?|entries|attributes)|unbind|co(mpare|n(nect|trol_paged_result(_response)?)|unt_entries)|mod(_(add(_ext)?|del(_ext)?|replace(_ext)?)|ify_batch)|next_(entry|attribute|reference)|parse_(exop|re(sult|ference))|8859_to_t61|f(irst_(entry|attribute|reference)|ree_result)|t61_to_8859)\b</string>
 					<key>name</key>
 					<string>support.function.ldap.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\blibxml_(set_(streams_context|external_entity_loader)|clear_errors|disable_entity_loader|use_internal_errors|get_(errors|last_error))\b</string>
+					<string>(?i)\blibxml_(get_(errors|last_error)|clear_errors|set_(streams_context|external_entity_loader)|use_internal_errors|disable_entity_loader)\b</string>
 					<key>name</key>
 					<string>support.function.libxml.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\b(ezmlm_hash|mail)\b</string>
+					<string>(?i)\blzf_(compress|decompress|optimized_for)\b</string>
+					<key>name</key>
+					<string>support.function.lzf.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\b(mail|ezmlm_hash)\b</string>
 					<key>name</key>
 					<string>support.function.mail.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\b(s(in(h)?|qrt|rand)|h(ypot|exdec)|c(os(h)?|eil)|tan(h)?|i(s_(nan|infinite|finite)|ntdiv)|octdec|de(c(hex|oct|bin)|g2rad)|p(i|ow)|exp(m1)?|f(loor|mod)|l(cg_value|og(1(p|0))?)|a(sin(h)?|cos(h)?|tan(h|2)?|bs)|r(ound|a(nd|d2deg))|getrandmax|m(t_(srand|rand|getrandmax)|in|ax)|b(indec|ase_convert))\b</string>
+					<string>(?i)\bmailparse_(msg_(free|parse(_file)?|create|get_(part(_data)?|structure)|extract_(part(_file)?|whole_part_file))|uudecode_all|stream_encode|rfc822_parse_addresses|determine_best_xfer_encoding)\b</string>
+					<key>name</key>
+					<string>support.function.mailparse.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\b(p(i|ow)|a(bs|cos(h)?|sin(h)?|tan(2|h)?)|c(os(h)?|eil)|exp(m1)?|l(og(1(p)?)?|cg_value)|m(ax|in|t_(rand|srand|getrandmax))|s(in(h)?|qrt|rand)|tan(h)?|f(div|mod|loor)|r(a(nd|d2deg)|ound)|h(ypot|exdec)|b(indec|ase_convert)|de(c(bin|hex|oct)|g2rad)|i(ntdiv|s_(nan|finite|infinite))|octdec|getrandmax)\b</string>
 					<key>name</key>
 					<string>support.function.math.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bmb_(s(tr(str|cut|to(upper|lower)|i(str|pos|mwidth)|pos|width|len|r(chr|i(chr|pos)|pos))|ubst(itute_character|r(_count)?)|plit|end_mail)|http_(input|output)|c(heck_encoding|onvert_(case|encoding|variables|kana))|internal_encoding|output_handler|de(code_(numericentity|mimeheader)|tect_(order|encoding))|p(arse_str|referred_mime_name)|e(ncod(ing_aliases|e_(numericentity|mimeheader))|reg(i(_replace)?|_(search(_(setpos|init|pos|regs|get(pos|regs)))?|replace(_callback)?|match))?)|l(ist_encodings|anguage)|regex_(set_options|encoding)|get_info)\b</string>
+					<string>(?i)\bmb_(c(h(r|eck_encoding)|onvert_(case|kana|encoding|variables))|o(rd|utput_handler)|e(reg(i(_replace)?|_(match|search(_(pos|init|regs|get(pos|regs)|setpos))?|replace(_callback)?))?|ncod(ing_aliases|e_(mimeheader|numericentity)))|s(crub|plit|tr(cut|len|pos|str|i(pos|str|mwidth)|r(chr|pos|i(chr|pos))|width|_split|to(lower|upper))|ubst(r(_count)?|itute_character)|end_mail)|get_info|l(anguage|ist_encodings)|p(arse_str|referred_mime_name)|http_(input|output)|de(tect_(order|encoding)|code_(mimeheader|numericentity))|regex_(encoding|set_options)|internal_encoding)\b</string>
 					<key>name</key>
 					<string>support.function.mbstring.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bm(crypt_(c(fb|reate_iv|bc)|ofb|decrypt|e(nc(_(self_test|is_block_(algorithm(_mode)?|mode)|get_(supported_key_sizes|iv_size|key_size|algorithms_name|modes_name|block_size))|rypt)|cb)|list_(algorithms|modes)|ge(neric(_(init|deinit|end))?|t_(cipher_name|iv_size|key_size|block_size))|module_(self_test|close|is_block_(algorithm(_mode)?|mode)|open|get_(supported_key_sizes|algo_(key_size|block_size))))|decrypt_generic)\b</string>
+					<string>(?i)\bm(crypt_(c(bc|fb|reate_iv)|e(cb|nc(rypt|_(self_test|get_(iv_size|key_size|block_size|modes_name|algorithms_name|supported_key_sizes)|is_block_(mode|algorithm(_mode)?))))|ofb|decrypt|ge(neric(_(end|init|deinit))?|t_(iv_size|key_size|block_size|cipher_name))|list_(modes|algorithms)|module_(open|close|self_test|is_block_(mode|algorithm(_mode)?)|get_(algo_(key_size|block_size)|supported_key_sizes)))|decrypt_generic)\b</string>
 					<key>name</key>
 					<string>support.function.mcrypt.php</string>
 				</dict>
@@ -3264,19 +3342,31 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\b(log_(cmd_(insert|delete|update)|killcursor|write_batch|reply|getmore)|bson_(decode|encode))\b</string>
+					<string>(?i)\b(e(val|xit)|p(ack|hp_strip_whitespace)|s(leep|ys_getloadavg|api_windows_(cp_(get|set|conv|is_utf8)|vt100_support|set_ctrl_handler|generate_ctrl_event))|define(d)?|h(rtime|ighlight_(file|string))|u(n(iqid|pack)|sleep)|con(stant|nection_(status|aborted))|get_browser|time_(nanosleep|sleep_until)|__halt_compiler|ignore_user_abort)\b</string>
+					<key>name</key>
+					<string>support.function.misc.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\bbson_(decode|encode)\b</string>
 					<key>name</key>
 					<string>support.function.mongo.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bmysql_(s(tat|e(t_charset|lect_db))|num_(fields|rows)|c(onnect|l(ient_encoding|ose)|reate_db)|t(hread_id|ablename)|in(sert_id|fo)|d(ata_seek|rop_db|b_(name|query))|unbuffered_query|p(connect|ing)|e(scape_string|rr(no|or))|query|f(ield_(seek|name|t(ype|able)|flags|len)|etch_(object|field|lengths|a(ssoc|rray)|row)|ree_result)|list_(tables|dbs|processes|fields)|affected_rows|re(sult|al_escape_string)|get_(server_info|host_info|client_info|proto_info))\b</string>
+					<string>(?i)\bmqseries_(get|inq|put(1)?|s(et|trerror)|b(ack|egin)|c(mit|onn(x)?|lose)|disc|open)\b</string>
+					<key>name</key>
+					<string>support.function.mqseries.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\bmysql_(in(fo|sert_id)|p(ing|connect)|s(tat|e(lect_db|t_charset))|c(l(ose|ient_encoding)|onnect|reate_db)|e(rr(no|or)|scape_string)|query|re(sult|al_escape_string)|d(b_(name|query)|rop_db|ata_seek)|list_(dbs|fields|tables|processes)|num_(rows|fields)|f(etch_(row|a(rray|ssoc)|field|object|lengths)|ield_(len|name|seek|t(ype|able)|flags)|ree_result)|t(ablename|hread_id)|affected_rows|get_(host_info|proto_info|client_info|server_info)|unbuffered_query)\b</string>
 					<key>name</key>
 					<string>support.function.mysql.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bmysqli_(s(sl_set|t(ore_result|at|mt_(s(tore_result|end_long_data)|next_result|close|init|data_seek|prepare|execute|f(etch|ree_result)|attr_(set|get)|res(ult_metadata|et)|get_(warnings|result)|more_results|bind_(param|result)))|e(nd_(query|long_data)|t_(charset|opt|local_infile_(handler|default))|lect_db)|lave_query|avepoint)|next_result|c(ha(nge_user|racter_set_name)|o(nnect|mmit)|l(ient_encoding|ose))|thread_safe|init|options|d(isable_r(pl_parse|eads_from_master)|ump_debug_info|ebug|ata_seek)|use_result|p(ing|oll|aram_count|repare)|e(scape_string|nable_r(pl_parse|eads_from_master)|xecute|mbedded_server_(start|end))|kill|query|f(ield_seek|etch(_(object|field(s|_direct)?|a(ssoc|ll|rray)|row))?|ree_result)|autocommit|r(ollback|pl_(p(arse_enabled|robe)|query_type)|e(port|fresh|lease_savepoint|a(p_async_query|l_(connect|escape_string|query))))|get_(c(harset|onnection_stats|lient_(stats|info|version)|ache_stats)|warnings|links_stats|metadata)|m(ore_results|ulti_query|aster_query)|b(ind_(param|result)|egin_transaction))\b</string>
+					<string>(?i)\bmysqli_get_(links_stats|client_stats)\b</string>
 					<key>name</key>
 					<string>support.function.mysqli.php</string>
 				</dict>
@@ -3288,193 +3378,217 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bmysqlnd_ms_(set_(user_pick_server|qos)|dump_servers|query_is_select|fabric_select_(shard|global)|get_(stats|last_(used_connection|gtid))|xa_(commit|rollback|gc|begin)|match_wild)\b</string>
+					<string>(?i)\bmysqlnd_ms_(xa_(gc|begin|commit|rollback)|set_(qos|user_pick_server)|get_(stats|last_(gtid|used_connection))|match_wild|dump_servers|query_is_select|fabric_select_(shard|global))\b</string>
 					<key>name</key>
 					<string>support.function.mysqlnd-ms.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bmysqlnd_qc_(set_(storage_handler|cache_condition|is_select|user_handlers)|clear_cache|get_(normalized_query_trace_log|c(ore_stats|ache_info)|query_trace_log|available_handlers))\b</string>
+					<string>(?i)\bmysqlnd_qc_(clear_cache|set_(is_select|user_handlers|cache_condition|storage_handler)|get_(c(ache_info|ore_stats)|query_trace_log|available_handlers|normalized_query_trace_log))\b</string>
 					<key>name</key>
 					<string>support.function.mysqlnd-qc.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bmysqlnd_uh_(set_(statement_proxy|connection_proxy)|convert_to_mysqlnd)\b</string>
+					<string>(?i)\bmysqlnd_uh_(convert_to_mysqlnd|set_(statement_proxy|connection_proxy))\b</string>
 					<key>name</key>
 					<string>support.function.mysqlnd-uh.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\b(s(yslog|ocket_(set_(timeout|blocking)|get_status)|et(cookie|rawcookie))|h(ttp_response_code|eader(s_(sent|list)|_re(gister_callback|move))?)|c(heckdnsrr|loselog)|i(net_(ntop|pton)|p2long)|openlog|d(ns_(check_record|get_(record|mx))|efine_syslog_variables)|pfsockopen|fsockopen|long2ip|get(servby(name|port)|host(name|by(name(l)?|addr))|protobyn(umber|ame)|mxrr))\b</string>
+					<string>(?i)\bncurses_(n(l|o(nl|raw|echo|cbreak|qiflush)|apms|ew(pad|win|_panel))|e(nd|cho(char)?|rase(char)?)|r(aw|e(fresh|set(ty|_(prog_mode|shell_mode))|place_panel))|b(eep|kgd(set)?|o(rder|ttom_panel)|audrate)|i(n(ch|it(_(pair|color))?|s(ch|tr|str|delln|ertln))|sendwin)|m(eta|o(ve(_panel)?|use(mask|_trafo|interval))|v(cur|inch|add(ch(str|nstr)?|str|nstr)|delch|getch|hline|vline|waddstr))|p(utp|refresh|a(nel_(above|below|window)|ir_content)|noutrefresh)|s(cr(l|_(set|dump|init|restore))|avetty|lk_(set|attr(o(n|ff)|set)?|init|c(lear|olor)|touch|re(fresh|store)|noutrefresh)|ta(nd(end|out)|rt_color)|how_panel)|a(dd(ch(str|nstr)?|str|nstr)|ttr(o(n|ff)|set)|ssume_default_colors)|c(l(ear|rto(bot|eol))|break|urs_set|olor_(set|content)|an_change_color)|d(e(l(ch|win|eteln|_panel|ay_output)|f(ine_key|_(prog_mode|shell_mode)))|oupdate)|f(l(ash|ushinp)|ilter)|get(ch|yx|m(axyx|ouse))|h(line|a(s_(i(c|l)|key|colors)|lfdelay)|ide_panel)|k(ey(ok|pad)|illchar)|v(line|idattr)|w(mo(ve|use_trafo)|a(dd(ch|str)|ttr(o(n|ff)|set))|c(lear|olor_set)|erase|getch|hline|vline|border|refresh|stand(end|out)|noutrefresh)|qiflush|t(imeout|erm(name|attrs)|op_panel|ypeahead)|u(nget(ch|mouse)|se_(e(nv|xtended_names)|default_colors)|pdate_panels)|longname)\b</string>
+					<key>name</key>
+					<string>support.function.ncurses.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\b(h(eader(s_(list|sent)|_re(move|gister_callback))?|ttp_response_code)|s(yslog|et(cookie|rawcookie))|get(mxrr|host(name|by(addr|name(l)?))|servby(name|port)|protobyn(ame|umber))|i(p2long|net_(ntop|pton))|long2ip|openlog|c(loselog|heckdnsrr)|fsockopen|pfsockopen|dns_get_record)\b</string>
 					<key>name</key>
 					<string>support.function.network.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bnsapi_(virtual|re(sponse_headers|quest_headers))\b</string>
+					<string>(?i)\boauth_(get_sbs|urlencode)\b</string>
 					<key>name</key>
-					<string>support.function.nsapi.php</string>
+					<string>support.function.oauth.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\boci(s(tatementtype|e(tprefetch|rverversion)|avelob(file)?)|n(umcols|ew(c(ollection|ursor)|descriptor)|logon)|c(o(l(umn(s(cale|ize)|name|type(raw)?|isnull|precision)|l(size|trim|a(ssign(elem)?|ppend)|getelem|max))|mmit)|loselob|ancel)|internaldebug|definebyname|_(s(tatement_type|e(t_(client_i(nfo|dentifier)|prefetch|edition|action|module_name)|rver_version))|n(um_(fields|rows)|ew_(c(o(nnect|llection)|ursor)|descriptor))|c(o(nnect|mmit)|l(ient_version|ose)|ancel)|internal_debug|d(isable_taf_callback|efine_by_name)|p(connect|a(ssword_change|rse))|e(rror|xecute)|f(ield_(s(cale|ize)|name|type(_raw)?|is_null|precision)|etch(_(object|a(ssoc|ll|rray)|row))?|ree_(statement|descriptor))|lob_(copy|is_equal)|r(ollback|e(sult|gister_taf_callback))|get_implicit_resultset|bind_(array_by_name|by_name))|p(logon|arse)|e(rror|xecute)|f(etch(statement|into)?|ree(statement|c(ollection|ursor)|desc))|write(temporarylob|lobtofile)|lo(adlob|go(n|ff))|r(o(wcount|llback)|esult)|bindbyname)\b</string>
+					<string>(?i)\boci_(c(l(ose|ient_version)|ancel|o(mmit|nnect))|e(rror|xecute)|f(etch(_(a(ll|rray|ssoc)|row|object))?|ield_(name|s(ize|cale)|type(_raw)?|is_null|precision)|ree_(statement|descriptor))|p(a(rse|ssword_change)|connect)|r(e(sult|gister_taf_callback)|ollback)|lob_(copy|is_equal)|n(um_(rows|fields)|ew_(c(ursor|o(nnect|llection))|descriptor))|s(e(t_(action|edition|prefetch|c(lient_i(nfo|dentifier)|all_timeout)|module_name|db_operation)|rver_version)|tatement_type)|bind_(by_name|array_by_name)|define_by_name|get_implicit_resultset|unregister_taf_callback)\b</string>
 					<key>name</key>
 					<string>support.function.oci8.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bopcache_(compile_file|i(s_script_cached|nvalidate)|reset|get_(status|configuration))\b</string>
+					<string>(?i)\bopcache_(reset|get_(status|configuration)|i(nvalidate|s_script_cached)|compile_file)\b</string>
 					<key>name</key>
 					<string>support.function.opcache.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bopenssl_(s(ign|pki_(new|export(_challenge)?|verify)|eal)|c(sr_(sign|new|export(_to_file)?|get_(subject|public_key))|ipher_iv_length)|open|d(h_compute_key|igest|ecrypt)|p(ublic_(decrypt|encrypt)|k(cs(12_(export(_to_file)?|read)|7_(sign|decrypt|encrypt|verify))|ey_(new|export(_to_file)?|free|get_(details|p(ublic|rivate))))|rivate_(decrypt|encrypt)|bkdf2)|e(ncrypt|rror_string)|verify|free_key|random_pseudo_bytes|get_(c(ipher_methods|ert_locations)|p(ublickey|rivatekey)|md_methods)|x509_(check(_private_key|purpose)|parse|export(_to_file)?|f(ingerprint|ree)|read))\b</string>
+					<string>(?i)\bopenal_(s(tream|ource_(get|s(et|top)|p(lay|ause)|create|rewind|destroy))|buffer_(get|d(ata|estroy)|create|loadwav)|device_(open|close)|listener_(get|set)|context_(c(reate|urrent)|destroy|process|suspend))\b</string>
+					<key>name</key>
+					<string>support.function.openal.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\bopenssl_(open|s(eal|ign|pki_(new|export(_challenge)?|verify))|d(igest|ecrypt|h_compute_key)|p(bkdf2|k(ey_(new|free|derive|export(_to_file)?|get_(p(ublic|rivate)|details))|cs(7_(read|sign|verify|decrypt|encrypt)|12_(read|export(_to_file)?)))|ublic_(decrypt|encrypt)|rivate_(decrypt|encrypt))|verify|c(sr_(new|sign|export(_to_file)?|get_(subject|public_key))|ms_(read|sign|verify|decrypt|encrypt)|ipher_iv_length)|e(ncrypt|rror_string)|free_key|x509_(f(ree|ingerprint)|read|parse|export(_to_file)?|verify|check(purpose|_private_key))|get_(md_methods|c(urve_names|ert_locations|ipher_methods))|random_pseudo_bytes)\b</string>
 					<key>name</key>
 					<string>support.function.openssl.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\b(o(utput_(add_rewrite_var|reset_rewrite_vars)|b_(start|clean|implicit_flush|end_(clean|flush)|flush|list_handlers|g(zhandler|et_(status|c(ontents|lean)|flush|le(ngth|vel)))))|flush)\b</string>
+					<string>(?i)\b(flush|o(b_(clean|flush|start|end_(clean|flush)|g(et_(c(lean|ontents)|flush|le(vel|ngth)|status)|zhandler)|list_handlers|implicit_flush)|utput_(add_rewrite_var|reset_rewrite_vars)))\b</string>
 					<key>name</key>
-					<string>support.function.output.php</string>
+					<string>support.function.outcontrol.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bpassword_(hash|needs_rehash|verify|get_info)\b</string>
+					<string>(?i)\bpx_(n(ew|um(fields|records))|c(lose|reate_fp)|d(elete(_record)?|ate2string)|open_fp|get_(info|field|value|record|schema|parameter)|set_(value|blob_file|parameter|ta(blename|rgetencoding))|put_record|insert_record|update_record|retrieve_record|timestamp2string)\b</string>
+					<key>name</key>
+					<string>support.function.paradox.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\bpassword_(hash|algos|verify|get_info|needs_rehash)\b</string>
 					<key>name</key>
 					<string>support.function.password.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bpcntl_(s(trerror|ig(nal(_(dispatch|get_handler))?|timedwait|procmask|waitinfo)|etpriority)|e(rrno|xec)|fork|w(stopsig|termsig|if(s(topped|ignaled)|exited)|exitstatus|ait(pid)?)|alarm|get(_last_error|priority))\b</string>
+					<string>(?i)\bpcntl_(exec|fork|w(ait(pid)?|stopsig|termsig|if(exited|s(topped|ignaled))|exitstatus)|a(larm|sync_signals)|s(ig(nal(_(dispatch|get_handler))?|procmask|waitinfo|timedwait)|trerror|etpriority)|get(priority|_last_error))\b</string>
 					<key>name</key>
 					<string>support.function.pcntl.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bpg_(s(ocket|e(nd_(prepare|execute|query(_params)?)|t_(client_encoding|error_verbosity)|lect))|host|num_(fields|rows)|c(o(n(sume_input|nect(ion_(status|reset|busy)|_poll)?|vert)|py_(to|from))|l(ient_encoding|ose)|ancel_query)|t(ty|ra(nsaction_status|ce))|insert|options|d(elete|bname)|u(n(trace|escape_bytea)|pdate)|p(connect|ing|ort|ut_line|arameter_status|repare)|e(scape_(string|identifier|literal|bytea)|nd_copy|xecute)|version|query(_params)?|f(ield_(size|n(um|ame)|t(ype(_oid)?|able)|is_null|prtlen)|etch_(object|a(ssoc|ll(_columns)?|rray)|r(ow|esult))|lush|ree_result)|l(o_(seek|c(lose|reate)|t(ell|runcate)|import|open|unlink|export|write|read(_all)?)|ast_(notice|oid|error))|affected_rows|result_(s(tatus|eek)|error(_field)?)|get_(notify|pid|result)|meta_data)\b</string>
+					<string>(?i)\bpreg_(grep|match(_all)?|quote|split|filter|replace(_callback(_array)?)?|last_error(_msg)?)\b</string>
+					<key>name</key>
+					<string>support.function.pcre.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\bpg_(t(ty|ra(ce|nsaction_status))|host|p(ing|ort|repare|connect|ut_line|arameter_status)|c(l(ose|ient_encoding)|o(n(nect(_poll|ion_(busy|reset|status))?|vert|sume_input)|py_(to|from))|ancel_query)|f(lush|etch_(a(ll(_columns)?|rray|ssoc)|r(ow|esult)|object)|ield_(n(um|ame)|size|t(ype(_oid)?|able)|prtlen|is_null)|ree_result)|query(_params)?|d(bname|elete)|insert|s(e(lect|nd_(query(_params)?|execute|prepare)|t_(client_encoding|error_verbosity))|ocket)|u(pdate|n(trace|escape_bytea))|e(xecute|nd_copy|scape_(bytea|string|literal|identifier))|get_(pid|notify|result)|l(o_(open|read(_all)?|seek|t(ell|runcate)|c(lose|reate)|write|export|import|unlink)|ast_(oid|error|notice))|options|version|num_(rows|fields)|meta_data|result_(s(eek|tatus)|error(_field)?)|affected_rows)\b</string>
 					<key>name</key>
 					<string>support.function.pgsql.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\b(virtual|apache_(setenv|note|child_terminate|lookup_uri|re(s(ponse_headers|et_timeout)|quest_headers)|get(_(version|modules)|env))|getallheaders)\b</string>
+					<string>(?i)\bphpdbg_(e(xec|nd_oplog)|c(lear|olor)|prompt|break_(f(ile|unction)|next|method)|start_oplog|get_executable)\b</string>
 					<key>name</key>
-					<string>support.function.php_apache.php</string>
+					<string>support.function.phpdbg.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bdom_import_simplexml\b</string>
-					<key>name</key>
-					<string>support.function.php_dom.php</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>(?i)\bftp_(s(sl_connect|ystype|i(te|ze)|et_option)|n(list|b_(continue|put|f(put|get)|get))|c(h(dir|mod)|onnect|dup|lose)|delete|p(ut|wd|asv)|exec|quit|f(put|get)|login|alloc|r(ename|aw(list)?|mdir)|get(_option)?|m(dtm|kdir))\b</string>
-					<key>name</key>
-					<string>support.function.php_ftp.php</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>(?i)\bimap_(s(can(mailbox)?|tatus|ort|ubscribe|e(t(_quota|flag_full|acl)|arch)|avebody)|header(s|info)?|num_(recent|msg)|c(heck|l(ose|earflag_full)|reate(mailbox)?)|t(hread|imeout)|open|delete(mailbox)?|8bit|u(n(subscribe|delete)|tf(7_(decode|encode)|8)|id)|ping|e(rrors|xpunge)|qprint|fetch(structure|header|text|_overview|mime|body)|l(sub|ist(s(can|ubscribed)|mailbox)?|ast_error)|a(ppend|lerts)|r(e(name(mailbox)?|open)|fc822_(parse_(headers|adrlist)|write_address))|g(c|et(subscribed|_quota(root)?|acl|mailboxes))|m(sgno|ime_header_decode|ail(_(co(py|mpose)|move)|boxmsginfo)?)|b(inary|ody(struct)?|ase64))\b</string>
-					<key>name</key>
-					<string>support.function.php_imap.php</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>(?i)\bmssql_(select_db|n(um_(fields|rows)|ext_result)|c(onnect|lose)|init|data_seek|pconnect|execute|query|f(ield_(seek|name|type|length)|etch_(object|field|a(ssoc|rray)|row|batch)|ree_(statement|result))|r(ows_affected|esult)|g(uid_string|et_last_message)|min_(error_severity|message_severity)|bind)\b</string>
-					<key>name</key>
-					<string>support.function.php_mssql.php</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>(?i)\bodbc_(s(tatistics|pecialcolumns|etoption)|n(um_(fields|rows)|ext_result)|c(o(nnect|lumn(s|privileges)|mmit)|ursor|lose(_all)?)|table(s|privileges)|d(o|ata_source)|p(connect|r(imarykeys|ocedure(s|columns)|epare))|e(rror(msg)?|xec(ute)?)|f(ield_(scale|n(um|ame)|type|precision|len)|oreignkeys|etch_(into|object|array|row)|ree_result)|longreadlen|autocommit|r(ollback|esult(_all)?)|gettypeinfo|binmode)\b</string>
-					<key>name</key>
-					<string>support.function.php_odbc.php</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>(?i)\bpreg_(split|quote|filter|last_error|replace(_callback(_array)?)?|grep|match(_all)?)\b</string>
-					<key>name</key>
-					<string>support.function.php_pcre.php</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>(?i)\b(spl_(classes|object_hash|autoload(_(call|unregister|extensions|functions|register))?)|class_(implements|uses|parents)|iterator_(count|to_array|apply))\b</string>
-					<key>name</key>
-					<string>support.function.php_spl.php</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>(?i)\bzip_(close|open|entry_(name|c(ompress(ionmethod|edsize)|lose)|open|filesize|read)|read)\b</string>
-					<key>name</key>
-					<string>support.function.php_zip.php</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>(?i)\bposix_(s(trerror|et(sid|uid|pgid|e(uid|gid)|rlimit|gid))|ctermid|t(tyname|imes)|i(satty|nitgroups)|uname|errno|kill|access|get(sid|cwd|uid|_last_error|p(id|pid|w(nam|uid)|g(id|rp))|e(uid|gid)|login|rlimit|g(id|r(nam|oups|gid)))|mk(nod|fifo))\b</string>
+					<string>(?i)\bposix_(kill|mk(nod|fifo)|t(imes|tyname)|uname|access|get(cwd|g(id|r(gid|nam|oups))|p(id|g(id|rp)|pid|w(nam|uid))|sid|uid|e(gid|uid)|login|rlimit|_last_error)|i(satty|nitgroups)|s(et(gid|sid|uid|e(gid|uid)|pgid|rlimit)|trerror)|ctermid)\b</string>
 					<key>name</key>
 					<string>support.function.posix.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bset(threadtitle|proctitle)\b</string>
+					<string>(?i)\bset(proctitle|threadtitle)\b</string>
 					<key>name</key>
 					<string>support.function.proctitle.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bpspell_(s(tore_replacement|uggest|ave_wordlist)|new(_(config|personal))?|c(heck|onfig_(save_repl|create|ignore|d(ict_dir|ata_dir)|personal|r(untogether|epl)|mode)|lear_session)|add_to_(session|personal))\b</string>
+					<string>(?i)\bps_(a(rc(n)?|dd_(note|pdflink|weblink|bookmark|l(ocallink|aunchlink)))|new|c(l(ip|ose(path(_stroke)?|_image)?)|ircle|urveto|ontinue_text)|fi(ll(_stroke)?|ndfont)|r(e(ct|store)|otate)|s(ave|h(ow(2|_(xy(2)?|boxed))?|fill|ading(_pattern)?)|cale|tr(oke|ing(width|_geometry))|ymbol(_(name|width))?|et(dash|f(lat|ont)|gray|_(info|value|text_pos|parameter|border_(dash|color|style))|color|line(cap|join|width)|polydash|miterlimit|overprintmode))|delete|lineto|m(oveto|akespotcolor)|end_(pa(ge|ttern)|template)|get_(value|buffer|parameter)|hyphenate|open_(file|image(_file)?|memory_image)|translate|begin_(pa(ge|ttern)|template)|place_image|include_file)\b</string>
+					<key>name</key>
+					<string>support.function.ps.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\bpspell_(new(_(config|personal))?|c(heck|onfig_(mode|r(epl|untogether)|create|ignore|d(ata_dir|ict_dir)|personal|save_repl)|lear_session)|s(uggest|ave_wordlist|tore_replacement)|add_to_(session|personal))\b</string>
 					<key>name</key>
 					<string>support.function.pspell.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\breadline(_(c(ompletion_function|lear_history|allback_(handler_(install|remove)|read_char))|info|on_new_line|write_history|list_history|add_history|re(display|ad_history)))?\b</string>
+					<string>(?i)\bradius_(c(lose|onfig|vt_(int|addr|string)|reate_request)|put_(int|a(ddr|ttr)|string|vendor_(int|a(ddr|ttr)|string))|demangle(_mppe_key)?|get_(attr|vendor_attr|tagged_attr_(tag|data))|s(trerror|e(nd_request|rver_secret)|alt_encrypt_attr)|a(cct_open|uth_open|dd_server)|request_authenticator)\b</string>
+					<key>name</key>
+					<string>support.function.radius.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\brar_wrapper_cache_stats\b</string>
+					<key>name</key>
+					<string>support.function.rar.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\breadline(_(info|re(display|ad_history)|add_history|on_new_line|list_history|c(lear_history|allback_(read_char|handler_(remove|install))|ompletion_function)|write_history))?\b</string>
 					<key>name</key>
 					<string>support.function.readline.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\brecode(_(string|file))?\b</string>
+					<string>(?i)\brecode_(file|string)\b</string>
 					<key>name</key>
 					<string>support.function.recode.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\brrd(c_disconnect|_(create|tune|info|update|error|version|f(irst|etch)|last(update)?|restore|graph|xport))\b</string>
+					<string>(?i)\b(ereg(i(_replace)?|_replace)?|s(plit(i)?|ql_regcase))\b</string>
+					<key>name</key>
+					<string>support.function.regex.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\brpm(info|addtag|db(info|search)|vercmp)\b</string>
+					<key>name</key>
+					<string>support.function.rpminfo.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\brrd(_(info|last(update)?|tune|error|f(etch|irst)|graph|xport|create|update|restore|version)|c_disconnect)\b</string>
 					<key>name</key>
 					<string>support.function.rrd.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\b(s(hm_(has_var|detach|put_var|attach|remove(_var)?|get_var)|em_(acquire|re(lease|move)|get))|ftok|msg_(s(tat_queue|e(nd|t_queue))|queue_exists|re(ceive|move_queue)|get_queue))\b</string>
+					<string>(?i)\brunkit7_(import|object_id|method_(add|copy|re(move|name|define))|constant_(add|re(move|define))|function_(add|copy|re(move|name|define))|superglobals|zval_inspect)\b</string>
+					<key>name</key>
+					<string>support.function.runkit7.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\bscoutapm_(get_calls|list_instrumented_functions)\b</string>
+					<key>name</key>
+					<string>support.function.scoutapm.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\bseaslog_get_(author|version)\b</string>
+					<key>name</key>
+					<string>support.function.seaslog.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\b(ftok|s(em_(get|re(move|lease)|acquire)|hm_(attach|detach|remove(_var)?|get_var|has_var|put_var))|msg_(s(e(nd|t_queue)|tat_queue)|re(ceive|move_queue)|get_queue|queue_exists))\b</string>
 					<key>name</key>
 					<string>support.function.sem.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bsession_(s(ta(tus|rt)|et_(save_handler|cookie_params)|ave_path)|name|c(ommit|ache_(expire|limiter)|reate_id)|i(s_registered|d)|de(stroy|code)|un(set|register)|encode|write_close|abort|re(set|g(ister(_shutdown)?|enerate_id))|g(c|et_cookie_params)|module_name)\b</string>
+					<string>(?i)\bsession_(g(c|et_cookie_params)|i(d|s_registered)|name|abort|re(set|g(enerate_id|ister_shutdown))|s(ta(rt|tus)|ave_path|et_(save_handler|cookie_params))|un(set|register)|de(code|stroy)|encode|c(reate_id|ache_(expire|limiter))|module_name|write_close)\b</string>
 					<key>name</key>
 					<string>support.function.session.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bshmop_(size|close|open|delete|write|read)\b</string>
+					<string>(?i)\bshmop_(open|read|size|close|write|delete)\b</string>
 					<key>name</key>
 					<string>support.function.shmop.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bsimplexml_(import_dom|load_(string|file))\b</string>
+					<string>(?i)\bsimplexml_(load_(file|string)|import_dom)\b</string>
 					<key>name</key>
 					<string>support.function.simplexml.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bsnmp(set|2_(set|walk|real_walk|get(next)?)|_(set_(oid_(numeric_print|output_format)|enum_print|valueretrieval|quick_print)|read_mib|get_(valueretrieval|quick_print))|3_(set|walk|real_walk|get(next)?)|walk(oid)?|realwalk|get(next)?)\b</string>
+					<string>(?i)\bsnmp(get(next)?|set|walk(oid)?|2_(get(next)?|set|walk|real_walk)|3_(get(next)?|set|walk|real_walk)|realwalk|_(read_mib|set_(enum_print|quick_print|valueretrieval|oid_(numeric_print|output_format))|get_(quick_print|valueretrieval)))\b</string>
 					<key>name</key>
 					<string>support.function.snmp.php</string>
 				</dict>
@@ -3486,55 +3600,97 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bsocket_(s(hutdown|trerror|e(nd(to|msg)?|t(opt|_(nonblock|option|block))|lect))|c(onnect|l(ose|ear_error)|reate(_(pair|listen))?|msg_space)|import_stream|write|l(isten|ast_error)|accept|re(cv(from|msg)?|ad)|get(sockname|opt|_option|peername)|bind)\b</string>
+					<string>(?i)\bsocket_(bind|re(ad|cv(msg|from)?)|s(e(nd(to|msg)?|lect|t_(block|option|nonblock))|hutdown|trerror)|c(l(ose|ear_error)|reate(_(pair|listen))?|onnect|msg_space)|w(rite|saprotocol_info_(export|import|release))|a(ccept|ddrinfo_(bind|lookup|connect|explain))|l(isten|ast_error)|get(_option|peername|sockname)|export_stream|import_stream)\b</string>
 					<key>name</key>
 					<string>support.function.sockets.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bsqlite_(s(ingle_query|eek)|has_(prev|more)|n(um_(fields|rows)|ext)|c(hanges|olumn|urrent|lose|reate_(function|aggregate))|open|u(nbuffered_query|df_(decode_binary|encode_binary))|p(open|rev)|e(scape_string|rror_string|xec)|valid|key|query|f(ield_name|etch_(s(tring|ingle)|column_types|object|a(ll|rray))|actory)|l(ib(encoding|version)|ast_(insert_rowid|error))|array_query|rewind|busy_timeout)\b</string>
+					<string>(?i)\bsodium_(add|pad|unpad|mem(cmp|zero)|b(in2(hex|base64)|ase642bin)|c(ompare|rypto_(box(_(open|se(al(_open)?|cretkey|ed_keypair)|keypair(_from_secretkey_and_publickey)?|publickey(_from_secretkey)?))?|a(uth(_(keygen|verify))?|ead_(aes256gcm_(keygen|decrypt|encrypt|is_available)|chacha20poly1305_(keygen|decrypt|encrypt|ietf_(keygen|decrypt|encrypt))|xchacha20poly1305_ietf_(keygen|decrypt|encrypt)))|s(ign(_(open|keypair(_from_secretkey_and_publickey)?|detached|publickey(_from_secretkey)?|se(cretkey|ed_keypair)|verify_detached|ed25519_(pk_to_curve25519|sk_to_curve25519)))?|tream(_(xor|keygen))?|ecret(box(_(open|keygen))?|stream_xchacha20poly1305_(pu(ll|sh)|rekey|keygen|init_pu(ll|sh)))|horthash(_keygen)?|calarmult)|pwhash(_s(tr(_(verify|needs_rehash))?|cryptsalsa208sha256(_str(_verify)?)?))?|k(df_(keygen|derive_from_key)|x_(keypair|publickey|se(cretkey|ed_keypair|rver_session_keys)|client_session_keys))|generichash(_(init|final|keygen|update))?))|hex2bin|increment)\b</string>
 					<key>name</key>
-					<string>support.function.sqlite.php</string>
+					<string>support.function.sodium.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bsqlsrv_(se(nd_stream_data|rver_info)|has_rows|n(um_(fields|rows)|ext_result)|c(o(n(nect|figure)|mmit)|l(ient_info|ose)|ancel)|prepare|e(rrors|xecute)|query|f(ield_metadata|etch(_(object|array))?|ree_stmt)|ro(ws_affected|llback)|get_(config|field)|begin_transaction)\b</string>
+					<string>(?i)\bsolr_get_version\b</string>
+					<key>name</key>
+					<string>support.function.solr.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\b(class_(uses|parents|implements)|spl_(classes|autoload(_(call|register|functions|extensions|unregister))?|object_(id|hash))|iterator_(apply|count|to_array))\b</string>
+					<key>name</key>
+					<string>support.function.spl.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\bsqlsrv_(c(l(ose|ient_info)|ancel|o(mmit|n(nect|figure)))|f(etch(_(array|object))?|ree_stmt|ield_metadata)|query|e(rrors|xecute)|prepare|has_rows|n(um_(rows|fields)|ext_result)|ro(llback|ws_affected)|get_(field|config)|se(rver_info|nd_stream_data)|begin_transaction)\b</string>
 					<key>name</key>
 					<string>support.function.sqlsrv.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bstats_(s(ta(ndard_deviation|t_(noncentral_t|correlation|in(nerproduct|dependent_t)|p(owersum|ercentile|aired_t)|gennch|binomial_coef))|kew)|harmonic_mean|c(ovariance|df_(n(oncentral_(chisquare|f)|egative_binomial)|c(hisquare|auchy)|t|uniform|poisson|exponential|f|weibull|l(ogistic|aplace)|gamma|b(inomial|eta)))|den(s_(n(ormal|egative_binomial)|c(hisquare|auchy)|t|pmf_(hypergeometric|poisson|binomial)|exponential|f|weibull|l(ogistic|aplace)|gamma|beta)|_uniform)|variance|kurtosis|absolute_deviation|rand_(setall|phrase_to_seeds|ranf|ge(n_(no(ncen(tral_(t|f)|ral_chisquare)|rmal)|chisquare|t|i(nt|uniform|poisson|binomial(_negative)?)|exponential|f(uniform)?|gamma|beta)|t_seeds)))\b</string>
+					<string>(?i)\bssdeep_fuzzy_(hash(_filename)?|compare)\b</string>
+					<key>name</key>
+					<string>support.function.ssdeep.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\bssh2_(exec|p(oll|ublickey_(add|init|list|remove))|s(ftp(_(s(tat|ymlink)|chmod|lstat|mkdir|r(mdir|e(name|a(dlink|lpath)))|unlink))?|hell|cp_(recv|send))|tunnel|connect|auth_(none|agent|p(assword|ubkey_file)|hostbased_file)|disconnect|f(ingerprint|etch_stream|orward_(accept|listen))|methods_negotiated)\b</string>
+					<key>name</key>
+					<string>support.function.ssh2.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\bstats_(s(kew|ta(t_(p(aired_t|owersum|ercentile)|factorial|correlation|in(nerproduct|dependent_t)|binomial_coef)|ndard_deviation))|c(df_(f|t|b(eta|inomial)|gamma|c(auchy|hisquare)|n(o(rmal|ncentral_(f|t|chisquare))|egative_binomial)|l(aplace|ogistic)|poisson|uniform|weibull|exponential)|ovariance)|dens_(f|t|beta|gamma|c(auchy|hisquare)|normal|l(aplace|ogistic)|uniform|weibull|exponential|pmf_(poisson|binomial|hypergeometric|negative_binomial))|kurtosis|variance|rand_(ranf|ge(n_(f(uniform)?|t|i(nt|poisson|uniform|binomial(_negative)?)|beta|gamma|no(rmal|ncentral_(f|t|chisquare))|chisquare|exponential)|t_seeds)|setall|phrase_to_seeds)|harmonic_mean|absolute_deviation)\b</string>
 					<key>name</key>
 					<string>support.function.stats.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bs(tream_(s(ocket_(s(hutdown|e(ndto|rver))|client|pair|enable_crypto|accept|recvfrom|get_name)|upports_lock|e(t_(chunk_size|timeout|write_buffer|read_buffer|blocking)|lect))|notification_callback|co(ntext_(set_(option|default|params)|create|get_(options|default|params))|py_to_stream)|is_local|encoding|filter_(prepend|append|re(gister|move))|wrapper_(unregister|re(store|gister))|re(solve_include_path|gister_wrapper)|get_(contents|transports|filters|wrappers|line|meta_data)|bucket_(new|prepend|append|make_writeable))|et_socket_blocking)\b</string>
+					<string>(?i)\bstomp_(version|connect_error)\b</string>
 					<key>name</key>
-					<string>support.function.streamsfuncs.php</string>
+					<string>support.function.stomp.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\b(s(scanf|ha1(_file)?|tr(s(tr|pn)|n(c(asecmp|mp)|atc(asecmp|mp))|c(spn|hr|oll|asecmp|mp)|t(o(upper|k|lower)|r)|i(str|p(slashes|cslashes|os|_tags))|_(s(huffle|plit)|ireplace|pad|word_count|r(ot13|ep(eat|lace))|getcsv)|p(os|brk)|len|r(chr|ipos|pos|ev))|imilar_text|oundex|ubstr(_(co(unt|mpare)|replace))?|printf|etlocale)|h(tml(specialchars(_decode)?|_entity_decode|entities)|e(x2bin|brev(c)?))|n(umber_format|l(2br|_langinfo))|c(h(op|unk_split|r)|o(nvert_(cyr_string|uu(decode|encode))|unt_chars)|r(ypt|c32))|trim|implode|ord|uc(first|words)|join|p(arse_str|rint(f)?)|e(cho|xplode)|v(sprintf|printf|fprintf)|quote(d_printable_(decode|encode)|meta)|fprintf|wordwrap|l(cfirst|trim|ocaleconv|evenshtein)|add(slashes|cslashes)|rtrim|get_html_translation_table|m(oney_format|d5(_file)?|etaphone)|bin2hex)\b</string>
+					<string>(?i)\bstream_(is(atty|_local)|s(e(lect|t_(timeout|blocking|chunk_size|read_buffer|write_buffer))|ocket_(pair|accept|client|s(e(ndto|rver)|hutdown)|get_name|recvfrom|enable_crypto)|upports_lock)|get_(line|filters|contents|wrappers|meta_data|transports)|bucket_(new|append|prepend|make_writeable)|filter_(append|re(move|gister)|prepend)|co(ntext_(create|get_(params|default|options)|set_(option|params|default))|py_to_stream)|wrapper_(re(store|gister)|unregister)|resolve_include_path|notification_callback)\b</string>
 					<key>name</key>
-					<string>support.function.string.php</string>
+					<string>support.function.stream.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bsybase_(se(t_message_handler|lect_db)|num_(fields|rows)|c(onnect|lose)|d(eadlock_retry_count|ata_seek)|unbuffered_query|pconnect|query|f(ield_seek|etch_(object|field|a(ssoc|rray)|row)|ree_result)|affected_rows|result|get_last_message|min_(server_severity|client_severity|error_severity|message_severity))\b</string>
+					<string>(?i)\b(c(h(r|unk_split)|r(c32|ypt)|o(unt_chars|nvert_(uu(decode|encode)|cyr_string)))|m(d5(_file)?|etaphone|oney_format)|ord|e(cho|xplode)|s(ha1(_file)?|tr(t(r|o(k|lower|upper))|c(mp|oll|spn|asecmp)|len|p(os|brk)|r(ev|chr|pos|ipos)|s(pn|tr)|_(pad|r(ot13|ep(eat|lace))|s(plit|huffle|tarts_with)|getcsv|contains|ireplace|ends_with|word_count)|i(p(os|_tags|slashes|cslashes)|str)|n(c(mp|asecmp)|atc(mp|asecmp)))|scanf|ubstr(_(co(unt|mpare)|replace))?|oundex|printf|etlocale|imilar_text)|trim|l(trim|cfirst|ocaleconv|evenshtein)|n(l(2br|_langinfo)|umber_format)|p(rint(f)?|arse_str)|rtrim|h(e(brev(c)?|x2bin)|tml(entities|specialchars(_decode)?|_entity_decode))|bin2hex|fprintf|implode|uc(first|words)|v(printf|fprintf|sprintf)|wordwrap|quote(meta|d_printable_(decode|encode))|add(slashes|cslashes)|get_html_translation_table)\b</string>
 					<key>name</key>
-					<string>support.function.sybase.php</string>
+					<string>support.function.strings.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\b(taint|is_tainted|untaint)\b</string>
+					<string>(?i)\bsvn_(l(s|og)|a(dd|uth_(get_parameter|set_parameter))|c(at|ommit|l(eanup|ient_version)|heckout)|d(iff|elete)|blame|mkdir|export|import|re(vert|pos_(fs(_(commit_txn|begin_txn_for_commit))?|open|create|hotcopy|recover))|status|update|fs_(c(o(py|ntents_changed)|h(eck_path|ange_node_prop))|d(elete|ir_entries)|is_(dir|file)|make_(dir|file)|txn_root|a(bort_txn|pply_text)|node_(prop|created_rev)|begin_txn2|file_(length|contents)|youngest_rev|props_changed|revision_(prop|root)))\b</string>
+					<key>name</key>
+					<string>support.function.svn.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\bswoole_(e(rrno|vent_(add|de(l|fer)|set|exit|w(ait|rite)))|s(e(lect|t_process_name)|trerror)|c(pu_num|lient_select)|version|async_(set|read(file)?|write(file)?|dns_lookup)|l(ast_error|oad_module)|timer_(tick|after|exists)|get_local_ip)\b</string>
+					<key>name</key>
+					<string>support.function.swoole-funcs.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\b(taint|untaint|is_tainted)\b</string>
 					<key>name</key>
 					<string>support.function.taint.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\b(tidy_(s(et(opt|_encoding)|ave_config)|c(onfig_count|lean_repair)|is_x(html|ml)|diagnose|parse_(string|file)|error_count|warning_count|load_config|access_count|re(set_config|pair_(string|file))|get(opt|_(status|h(tml(_ver)?|ead)|config|o(utput|pt_doc)|r(oot|elease)|body)))|ob_tidyhandler)\b</string>
+					<string>(?i)\btcpwrap_check\b</string>
+					<key>name</key>
+					<string>support.function.tcpwrap.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\b(ob_tidyhandler|tidy_(get_output|error_count|access_count|config_count|warning_count))\b</string>
 					<key>name</key>
 					<string>support.function.tidy.php</string>
 				</dict>
@@ -3546,75 +3702,111 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\btrader_(s(t(och(f|rsi)?|ddev)|in(h)?|u(m|b)|et_(compat|unstable_period)|qrt|ar(ext)?|ma)|ht_(sine|trend(line|mode)|dcp(hase|eriod)|phasor)|natr|c(ci|o(s(h)?|rrel)|dl(s(ho(otingstar|rtline)|t(icksandwich|alledpattern)|pinningtop|eparatinglines)|h(i(kkake(mod)?|ghwave)|omingpigeon|a(ngingman|rami(cross)?|mmer))|c(o(ncealbabyswall|unterattack)|losingmarubozu)|t(hrusting|a(sukigap|kuri)|ristar)|i(n(neck|vertedhammer)|dentical3crows)|2crows|onneck|d(oji(star)?|arkcloudcover|ragonflydoji)|u(nique3river|psidegap2crows)|3(starsinsouth|inside|outside|whitesoldiers|linestrike|blackcrows)|piercing|e(ngulfing|vening(star|dojistar))|kicking(bylength)?|l(ongl(ine|eggeddoji)|adderbottom)|a(dvanceblock|bandonedbaby)|ri(sefall3methods|ckshawman)|g(apsidesidewhite|ravestonedoji)|xsidegap3methods|m(orning(star|dojistar)|a(t(hold|chinglow)|rubozu))|b(elthold|reakaway))|eil|mo)|t(sf|ypprice|3|ema|an(h)?|r(i(x|ma)|ange))|obv|d(iv|ema|x)|ultosc|p(po|lus_d(i|m))|e(rrno|xp|ma)|var|kama|floor|w(clprice|illr|ma)|l(n|inearreg(_(slope|intercept|angle))?|og10)|a(sin|cos|t(an|r)|d(osc|d|x(r)?)?|po|vgprice|roon(osc)?)|r(si|oc(p|r(100)?)?)|get_(compat|unstable_period)|m(i(n(index|us_d(i|m)|max(index)?)?|dp(oint|rice))|om|ult|edprice|fi|a(cd(ext|fix)?|vp|x(index)?|ma)?)|b(op|eta|bands))\b</string>
+					<string>(?i)\btrader_(a(d(d|x(r)?|osc)?|po|t(r|an)|cos|sin|roon(osc)?|vgprice)|d(x|iv|ema)|l(n|og1|inearreg(_(angle|slope|intercept))?)|m(a(x(index)?|cd(ext|fix)?|ma|vp)?|fi|i(n(max(index)?|index|us_d(i|m))?|dp(oint|rice))|om|ult|edprice)|t(3|an(h)?|sf|ema|r(i(x|ma)|ange)|ypprice)|b(op|eta|bands)|c(ci|mo|o(s(h)?|rrel)|eil|dl(d(oji(star)?|ragonflydoji|arkcloudcover)|2crows|h(a(mmer|rami(cross)?|ngingman)|i(kkake(mod)?|ghwave)|omingpigeon)|i(n(neck|vertedhammer)|dentical3crows)|onneck|t(a(kuri|sukigap)|ristar|hrusting)|3(inside|outside|blackcrows|linestrike|starsinsouth|whitesoldiers)|kicking(bylength)?|m(a(t(hold|chinglow)|rubozu)|orning(star|dojistar))|b(elthold|reakaway)|l(ongl(ine|eggeddoji)|adderbottom)|piercing|e(ngulfing|vening(star|dojistar))|s(ho(rtline|otingstar)|pinningtop|t(icksandwich|alledpattern)|eparatinglines)|ri(ckshawman|sefall3methods)|a(dvanceblock|bandonedbaby)|u(nique3river|psidegap2crows)|c(o(unterattack|ncealbabyswall)|losingmarubozu)|g(ravestonedoji|apsidesidewhite)|xsidegap3methods))|e(ma|xp|rrno)|obv|p(po|lus_d(i|m))|r(oc(p|r(10)?)?|si)|s(ar(ext)?|in(h)?|ma|u(b|m)|qrt|t(och(f|rsi)?|ddev)|et_(compat|unstable_period))|var|w(ma|illr|clprice)|kama|natr|floor|ultosc|ht_(sine|phasor|dcp(hase|eriod)|trend(line|mode))|get_(compat|unstable_period))\b</string>
 					<key>name</key>
 					<string>support.function.trader.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bUI\\(Draw\\Text\\Font\\fontFamilies|quit|run)\b</string>
+					<string>(?i)\bodbc_(e(xec(ute)?|rror(msg)?)|c(lose(_all)?|o(mmit|lumn(s|privileges)|nnect)|ursor)|r(esult(_all)?|ollback)|table(s|privileges)|binmode|p(r(epare|ocedure(s|columns)|imarykeys)|connect)|n(um_(rows|fields)|ext_result)|f(etch_(row|into|array|object)|ield_(len|n(um|ame)|type|scale)|oreignkeys|ree_result)|s(etoption|tatistics|pecialcolumns)|autocommit|data_source|gettypeinfo|longreadlen)\b</string>
 					<key>name</key>
-					<string>support.function.ui.php</string>
+					<string>support.function.uodbc.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\buopz_(co(py|mpose)|implement|overload|delete|undefine|extend|f(unction|lags)|re(store|name|define)|backup)\b</string>
+					<string>(?i)\buopz_(co(py|mpose)|f(lags|unction)|backup|del(ete|_function)|extend|re(name|store|define)|get_(hook|mock|return|static|property|exit_status)|overload|set_(hook|mock|return|static|property)|un(define|set_(hook|mock|return))|implement|a(llow_exit|dd_function))\b</string>
 					<key>name</key>
 					<string>support.function.uopz.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\b(http_build_query|url(decode|encode)|parse_url|rawurl(decode|encode)|get_(headers|meta_tags)|base64_(decode|encode))\b</string>
+					<string>(?i)\b(parse_url|url(decode|encode)|get_(headers|meta_tags)|rawurl(decode|encode)|base64_(decode|encode)|http_build_query)\b</string>
 					<key>name</key>
 					<string>support.function.url.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\b(s(trval|e(ttype|rialize))|i(s(set|_(s(calar|tring)|nu(ll|meric)|callable|i(nt(eger)?|terable)|object|double|float|long|array|re(source|al)|bool))|ntval|mport_request_variables)|d(oubleval|ebug_zval_dump)|unse(t|rialize)|print_r|empty|var_(dump|export)|floatval|get(type|_(defined_vars|resource_type))|boolval)\b</string>
+					<string>(?i)\b(empty|i(s(set|_(i(nt|terable)|bool|nu(ll|meric)|array|float|object|s(calar|tring)|c(allable|ountable)|resource))|ntval)|unse(t|rialize)|s(trval|e(ttype|rialize))|boolval|get(type|_(resource_(id|type)|defined_vars))|print_r|floatval|var_(dump|export)|debug_zval_dump)\b</string>
 					<key>name</key>
 					<string>support.function.var.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bwddx_(serialize_va(lue|rs)|deserialize|packet_(start|end)|add_vars)\b</string>
+					<string>(?i)\bwddx_(add_vars|packet_(end|start)|deserialize|serialize_va(rs|lue))\b</string>
 					<key>name</key>
 					<string>support.function.wddx.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bxhprof_(sample_(disable|enable)|disable|enable)\b</string>
+					<string>(?i)\bwin32_(s(t(op_service|art_service(_ctrl_dispatcher)?)|e(t_service_(status|exit_(code|mode))|nd_custom_control))|pause_service|c(reate_service|ontinue_service)|delete_service|query_service_status|get_last_control_message)\b</string>
+					<key>name</key>
+					<string>support.function.win32service.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\bwincache_(lock|u(nlock|cache_(add|c(as|lear)|de(c|lete)|get|in(c|fo)|set|exists|meminfo))|scache_(info|meminfo)|fcache_(meminfo|fileinfo)|ocache_(meminfo|fileinfo)|r(plist_(meminfo|fileinfo)|efresh_if_changed))\b</string>
+					<key>name</key>
+					<string>support.function.wincache.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\bxattr_(get|s(et|upported)|list|remove)\b</string>
+					<key>name</key>
+					<string>support.function.xattr.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\bxdiff_(file_(diff(_binary)?|b(diff(_size)?|patch)|patch(_binary)?|merge3|rabdiff)|string_(diff|b(diff(_size)?|patch)|patch(_binary)?|merge3))\b</string>
+					<key>name</key>
+					<string>support.function.xdiff.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\bxhprof_(enable|disable|sample_(enable|disable))\b</string>
 					<key>name</key>
 					<string>support.function.xhprof.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\b(utf8_(decode|encode)|xml_(set_(start_namespace_decl_handler|notation_decl_handler|character_data_handler|object|default_handler|unparsed_entity_decl_handler|processing_instruction_handler|e(nd_namespace_decl_handler|lement_handler|xternal_entity_ref_handler))|parse(_into_struct|r_(set_option|create(_ns)?|free|get_option))?|error_string|get_(current_(column_number|line_number|byte_index)|error_code)))\b</string>
+					<string>(?i)\b(xml_(parse(r_(free|create(_ns)?|get_option|set_option)|_into_struct)?|set_(object|default_handler|e(lement_handler|nd_namespace_decl_handler|xternal_entity_ref_handler)|notation_decl_handler|character_data_handler|start_namespace_decl_handler|unparsed_entity_decl_handler|processing_instruction_handler)|error_string|get_(error_code|current_(byte_index|line_number|column_number)))|utf8_(decode|encode))\b</string>
 					<key>name</key>
 					<string>support.function.xml.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bxmlrpc_(se(t_type|rver_(c(all_method|reate)|destroy|add_introspection_data|register_(introspection_callback|method)))|is_fault|decode(_request)?|parse_method_descriptions|encode(_request)?|get_type)\b</string>
+					<string>(?i)\bxmlrpc_(decode(_request)?|encode(_request)?|get_type|is_fault|se(t_type|rver_(c(reate|all_method)|destroy|register_(method|introspection_callback)|add_introspection_data))|parse_method_descriptions)\b</string>
 					<key>name</key>
 					<string>support.function.xmlrpc.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bxmlwriter_(s(tart_(c(omment|data)|d(td(_(e(ntity|lement)|attlist))?|ocument)|pi|element(_ns)?|attribute(_ns)?)|et_indent(_string)?)|text|o(utput_memory|pen_(uri|memory))|end_(c(omment|data)|d(td(_(e(ntity|lement)|attlist))?|ocument)|pi|element|attribute)|f(ull_end_element|lush)|write_(c(omment|data)|dtd(_(e(ntity|lement)|attlist))?|pi|element(_ns)?|attribute(_ns)?|raw))\b</string>
+					<string>(?i)\byaml_(emit(_file)?|parse(_(url|file))?)\b</string>
 					<key>name</key>
-					<string>support.function.xmlwriter.php</string>
+					<string>support.function.yaml.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\b(inflate_(init|add)|zlib_(decode|encode|get_coding_type)|deflate_(init|add)|readgzfile|gz(seek|c(ompress|lose)|tell|inflate|open|de(code|flate)|uncompress|p(uts|assthru)|e(ncode|of)|file|write|re(wind|ad)|get(s(s)?|c)))\b</string>
+					<string>(?i)\byaz_(e(s(_result)?|rr(no|or)|lement)|hits|s(c(an(_result)?|hema)|ort|e(arch|t_option)|yntax)|wait|c(lose|onnect|cl_(conf|parse))|r(ange|ecord)|addinfo|present|database|itemorder|get_option)\b</string>
+					<key>name</key>
+					<string>support.function.yaz.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\bzip_(open|read|close|entry_(name|open|read|c(lose|ompress(edsize|ionmethod))|filesize))\b</string>
+					<key>name</key>
+					<string>support.function.zip.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\b(gz(e(of|ncode)|file|get(c|s(s)?)|open|re(ad|wind)|seek|tell|c(lose|ompress)|write|de(code|flate)|inflate|passthru|uncompress)|readgzfile|deflate_(add|init)|inflate_(add|init|get_(status|read_len))|zlib_(decode|encode|get_coding_type))\b</string>
 					<key>name</key>
 					<string>support.function.zlib.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bis_int(eger)?\b</string>
+					<string>(?i)\bzookeeper_dispatch\b</string>
 					<key>name</key>
-					<string>support.function.alias.php</string>
+					<string>support.function.zookeeper.php</string>
 				</dict>
 			</array>
 		</dict>
