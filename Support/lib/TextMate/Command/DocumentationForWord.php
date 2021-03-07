@@ -6,7 +6,7 @@ namespace TextMate\Command;
 
 final class DocumentationForWord {
 	// https://www.php.net/docs.php
-	private const LANGUAGES = ['en', 'pt_BR', 'zh', 'fr', 'de', 'ja', 'ro', 'ru', 'es', 'tr'];
+	public const LANGUAGES = ['en', 'pt_BR', 'zh', 'fr', 'de', 'ja', 'ro', 'ru', 'es', 'tr'];
 
 	// https://www.php.net/manual/en/langref.php
 	// map order should follow the manual
