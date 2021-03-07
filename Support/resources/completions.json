@@ -123,11 +123,11 @@
     ],
     "APCUIterator": [
         "Constructs an APCUIterator iterator object",
-        "public APCUIterator::__construct ( mixed $search = null , int $format = APC_ITER_ALL , int $chunk_size = 100 , int $list = APC_LIST_ACTIVE )"
+        "new APCUIterator ( mixed $search = null , int $format = APC_ITER_ALL , int $chunk_size = 100 , int $list = APC_LIST_ACTIVE )"
     ],
     "AppendIterator": [
         "Constructs an AppendIterator",
-        "public AppendIterator::__construct ( )"
+        "new AppendIterator ( )"
     ],
     "array": [
         "Create an array",
@@ -344,11 +344,11 @@
     ],
     "ArrayIterator": [
         "Construct an ArrayIterator",
-        "public ArrayIterator::__construct ( mixed $array = array() , int $flags = 0 )"
+        "new ArrayIterator ( mixed $array = array() , int $flags = 0 )"
     ],
     "ArrayObject": [
         "Construct a new array object",
-        "public ArrayObject::__construct ( mixed $input = array() , int $flags = 0 , string $iterator_class = \"ArrayIterator\" )"
+        "new ArrayObject ( mixed $input = array() , int $flags = 0 , string $iterator_class = \"ArrayIterator\" )"
     ],
     "arsort": [
         "Sort an array in reverse order and maintain index association",
@@ -514,7 +514,7 @@
     ],
     "CachingIterator": [
         "Construct a new CachingIterator object for the iterator",
-        "public CachingIterator::__construct ( Iterator $iterator , int $flags = self::CALL_TOSTRING )"
+        "new CachingIterator ( Iterator $iterator , int $flags = self::CALL_TOSTRING )"
     ],
     "cal_days_in_month": [
         "Return the number of days in a month for a given year and calendar",
@@ -542,7 +542,7 @@
     ],
     "CallbackFilterIterator": [
         "Create a filtered iterator from another iterator",
-        "public CallbackFilterIterator::__construct ( Iterator $iterator , callable $callback )"
+        "new CallbackFilterIterator ( Iterator $iterator , callable $callback )"
     ],
     "ceil": [
         "Round fractions up",
@@ -648,13 +648,9 @@
         "Close connection to system logger",
         "closelog ( ) : bool"
     ],
-    "Closure": [
-        "Constructor that disallows instantiation",
-        "private Closure::__construct ( )"
-    ],
     "Collator": [
         "Create a collator",
-        "public Collator::__construct ( string $locale )"
+        "new Collator ( string $locale )"
     ],
     "collator_asort": [
         "Sort array maintaining index association",
@@ -710,7 +706,7 @@
     ],
     "com": [
         "com class constructor",
-        "public com::__construct ( string $module_name , array|string|null $server_name = null , int $codepage = CP_ACP , string $typelib = \"\" )"
+        "new com ( string $module_name , array|string|null $server_name = null , int $codepage = CP_ACP , string $typelib = \"\" )"
     ],
     "com_create_guid": [
         "Generate a globally unique identifier (GUID)",
@@ -742,7 +738,7 @@
     ],
     "COMPersistHelper": [
         "Construct a COMPersistHelper object",
-        "public COMPersistHelper::__construct ( variant|null $variant = null )"
+        "new COMPersistHelper ( variant|null $variant = null )"
     ],
     "connection_aborted": [
         "Check whether client disconnected",
@@ -1368,7 +1364,7 @@
     ],
     "CURLFile": [
         "Create a CURLFile object",
-        "public CURLFile::__construct ( string $filename , string|null $mime_type = null , string|null $posted_filename = null )"
+        "new CURLFile ( string $filename , string|null $mime_type = null , string|null $posted_filename = null )"
     ],
     "current": [
         "Return the current element in an array",
@@ -1560,25 +1556,25 @@
     ],
     "DateInterval": [
         "Creates a new DateInterval object",
-        "public DateInterval::__construct ( string $duration )"
+        "new DateInterval ( string $duration )"
     ],
     "DatePeriod": [
         "Creates a new DatePeriod object",
-        "public DatePeriod::__construct ( DateTimeInterface $start , DateInterval $interval , int $recurrences , int $options = 0 )",
-        "public DatePeriod::__construct ( DateTimeInterface $start , DateInterval $interval , DateTimeInterface $end , int $options = 0 )",
-        "public DatePeriod::__construct ( string $isostr , int $options = 0 )"
+        "new DatePeriod ( DateTimeInterface $start , DateInterval $interval , int $recurrences , int $options = 0 )",
+        "new DatePeriod ( DateTimeInterface $start , DateInterval $interval , DateTimeInterface $end , int $options = 0 )",
+        "new DatePeriod ( string $isostr , int $options = 0 )"
     ],
     "DateTime": [
         "Returns new DateTime object",
-        "public DateTime::__construct ( string $datetime = \"now\" , DateTimeZone|null $timezone = null )"
+        "new DateTime ( string $datetime = \"now\" , DateTimeZone|null $timezone = null )"
     ],
     "DateTimeImmutable": [
         "Returns new DateTimeImmutable object",
-        "public DateTimeImmutable::__construct ( string $datetime = \"now\" , DateTimeZone|null $timezone = null )"
+        "new DateTimeImmutable ( string $datetime = \"now\" , DateTimeZone|null $timezone = null )"
     ],
     "DateTimeZone": [
         "Creates new DateTimeZone object",
-        "public DateTimeZone::__construct ( string $timezone )"
+        "new DateTimeZone ( string $timezone )"
     ],
     "db2_autocommit": [
         "Returns or sets the AUTOCOMMIT state for a database connection",
@@ -2179,7 +2175,7 @@
     ],
     "DirectoryIterator": [
         "Constructs a new directory iterator from a path",
-        "public DirectoryIterator::__construct ( string $path )"
+        "new DirectoryIterator ( string $path )"
     ],
     "dirname": [
         "Returns a parent directory's path",
@@ -2211,27 +2207,27 @@
     ],
     "DOMAttr": [
         "Creates a new DOMAttr object",
-        "public DOMAttr::__construct ( string $name , string $value = \"\" )"
+        "new DOMAttr ( string $name , string $value = \"\" )"
     ],
     "DOMCdataSection": [
         "Constructs a new DOMCdataSection object",
-        "public DOMCdataSection::__construct ( string $data )"
+        "new DOMCdataSection ( string $data )"
     ],
     "DOMComment": [
         "Creates a new DOMComment object",
-        "public DOMComment::__construct ( string $data = \"\" )"
+        "new DOMComment ( string $data = \"\" )"
     ],
     "DOMDocument": [
         "Creates a new DOMDocument object",
-        "public DOMDocument::__construct ( string $version = \"1.0\" , string $encoding = \"\" )"
+        "new DOMDocument ( string $version = \"1.0\" , string $encoding = \"\" )"
     ],
     "DOMElement": [
         "Creates a new DOMElement object",
-        "public DOMElement::__construct ( string $qualifiedName , string|null $value = null , string $namespace = \"\" )"
+        "new DOMElement ( string $qualifiedName , string|null $value = null , string $namespace = \"\" )"
     ],
     "DOMEntityReference": [
         "Creates a new DOMEntityReference object",
-        "public DOMEntityReference::__construct ( string $name )"
+        "new DOMEntityReference ( string $name )"
     ],
     "DOMImplementation": [
         "Creates a new DOMImplementation object",
@@ -2239,19 +2235,19 @@
     ],
     "DOMProcessingInstruction": [
         "Creates a new DOMProcessingInstruction object",
-        "public DOMProcessingInstruction::__construct ( string $name , string $value = \"\" )"
+        "new DOMProcessingInstruction ( string $name , string $value = \"\" )"
     ],
     "DOMText": [
         "Creates a new DOMText object",
-        "public DOMText::__construct ( string $data = \"\" )"
+        "new DOMText ( string $data = \"\" )"
     ],
     "DOMXPath": [
         "Creates a new DOMXPath object",
-        "public DOMXPath::__construct ( DOMDocument $document , bool $registerNodeNS = true )"
+        "new DOMXPath ( DOMDocument $document , bool $registerNodeNS = true )"
     ],
     "dotnet": [
         "dotnet class constructor",
-        "public dotnet::__construct ( string $assembly_name , string $datatype_name , int $codepage = CP_ACP )"
+        "new dotnet ( string $assembly_name , string $datatype_name , int $codepage = CP_ACP )"
     ],
     "each": [
         "Return the current key and value pair from an array and advance the array cursor",
@@ -2615,7 +2611,7 @@
     ],
     "Error": [
         "Construct the error object",
-        "public Error::__construct ( string $message = \"\" , int $code = 0 , Throwable $previous = null )"
+        "new Error ( string $message = \"\" , int $code = 0 , Throwable $previous = null )"
     ],
     "error_clear_last": [
         "Clear the most recent error",
@@ -2635,7 +2631,7 @@
     ],
     "ErrorException": [
         "Constructs the exception",
-        "public ErrorException::__construct ( string $message = \"\" , int $code = 0 , int $severity = E_ERROR , string $filename = __FILE__ , int $lineno = __LINE__ , Exception $previous = null )"
+        "new ErrorException ( string $message = \"\" , int $code = 0 , int $severity = E_ERROR , string $filename = __FILE__ , int $lineno = __LINE__ , Exception $previous = null )"
     ],
     "escapeshellarg": [
         "Escape a string to be used as a shell argument",
@@ -2651,107 +2647,99 @@
     ],
     "EvCheck": [
         "Constructs the EvCheck watcher object",
-        "public EvCheck::__construct (  callable $callback  ,  mixed $data  = ? ,  int $priority  = ? )"
+        "new EvCheck (  callable $callback  ,  mixed $data  = ? ,  int $priority  = ? )"
     ],
     "EvChild": [
         "Constructs the EvChild watcher object",
-        "public EvChild::__construct (  int $pid  ,  bool $trace  ,  callable $callback  ,  mixed $data  = null  ,  int $priority  = 0  )"
+        "new EvChild (  int $pid  ,  bool $trace  ,  callable $callback  ,  mixed $data  = null  ,  int $priority  = 0  )"
     ],
     "EvEmbed": [
         "Constructs the EvEmbed object",
-        "public EvEmbed::__construct (  object $other  ,  callable $callback  = ? ,  mixed $data  = ? ,  int $priority  = ? )"
+        "new EvEmbed (  object $other  ,  callable $callback  = ? ,  mixed $data  = ? ,  int $priority  = ? )"
     ],
     "Event": [
         "Constructs Event object",
-        "public Event::__construct (  EventBase $base  ,  mixed $fd  ,  int $what  ,  callable $cb  ,  mixed $arg  = NULL  )"
+        "new Event (  EventBase $base  ,  mixed $fd  ,  int $what  ,  callable $cb  ,  mixed $arg  = NULL  )"
     ],
     "EventBase": [
         "Constructs EventBase object",
-        "public EventBase::__construct (  EventConfig $cfg  = ? )"
+        "new EventBase (  EventConfig $cfg  = ? )"
     ],
     "EventBuffer": [
         "Constructs EventBuffer object",
-        "public EventBuffer::__construct ( )"
+        "new EventBuffer ( )"
     ],
     "EventBufferEvent": [
         "Constructs EventBufferEvent object",
-        "public EventBufferEvent::__construct (  EventBase $base  ,  mixed $socket  = null  ,  int $options  = 0  ,  callable $readcb  = null  ,  callable $writecb  = null  ,  callable $eventcb  = null  )"
+        "new EventBufferEvent (  EventBase $base  ,  mixed $socket  = null  ,  int $options  = 0  ,  callable $readcb  = null  ,  callable $writecb  = null  ,  callable $eventcb  = null  )"
     ],
     "EventConfig": [
         "Constructs EventConfig object",
-        "public EventConfig::__construct ( )"
+        "new EventConfig ( )"
     ],
     "EventDnsBase": [
         "Constructs EventDnsBase object",
-        "public EventDnsBase::__construct (  EventBase $base  ,  bool $initialize  )"
+        "new EventDnsBase (  EventBase $base  ,  bool $initialize  )"
     ],
     "EventHttp": [
         "Constructs EventHttp object(the HTTP server)",
-        "public EventHttp::__construct (  EventBase $base  ,  EventSslContext $ctx  = null  )"
+        "new EventHttp (  EventBase $base  ,  EventSslContext $ctx  = null  )"
     ],
     "EventHttpConnection": [
         "Constructs EventHttpConnection object",
-        "public EventHttpConnection::__construct (  EventBase $base  ,  EventDnsBase $dns_base  ,  string $address  ,  int $port  ,  EventSslContext $ctx  = null  )"
+        "new EventHttpConnection (  EventBase $base  ,  EventDnsBase $dns_base  ,  string $address  ,  int $port  ,  EventSslContext $ctx  = null  )"
     ],
     "EventHttpRequest": [
         "Constructs EventHttpRequest object",
-        "public EventHttpRequest::__construct (  callable $callback  ,  mixed $data  = null  )"
+        "new EventHttpRequest (  callable $callback  ,  mixed $data  = null  )"
     ],
     "EventListener": [
         "Creates new connection listener associated with an event base",
-        "public EventListener::__construct (  EventBase $base  ,  callable $cb  ,  mixed $data  ,  int $flags  ,  int $backlog  ,  mixed $target  )"
+        "new EventListener (  EventBase $base  ,  callable $cb  ,  mixed $data  ,  int $flags  ,  int $backlog  ,  mixed $target  )"
     ],
     "EventSslContext": [
         "Constructs an OpenSSL context for use with Event classes",
-        "public EventSslContext::__construct (  string $method  ,  string $options  )"
-    ],
-    "EventUtil": [
-        "The abstract constructor",
-        "abstract public EventUtil::__construct ( )"
+        "new EventSslContext (  string $method  ,  string $options  )"
     ],
     "EvFork": [
         "Constructs the EvFork watcher object",
-        "public EvFork::__construct (  callable $callback  ,  mixed $data  = null  ,  int $priority  = 0  )"
+        "new EvFork (  callable $callback  ,  mixed $data  = null  ,  int $priority  = 0  )"
     ],
     "EvIdle": [
         "Constructs the EvIdle watcher object",
-        "public EvIdle::__construct (  callable $callback  ,  mixed $data  = ? ,  int $priority  = ? )"
+        "new EvIdle (  callable $callback  ,  mixed $data  = ? ,  int $priority  = ? )"
     ],
     "EvIo": [
         "Constructs EvIo watcher object",
-        "public EvIo::__construct (  mixed $fd  ,  int $events  ,  callable $callback  ,  mixed $data  = ? ,  int $priority  = ? )"
+        "new EvIo (  mixed $fd  ,  int $events  ,  callable $callback  ,  mixed $data  = ? ,  int $priority  = ? )"
     ],
     "EvLoop": [
         "Constructs the event loop object",
-        "public EvLoop::__construct (  int $flags  = ? ,  mixed $data  = NULL  ,  float $io_interval  = 0.0  ,  float $timeout_interval  = 0.0  )"
+        "new EvLoop (  int $flags  = ? ,  mixed $data  = NULL  ,  float $io_interval  = 0.0  ,  float $timeout_interval  = 0.0  )"
     ],
     "EvPeriodic": [
         "Constructs EvPeriodic watcher object",
-        "public EvPeriodic::__construct (  float $offset  ,  string $interval  ,  callable $reschedule_cb  ,  callable $callback  ,  mixed $data  = null  ,  int $priority  = 0  )"
+        "new EvPeriodic (  float $offset  ,  string $interval  ,  callable $reschedule_cb  ,  callable $callback  ,  mixed $data  = null  ,  int $priority  = 0  )"
     ],
     "EvPrepare": [
         "Constructs EvPrepare watcher object",
-        "public EvPrepare::__construct (  string $callback  ,  string $data  = ? ,  string $priority  = ? )"
+        "new EvPrepare (  string $callback  ,  string $data  = ? ,  string $priority  = ? )"
     ],
     "EvSignal": [
         "Constructs EvSignal watcher object",
-        "public EvSignal::__construct (  int $signum  ,  callable $callback  ,  mixed $data  = null  ,  int $priority  = 0  )"
+        "new EvSignal (  int $signum  ,  callable $callback  ,  mixed $data  = null  ,  int $priority  = 0  )"
     ],
     "EvStat": [
         "Constructs EvStat watcher object",
-        "public EvStat::__construct (  string $path  ,  float $interval  ,  callable $callback  ,  mixed $data  = null  ,  int $priority  = 0  )"
+        "new EvStat (  string $path  ,  float $interval  ,  callable $callback  ,  mixed $data  = null  ,  int $priority  = 0  )"
     ],
     "EvTimer": [
         "Constructs an EvTimer watcher object",
-        "public EvTimer::__construct (  float $after  ,  float $repeat  ,  callable $callback  ,  mixed $data  = null  ,  int $priority  = 0  )"
-    ],
-    "EvWatcher": [
-        "Abstract constructor of a watcher object",
-        "abstract public EvWatcher::__construct ( )"
+        "new EvTimer (  float $after  ,  float $repeat  ,  callable $callback  ,  mixed $data  = null  ,  int $priority  = 0  )"
     ],
     "Exception": [
         "Construct the exception",
-        "public Exception::__construct ( string $message = \"\" , int $code = 0 , Throwable $previous = null )"
+        "new Exception ( string $message = \"\" , int $code = 0 , Throwable $previous = null )"
     ],
     "exec": [
         "Execute an external program",
@@ -3376,7 +3364,7 @@
     ],
     "FANNConnection": [
         "The connection constructor",
-        "public FANNConnection::__construct ( int $from_neuron , int $to_neuron , float $weight )"
+        "new FANNConnection ( int $from_neuron , int $to_neuron , float $weight )"
     ],
     "fastcgi_finish_request": [
         "Flushes all response data to the client",
@@ -3515,7 +3503,7 @@
         "fbsql_free_result ( resource $result ) : bool"
     ],
     "fbsql_get_autostart_info": [
-        "",
+        "<not documented>",
         "fbsql_get_autostart_info ( resource $link_identifier = ? ) : array"
     ],
     "fbsql_hostname": [
@@ -3872,7 +3860,7 @@
     ],
     "FilesystemIterator": [
         "Constructs a new filesystem iterator",
-        "public FilesystemIterator::__construct ( string $path , int $flags = FilesystemIterator::KEY_AS_PATHNAME | FilesystemIterator::CURRENT_AS_FILEINFO | FilesystemIterator::SKIP_DOTS )"
+        "new FilesystemIterator ( string $path , int $flags = FilesystemIterator::KEY_AS_PATHNAME | FilesystemIterator::CURRENT_AS_FILEINFO | FilesystemIterator::SKIP_DOTS )"
     ],
     "filetype": [
         "Gets file type",
@@ -3908,11 +3896,11 @@
     ],
     "FilterIterator": [
         "Construct a filterIterator",
-        "public FilterIterator::__construct ( Iterator $iterator )"
+        "new FilterIterator ( Iterator $iterator )"
     ],
     "finfo": [
-        "Alias of finfo_open()",
-        "public finfo::__construct ( int $flags = FILEINFO_NONE , string $magic_database = \"\" )"
+        "Create a new fileinfo resource",
+        "new finfo ( int $flags = FILEINFO_NONE , string $magic_database = \"\" )"
     ],
     "finfo_buffer": [
         "Return information about a string buffer",
@@ -4208,19 +4196,19 @@
     ],
     "GearmanClient": [
         "Create a GearmanClient instance",
-        "public GearmanClient::__construct ( )"
+        "new GearmanClient ( )"
     ],
     "GearmanJob": [
         "Create a GearmanJob instance",
-        "public GearmanJob::__construct ( )"
+        "new GearmanJob ( )"
     ],
     "GearmanTask": [
         "Create a GearmanTask instance",
-        "public GearmanTask::__construct ( )"
+        "new GearmanTask ( )"
     ],
     "GearmanWorker": [
         "Create a GearmanWorker instance",
-        "public GearmanWorker::__construct ( )"
+        "new GearmanWorker ( )"
     ],
     "geoip_asnum_by_name": [
         "Get the Autonomous System Numbers (ASN)",
@@ -4517,15 +4505,15 @@
     ],
     "GlobIterator": [
         "Construct a directory using glob",
-        "public GlobIterator::__construct ( string $pattern , int $flags = FilesystemIterator::KEY_AS_PATHNAME | FilesystemIterator::CURRENT_AS_FILEINFO )"
+        "new GlobIterator ( string $pattern , int $flags = FilesystemIterator::KEY_AS_PATHNAME | FilesystemIterator::CURRENT_AS_FILEINFO )"
     ],
     "Gmagick": [
         "The Gmagick constructor",
-        "public Gmagick::__construct ( string $filename = ? )"
+        "new Gmagick ( string $filename = ? )"
     ],
     "GmagickPixel": [
         "The GmagickPixel constructor",
-        "public GmagickPixel::__construct ( string $color = ? )"
+        "new GmagickPixel ( string $color = ? )"
     ],
     "gmdate": [
         "Format a GMT\/UTC date\/time",
@@ -5002,10 +4990,6 @@
     "hash_update_stream": [
         "Pump data into an active hashing context from an open stream",
         "hash_update_stream ( HashContext $context , resource $stream , int $length = -1 ) : int"
-    ],
-    "HashContext": [
-        "Private constructor to disallow direct instantiation",
-        "private HashContext::__construct ( )"
     ],
     "header": [
         "Send a raw HTTP header",
@@ -5775,19 +5759,19 @@
     ],
     "Imagick": [
         "The Imagick constructor",
-        "public Imagick::__construct ( mixed $files = ? )"
+        "new Imagick ( mixed $files = ? )"
     ],
     "ImagickDraw": [
         "The ImagickDraw constructor",
-        "public ImagickDraw::__construct ( )"
+        "new ImagickDraw ( )"
     ],
     "ImagickPixel": [
         "The ImagickPixel constructor",
-        "public ImagickPixel::__construct ( string $color = ? )"
+        "new ImagickPixel ( string $color = ? )"
     ],
     "ImagickPixelIterator": [
         "The ImagickPixelIterator constructor",
-        "public ImagickPixelIterator::__construct ( Imagick $wand )"
+        "new ImagickPixelIterator ( Imagick $wand )"
     ],
     "imap_8bit": [
         "Convert an 8bit string to a quoted-printable string",
@@ -6077,7 +6061,7 @@
     ],
     "InfiniteIterator": [
         "Constructs an InfiniteIterator",
-        "public InfiniteIterator::__construct ( Iterator $iterator )"
+        "new InfiniteIterator ( Iterator $iterator )"
     ],
     "inflate_add": [
         "Incrementally inflate encoded data",
@@ -6280,20 +6264,16 @@
         "intl_error_name ( int $errorCode ) : string"
     ],
     "intl_get_error_code": [
-        "Get last error code on the object",
+        "Get the last error code",
         "intl_get_error_code ( ) : int"
     ],
     "intl_get_error_message": [
-        "Get last error message on the object",
+        "Get description of the last error",
         "intl_get_error_message ( ) : string"
     ],
     "intl_is_failure": [
         "Check whether the given error code indicates failure",
         "intl_is_failure ( int $errorCode ) : bool"
-    ],
-    "IntlBreakIterator": [
-        "Private constructor for disallowing instantiation",
-        "private IntlBreakIterator::__construct ( )"
     ],
     "intlcal_add": [
         "Add a (signed) amount of time to a field",
@@ -6476,23 +6456,19 @@
         "Convert an IntlCalendar into a DateTime object",
         "intlcal_to_date_time ( IntlCalendar $cal ) : DateTime"
     ],
-    "IntlCalendar": [
-        "Private constructor for disallowing instantiation",
-        "private IntlCalendar::__construct ( )"
-    ],
     "IntlDateFormatter": [
         "Create a date formatter",
-        "public IntlDateFormatter::__construct ( string|null $locale , int $dateType , int $timeType , IntlTimeZone|DateTimeZone|string|null $timezone = null , IntlCalendar|int|null $calendar = null , string $pattern = \"\" )"
+        "new IntlDateFormatter ( string|null $locale , int $dateType , int $timeType , IntlTimeZone|DateTimeZone|string|null $timezone = null , IntlCalendar|int|null $calendar = null , string $pattern = \"\" )"
     ],
     "IntlGregorianCalendar": [
         "Create the Gregorian Calendar class",
-        "public IntlGregorianCalendar::__construct ( IntlTimeZone $tz = ? , string $locale = ? )",
-        "public IntlGregorianCalendar::__construct ( int $timeZoneOrYear , int $localeOrMonth , int $dayOfMonth )",
-        "public IntlGregorianCalendar::__construct ( int $timeZoneOrYear , int $localeOrMonth , int $dayOfMonth , int $hour , int $minute , int $second = ? )"
+        "new IntlGregorianCalendar ( IntlTimeZone $tz = ? , string $locale = ? )",
+        "new IntlGregorianCalendar ( int $timeZoneOrYear , int $localeOrMonth , int $dayOfMonth )",
+        "new IntlGregorianCalendar ( int $timeZoneOrYear , int $localeOrMonth , int $dayOfMonth , int $hour , int $minute , int $second = ? )"
     ],
     "IntlRuleBasedBreakIterator": [
         "Create iterator from ruleset",
-        "public IntlRuleBasedBreakIterator::__construct ( string $rules , string $areCompiled = ? )"
+        "new IntlRuleBasedBreakIterator ( string $rules , string $areCompiled = ? )"
     ],
     "intltz_count_equivalent_ids": [
         "Get the number of IDs in the equivalency group that includes the given ID",
@@ -6732,7 +6708,7 @@
     ],
     "IteratorIterator": [
         "Create an iterator from anything that is traversable",
-        "public IteratorIterator::__construct ( Traversable $iterator )"
+        "new IteratorIterator ( Traversable $iterator )"
     ],
     "jddayofweek": [
         "Returns the day of the week",
@@ -7081,7 +7057,7 @@
     ],
     "LimitIterator": [
         "Construct a LimitIterator",
-        "public LimitIterator::__construct ( Iterator $iterator , int $offset = 0 , int $limit = -1 )"
+        "new LimitIterator ( Iterator $iterator , int $offset = 0 , int $limit = -1 )"
     ],
     "link": [
         "Create a hard link",
@@ -7225,7 +7201,7 @@
     ],
     "Lua": [
         "Lua constructor",
-        "public Lua::__construct ( string $lua_script_file = NULL )"
+        "new Lua ( string $lua_script_file = NULL )"
     ],
     "LuaSandboxFunction": [
         "Unused",
@@ -7713,7 +7689,7 @@
     ],
     "Memcached": [
         "Create a Memcached instance",
-        "public Memcached::__construct ( string $persistent_id = ? )"
+        "new Memcached ( string $persistent_id = ? )"
     ],
     "memory_get_peak_usage": [
         "Returns the peak of memory allocated by PHP",
@@ -7725,7 +7701,7 @@
     ],
     "MessageFormatter": [
         "Constructs a new Message Formatter",
-        "public MessageFormatter::__construct ( string $locale , string $pattern )"
+        "new MessageFormatter ( string $locale , string $pattern )"
     ],
     "metaphone": [
         "Calculate the metaphone key of a string",
@@ -7782,87 +7758,83 @@
     ],
     "Mongo": [
         "The __construct purpose",
-        "public Mongo::__construct ( string $server = ? , array $options = ? )"
+        "new Mongo ( string $server = ? , array $options = ? )"
     ],
     "MongoBinData": [
         "Creates a new binary data object",
-        "public MongoBinData::__construct ( string $data , int $type = 0 )"
+        "new MongoBinData ( string $data , int $type = 0 )"
     ],
     "MongoClient": [
         "Creates a new database connection object",
-        "public MongoClient::__construct ( string $server = \"mongodb:\/\/localhost:27017\" , array $options = array(\"connect\" => true) , array $driver_options = ? )"
+        "new MongoClient ( string $server = \"mongodb:\/\/localhost:27017\" , array $options = array(\"connect\" => true) , array $driver_options = ? )"
     ],
     "MongoCode": [
         "Creates a new code object",
-        "public MongoCode::__construct ( string $code , array $scope = array() )"
+        "new MongoCode ( string $code , array $scope = array() )"
     ],
     "MongoCollection": [
         "Creates a new collection",
-        "public MongoCollection::__construct ( MongoDB $db , string $name )"
+        "new MongoCollection ( MongoDB $db , string $name )"
     ],
     "MongoCommandCursor": [
         "Create a new command cursor",
-        "public MongoCommandCursor::__construct ( MongoClient $connection , string $ns , array $command = array() )"
+        "new MongoCommandCursor ( MongoClient $connection , string $ns , array $command = array() )"
     ],
     "MongoCursor": [
         "Create a new cursor",
-        "public MongoCursor::__construct ( MongoClient $connection , string $ns , array $query = array() , array $fields = array() )"
+        "new MongoCursor ( MongoClient $connection , string $ns , array $query = array() , array $fields = array() )"
     ],
     "MongoDate": [
         "Creates a new date",
-        "public MongoDate::__construct ( int $sec = time() , int $usec = 0 )"
+        "new MongoDate ( int $sec = time() , int $usec = 0 )"
     ],
     "MongoDB": [
         "Creates a new database",
-        "public MongoDB::__construct ( MongoClient $conn , string $name )"
+        "new MongoDB ( MongoClient $conn , string $name )"
     ],
     "MongoDeleteBatch": [
         "Description",
-        "public MongoDeleteBatch::__construct ( MongoCollection $collection , array $write_options = ? )"
+        "new MongoDeleteBatch ( MongoCollection $collection , array $write_options = ? )"
     ],
     "MongoGridFS": [
         "Creates new file collections",
-        "public MongoGridFS::__construct ( MongoDB $db , string $prefix = \"fs\" , mixed $chunks = \"fs\" )"
+        "new MongoGridFS ( MongoDB $db , string $prefix = \"fs\" , mixed $chunks = \"fs\" )"
     ],
     "MongoGridFSCursor": [
         "Create a new cursor",
-        "public MongoGridFSCursor::__construct ( MongoGridFS $gridfs , resource $connection , string $ns , array $query , array $fields )"
+        "new MongoGridFSCursor ( MongoGridFS $gridfs , resource $connection , string $ns , array $query , array $fields )"
     ],
     "MongoGridFSFile": [
         "Create a new GridFS file",
-        "public MongoGridfsFile::__construct ( MongoGridFS $gridfs , array $file )"
+        "new MongoGridfsFile ( MongoGridFS $gridfs , array $file )"
     ],
     "MongoId": [
         "Creates a new id",
-        "public MongoId::__construct ( string|MongoId $id = null )"
+        "new MongoId ( string|MongoId $id = null )"
     ],
     "MongoInsertBatch": [
         "Description",
-        "public MongoInsertBatch::__construct ( MongoCollection $collection , array $write_options = ? )"
+        "new MongoInsertBatch ( MongoCollection $collection , array $write_options = ? )"
     ],
     "MongoInt32": [
         "Creates a new 32-bit integer",
-        "public MongoInt32::__construct ( string $value )"
+        "new MongoInt32 ( string $value )"
     ],
     "MongoInt64": [
         "Creates a new 64-bit integer",
-        "public MongoInt64::__construct ( string $value )"
+        "new MongoInt64 ( string $value )"
     ],
     "MongoRegex": [
         "Creates a new regular expression",
-        "public MongoRegex::__construct ( string $regex )"
+        "new MongoRegex ( string $regex )"
     ],
     "MongoTimestamp": [
         "Creates a new timestamp",
-        "public MongoTimestamp::__construct ( int $sec = time() , int $inc = ? )"
+        "new MongoTimestamp ( int $sec = time() , int $inc = ? )"
     ],
     "MongoUpdateBatch": [
         "Description",
-        "public MongoUpdateBatch::__construct ( MongoCollection $collection , array $write_options = ? )"
-    ],
-    "MongoWriteBatch": [
-        "Creates a new batch of write operations",
-        "protected MongoWriteBatch::__construct ( MongoCollection $collection , string $batch_type = ? , array $write_options = ? )"
+        "new MongoUpdateBatch ( MongoCollection $collection , array $write_options = ? )"
     ],
     "move_uploaded_file": [
         "Moves an uploaded file to a new location",
@@ -8007,7 +7979,7 @@
     ],
     "MultipleIterator": [
         "Constructs a new MultipleIterator",
-        "public MultipleIterator::__construct (  int $flags  = MultipleIterator::MIT_NEED_ALL|MultipleIterator::MIT_KEYS_NUMERIC  )"
+        "new MultipleIterator (  int $flags  = MultipleIterator::MIT_NEED_ALL|MultipleIterator::MIT_KEYS_NUMERIC  )"
     ],
     "mysql_affected_rows": [
         "Get number of affected rows in previous MySQL operation",
@@ -8203,7 +8175,7 @@
     ],
     "mysqli": [
         "Open a new connection to the MySQL server",
-        "public mysqli::__construct ( string $host = ini_get(\"mysqli.default_host\") , string $username = ini_get(\"mysqli.default_user\") , string $passwd = ini_get(\"mysqli.default_pw\") , string $dbname = \"\" , int $port = ini_get(\"mysqli.default_port\") , string $socket = ini_get(\"mysqli.default_socket\") )"
+        "new mysqli ( string $host = ini_get(\"mysqli.default_host\") , string $username = ini_get(\"mysqli.default_user\") , string $passwd = ini_get(\"mysqli.default_pw\") , string $dbname = \"\" , int $port = ini_get(\"mysqli.default_port\") , string $socket = ini_get(\"mysqli.default_socket\") )"
     ],
     "mysqli_affected_rows": [
         "Gets the number of affected rows in a previous MySQL operation",
@@ -8487,7 +8459,7 @@
     ],
     "mysqli_stmt": [
         "Constructs a new mysqli_stmt object",
-        "public mysqli_stmt::__construct ( mysqli $link , string $query = ? )"
+        "new mysqli_stmt ( mysqli $link , string $query = ? )"
     ],
     "mysqli_stmt_affected_rows": [
         "Returns the total number of rows changed, deleted, or\n  inserted by the last executed statement",
@@ -8739,11 +8711,11 @@
     ],
     "MysqlndUhConnection": [
         "The __construct purpose",
-        "public MysqlndUhConnection::__construct ( )"
+        "new MysqlndUhConnection ( )"
     ],
     "MysqlndUhPreparedStatement": [
         "The __construct purpose",
-        "public MysqlndUhPreparedStatement::__construct ( )"
+        "new MysqlndUhPreparedStatement ( )"
     ],
     "natcasesort": [
         "Sort an array using a case insensitive \"natural order\" algorithm",
@@ -9411,7 +9383,7 @@
     ],
     "NoRewindIterator": [
         "Construct a NoRewindIterator",
-        "public NoRewindIterator::__construct ( Iterator $iterator )"
+        "new NoRewindIterator ( Iterator $iterator )"
     ],
     "normalizer_get_raw_decomposition": [
         "Gets the Decomposition_Mapping property for the given UTF-8 encoded code point",
@@ -9431,7 +9403,7 @@
     ],
     "NumberFormatter": [
         "Create a number formatter",
-        "public NumberFormatter::__construct ( string $locale , int $style , string $pattern = ? )"
+        "new NumberFormatter ( string $locale , int $style , string $pattern = ? )"
     ],
     "numfmt_create": [
         "Create a number formatter",
@@ -9499,7 +9471,7 @@
     ],
     "OAuth": [
         "Create a new OAuth object",
-        "public OAuth::__construct ( string $consumer_key , string $consumer_secret , string $signature_method = OAUTH_SIG_METHOD_HMACSHA1 , int $auth_type = 0 )"
+        "new OAuth ( string $consumer_key , string $consumer_secret , string $signature_method = OAUTH_SIG_METHOD_HMACSHA1 , int $auth_type = 0 )"
     ],
     "oauth_get_sbs": [
         "Generate a Signature Base String",
@@ -9511,7 +9483,7 @@
     ],
     "OAuthProvider": [
         "Constructs a new OAuthProvider object",
-        "public OAuthProvider::__construct ( array $params_array = ? )"
+        "new OAuthProvider ( array $params_array = ? )"
     ],
     "ob_clean": [
         "Clean (erase) the output buffer",
@@ -10348,7 +10320,7 @@
     ],
     "ParentIterator": [
         "Constructs a ParentIterator",
-        "public ParentIterator::__construct ( RecursiveIterator $iterator )"
+        "new ParentIterator ( RecursiveIterator $iterator )"
     ],
     "parse_ini_file": [
         "Parse a configuration file",
@@ -10488,7 +10460,7 @@
     ],
     "PDO": [
         "Creates a PDO instance representing a connection to a database",
-        "public PDO::__construct ( string $dsn , string $username = ? , string $passwd = ? , array $options = ? )"
+        "new PDO ( string $dsn , string $username = ? , string $passwd = ? , array $options = ? )"
     ],
     "pdo_drivers": [
         "Return an array of available PDO drivers",
@@ -10861,15 +10833,15 @@
     ],
     "Phar": [
         "Construct a Phar archive object",
-        "public Phar::__construct ( string $fname , int $flags = ? , string $alias = ? )"
+        "new Phar ( string $fname , int $flags = ? , string $alias = ? )"
     ],
     "PharData": [
         "Construct a non-executable tar or zip archive object",
-        "public PharData::__construct ( string $fname , int $flags = ? , string $alias = ? , int $format = Phar::TAR )"
+        "new PharData ( string $fname , int $flags = ? , string $alias = ? , int $format = Phar::TAR )"
     ],
     "PharFileInfo": [
         "Construct a Phar entry object",
-        "public PharFileInfo::__construct ( string $entry )"
+        "new PharFileInfo ( string $entry )"
     ],
     "php_ini_loaded_file": [
         "Retrieve a path to the loaded php.ini file",
@@ -10920,7 +10892,7 @@
         "phpdbg_color ( int $element , string $color ) : void"
     ],
     "phpdbg_end_oplog": [
-        "",
+        "<not documented>",
         "phpdbg_end_oplog ( array $options = [] ) : array|null"
     ],
     "phpdbg_exec": [
@@ -10928,7 +10900,7 @@
         "phpdbg_exec ( string $context ) : string|bool"
     ],
     "phpdbg_get_executable": [
-        "",
+        "<not documented>",
         "phpdbg_get_executable ( array $options = [] ) : array"
     ],
     "phpdbg_prompt": [
@@ -10936,7 +10908,7 @@
         "phpdbg_prompt ( string $string ) : void"
     ],
     "phpdbg_start_oplog": [
-        "",
+        "<not documented>",
         "phpdbg_start_oplog ( ) : void"
     ],
     "phpinfo": [
@@ -10945,7 +10917,7 @@
     ],
     "PhpToken": [
         "Returns a new PhpToken object",
-        "final public PhpToken::__construct ( int $id , string $text , int $line = -1 , int $pos = -1 )"
+        "final new PhpToken ( int $id , string $text , int $line = -1 , int $pos = -1 )"
     ],
     "phpversion": [
         "Gets the current PHP version",
@@ -10961,7 +10933,7 @@
     ],
     "Pool": [
         "Creates a new Pool of Workers",
-        "public Pool::__construct ( int $size , string $class = ? , array $ctor = ? ) : Pool"
+        "new Pool ( int $size , string $class = ? , array $ctor = ? ) : Pool"
     ],
     "popen": [
         "Opens process file pointer",
@@ -11693,19 +11665,19 @@
     ],
     "QuickHashIntHash": [
         "Creates a new QuickHashIntHash object",
-        "public QuickHashIntHash::__construct ( int $size , int $options = ? )"
+        "new QuickHashIntHash ( int $size , int $options = ? )"
     ],
     "QuickHashIntSet": [
         "Creates a new QuickHashIntSet object",
-        "public QuickHashIntSet::__construct ( int $size , int $options = ? )"
+        "new QuickHashIntSet ( int $size , int $options = ? )"
     ],
     "QuickHashIntStringHash": [
         "Creates a new QuickHashIntStringHash object",
-        "public QuickHashIntStringHash::__construct ( int $size , int $options = 0 )"
+        "new QuickHashIntStringHash ( int $size , int $options = 0 )"
     ],
     "QuickHashStringIntHash": [
         "Creates a new QuickHashStringIntHash object",
-        "public QuickHashStringIntHash::__construct ( int $size , int $options = 0 )"
+        "new QuickHashStringIntHash ( int $size , int $options = 0 )"
     ],
     "quoted_printable_decode": [
         "Convert a quoted-printable string to an 8 bit string",
@@ -11986,76 +11958,76 @@
     ],
     "RecursiveCachingIterator": [
         "Construct",
-        "public RecursiveCachingIterator::__construct ( Iterator $iterator , int $flags = self::CALL_TOSTRING )"
+        "new RecursiveCachingIterator ( Iterator $iterator , int $flags = self::CALL_TOSTRING )"
     ],
     "RecursiveCallbackFilterIterator": [
         "Create a RecursiveCallbackFilterIterator from a RecursiveIterator",
-        "public RecursiveCallbackFilterIterator::__construct ( RecursiveIterator $iterator , string $callback )"
+        "new RecursiveCallbackFilterIterator ( RecursiveIterator $iterator , string $callback )"
     ],
     "RecursiveDirectoryIterator": [
         "Constructs a RecursiveDirectoryIterator",
-        "public RecursiveDirectoryIterator::__construct ( string $path , int $flags = FilesystemIterator::KEY_AS_PATHNAME | FilesystemIterator::CURRENT_AS_FILEINFO )"
+        "new RecursiveDirectoryIterator ( string $path , int $flags = FilesystemIterator::KEY_AS_PATHNAME | FilesystemIterator::CURRENT_AS_FILEINFO )"
     ],
     "RecursiveFilterIterator": [
         "Create a RecursiveFilterIterator from a RecursiveIterator",
-        "public RecursiveFilterIterator::__construct ( RecursiveIterator $iterator )"
+        "new RecursiveFilterIterator ( RecursiveIterator $iterator )"
     ],
     "RecursiveIteratorIterator": [
         "Construct a RecursiveIteratorIterator",
-        "public RecursiveIteratorIterator::__construct ( Traversable $iterator , int $mode = RecursiveIteratorIterator::LEAVES_ONLY , int $flags = 0 )"
+        "new RecursiveIteratorIterator ( Traversable $iterator , int $mode = RecursiveIteratorIterator::LEAVES_ONLY , int $flags = 0 )"
     ],
     "RecursiveRegexIterator": [
         "Creates a new RecursiveRegexIterator",
-        "public RecursiveRegexIterator::__construct ( RecursiveIterator $iterator , string $regex , int $mode = self::MATCH , int $flags = 0 , int $preg_flags = 0 )"
+        "new RecursiveRegexIterator ( RecursiveIterator $iterator , string $regex , int $mode = self::MATCH , int $flags = 0 , int $preg_flags = 0 )"
     ],
     "RecursiveTreeIterator": [
         "Construct a RecursiveTreeIterator",
-        "public RecursiveTreeIterator::__construct ( RecursiveIterator|IteratorAggregate $it , int $flags = RecursiveTreeIterator::BYPASS_KEY , int $cit_flags = CachingIterator::CATCH_GET_CHILD , int $mode = RecursiveIteratorIterator::SELF_FIRST )"
+        "new RecursiveTreeIterator ( RecursiveIterator|IteratorAggregate $it , int $flags = RecursiveTreeIterator::BYPASS_KEY , int $cit_flags = CachingIterator::CATCH_GET_CHILD , int $mode = RecursiveIteratorIterator::SELF_FIRST )"
     ],
     "ReflectionClass": [
         "Constructs a ReflectionClass",
-        "public ReflectionClass::__construct ( object|string $objectOrClass )"
+        "new ReflectionClass ( object|string $objectOrClass )"
     ],
     "ReflectionClassConstant": [
         "Constructs a ReflectionClassConstant",
-        "public ReflectionClassConstant::__construct ( object|string $class , string $constant )"
+        "new ReflectionClassConstant ( object|string $class , string $constant )"
     ],
     "ReflectionExtension": [
         "Constructs a ReflectionExtension",
-        "public ReflectionExtension::__construct ( string $name )"
+        "new ReflectionExtension ( string $name )"
     ],
     "ReflectionFunction": [
         "Constructs a ReflectionFunction object",
-        "public ReflectionFunction::__construct ( Closure|string $function )"
+        "new ReflectionFunction ( Closure|string $function )"
     ],
     "ReflectionGenerator": [
         "Constructs a ReflectionGenerator object",
-        "public ReflectionGenerator::__construct ( Generator $generator )"
+        "new ReflectionGenerator ( Generator $generator )"
     ],
     "ReflectionMethod": [
         "Constructs a ReflectionMethod",
-        "public ReflectionMethod::__construct ( object|string $objectOrMethod , string $method )",
-        "public ReflectionMethod::__construct ( string $classMethod )"
+        "new ReflectionMethod ( object|string $objectOrMethod , string $method )",
+        "new ReflectionMethod ( string $classMethod )"
     ],
     "ReflectionObject": [
         "Constructs a ReflectionObject",
-        "public ReflectionObject::__construct ( object $object )"
+        "new ReflectionObject ( object $object )"
     ],
     "ReflectionParameter": [
         "Construct",
-        "public ReflectionParameter::__construct ( string|array|object $function , int|string $param )"
+        "new ReflectionParameter ( string|array|object $function , int|string $param )"
     ],
     "ReflectionProperty": [
         "Construct a ReflectionProperty object",
-        "public ReflectionProperty::__construct ( object|string $class , string $property )"
+        "new ReflectionProperty ( object|string $class , string $property )"
     ],
     "ReflectionZendExtension": [
         "Constructor",
-        "public ReflectionZendExtension::__construct ( string $name )"
+        "new ReflectionZendExtension ( string $name )"
     ],
     "RegexIterator": [
         "Create a new RegexIterator",
-        "public RegexIterator::__construct ( Iterator $iterator , string $regex , int $mode = self::MATCH , int $flags = 0 , int $preg_flags = 0 )"
+        "new RegexIterator ( Iterator $iterator , string $regex , int $mode = self::MATCH , int $flags = 0 , int $preg_flags = 0 )"
     ],
     "register_shutdown_function": [
         "Register a function for execution on shutdown",
@@ -12075,7 +12047,7 @@
     ],
     "ResourceBundle": [
         "Create a resource bundle",
-        "public ResourceBundle::__construct ( string $locale , string $bundlename , bool $fallback = ? )"
+        "new ResourceBundle ( string $locale , string $bundlename , bool $fallback = ? )"
     ],
     "resourcebundle_count": [
         "Get number of elements in the bundle",
@@ -12207,15 +12179,15 @@
     ],
     "RRDCreator": [
         "Creates new RRDCreator instance",
-        "public RRDCreator::__construct ( string $path , string $startTime = ? , int $step = 0 )"
+        "new RRDCreator ( string $path , string $startTime = ? , int $step = 0 )"
     ],
     "RRDGraph": [
         "Creates new RRDGraph instance",
-        "public RRDGraph::__construct ( string $path )"
+        "new RRDGraph ( string $path )"
     ],
     "RRDUpdater": [
         "Creates new RRDUpdater instance",
-        "public RRDUpdater::__construct ( string $path )"
+        "new RRDUpdater ( string $path )"
     ],
     "rsort": [
         "Sort an array in reverse order",
@@ -12339,7 +12311,7 @@
     ],
     "SeasLog": [
         "Description",
-        "public SeasLog::__construct ( )"
+        "new SeasLog ( )"
     ],
     "seaslog_get_author": [
         "Get SeasLog author.",
@@ -12596,7 +12568,7 @@
     ],
     "SimpleXMLElement": [
         "Creates a new SimpleXMLElement object",
-        "final public SimpleXMLElement::__construct ( string $data , int $options = 0 , bool $data_is_url = false , string $ns = \"\" , bool $is_prefix = false )"
+        "final new SimpleXMLElement ( string $data , int $options = 0 , bool $data_is_url = false , string $ns = \"\" , bool $is_prefix = false )"
     ],
     "sin": [
         "Sine",
@@ -12612,7 +12584,7 @@
     ],
     "SNMP": [
         "Creates SNMP instance representing session to remote SNMP agent",
-        "public SNMP::__construct ( int $version , string $hostname , string $community , int $timeout = -1 , int $retries = -1 )"
+        "new SNMP ( int $version , string $hostname , string $community , int $timeout = -1 , int $retries = -1 )"
     ],
     "snmp2_get": [
         "Fetch an SNMP object",
@@ -12712,11 +12684,11 @@
     ],
     "SoapClient": [
         "SoapClient constructor",
-        "public SoapClient::__construct ( string|null $wsdl , array $options = [] )"
+        "new SoapClient ( string|null $wsdl , array $options = [] )"
     ],
     "SoapFault": [
         "SoapFault constructor",
-        "public SoapFault::__construct ( array|string|null $code , string $string , string|null $actor = null , mixed $details = null , string|null $name = null , mixed $headerFault = null )"
+        "new SoapFault ( array|string|null $code , string $string , string|null $actor = null , mixed $details = null , string|null $name = null , mixed $headerFault = null )"
     ],
     "SoapHeader": [
         "SoapHeader constructor",
@@ -12724,15 +12696,15 @@
     ],
     "SoapParam": [
         "SoapParam constructor",
-        "public SoapParam::__construct ( mixed $data , string $name )"
+        "new SoapParam ( mixed $data , string $name )"
     ],
     "SoapServer": [
         "SoapServer constructor",
-        "public SoapServer::__construct ( string|null $wsdl , array $options = [] )"
+        "new SoapServer ( string|null $wsdl , array $options = [] )"
     ],
     "SoapVar": [
         "SoapVar constructor",
-        "public SoapVar::__construct ( mixed $data , int|null $encoding , string $typeName = \"\" , string $typeNamespace = \"\" , string $nodeName = \"\" , string $nodeNamespace = \"\" )"
+        "new SoapVar ( mixed $data , int|null $encoding , string $typeName = \"\" , string $typeNamespace = \"\" , string $nodeName = \"\" , string $nodeNamespace = \"\" )"
     ],
     "socket_accept": [
         "Accepts a connection on a socket",
@@ -13224,55 +13196,55 @@
     ],
     "SolrClient": [
         "Constructor for the SolrClient object",
-        "public SolrClient::__construct ( array $clientOptions )"
+        "new SolrClient ( array $clientOptions )"
     ],
     "SolrCollapseFunction": [
         "Constructor",
-        "public SolrCollapseFunction::__construct ( string $field = ? )"
+        "new SolrCollapseFunction ( string $field = ? )"
     ],
     "SolrDisMaxQuery": [
         "Class Constructor",
-        "public SolrDisMaxQuery::__construct ( string $q = ? )"
+        "new SolrDisMaxQuery ( string $q = ? )"
     ],
     "SolrDocument": [
         "Constructor",
-        "public SolrDocument::__construct ( )"
+        "new SolrDocument ( )"
     ],
     "SolrDocumentField": [
         "Constructor",
-        "public SolrDocumentField::__construct ( )"
+        "new SolrDocumentField ( )"
     ],
     "SolrGenericResponse": [
         "Constructor",
-        "public SolrGenericResponse::__construct ( )"
+        "new SolrGenericResponse ( )"
     ],
     "SolrInputDocument": [
         "Constructor",
-        "public SolrInputDocument::__construct ( )"
+        "new SolrInputDocument ( )"
     ],
     "SolrModifiableParams": [
         "Constructor",
-        "public SolrModifiableParams::__construct ( )"
+        "new SolrModifiableParams ( )"
     ],
     "SolrObject": [
         "Creates Solr object",
-        "public SolrObject::__construct ( )"
+        "new SolrObject ( )"
     ],
     "SolrPingResponse": [
         "Constructor",
-        "public SolrPingResponse::__construct ( )"
+        "new SolrPingResponse ( )"
     ],
     "SolrQuery": [
         "Constructor",
-        "public SolrQuery::__construct ( string $q = ? )"
+        "new SolrQuery ( string $q = ? )"
     ],
     "SolrQueryResponse": [
         "Constructor",
-        "public SolrQueryResponse::__construct ( )"
+        "new SolrQueryResponse ( )"
     ],
     "SolrUpdateResponse": [
         "Constructor",
-        "public SolrUpdateResponse::__construct ( )"
+        "new SolrUpdateResponse ( )"
     ],
     "sort": [
         "Sort an array",
@@ -13284,7 +13256,7 @@
     ],
     "SphinxClient": [
         "Create a new SphinxClient object",
-        "public SphinxClient::__construct ( )"
+        "new SphinxClient ( )"
     ],
     "spl_autoload": [
         "Default implementation for __autoload()",
@@ -13324,23 +13296,23 @@
     ],
     "SplDoublyLinkedList": [
         "Constructs a new doubly linked list",
-        "public SplDoublyLinkedList::__construct ( )"
+        "new SplDoublyLinkedList ( )"
     ],
     "SplFileInfo": [
         "Construct a new SplFileInfo object",
-        "public SplFileInfo::__construct ( string $file_name )"
+        "new SplFileInfo ( string $file_name )"
     ],
     "SplFileObject": [
         "Construct a new file object",
-        "public SplFileObject::__construct ( string $filename , string $open_mode = \"r\" , bool $use_include_path = false , resource $context = ? )"
+        "new SplFileObject ( string $filename , string $open_mode = \"r\" , bool $use_include_path = false , resource $context = ? )"
     ],
     "SplFixedArray": [
         "Constructs a new fixed array",
-        "public SplFixedArray::__construct ( int $size = 0 )"
+        "new SplFixedArray ( int $size = 0 )"
     ],
     "SplHeap": [
         "Constructs a new empty heap",
-        "public SplHeap::__construct ( )"
+        "new SplHeap ( )"
     ],
     "split": [
         "Split string into array by regular expression",
@@ -13352,23 +13324,23 @@
     ],
     "SplPriorityQueue": [
         "Constructs a new empty queue",
-        "public SplPriorityQueue::__construct ( )"
+        "new SplPriorityQueue ( )"
     ],
     "SplQueue": [
         "Constructs a new queue implemented using a doubly linked list",
-        "public SplQueue::__construct ( )"
+        "new SplQueue ( )"
     ],
     "SplStack": [
         "Constructs a new stack implemented using a doubly linked list",
-        "public SplStack::__construct ( )"
+        "new SplStack ( )"
     ],
     "SplTempFileObject": [
         "Construct a new temporary file object",
-        "public SplTempFileObject::__construct ( int $max_memory = ? )"
+        "new SplTempFileObject ( int $max_memory = ? )"
     ],
     "Spoofchecker": [
         "Constructor",
-        "public Spoofchecker::__construct ( )"
+        "new Spoofchecker ( )"
     ],
     "sprintf": [
         "Return a formatted string",
@@ -13380,7 +13352,7 @@
     ],
     "SQLite3": [
         "Instantiates an SQLite3 object and opens an SQLite 3 database",
-        "public SQLite3::__construct ( string $filename , int $flags = SQLITE3_OPEN_READWRITE | SQLITE3_OPEN_CREATE , string $encryptionKey = \"\" )"
+        "new SQLite3 ( string $filename , int $flags = SQLITE3_OPEN_READWRITE | SQLITE3_OPEN_CREATE , string $encryptionKey = \"\" )"
     ],
     "sqlsrv_begin_transaction": [
         "Begins a database transaction",
@@ -13924,7 +13896,7 @@
     ],
     "Stomp": [
         "Opens a connection",
-        "public Stomp::__construct ( string $broker = ini_get(\"stomp.default_broker_uri\") , string $username = ? , string $password = ? , array $headers = ? )"
+        "new Stomp ( string $broker = ini_get(\"stomp.default_broker_uri\") , string $username = ? , string $password = ? , array $headers = ? )"
     ],
     "stomp_abort": [
         "Rolls back a transaction in progress",
@@ -14371,11 +14343,11 @@
     ],
     "SVM": [
         "Construct a new SVM object",
-        "public SVM::__construct ( )"
+        "new SVM ( )"
     ],
     "SVMModel": [
         "Construct a new SVMModel",
-        "public SVMModel::__construct ( string $filename = ? )"
+        "new SVMModel ( string $filename = ? )"
     ],
     "svn_add": [
         "Schedules the addition of an item in a working directory",
@@ -14683,23 +14655,23 @@
     ],
     "SyncEvent": [
         "Constructs a new SyncEvent object",
-        "public SyncEvent::__construct ( string $name = ? , bool $manual = false , bool $prefire = false )"
+        "new SyncEvent ( string $name = ? , bool $manual = false , bool $prefire = false )"
     ],
     "SyncMutex": [
         "Constructs a new SyncMutex object",
-        "public SyncMutex::__construct ( string $name = ? )"
+        "new SyncMutex ( string $name = ? )"
     ],
     "SyncReaderWriter": [
         "Constructs a new SyncReaderWriter object",
-        "public SyncReaderWriter::__construct ( string $name = ? , bool $autounlock = true )"
+        "new SyncReaderWriter ( string $name = ? , bool $autounlock = true )"
     ],
     "SyncSemaphore": [
         "Constructs a new SyncSemaphore object",
-        "public SyncSemaphore::__construct ( string $name = ? , int $initialval = 1 , bool $autounlock = true )"
+        "new SyncSemaphore ( string $name = ? , int $initialval = 1 , bool $autounlock = true )"
     ],
     "SyncSharedMemory": [
         "Constructs a new SyncSharedMemory object",
-        "public SyncSharedMemory::__construct ( string $name , int $size )"
+        "new SyncSharedMemory ( string $name , int $size )"
     ],
     "sys_get_temp_dir": [
         "Returns directory path used for temporary files",
@@ -14743,7 +14715,7 @@
     ],
     "tidy": [
         "Constructs a new tidy object",
-        "public tidy::__construct ( string|null $filename = null , array|string|null $config = null , string|null $encoding = null , bool $useIncludePath = false )"
+        "new tidy ( string|null $filename = null , array|string|null $config = null , string|null $encoding = null , bool $useIncludePath = false )"
     ],
     "tidy_access_count": [
         "Returns the Number of Tidy accessibility warnings encountered for specified document",
@@ -14841,10 +14813,6 @@
         "Returns the Number of Tidy warnings encountered for specified document",
         "tidy_warning_count ( tidy $tidy ) : int"
     ],
-    "tidyNode": [
-        "Private constructor to disallow direct instantiation",
-        "private tidyNode::__construct ( )"
-    ],
     "time": [
         "Return current Unix timestamp",
         "time ( ) : int"
@@ -14907,15 +14875,15 @@
     ],
     "TokyoTyrant": [
         "Construct a new TokyoTyrant object",
-        "public TokyoTyrant::__construct ( string $host = ? , int $port = TokyoTyrant::RDBDEF_PORT , array $options = ? )"
+        "new TokyoTyrant ( string $host = ? , int $port = TokyoTyrant::RDBDEF_PORT , array $options = ? )"
     ],
     "TokyoTyrantIterator": [
         "Construct an iterator",
-        "public TokyoTyrantIterator::__construct ( mixed $object )"
+        "new TokyoTyrantIterator ( mixed $object )"
     ],
     "TokyoTyrantQuery": [
         "Construct a new query",
-        "public TokyoTyrantQuery::__construct ( TokyoTyrantTable $table )"
+        "new TokyoTyrantQuery ( TokyoTyrantTable $table )"
     ],
     "touch": [
         "Sets access and modification time of file",
@@ -15577,10 +15545,6 @@
         "Checks if the trait exists",
         "trait_exists ( string $traitname , bool $autoload = ? ) : bool"
     ],
-    "Transliterator": [
-        "Private constructor to deny instantiation",
-        "private Transliterator::__construct ( )"
-    ],
     "transliterator_create": [
         "Create a transliterator",
         "transliterator_create ( string $id , int $direction = ? ) : Transliterator"
@@ -15627,7 +15591,7 @@
     ],
     "UConverter": [
         "Create UConverter object",
-        "public UConverter::__construct ( string $destination_encoding = ? , string $source_encoding = ? )"
+        "new UConverter ( string $destination_encoding = ? , string $source_encoding = ? )"
     ],
     "ucwords": [
         "Uppercase the first character of each word in a string",
@@ -15844,7 +15808,7 @@
     ],
     "V8Js": [
         "Construct a new V8Js object",
-        "public V8Js::__construct ( string $object_name = \"PHP\" , array $variables = array() , array $extensions = array() , bool $report_uncaught_exceptions = true )"
+        "new V8Js ( string $object_name = \"PHP\" , array $variables = array() , array $extensions = array() , bool $report_uncaught_exceptions = true )"
     ],
     "var_dump": [
         "Dumps information about a variable",
@@ -15856,7 +15820,7 @@
     ],
     "variant": [
         "variant class constructor",
-        "public variant::__construct ( mixed $value = null , int $type = VT_EMPTY , int $codepage = CP_ACP )"
+        "new variant ( mixed $value = null , int $type = VT_EMPTY , int $codepage = CP_ACP )"
     ],
     "variant_abs": [
         "Returns the absolute value of a variant",
@@ -15964,15 +15928,15 @@
     ],
     "VarnishAdmin": [
         "VarnishAdmin constructor",
-        "public VarnishAdmin::__construct ( array $args = ? )"
+        "new VarnishAdmin ( array $args = ? )"
     ],
     "VarnishLog": [
         "Varnishlog constructor",
-        "public VarnishLog::__construct ( array $args = ? )"
+        "new VarnishLog ( array $args = ? )"
     ],
     "VarnishStat": [
         "VarnishStat constructor",
-        "public VarnishStat::__construct ( array $args = ? )"
+        "new VarnishStat ( array $args = ? )"
     ],
     "version_compare": [
         "Compares two \"PHP-standardized\" version number strings",
@@ -16021,15 +15985,15 @@
     ],
     "WeakMap": [
         "Constructs a new map",
-        "public WeakMap::__construct ( )"
+        "new WeakMap ( )"
     ],
     "WeakRef": [
         "Constructs a new weak reference",
-        "public Weakref::__construct ( object $object )"
+        "new Weakref ( object $object )"
     ],
     "WeakReference": [
         "Constructor that disallows instantiation",
-        "public WeakReference::__construct ( )"
+        "new WeakReference ( )"
     ],
     "win32_continue_service": [
         "Resumes a paused service",
@@ -16234,7 +16198,7 @@
         "xdiff_file_rabdiff ( string $old_file , string $new_file , string $dest ) : bool"
     ],
     "xdiff_string_bdiff": [
-        "Alias of xdiff_string_bdiff",
+        "Make binary diff of two strings",
         "xdiff_string_bdiff ( string $old_data , string $new_data ) : string"
     ],
     "xdiff_string_bdiff_size": [
@@ -16595,19 +16559,19 @@
     ],
     "Yac": [
         "Constructor",
-        "public Yac::__construct ( string $prefix = \"\" )"
+        "new Yac ( string $prefix = \"\" )"
     ],
     "Yaf_Application": [
         "Yaf_Application constructor",
-        "public Yaf_Application::__construct ( mixed $config , string $envrion = ? )"
+        "new Yaf_Application ( mixed $config , string $envrion = ? )"
     ],
     "Yaf_Config_Ini": [
         "Yaf_Config_Ini constructor",
-        "public Yaf_Config_Ini::__construct ( string $config_file , string $section = ? )"
+        "new Yaf_Config_Ini ( string $config_file , string $section = ? )"
     ],
     "Yaf_Config_Simple": [
         "The __construct purpose",
-        "public Yaf_Config_Simple::__construct ( array $configs , bool $readonly = false )"
+        "new Yaf_Config_Simple ( array $configs , bool $readonly = false )"
     ],
     "Yaf_Controller_Abstract": [
         "Yaf_Controller_Abstract constructor",
@@ -16615,63 +16579,51 @@
     ],
     "Yaf_Dispatcher": [
         "Yaf_Dispatcher constructor",
-        "public Yaf_Dispatcher::__construct ( )"
+        "new Yaf_Dispatcher ( )"
     ],
     "Yaf_Exception": [
         "The __construct purpose",
-        "public Yaf_Exception::__construct ( )"
-    ],
-    "Yaf_Loader": [
-        "The __construct purpose",
-        "private Yaf_Loader::__construct ( )"
-    ],
-    "Yaf_Registry": [
-        "Yaf_Registry implements singleton",
-        "private Yaf_Registry::__construct ( )"
+        "new Yaf_Exception ( )"
     ],
     "Yaf_Request_Http": [
         "Constructor of Yaf_Request_Http",
-        "public Yaf_Request_Http::__construct ( string $request_uri = ? , string $base_uri = ? )"
+        "new Yaf_Request_Http ( string $request_uri = ? , string $base_uri = ? )"
     ],
     "Yaf_Request_Simple": [
         "Constructor of Yaf_Request_Simple",
-        "public Yaf_Request_Simple::__construct ( string $method = ? , string $module = ? , string $controller = ? , string $action = ? , array $params = ? )"
+        "new Yaf_Request_Simple ( string $method = ? , string $module = ? , string $controller = ? , string $action = ? , array $params = ? )"
     ],
     "Yaf_Response_Abstract": [
         "The __construct purpose",
-        "public Yaf_Response_Abstract::__construct ( )"
+        "new Yaf_Response_Abstract ( )"
     ],
     "Yaf_Route_Map": [
         "The __construct purpose",
-        "public Yaf_Route_Map::__construct ( string $controller_prefer = false , string $delimiter = \"\" )"
+        "new Yaf_Route_Map ( string $controller_prefer = false , string $delimiter = \"\" )"
     ],
     "Yaf_Route_Regex": [
         "Yaf_Route_Regex constructor",
-        "public Yaf_Route_Regex::__construct ( string $match , array $route , array $map = ? , array $verify = ? , string $reverse = ? )"
+        "new Yaf_Route_Regex ( string $match , array $route , array $map = ? , array $verify = ? , string $reverse = ? )"
     ],
     "Yaf_Route_Rewrite": [
         "Yaf_Route_Rewrite constructor",
-        "public Yaf_Route_Rewrite::__construct ( string $match , array $route , array $verify = ? )"
+        "new Yaf_Route_Rewrite ( string $match , array $route , array $verify = ? )"
     ],
     "Yaf_Route_Simple": [
         "Yaf_Route_Simple constructor",
-        "public Yaf_Route_Simple::__construct ( string $module_name , string $controller_name , string $action_name )"
+        "new Yaf_Route_Simple ( string $module_name , string $controller_name , string $action_name )"
     ],
     "Yaf_Route_Supervar": [
         "The __construct purpose",
-        "public Yaf_Route_Supervar::__construct ( string $supervar_name )"
+        "new Yaf_Route_Supervar ( string $supervar_name )"
     ],
     "Yaf_Router": [
         "Yaf_Router constructor",
-        "public Yaf_Router::__construct ( )"
-    ],
-    "Yaf_Session": [
-        "Constructor of Yaf_Session",
-        "private Yaf_Session::__construct ( )"
+        "new Yaf_Router ( )"
     ],
     "Yaf_View_Simple": [
         "Constructor of Yaf_View_Simple",
-        "final public Yaf_View_Simple::__construct ( string $template_dir , array $options = ? )"
+        "final new Yaf_View_Simple ( string $template_dir , array $options = ? )"
     ],
     "yaml_emit": [
         "Returns the YAML representation of a value",
@@ -16695,11 +16647,11 @@
     ],
     "Yar_Client": [
         "Create a client",
-        "final public Yar_Client::__construct ( string $url , array $options = ? )"
+        "final new Yar_Client ( string $url , array $options = ? )"
     ],
     "Yar_Server": [
         "Register a server",
-        "final public Yar_Server::__construct ( Object $obj )"
+        "final new Yar_Server ( Object $obj )"
     ],
     "yaz_addinfo": [
         "Returns additional error information",
@@ -16862,25 +16814,21 @@
         "Returns the coding type used for output compression",
         "zlib_get_coding_type ( ) : string|false"
     ],
-    "ZMQ": [
-        "ZMQ constructor",
-        "private ZMQ::__construct ( )"
-    ],
     "ZMQContext": [
         "Construct a new ZMQContext object",
-        "public ZMQContext::__construct ( int $io_threads = 1 , bool $is_persistent = true )"
+        "new ZMQContext ( int $io_threads = 1 , bool $is_persistent = true )"
     ],
     "ZMQDevice": [
         "Construct a new device",
-        "public ZMQDevice::__construct ( ZMQSocket $frontend , ZMQSocket $backend , ZMQSocket $listener = ? )"
+        "new ZMQDevice ( ZMQSocket $frontend , ZMQSocket $backend , ZMQSocket $listener = ? )"
     ],
     "ZMQSocket": [
         "Construct a new ZMQSocket",
-        "public ZMQSocket::__construct ( ZMQContext $context , int $type , string $persistent_id = null , callable $on_new_socket = null )"
+        "new ZMQSocket ( ZMQContext $context , int $type , string $persistent_id = null , callable $on_new_socket = null )"
     ],
     "Zookeeper": [
         "Create a handle to used communicate with zookeeper",
-        "public Zookeeper::__construct ( string $host = '' , callable $watcher_cb = null , int $recv_timeout = 10000 )"
+        "new Zookeeper ( string $host = '' , callable $watcher_cb = null , int $recv_timeout = 10000 )"
     ],
     "zookeeper_dispatch": [
         "Calls callbacks for pending operations",
