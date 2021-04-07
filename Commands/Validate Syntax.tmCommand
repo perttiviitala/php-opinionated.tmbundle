@@ -6,21 +6,42 @@
 	<string>nop</string>
 	<key>command</key>
 	<string>#!/usr/bin/env zsh
-errors=$(eval ${TM_PHP:-php} -l 2&gt; /dev/null)
+
+original=$(cat /dev/stdin)
+message=$(printf '%s\n' $original | ${TM_PHP:-php} -l 2&gt; /dev/null)
 if [[ $? -eq 0 ]]; then
 	exit
 fi
 
-errors=${errors/ in Standard input code/}
-errors=${errors/Parse error: /}
-echo $errors | head -n 2 | tail -n 1
-
-if [[ $errors =~ 'on line ([0-9]+)' ]] &amp;&amp; line=$match[1]; then
-	open "txmt://open?line=$line"
+unexpected="expecting '([^']+)' .* on line ([0-9]+)"
+if [[ $message =~ $unexpected ]] &amp;&amp; expected=$match[1] &amp;&amp; line=$match[2]; then
+	# Attempt to fix unexpected error by inserting expected character to previous line.
+	modified=$(printf '%s' $original | sed -e "$(($line - 1))s/$/$expected/")
+	printf '%s\n' $modified | ${TM_PHP:-php} -l &gt;/dev/null 2&gt;&amp;1
+	if [[ $? -eq 0 ]]; then
+		printf '%s\n' $modified
+		# Code 202 stands for to replace document with stdout.
+		# Helper exit_replace_document has an escaping bug with echo.
+		exit 202
+	fi
 fi
+
+# Tidy up message by removing some extra noise.
+message=${message/ in Standard input code/}
+message=${message/Parse error: syntax error, /}
+
+if [[ $message =~ 'on line ([0-9]+)' ]] &amp;&amp; line=$match[1]; then
+	# Move cursor only if line differs.
+	if [[ $line != $TM_LINE_NUMBER ]]; then
+		open "txmt://open?line=${line}"
+	fi
+fi
+
+# TODO Use html output
+${DIALOG} tooltip --text "$(echo $message | head -n 2 | tail -n 1)"
 </string>
 	<key>input</key>
-	<string>selection</string>
+	<string>document</string>
 	<key>inputFormat</key>
 	<string>text</string>
 	<key>keyEquivalent</key>
