@@ -69,7 +69,7 @@ foreach (array_filter($options) as $option) {
 	exit;
 }
 
-echo 'Function not found';
+echo 'Unable to parse function around cursor';
 </string>
 	<key>input</key>
 	<string>none</string>
@@ -85,6 +85,8 @@ echo 'Function not found';
 	<string>html</string>
 	<key>outputLocation</key>
 	<string>toolTip</string>
+	<key>scope</key>
+	<string>source.php,text.html.php</string>
 	<key>uuid</key>
 	<string>3C871C9E-B20A-4D69-A3F4-C0E723A20FDD</string>
 	<key>version</key>
