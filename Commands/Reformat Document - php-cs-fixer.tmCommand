@@ -11,19 +11,22 @@
 # FIXME Find a parent directory with .php_cs file
 cd "$TM_PROJECT_DIRECTORY"
 
+# Prevent running with default configuration.
 if [ ! -f .php_cs ] &amp;&amp; [ ! -f .php_cs.dist ]; then
-	exit_show_tool_tip "Missing .php_cs or .php_cs.dist file, skipping"
+	exit_show_tool_tip "Missing .php_cs or .php_cs.dist file."
 fi
 
-# php-cs-fixer can not read or write results to stdout
-# so we go around this with tempfiles
+# The php-cs-fixer can not read from stdin or write to stdout.
+# https://github.com/FriendsOfPHP/PHP-CS-Fixer/issues/454
 tmpfile=$(mktemp)
 cat /dev/stdin &gt; $tmpfile
 
-# force --quiet to prevent output containing info from this
 ${TM_PHP:-php} ${TM_PHP_CS_FIXER:-php-cs-fixer} \
-	fix --quiet --allow-risky=yes $TM_PHP_CS_FIXER_OPTIONS \
-	$tmpfile
+	`# If configuration contain risky rules, it has been chosen so.` \
+	`# Disabling cache as tempfiles should never match.` \
+	fix --allow-risky=yes --using-cache=no \
+	`# Trash all output, not very useful.` \
+	$tmpfile &gt;/dev/null
 
 # replace output with fixed contents
 cat $tmpfile
