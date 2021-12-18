@@ -23,6 +23,9 @@
         "Quote string with slashes in a C style",
         "addcslashes ( string $string , string $characters ) : string"
     ],
+    "AddressInfo": [
+        "A fully opaque class which replaces AddressInfo resources as of PHP 8.0.0."
+    ],
     "addslashes": [
         "Quote string with slashes",
         "addslashes ( string $string ) : string"
@@ -122,12 +125,18 @@
         "apcu_store ( array $values , mixed $unused = NULL , int $ttl = 0 ) : array"
     ],
     "APCUIterator": [
-        "Constructs an APCUIterator iterator object",
+        "The APCUIterator class makes it easier to iterate over large APCu caches. This is helpful as it allows iterating over large caches in steps, while grabbing a defined number of entries per lock instance, so it frees the cache locks for other activities rather than hold up the entire cache to grab 100 (the default) entries. Also, using regular expression matching is more efficient as it's been moved to the C level.",
         "new APCUIterator ( mixed $search = null , int $format = APC_ITER_ALL , int $chunk_size = 100 , int $list = APC_LIST_ACTIVE )"
     ],
     "AppendIterator": [
-        "Constructs an AppendIterator",
+        "An Iterator that iterates over several iterators one after the other.",
         "new AppendIterator ( )"
+    ],
+    "ArgumentCountError": [
+        "ArgumentCountError is thrown when too few arguments are passed to a user-defined function or method."
+    ],
+    "ArithmeticError": [
+        "ArithmeticError is thrown when an error occurs while performing mathematical operations. These errors include attempting to perform a bitshift by a negative amount, and any call to intdiv() that would result in a value outside the possible bounds of an int."
     ],
     "array": [
         "Create an array",
@@ -342,12 +351,15 @@
         "Apply a user function recursively to every member of an array",
         "array_walk_recursive ( array|object &$array , callable $callback , mixed $userdata = null ) : bool"
     ],
+    "ArrayAccess": [
+        "Interface to provide accessing objects as arrays."
+    ],
     "ArrayIterator": [
-        "Construct an ArrayIterator",
+        "This iterator allows to unset and modify values and keys while iterating over Arrays and Objects.",
         "new ArrayIterator ( mixed $array = array() , int $flags = 0 )"
     ],
     "ArrayObject": [
-        "Construct a new array object",
+        "This class allows objects to work as arrays.",
         "new ArrayObject ( mixed $input = array() , int $flags = 0 , string $iterator_class = \"ArrayIterator\" )"
     ],
     "arsort": [
@@ -375,6 +387,9 @@
         "Set\/get the various assert flags",
         "assert_options ( int $what , mixed $value = ? ) : mixed"
     ],
+    "AssertionError": [
+        "AssertionError is thrown when an assertion made via assert() fails."
+    ],
     "atan": [
         "Arc tangent",
         "atan ( float $num ) : float"
@@ -386,6 +401,12 @@
     "atanh": [
         "Inverse hyperbolic tangent",
         "atanh ( float $num ) : float"
+    ],
+    "BadFunctionCallException": [
+        "Exception thrown if a callback refers to an undefined function or if some arguments are missing."
+    ],
+    "BadMethodCallException": [
+        "Exception thrown if a callback refers to an undefined method or if some arguments are missing."
     ],
     "base64_decode": [
         "Decodes data encoded with MIME base64",
@@ -513,7 +534,7 @@
         "bzwrite ( resource $bz , string $data , int|null $length = null ) : int|false"
     ],
     "CachingIterator": [
-        "Construct a new CachingIterator object for the iterator",
+        "This object supports cached iteration over another iterator.",
         "new CachingIterator ( Iterator $iterator , int $flags = self::CALL_TOSTRING )"
     ],
     "cal_days_in_month": [
@@ -648,8 +669,11 @@
         "Close connection to system logger",
         "closelog ( ) : bool"
     ],
+    "Closure": [
+        "Class used to represent anonymous functions."
+    ],
     "Collator": [
-        "Create a collator",
+        "Provides string comparison capability with support for appropriate locale-sensitive sort orderings.",
         "new Collator ( string $locale )"
     ],
     "collator_asort": [
@@ -704,8 +728,11 @@
         "Sort array using specified collator and sort keys",
         "collator_sort_with_sort_keys ( Collator $object , array &$array ) : bool"
     ],
+    "Collectable": [
+        "Represents a garbage-collectable object."
+    ],
     "com": [
-        "com class constructor",
+        "The com class allows you to instantiate an OLE compatible COM object and call its methods and access its properties.",
         "new com ( string $module_name , array|string|null $server_name = null , int $codepage = CP_ACP , string $typelib = \"\" )"
     ],
     "com_create_guid": [
@@ -737,8 +764,14 @@
         "compact ( array|string $var_name , array|string ...$var_names ) : array"
     ],
     "COMPersistHelper": [
-        "Construct a COMPersistHelper object",
+        "COMPersistHelper improves the interoperability of COM and PHP with regard to the php.ini directive open_basedir, and stream resources.",
         "new COMPersistHelper ( variant|null $variant = null )"
+    ],
+    "CompileError": [
+        "CompileError is thrown for some compilation errors, which formerly issued a fatal error."
+    ],
+    "Cond": [
+        "The static methods contained in the Cond class provide direct access to Posix Condition Variables."
     ],
     "connection_aborted": [
         "Check whether client disconnected",
@@ -783,6 +816,9 @@
     "count_chars": [
         "Return information about characters used in a string",
         "count_chars ( string $string , int $mode = 0 ) : array|string"
+    ],
+    "Countable": [
+        "Classes implementing Countable can be used with the count() function."
     ],
     "crc32": [
         "Calculates the crc32 polynomial of a string",
@@ -1363,8 +1399,17 @@
         "curl_version ( ) : array|false"
     ],
     "CURLFile": [
-        "Create a CURLFile object",
+        "CURLFile should be used to upload a file with CURLOPT_POSTFIELDS.",
         "new CURLFile ( string $filename , string|null $mime_type = null , string|null $posted_filename = null )"
+    ],
+    "CurlHandle": [
+        "A fully opaque class which replaces curl resources as of PHP 8.0.0."
+    ],
+    "CurlMultiHandle": [
+        "A fully opaque class which replaces curl_multi resources as of PHP 8.0.0."
+    ],
+    "CurlShareHandle": [
+        "A fully opaque class which replaces curl_share resources as of PHP 8.0.0."
     ],
     "current": [
         "Return the current element in an array",
@@ -1555,25 +1600,28 @@
         "datefmt_set_timezone ( IntlDateFormatter $formatter , IntlTimeZone|DateTimeZone|string|null $timezone ) : bool|null"
     ],
     "DateInterval": [
-        "Creates a new DateInterval object",
+        "Represents a date interval.",
         "new DateInterval ( string $duration )"
     ],
     "DatePeriod": [
-        "Creates a new DatePeriod object",
+        "Represents a date period.",
         "new DatePeriod ( DateTimeInterface $start , DateInterval $interval , int $recurrences , int $options = 0 )",
         "new DatePeriod ( DateTimeInterface $start , DateInterval $interval , DateTimeInterface $end , int $options = 0 )",
         "new DatePeriod ( string $isostr , int $options = 0 )"
     ],
     "DateTime": [
-        "Returns new DateTime object",
+        "This class behaves the same as DateTimeImmutable except objects are modified itself when modification methods such as DateTime::modify() are called.",
         "new DateTime ( string $datetime = \"now\" , DateTimeZone|null $timezone = null )"
     ],
     "DateTimeImmutable": [
-        "Returns new DateTimeImmutable object",
+        "Representation of date and time.",
         "new DateTimeImmutable ( string $datetime = \"now\" , DateTimeZone|null $timezone = null )"
     ],
+    "DateTimeInterface": [
+        "DateTimeInterface is meant so that both DateTime and DateTimeImmutable can be type hinted for. It is not possible to implement this interface with userland classes."
+    ],
     "DateTimeZone": [
-        "Creates new DateTimeZone object",
+        "Representation of time zone.",
         "new DateTimeZone ( string $timezone )"
     ],
     "db2_autocommit": [
@@ -2125,6 +2173,9 @@
         "Initialize an incremental deflate context",
         "deflate_init ( int $encoding , array $options = [] ) : DeflateContext|false"
     ],
+    "DeflateContext": [
+        "A fully opaque class which replaces zlib.deflate resources as of PHP 8.0.0."
+    ],
     "deg2rad": [
         "Converts the number in degrees to the radian equivalent",
         "deg2rad ( float $num ) : float"
@@ -2173,8 +2224,11 @@
         "Return an instance of the Directory class",
         "dir ( string $directory , resource $context = ? ) : Directory"
     ],
+    "Directory": [
+        "Instances of Directory are created by calling the dir() function, not by the new operator."
+    ],
     "DirectoryIterator": [
-        "Constructs a new directory iterator from a path",
+        "The DirectoryIterator class provides a simple interface for viewing the contents of filesystem directories.",
         "new DirectoryIterator ( string $path )"
     ],
     "dirname": [
@@ -2188,6 +2242,9 @@
     "disk_total_space": [
         "Returns the total size of a filesystem or disk partition",
         "disk_total_space ( string $directory ) : float|false"
+    ],
+    "DivisionByZeroError": [
+        "DivisionByZeroError is thrown when an attempt is made to divide a number by zero."
     ],
     "dl": [
         "Loads a PHP extension at runtime",
@@ -2205,32 +2262,47 @@
         "Gets a DOMElement object from a\n   SimpleXMLElement object",
         "dom_import_simplexml ( object $node ) : DOMElement|null"
     ],
+    "DomainException": [
+        "Exception thrown if a value does not adhere to a defined valid data domain."
+    ],
     "DOMAttr": [
-        "Creates a new DOMAttr object",
+        "DOMAttr represents an attribute in the DOMElement object.",
         "new DOMAttr ( string $name , string $value = \"\" )"
     ],
     "DOMCdataSection": [
-        "Constructs a new DOMCdataSection object",
+        "The DOMCdataSection inherits from DOMText for textural representation of CData constructs.",
         "new DOMCdataSection ( string $data )"
     ],
+    "DOMCharacterData": [
+        "Represents nodes with character data. No nodes directly correspond to this class, but other nodes do inherit from it."
+    ],
     "DOMComment": [
-        "Creates a new DOMComment object",
+        "Represents comment nodes, characters delimited by <!-- and -->.",
         "new DOMComment ( string $data = \"\" )"
     ],
     "DOMDocument": [
-        "Creates a new DOMDocument object",
+        "Represents an entire HTML or XML document; serves as the root of the document tree.",
         "new DOMDocument ( string $version = \"1.0\" , string $encoding = \"\" )"
+    ],
+    "DOMDocumentType": [
+        "Each DOMDocument has a doctype attribute whose value is either null or a DOMDocumentType object."
     ],
     "DOMElement": [
         "Creates a new DOMElement object",
         "new DOMElement ( string $qualifiedName , string|null $value = null , string $namespace = \"\" )"
     ],
+    "DOMEntity": [
+        "This interface represents a known entity, either parsed or unparsed, in an XML document."
+    ],
     "DOMEntityReference": [
         "Creates a new DOMEntityReference object",
         "new DOMEntityReference ( string $name )"
     ],
+    "DOMException": [
+        "DOM operations raise exceptions under particular circumstances, i.e., when an operation is impossible to perform for logical reasons."
+    ],
     "DOMImplementation": [
-        "Creates a new DOMImplementation object",
+        "The DOMImplementation class provides a number of methods for performing operations that are independent of any particular instance of the document object model.",
         "DOMImplementation::__construct ( )"
     ],
     "DOMProcessingInstruction": [
@@ -2238,15 +2310,15 @@
         "new DOMProcessingInstruction ( string $name , string $value = \"\" )"
     ],
     "DOMText": [
-        "Creates a new DOMText object",
+        "The DOMText class inherits from DOMCharacterData and represents the textual content of a DOMElement or DOMAttr.",
         "new DOMText ( string $data = \"\" )"
     ],
     "DOMXPath": [
-        "Creates a new DOMXPath object",
+        "Supports XPath 1.0",
         "new DOMXPath ( DOMDocument $document , bool $registerNodeNS = true )"
     ],
     "dotnet": [
-        "dotnet class constructor",
+        "The dotnet class allows you to instantiate a class from a .Net assembly and call its methods and access its properties, if the class and the methods and properties are \u00bb\u00a0visible to COM.",
         "new dotnet ( string $assembly_name , string $datatype_name , int $codepage = CP_ACP )"
     ],
     "each": [
@@ -2505,6 +2577,9 @@
         "Determine whether a variable is empty",
         "empty ( mixed $var ) : bool"
     ],
+    "EmptyIterator": [
+        "The EmptyIterator class for an empty iterator."
+    ],
     "enchant_broker_describe": [
         "Enumerates the Enchant providers",
         "enchant_broker_describe ( EnchantBroker $broker ) : array"
@@ -2589,6 +2664,12 @@
         "Will return a list of values if any of those pre-conditions are not met",
         "enchant_dict_suggest ( EnchantDictionary $dictionary , string $word ) : array"
     ],
+    "EnchantBroker": [
+        "A fully opaque class which replaces enchant_broker resources as of PHP 8.0.0."
+    ],
+    "EnchantDictionary": [
+        "A fully opaque class which replaces enchant_dict resources as of PHP 8.0.0."
+    ],
     "end": [
         "Set the internal pointer of an array to its last element",
         "end ( array|object &$array ) : mixed"
@@ -2610,7 +2691,7 @@
         "eregi_replace ( string $pattern , string $replacement , string $string ) : string"
     ],
     "Error": [
-        "Construct the error object",
+        "Error is the base class for all internal PHP errors.",
         "new Error ( string $message = \"\" , int $code = 0 , Throwable $previous = null )"
     ],
     "error_clear_last": [
@@ -2630,7 +2711,7 @@
         "error_reporting ( int $level = ? ) : int"
     ],
     "ErrorException": [
-        "Constructs the exception",
+        "An Error Exception.",
         "new ErrorException ( string $message = \"\" , int $code = 0 , int $severity = E_ERROR , string $filename = __FILE__ , int $lineno = __LINE__ , Exception $previous = null )"
     ],
     "escapeshellarg": [
@@ -2641,104 +2722,113 @@
         "Escape shell metacharacters",
         "escapeshellcmd ( string $command ) : string"
     ],
+    "Ev": [
+        "Ev is a static class providing access to the default loop and to some common operations."
+    ],
     "eval": [
         "Evaluate a string as PHP code",
         "eval ( string $code ) : mixed"
     ],
     "EvCheck": [
-        "Constructs the EvCheck watcher object",
+        "EvPrepare and EvCheck watchers are usually used in pairs. EvPrepare watchers get invoked before the process blocks, EvCheck afterwards.",
         "new EvCheck (  callable $callback  ,  mixed $data  = ? ,  int $priority  = ? )"
     ],
     "EvChild": [
-        "Constructs the EvChild watcher object",
+        "EvChild watchers trigger when the process receives a SIGCHLD in response to some child status changes (most typically when a child dies or exits). It is permissible to install an EvChild watcher after the child has been forked(which implies it might have already exited), as long as the event loop isn't entered(or is continued from a watcher), i.e. forking and then immediately registering a watcher for the child is fine, but forking and registering a watcher a few event loop iterations later or in the next callback invocation is not.",
         "new EvChild (  int $pid  ,  bool $trace  ,  callable $callback  ,  mixed $data  = null  ,  int $priority  = 0  )"
     ],
     "EvEmbed": [
-        "Constructs the EvEmbed object",
+        "Used to embed one event loop into another.",
         "new EvEmbed (  object $other  ,  callable $callback  = ? ,  mixed $data  = ? ,  int $priority  = ? )"
     ],
     "Event": [
-        "Constructs Event object",
+        "Event class represents and event firing on a file descriptor being ready to read from or write to; a file descriptor becoming ready to read from or write to(edge-triggered I\/O only); a timeout expiring; a signal occuring; a user-triggered event.",
         "new Event (  EventBase $base  ,  mixed $fd  ,  int $what  ,  callable $cb  ,  mixed $arg  = NULL  )"
     ],
     "EventBase": [
-        "Constructs EventBase object",
+        "EventBase class represents libevent's event base structure. It holds a set of events and can poll to determine which events are active.",
         "new EventBase (  EventConfig $cfg  = ? )"
     ],
     "EventBuffer": [
-        "Constructs EventBuffer object",
+        "EventBuffer represents Libevent's \"evbuffer\", an utility functionality for buffered I\/O.",
         "new EventBuffer ( )"
     ],
     "EventBufferEvent": [
-        "Constructs EventBufferEvent object",
+        "Represents Libevent's buffer event.",
         "new EventBufferEvent (  EventBase $base  ,  mixed $socket  = null  ,  int $options  = 0  ,  callable $readcb  = null  ,  callable $writecb  = null  ,  callable $eventcb  = null  )"
     ],
     "EventConfig": [
-        "Constructs EventConfig object",
+        "Represents configuration structure which could be used in construction of the EventBase .",
         "new EventConfig ( )"
     ],
     "EventDnsBase": [
-        "Constructs EventDnsBase object",
+        "Represents Libevent's DNS base structure. Used to resolve DNS asyncronously, parse configuration files like resolv.conf etc.",
         "new EventDnsBase (  EventBase $base  ,  bool $initialize  )"
     ],
     "EventHttp": [
-        "Constructs EventHttp object(the HTTP server)",
+        "Represents HTTP server.",
         "new EventHttp (  EventBase $base  ,  EventSslContext $ctx  = null  )"
     ],
     "EventHttpConnection": [
-        "Constructs EventHttpConnection object",
+        "Represents an HTTP connection.",
         "new EventHttpConnection (  EventBase $base  ,  EventDnsBase $dns_base  ,  string $address  ,  int $port  ,  EventSslContext $ctx  = null  )"
     ],
     "EventHttpRequest": [
-        "Constructs EventHttpRequest object",
+        "Represents an HTTP request.",
         "new EventHttpRequest (  callable $callback  ,  mixed $data  = null  )"
     ],
     "EventListener": [
-        "Creates new connection listener associated with an event base",
+        "Represents a connection listener.",
         "new EventListener (  EventBase $base  ,  callable $cb  ,  mixed $data  ,  int $flags  ,  int $backlog  ,  mixed $target  )"
     ],
     "EventSslContext": [
-        "Constructs an OpenSSL context for use with Event classes",
+        "Represents SSL_CTX structure. Provides methods and properties to configure the SSL context.",
         "new EventSslContext (  string $method  ,  string $options  )"
     ],
+    "EventUtil": [
+        "EventUtil is a singleton with supplimentary methods and constants."
+    ],
     "EvFork": [
-        "Constructs the EvFork watcher object",
+        "Fork watchers are called when a fork() was detected (usually because whoever signalled libev about it by calling EvLoop::fork() ). The invocation is done before the event loop blocks next and before EvCheck watchers are being called, and only in the child after the fork. Note, that if whoever calling EvLoop::fork() calls it in the wrong process, the fork handlers will be invoked, too.",
         "new EvFork (  callable $callback  ,  mixed $data  = null  ,  int $priority  = 0  )"
     ],
     "EvIdle": [
-        "Constructs the EvIdle watcher object",
+        "EvIdle watchers trigger events when no other events of the same or higher priority are pending ( EvPrepare , EvCheck and other EvIdle watchers do not count as receiving events ).",
         "new EvIdle (  callable $callback  ,  mixed $data  = ? ,  int $priority  = ? )"
     ],
     "EvIo": [
-        "Constructs EvIo watcher object",
+        "EvIo watchers check whether a file descriptor(or socket, or a stream castable to numeric file descriptor) is readable or writable in each iteration of the event loop, or, more precisely, when reading would not block the process and writing would at least be able to write some data. This behaviour is called level-triggering because events are kept receiving as long as the condition persists. To stop receiving events just stop the watcher.",
         "new EvIo (  mixed $fd  ,  int $events  ,  callable $callback  ,  mixed $data  = ? ,  int $priority  = ? )"
     ],
     "EvLoop": [
-        "Constructs the event loop object",
+        "Represents an event loop that is always distinct from the default loop . Unlike the default loop , it cannot handle EvChild watchers.",
         "new EvLoop (  int $flags  = ? ,  mixed $data  = NULL  ,  float $io_interval  = 0.0  ,  float $timeout_interval  = 0.0  )"
     ],
     "EvPeriodic": [
-        "Constructs EvPeriodic watcher object",
+        "Periodic watchers are also timers of a kind, but they are very versatile.",
         "new EvPeriodic (  float $offset  ,  string $interval  ,  callable $reschedule_cb  ,  callable $callback  ,  mixed $data  = null  ,  int $priority  = 0  )"
     ],
     "EvPrepare": [
-        "Constructs EvPrepare watcher object",
+        "EvPrepare and EvCheck watchers are usually used in pairs. EvPrepare watchers get invoked before the process blocks, EvCheck afterwards.",
         "new EvPrepare (  string $callback  ,  string $data  = ? ,  string $priority  = ? )"
     ],
     "EvSignal": [
-        "Constructs EvSignal watcher object",
+        "EvSignal watchers will trigger an event when the process receives a specific signal one or more times. Even though signals are very asynchronous, libev will try its best to deliver signals synchronously, i.e. as part of the normal event processing, like any other event.",
         "new EvSignal (  int $signum  ,  callable $callback  ,  mixed $data  = null  ,  int $priority  = 0  )"
     ],
     "EvStat": [
-        "Constructs EvStat watcher object",
+        "EvStat monitors a file system path for attribute changes. It calls stat() on that path in regular intervals(or when the OS signals it changed) and sees if it changed compared to the last time, invoking the callback if it did.",
         "new EvStat (  string $path  ,  float $interval  ,  callable $callback  ,  mixed $data  = null  ,  int $priority  = 0  )"
     ],
     "EvTimer": [
-        "Constructs an EvTimer watcher object",
+        "EvTimer watchers are simple relative timers that generate an event after a given time, and optionally repeating in regular intervals after that.",
         "new EvTimer (  float $after  ,  float $repeat  ,  callable $callback  ,  mixed $data  = null  ,  int $priority  = 0  )"
     ],
+    "EvWatcher": [
+        "EvWatcher is a base class for all watchers( EvCheck , EvChild etc.). Since EvWatcher 's constructor is abstract , one can't(and don't need to) create EvWatcher objects directly."
+    ],
     "Exception": [
-        "Construct the exception",
+        "Exception is the base class for all user exceptions.",
         "new Exception ( string $message = \"\" , int $code = 0 , Throwable $previous = null )"
     ],
     "exec": [
@@ -3363,7 +3453,7 @@
         "fann_train_on_file ( resource $ann , string $filename , int $max_epochs , int $epochs_between_reports , float $desired_error ) : bool"
     ],
     "FANNConnection": [
-        "The connection constructor",
+        "FANNConnection is used for the neural network connection. The objects of this class are used in fann_get_connection_array() and fann_set_weight_array().",
         "new FANNConnection ( int $from_neuron , int $to_neuron , float $weight )"
     ],
     "fastcgi_finish_request": [
@@ -3762,6 +3852,9 @@
         "Tests for end-of-file on a file pointer",
         "feof ( resource $stream ) : bool"
     ],
+    "FFI": [
+        "Objects of this class are created by the factory methods FFI::cdef(), FFI::load() or FFI::scope(). Defined C variables are made available as properties of the FFI instance, and defined C functions are made available as methods of the FFI instance. Declared C types can be used to create new C data structures using FFI::new() and FFI::type()."
+    ],
     "fflush": [
         "Flushes the output to a file",
         "fflush ( resource $stream ) : bool"
@@ -3859,7 +3952,7 @@
         "filesize ( string $filename ) : int|false"
     ],
     "FilesystemIterator": [
-        "Constructs a new filesystem iterator",
+        "The Filesystem iterator",
         "new FilesystemIterator ( string $path , int $flags = FilesystemIterator::KEY_AS_PATHNAME | FilesystemIterator::CURRENT_AS_FILEINFO | FilesystemIterator::SKIP_DOTS )"
     ],
     "filetype": [
@@ -3895,11 +3988,11 @@
         "filter_var_array ( array $array , array|int $options = FILTER_DEFAULT , bool $add_empty = true ) : array|false|null"
     ],
     "FilterIterator": [
-        "Construct a filterIterator",
+        "This abstract iterator filters out unwanted values. This class should be extended to implement custom iterator filters. The FilterIterator::accept() must be implemented in the subclass.",
         "new FilterIterator ( Iterator $iterator )"
     ],
     "finfo": [
-        "Create a new fileinfo resource",
+        "This class provides an object oriented interface into the fileinfo functions.",
         "new finfo ( int $flags = FILEINFO_NONE , string $magic_database = \"\" )"
     ],
     "finfo_buffer": [
@@ -4194,8 +4287,11 @@
         "Retrieve information about the currently installed GD library",
         "gd_info ( ) : array"
     ],
+    "GdImage": [
+        "A fully opaque class which replaces gd resources as of PHP 8.0.0."
+    ],
     "GearmanClient": [
-        "Create a GearmanClient instance",
+        "Represents a class for connecting to a Gearman job server and making requests to perform some function on provided data. The function performed must be one registered by a Gearman worker and the data passed is opaque to the job server.",
         "new GearmanClient ( )"
     ],
     "GearmanJob": [
@@ -4209,6 +4305,9 @@
     "GearmanWorker": [
         "Create a GearmanWorker instance",
         "new GearmanWorker ( )"
+    ],
+    "Generator": [
+        "Generator objects are returned from generators."
     ],
     "geoip_asnum_by_name": [
         "Get the Autonomous System Numbers (ASN)",
@@ -4504,7 +4603,7 @@
         "glob ( string $pattern , int $flags = 0 ) : array|false"
     ],
     "GlobIterator": [
-        "Construct a directory using glob",
+        "Iterates through a file system in a similar fashion to glob().",
         "new GlobIterator ( string $pattern , int $flags = FilesystemIterator::KEY_AS_PATHNAME | FilesystemIterator::CURRENT_AS_FILEINFO )"
     ],
     "Gmagick": [
@@ -4522,6 +4621,9 @@
     "gmmktime": [
         "Get Unix timestamp for a GMT date",
         "gmmktime ( int $hour , int|null $minute = null , int|null $second = null , int|null $month = null , int|null $day = null , int|null $year = null ) : int|false"
+    ],
+    "GMP": [
+        "A GMP number. These objects support overloaded arithmetic, bitwise and comparison operators."
     ],
     "gmp_abs": [
         "Absolute value",
@@ -5758,7 +5860,7 @@
         "imagexbm ( resource $image , mixed $filename , int $foreground = ? ) : bool"
     ],
     "Imagick": [
-        "The Imagick constructor",
+        "The Imagick class has the ability to hold and operate on multiple images simultaneously. This is achieved through an internal stack. There is always an internal pointer that points at the current image. Some functions operate on all images in the Imagick class, but most operate only on the current image in the internal stack. As a convention, method names can contain the word Image to denote they affect only the current image in the stack.",
         "new Imagick ( mixed $files = ? )"
     ],
     "ImagickDraw": [
@@ -6060,7 +6162,7 @@
         "inet_pton ( string $ip ) : string|false"
     ],
     "InfiniteIterator": [
-        "Constructs an InfiniteIterator",
+        "The InfiniteIterator allows one to infinitely iterate over an iterator without having to manually rewind the iterator upon reaching its end.",
         "new InfiniteIterator ( Iterator $iterator )"
     ],
     "inflate_add": [
@@ -6078,6 +6180,9 @@
     "inflate_init": [
         "Initialize an incremental inflate context",
         "inflate_init ( int $encoding , array $options = [] ) : InflateContext|false"
+    ],
+    "InflateContext": [
+        "A fully opaque class which replaces zlib.inflate resources as of PHP 8.0.0."
     ],
     "ingres_autocommit": [
         "Switch autocommit on or off",
@@ -6275,6 +6380,9 @@
         "Check whether the given error code indicates failure",
         "intl_is_failure ( int $errorCode ) : bool"
     ],
+    "IntlBreakIterator": [
+        "A \u201cbreak iterator\u201d is an ICU object that exposes methods for locating boundaries in text (e.g. word or sentence boundaries). The PHP IntlBreakIterator serves as the base class for all types of ICU break iterators. Where extra functionality is available, the intl extension may expose the ICU break iterator with suitable subclasses, such as IntlRuleBasedBreakIterator or IntlCodePointBreakIterator."
+    ],
     "intlcal_add": [
         "Add a (signed) amount of time to a field",
         "intlcal_add ( IntlCalendar $cal , int $field , int $amount ) : bool"
@@ -6456,9 +6564,18 @@
         "Convert an IntlCalendar into a DateTime object",
         "intlcal_to_date_time ( IntlCalendar $cal ) : DateTime"
     ],
+    "IntlChar": [
+        "IntlChar provides access to a number of utility methods that can be used to access information about Unicode characters."
+    ],
+    "IntlCodePointBreakIterator": [
+        "This break iterator identifies the boundaries between UTF-8 code points."
+    ],
     "IntlDateFormatter": [
         "Create a date formatter",
         "new IntlDateFormatter ( string|null $locale , int $dateType , int $timeType , IntlTimeZone|DateTimeZone|string|null $timezone = null , IntlCalendar|int|null $calendar = null , string $pattern = \"\" )"
+    ],
+    "IntlException": [
+        "This class is used for generating exceptions when errors occur inside intl functions. Such exceptions are only generated when intl.use_exceptions is enabled."
     ],
     "IntlGregorianCalendar": [
         "Create the Gregorian Calendar class",
@@ -6466,8 +6583,14 @@
         "new IntlGregorianCalendar ( int $timeZoneOrYear , int $localeOrMonth , int $dayOfMonth )",
         "new IntlGregorianCalendar ( int $timeZoneOrYear , int $localeOrMonth , int $dayOfMonth , int $hour , int $minute , int $second = ? )"
     ],
+    "IntlIterator": [
+        "This class represents iterator objects throughout the intl extension whenever the iterator cannot be identified with any other object provided by the extension. The distinct iterator object used internally by the foreach construct can only be obtained (in the relevant part here) from objects, so objects of this class serve the purpose of providing the hook through which this internal object can be obtained. As a convenience, this class also implements the Iterator interface, allowing the collection of values to be navigated using the methods defined in that interface. Both these methods and the internal iterator objects provided to foreach are backed by the same state (e.g. the position of the iterator and its current value)."
+    ],
+    "IntlPartsIterator": [
+        "Objects of this class can be obtained from IntlBreakIterator objects. While the break iterators provide a sequence of boundary positions when iterated, IntlPartsIterator objects provide, as a convenience, the text fragments comprehended between two successive boundaries."
+    ],
     "IntlRuleBasedBreakIterator": [
-        "Create iterator from ruleset",
+        "A subclass of IntlBreakIterator that encapsulates ICU break iterators whose behavior is specified using a set of rules. This is the most common kind of break iterators.",
         "new IntlRuleBasedBreakIterator ( string $rules , string $areCompiled = ? )"
     ],
     "intltz_count_equivalent_ids": [
@@ -6569,6 +6692,9 @@
     "intval": [
         "Get the integer value of a variable",
         "intval ( mixed $value , int $base = 10 ) : int"
+    ],
+    "InvalidArgumentException": [
+        "Exception thrown if an argument is not of the expected type."
     ],
     "ip2long": [
         "Converts a string containing an (IPv4) Internet Protocol dotted address into a long integer",
@@ -6694,6 +6820,9 @@
         "Determine if a variable is declared and is different than null",
         "isset ( mixed $var , mixed ...$vars ) : bool"
     ],
+    "Iterator": [
+        "Interface for external iterators or objects that can be iterated themselves internally."
+    ],
     "iterator_apply": [
         "Call a function for every element in an iterator",
         "iterator_apply ( Traversable $iterator , callable $function , array $args = null ) : int"
@@ -6706,8 +6835,11 @@
         "Copy the iterator into an array",
         "iterator_to_array ( Traversable $iterator , bool $use_keys = true ) : array"
     ],
+    "IteratorAggregate": [
+        "Interface to create an external Iterator."
+    ],
     "IteratorIterator": [
-        "Create an iterator from anything that is traversable",
+        "This iterator wrapper allows the conversion of anything that is Traversable into an Iterator. It is important to understand that most classes that do not implement Iterators have reasons as most likely they do not allow the full Iterator feature set. If so, techniques should be provided to prevent misuse, otherwise expect exceptions or fatal errors.",
         "new IteratorIterator ( Traversable $iterator )"
     ],
     "jddayofweek": [
@@ -6761,6 +6893,12 @@
     "json_last_error_msg": [
         "Returns the error string of the last json_encode() or json_decode() call",
         "json_last_error_msg ( ) : string"
+    ],
+    "JsonException": [
+        "Exception thrown if JSON_THROW_ON_ERROR option is set for json_encode() or json_decode(). code contains the error type, for possible values see json_last_error()."
+    ],
+    "JsonSerializable": [
+        "Objects implementing JsonSerializable can customize their JSON representation when encoded with json_encode()."
     ],
     "juliantojd": [
         "Converts a Julian Calendar date to Julian Day Count",
@@ -7023,6 +7161,9 @@
         "Unbind from LDAP directory",
         "ldap_unbind ( resource $ldap ) : bool"
     ],
+    "LengthException": [
+        "Exception thrown if a length is invalid."
+    ],
     "levenshtein": [
         "Calculate Levenshtein distance between two strings",
         "levenshtein ( string $string1 , string $string2 , int $insertion_cost = 1 , int $replacement_cost = 1 , int $deletion_cost = 1 ) : int"
@@ -7055,8 +7196,11 @@
         "Disable libxml errors and allow user to fetch error information as needed",
         "libxml_use_internal_errors ( bool|null $use_errors = null ) : bool"
     ],
+    "libXMLError": [
+        "Contains various information about errors thrown by libxml. The error codes are described within the official \u00bb\u00a0xmlError API documentation."
+    ],
     "LimitIterator": [
-        "Construct a LimitIterator",
+        "The LimitIterator class allows iteration over a limited subset of items in an Iterator.",
         "new LimitIterator ( Iterator $iterator , int $offset = 0 , int $limit = -1 )"
     ],
     "link": [
@@ -7070,6 +7214,9 @@
     "list": [
         "Assign variables as if they were an array",
         "list ( mixed $var , mixed ...$vars = ? ) : array"
+    ],
+    "Locale": [
+        "Examples of identifiers include:"
     ],
     "locale_accept_from_http": [
         "Tries to find out best available locale based on HTTP \"Accept-Language\" header",
@@ -7187,6 +7334,9 @@
         "Callback When Writing Batches",
         "log_write_batch ( array $server , array $writeOptions , array $batch , array $protocolOptions )"
     ],
+    "LogicException": [
+        "Exception that represents error in the program logic. This kind of exception should lead directly to a fix in your code."
+    ],
     "long2ip": [
         "Converts an long integer address into a string in (IPv4) Internet standard dotted format",
         "long2ip ( int $ip ) : string|false"
@@ -7203,9 +7353,35 @@
         "Lua constructor",
         "new Lua ( string $lua_script_file = NULL )"
     ],
+    "LuaClosure": [
+        "LuaClosure is a wrapper class for LUA_TFUNCTION which could be return from calling to Lua function."
+    ],
+    "LuaSandbox": [
+        "The LuaSandbox class creates a Lua environment and allows for execution of Lua code."
+    ],
+    "LuaSandboxError": [
+        "Base class for LuaSandbox exceptions"
+    ],
+    "LuaSandboxErrorError": [
+        "Exception thrown when Lua encounters an error inside an error handler."
+    ],
+    "LuaSandboxFatalError": [
+        "Uncatchable LuaSandbox exceptions."
+    ],
     "LuaSandboxFunction": [
-        "Unused",
-        "final private LuaSandboxFunction::__construct ( )"
+        "Represents a Lua function, allowing it to be called from PHP."
+    ],
+    "LuaSandboxMemoryError": [
+        "Exception thrown when Lua cannot allocate memory."
+    ],
+    "LuaSandboxRuntimeError": [
+        "Catchable LuaSandbox runtime exceptions."
+    ],
+    "LuaSandboxSyntaxError": [
+        "Exception thrown when Lua code cannot be parsed."
+    ],
+    "LuaSandboxTimeoutError": [
+        "Exception thrown when the configured CPU time limit is exceeded."
     ],
     "lzf_compress": [
         "LZF compression",
@@ -7683,12 +7859,15 @@
         "Decrypts data",
         "mdecrypt_generic ( resource $td , string $data ) : string"
     ],
+    "Memcache": [
+        "Represents a connection to a set of memcache servers."
+    ],
     "memcache_debug": [
         "Turn debug output on\/off",
         "memcache_debug ( bool $on_off ) : bool"
     ],
     "Memcached": [
-        "Create a Memcached instance",
+        "Represents a connection to a set of memcached servers.",
         "new Memcached ( string $persistent_id = ? )"
     ],
     "memory_get_peak_usage": [
@@ -7757,44 +7936,68 @@
         "money_format ( string $format , float $number ) : string"
     ],
     "Mongo": [
-        "The __construct purpose",
+        "A connection between PHP and MongoDB.",
         "new Mongo ( string $server = ? , array $options = ? )"
     ],
     "MongoBinData": [
-        "Creates a new binary data object",
+        "This extension that defines this class\nis deprecated. Instead, the MongoDB extension should be used.\nAlternatives to this class include:",
         "new MongoBinData ( string $data , int $type = 0 )"
     ],
     "MongoClient": [
-        "Creates a new database connection object",
+        "This extension that defines this class\nis deprecated. Instead, the MongoDB extension should be used.\nAlternatives to this class include:",
         "new MongoClient ( string $server = \"mongodb:\/\/localhost:27017\" , array $options = array(\"connect\" => true) , array $driver_options = ? )"
     ],
     "MongoCode": [
-        "Creates a new code object",
+        "This extension that defines this class\nis deprecated. Instead, the MongoDB extension should be used.\nAlternatives to this class include:",
         "new MongoCode ( string $code , array $scope = array() )"
     ],
     "MongoCollection": [
-        "Creates a new collection",
+        "Represents a MongoDB collection.",
         "new MongoCollection ( MongoDB $db , string $name )"
     ],
     "MongoCommandCursor": [
-        "Create a new command cursor",
+        "A command cursor is similar to a MongoCursor except that you use it for iterating through the results of a database command instead of a normal query. Command cursors are useful for iterating over large result sets that might exceed the document size limit (currently 16MB) of a single MongoDB::command() response.",
         "new MongoCommandCursor ( MongoClient $connection , string $ns , array $command = array() )"
     ],
+    "MongoConnectionException": [
+        "Thrown when the driver fails to connect to the database."
+    ],
     "MongoCursor": [
-        "Create a new cursor",
+        "A cursor is used to iterate through the results of a database query. For example, to query the database and see all results, you could do:",
         "new MongoCursor ( MongoClient $connection , string $ns , array $query = array() , array $fields = array() )"
     ],
+    "MongoCursorException": [
+        "Caused by accessing a cursor incorrectly or a error receiving a reply. Note that this can be thrown by any database request that receives a reply, not just queries. Writes, commands, and any other operation that sends information to the database and waits for a response can throw a MongoCursorException. The only exception is new MongoClient() (creating a new connection), which will only throw MongoConnectionExceptions."
+    ],
+    "MongoCursorInterface": [
+        "Interface for cursors, which can be used to iterate through results of a database query or command. This interface is implemented by the MongoCursor and MongoCommandCursor classes."
+    ],
+    "MongoCursorTimeoutException": [
+        "Caused by a query timing out. You can set the length of time to wait before this exception is thrown by calling MongoCursor::timeout() on the cursor or setting MongoCursor::$timeout. The static variable is useful for queries such as database commands and MongoCollection::findOne(), both of which implicitly use cursors."
+    ],
     "MongoDate": [
-        "Creates a new date",
+        "This extension that defines this class\nis deprecated. Instead, the MongoDB extension should be used.\nAlternatives to this class include:",
         "new MongoDate ( int $sec = time() , int $usec = 0 )"
     ],
     "MongoDB": [
-        "Creates a new database",
+        "Instances of this class are used to interact with a database. To get a database:",
         "new MongoDB ( MongoClient $conn , string $name )"
     ],
+    "MongoDBRef": [
+        "This extension that defines this class\nis deprecated. Instead, the MongoDB extension should be used.\nThere is no equivalent for this class in the new extension."
+    ],
     "MongoDeleteBatch": [
-        "Description",
+        "Constructs a batch of DELETE operations. See MongoWriteBatch.",
         "new MongoDeleteBatch ( MongoCollection $collection , array $write_options = ? )"
+    ],
+    "MongoDuplicateKeyException": [
+        "Thrown when attempting to insert a document into a collection which already contains the same values for the unique keys."
+    ],
+    "MongoException": [
+        "Default Mongo exception."
+    ],
+    "MongoExecutionTimeoutException": [
+        "Thrown when a operation times out server side (i.e. in MongoDB)."
     ],
     "MongoGridFS": [
         "Creates new file collections",
@@ -7804,37 +8007,61 @@
         "Create a new cursor",
         "new MongoGridFSCursor ( MongoGridFS $gridfs , resource $connection , string $ns , array $query , array $fields )"
     ],
+    "MongoGridFSException": [
+        "Thrown when there are errors reading or writing files to or from the database."
+    ],
     "MongoGridFSFile": [
-        "Create a new GridFS file",
+        "A database file object.",
         "new MongoGridfsFile ( MongoGridFS $gridfs , array $file )"
     ],
     "MongoId": [
-        "Creates a new id",
+        "This extension that defines this class\nis deprecated. Instead, the MongoDB extension should be used.\nAlternatives to this class include:",
         "new MongoId ( string|MongoId $id = null )"
     ],
     "MongoInsertBatch": [
-        "Description",
+        "Constructs a batch of INSERT operations. See MongoWriteBatch.",
         "new MongoInsertBatch ( MongoCollection $collection , array $write_options = ? )"
     ],
     "MongoInt32": [
-        "Creates a new 32-bit integer",
+        "This extension that defines this class\nis deprecated. Instead, the MongoDB extension should be used.\nThere is no equivalent for this class in the new extension.",
         "new MongoInt32 ( string $value )"
     ],
     "MongoInt64": [
-        "Creates a new 64-bit integer",
+        "This extension that defines this class\nis deprecated. Instead, the MongoDB extension should be used.\nThere is no equivalent for this class in the new extension.",
         "new MongoInt64 ( string $value )"
     ],
+    "MongoLog": [
+        "Logging can be used to get detailed information about what the driver is doing. Logging is disabled by default, but this class allows you to activate specific levels of logging for various parts of the driver. Some examples:"
+    ],
+    "MongoMaxKey": [
+        "This extension that defines this class\nis deprecated. Instead, the MongoDB extension should be used.\nAlternatives to this class include:"
+    ],
+    "MongoMinKey": [
+        "This extension that defines this class\nis deprecated. Instead, the MongoDB extension should be used.\nAlternatives to this class include:"
+    ],
+    "MongoProtocolException": [
+        "When talking to MongoDB 2.6.0, and later, certain operations (such as writes) may throw MongoProtocolException when the response from the server did not make sense - for example during network failure (we could read the entire response) or data corruption."
+    ],
     "MongoRegex": [
-        "Creates a new regular expression",
+        "This extension that defines this class\nis deprecated. Instead, the MongoDB extension should be used.\nAlternatives to this class include:",
         "new MongoRegex ( string $regex )"
     ],
+    "MongoResultException": [
+        "The MongoResultException is thrown by several command helpers (such as MongoCollection::findAndModify()) in the event of failure. The original result document is available through MongoResultException::getDocument()."
+    ],
     "MongoTimestamp": [
-        "Creates a new timestamp",
+        "This extension that defines this class\nis deprecated. Instead, the MongoDB extension should be used.\nAlternatives to this class include:",
         "new MongoTimestamp ( int $sec = time() , int $inc = ? )"
     ],
     "MongoUpdateBatch": [
-        "Description",
+        "Constructs a batch of UPDATE operations. See MongoWriteBatch.",
         "new MongoUpdateBatch ( MongoCollection $collection , array $write_options = ? )"
+    ],
+    "MongoWriteBatch": [
+        "MongoWriteBatch is the base class for the MongoInsertBatch, MongoUpdateBatch and MongoDeleteBatch classes."
+    ],
+    "MongoWriteConcernException": [
+        "MongoWriteConcernException is thrown when a write fails. See Write Concerns for how to set failure thresholds."
     ],
     "move_uploaded_file": [
         "Moves an uploaded file to a new location",
@@ -7978,8 +8205,11 @@
         "mt_srand ( int $seed = 0 , int $mode = MT_RAND_MT19937 ) : void"
     ],
     "MultipleIterator": [
-        "Constructs a new MultipleIterator",
+        "An Iterator that sequentially iterates over all attached iterators",
         "new MultipleIterator (  int $flags  = MultipleIterator::MIT_NEED_ALL|MultipleIterator::MIT_KEYS_NUMERIC  )"
+    ],
+    "Mutex": [
+        "The static methods contained in the Mutex class provide direct access to Posix Mutex functionality."
     ],
     "mysql_affected_rows": [
         "Get number of affected rows in previous MySQL operation",
@@ -8174,7 +8404,7 @@
         "mysql_unbuffered_query ( string $query , resource $link_identifier = NULL ) : resource"
     ],
     "mysqli": [
-        "Open a new connection to the MySQL server",
+        "Represents a connection between PHP and a MySQL database.",
         "new mysqli ( string $host = ini_get(\"mysqli.default_host\") , string $username = ini_get(\"mysqli.default_user\") , string $passwd = ini_get(\"mysqli.default_pw\") , string $dbname = \"\" , int $port = ini_get(\"mysqli.default_port\") , string $socket = ini_get(\"mysqli.default_socket\") )"
     ],
     "mysqli_affected_rows": [
@@ -8224,6 +8454,9 @@
     "mysqli_debug": [
         "Performs debugging operations",
         "mysqli_debug ( string $message ) : bool"
+    ],
+    "mysqli_driver": [
+        "The mysqli_driver class is an instance of the monostate pattern, i.e. there is only one driver which can be accessed though an arbitrary amount of mysqli_driver instances."
     ],
     "mysqli_dump_debug_info": [
         "Dump debugging information into the log",
@@ -8429,6 +8662,9 @@
         "Sets mysqli error reporting mode",
         "mysqli_report ( int $flags ) : bool"
     ],
+    "mysqli_result": [
+        "Represents the result set obtained from a query against the database."
+    ],
     "mysqli_rollback": [
         "Rolls back current transaction",
         "mysqli_rollback ( mysqli $link , int $flags = 0 , string $name = ? ) : bool"
@@ -8445,6 +8681,9 @@
         "Sets the default client character set",
         "mysqli_set_charset ( mysqli $link , string $charset ) : bool"
     ],
+    "mysqli_sql_exception": [
+        "The mysqli exception handling class."
+    ],
     "mysqli_sqlstate": [
         "Returns the SQLSTATE error from previous MySQL operation",
         "mysqli_sqlstate ( mysqli $link ) : string"
@@ -8458,7 +8697,7 @@
         "mysqli_stat ( mysqli $link ) : string"
     ],
     "mysqli_stmt": [
-        "Constructs a new mysqli_stmt object",
+        "Represents a prepared statement.",
         "new mysqli_stmt ( mysqli $link , string $query = ? )"
     ],
     "mysqli_stmt_affected_rows": [
@@ -8588,6 +8827,9 @@
     "mysqli_use_result": [
         "Initiate a result set retrieval",
         "mysqli_use_result ( mysqli $link ) : mysqli_result"
+    ],
+    "mysqli_warning": [
+        "Represents a MySQL warning."
     ],
     "mysqli_warning_count": [
         "Returns the number of warnings from the last query for the given link",
@@ -9382,8 +9624,11 @@
         "nl_langinfo ( int $item ) : string|false"
     ],
     "NoRewindIterator": [
-        "Construct a NoRewindIterator",
+        "This iterator ignores rewind operations. This allows processing an iterator in multiple partial foreach loops.",
         "new NoRewindIterator ( Iterator $iterator )"
+    ],
+    "Normalizer": [
+        "The Unicode Consortium has defined a number of normalization forms reflecting the various needs of applications:"
     ],
     "normalizer_get_raw_decomposition": [
         "Gets the Decomposition_Mapping property for the given UTF-8 encoded code point",
@@ -9402,7 +9647,7 @@
         "number_format ( float $num , int $decimals = 0 , string|null $decimal_separator = \".\" , string|null $thousands_separator = \",\" ) : string"
     ],
     "NumberFormatter": [
-        "Create a number formatter",
+        "For currencies you can use currency format type to create a formatter that returns a string with the formatted number and the appropriate currency sign. Of course, the NumberFormatter class is unaware of exchange rates so, the number output is the same regardless of the specified currency. This means that the same number has different monetary values depending on the currency locale. If the number is 9988776.65 the results will be:",
         "new NumberFormatter ( string $locale , int $style , string $pattern = ? )"
     ],
     "numfmt_create": [
@@ -9470,7 +9715,7 @@
         "numfmt_set_text_attribute ( NumberFormatter $fmt , int $attr , string $value ) : bool"
     ],
     "OAuth": [
-        "Create a new OAuth object",
+        "The OAuth extension provides a simple interface to interact with data providers using the OAuth HTTP specification to protect private resources.",
         "new OAuth ( string $consumer_key , string $consumer_secret , string $signature_method = OAUTH_SIG_METHOD_HMACSHA1 , int $auth_type = 0 )"
     ],
     "oauth_get_sbs": [
@@ -9481,8 +9726,11 @@
         "Encode a URI to RFC 3986",
         "oauth_urlencode ( string $uri ) : string"
     ],
+    "OAuthException": [
+        "This exception is thrown when exceptional errors occur while using the OAuth extension and contains useful debugging information."
+    ],
     "OAuthProvider": [
-        "Constructs a new OAuthProvider object",
+        "Manages an OAuth provider class.",
         "new OAuthProvider ( array $params_array = ? )"
     ],
     "ob_clean": [
@@ -9757,6 +10005,12 @@
     "oci_unregister_taf_callback": [
         "Unregister a user-defined callback function for Oracle Database TAF",
         "oci_unregister_taf_callback ( resource $connection ) : bool"
+    ],
+    "OCICollection": [
+        "OCI8 Collection functionality."
+    ],
+    "OCILob": [
+        "OCI8 LOB functionality for large binary (BLOB) and character (CLOB) objects."
     ],
     "octdec": [
         "Octal to decimal",
@@ -10302,9 +10556,27 @@
         "Verifies digital signature of x509 certificate against a public key",
         "openssl_x509_verify ( OpenSSLCertificate|string $certificate , OpenSSLAsymmetricKey|OpenSSLCertificate|array|string $public_key ) : int"
     ],
+    "OpenSSLAsymmetricKey": [
+        "A fully opaque class which replaces OpenSSL key resources as of PHP 8.0.0."
+    ],
+    "OpenSSLCertificate": [
+        "A fully opaque class which replaces OpenSSL X.509 resources as of PHP 8.0.0."
+    ],
+    "OpenSSLCertificateSigningRequest": [
+        "A fully opaque class which replaces OpenSSL X.509 CSR resources as of PHP 8.0.0."
+    ],
     "ord": [
         "Convert the first byte of a string to a value between 0 and 255",
         "ord ( string $character ) : int"
+    ],
+    "OuterIterator": [
+        "Classes implementing OuterIterator can be used to iterate over iterators."
+    ],
+    "OutOfBoundsException": [
+        "Exception thrown if a value is not a valid key. This represents errors that cannot be detected at compile time."
+    ],
+    "OutOfRangeException": [
+        "Exception thrown when an illegal index was requested. This represents errors that should be detected at compile time."
     ],
     "output_add_rewrite_var": [
         "Add URL rewriter values",
@@ -10314,12 +10586,15 @@
         "Reset URL rewriter values",
         "output_reset_rewrite_vars ( ) : bool"
     ],
+    "OverflowException": [
+        "Exception thrown when adding an element to a full container."
+    ],
     "pack": [
         "Pack data into binary string",
         "pack ( string $format , mixed ...$values ) : string"
     ],
     "ParentIterator": [
-        "Constructs a ParentIterator",
+        "This extended FilterIterator allows a recursive iteration using RecursiveIteratorIterator that only shows those elements which have children.",
         "new ParentIterator ( RecursiveIterator $iterator )"
     ],
     "parse_ini_file": [
@@ -10337,6 +10612,9 @@
     "parse_url": [
         "Parse a URL and return its components",
         "parse_url ( string $url , int $component = -1 ) : mixed"
+    ],
+    "ParseError": [
+        "ParseError is thrown when an error occurs while parsing PHP code, such as when eval() is called."
     ],
     "passthru": [
         "Execute an external program and display raw output",
@@ -10459,12 +10737,18 @@
         "pcntl_wtermsig ( int $status ) : int"
     ],
     "PDO": [
-        "Creates a PDO instance representing a connection to a database",
+        "Represents a connection between PHP and a database server.",
         "new PDO ( string $dsn , string $username = ? , string $passwd = ? , array $options = ? )"
     ],
     "pdo_drivers": [
         "Return an array of available PDO drivers",
         "pdo_drivers ( ) : array"
+    ],
+    "PDOException": [
+        "Represents an error raised by PDO. You should not throw a PDOException from your own code. See Exceptions for more information about Exceptions in PHP."
+    ],
+    "PDOStatement": [
+        "Represents a prepared statement and, after the statement is executed, an associated result set."
     ],
     "pfsockopen": [
         "Open persistent Internet or Unix domain socket connection",
@@ -10832,15 +11116,18 @@
         "pg_version ( resource $connection = ? ) : array"
     ],
     "Phar": [
-        "Construct a Phar archive object",
+        "The Phar class provides a high-level interface to accessing and creating phar archives.",
         "new Phar ( string $fname , int $flags = ? , string $alias = ? )"
     ],
     "PharData": [
-        "Construct a non-executable tar or zip archive object",
+        "The PharData class provides a high-level interface to accessing and creating non-executable tar and zip archives. Because these archives do not contain a stub and cannot be executed by the phar extension, it is possible to create and manipulate regular zip and tar files using the PharData class even if phar.readonly php.ini setting is 1.",
         "new PharData ( string $fname , int $flags = ? , string $alias = ? , int $format = Phar::TAR )"
     ],
+    "PharException": [
+        "The PharException class provides a phar-specific exception class for try\/catch blocks."
+    ],
     "PharFileInfo": [
-        "Construct a Phar entry object",
+        "The PharFileInfo class provides a high-level interface to the contents and attributes of a single file within a phar archive.",
         "new PharFileInfo ( string $entry )"
     ],
     "php_ini_loaded_file": [
@@ -10862,6 +11149,9 @@
     "php_uname": [
         "Returns information about the operating system PHP is running on",
         "php_uname ( string $mode = \"a\" ) : string"
+    ],
+    "php_user_filter": [
+        "Children of this class are passed to stream_filter_register(). Note that the __construct method is not called; instead, php_user_filter::onCreate() should be used for initialization."
     ],
     "phpcredits": [
         "Prints out the credits for PHP",
@@ -10916,8 +11206,8 @@
         "phpinfo ( int $flags = INFO_ALL ) : bool"
     ],
     "PhpToken": [
-        "Returns a new PhpToken object",
-        "final new PhpToken ( int $id , string $text , int $line = -1 , int $pos = -1 )"
+        "This class provides an alternative to token_get_all(). While the function returns tokens either as a single-character string, or an array with a token ID, token text and line number, PhpToken::tokenize() normalizes all tokens into PhpToken objects, which makes code operating on tokens more memory efficient and readable.",
+        "new PhpToken ( int $id , string $text , int $line = -1 , int $pos = -1 )"
     ],
     "phpversion": [
         "Gets the current PHP version",
@@ -10932,7 +11222,7 @@
         "png2wbmp ( string $pngname , string $wbmpname , int $dest_height , int $dest_width , int $threshold ) : bool"
     ],
     "Pool": [
-        "Creates a new Pool of Workers",
+        "A Pool is a container for, and controller of, an adjustable number of Workers.",
         "new Pool ( int $size , string $class = ? , array $ctor = ? ) : Pool"
     ],
     "popen": [
@@ -11664,19 +11954,19 @@
         "px_update_record ( resource $pxdoc , array $data , int $num ) : bool"
     ],
     "QuickHashIntHash": [
-        "Creates a new QuickHashIntHash object",
+        "This class wraps around a hash containing integer numbers, where the values are also integer numbers. Hashes are also available as implementation of the ArrayAccess interface.",
         "new QuickHashIntHash ( int $size , int $options = ? )"
     ],
     "QuickHashIntSet": [
-        "Creates a new QuickHashIntSet object",
+        "This class wraps around a set containing integer numbers.",
         "new QuickHashIntSet ( int $size , int $options = ? )"
     ],
     "QuickHashIntStringHash": [
-        "Creates a new QuickHashIntStringHash object",
+        "This class wraps around a hash containing integer numbers, where the values are strings. Hashes are also available as implementation of the ArrayAccess interface.",
         "new QuickHashIntStringHash ( int $size , int $options = 0 )"
     ],
     "QuickHashStringIntHash": [
-        "Creates a new QuickHashStringIntHash object",
+        "This class wraps around a hash containing strings, where the values are integer numbers. Hashes are also available as implementation of the ArrayAccess interface.",
         "new QuickHashStringIntHash ( int $size , int $options = 0 )"
     ],
     "quoted_printable_decode": [
@@ -11824,6 +12114,9 @@
         "Create an array containing a range of elements",
         "range ( string|int|float $start , string|int|float $end , int|float $step = 1 ) : array"
     ],
+    "RangeException": [
+        "Exception thrown to indicate range errors during program execution. Normally this means there was an arithmetic error other than under\/overflow. This is the runtime version of DomainException."
+    ],
     "rar_allow_broken_set": [
         "Whether opening broken archives is allowed",
         "rar_allow_broken_set ( RarArchive $rarfile , bool $allow_broken ) : bool"
@@ -11859,6 +12152,15 @@
     "rar_wrapper_cache_stats": [
         "Cache hits and misses for the URL wrapper",
         "rar_wrapper_cache_stats ( ) : string"
+    ],
+    "RarArchive": [
+        "This class represents a RAR archive, which may be formed by several volumes (parts) and which contains a number of RAR entries (i.e., files, directories and other special objects such as symbolic links)."
+    ],
+    "RarEntry": [
+        "A RAR entry, representing a directory or a compressed file inside a RAR archive."
+    ],
+    "RarException": [
+        "This class serves two purposes: it is the type of the exceptions thrown by the RAR extension functions and methods and it allows, through static methods to query and define the error behaviour of the extension, i.e., whether exceptions are thrown or only warnings are emitted."
     ],
     "rawurldecode": [
         "Decode URL-encoded strings",
@@ -11956,8 +12258,11 @@
         "Recode a string according to a recode request",
         "recode_string ( string $request , string $string ) : string"
     ],
+    "RecursiveArrayIterator": [
+        "This iterator allows to unset and modify values and keys while iterating over Arrays and Objects in the same way as the ArrayIterator. Additionally it is possible to iterate over the current iterator entry."
+    ],
     "RecursiveCachingIterator": [
-        "Construct",
+        "...",
         "new RecursiveCachingIterator ( Iterator $iterator , int $flags = self::CALL_TOSTRING )"
     ],
     "RecursiveCallbackFilterIterator": [
@@ -11965,68 +12270,89 @@
         "new RecursiveCallbackFilterIterator ( RecursiveIterator $iterator , string $callback )"
     ],
     "RecursiveDirectoryIterator": [
-        "Constructs a RecursiveDirectoryIterator",
+        "The RecursiveDirectoryIterator provides an interface for iterating recursively over filesystem directories.",
         "new RecursiveDirectoryIterator ( string $path , int $flags = FilesystemIterator::KEY_AS_PATHNAME | FilesystemIterator::CURRENT_AS_FILEINFO )"
     ],
     "RecursiveFilterIterator": [
-        "Create a RecursiveFilterIterator from a RecursiveIterator",
+        "This abstract iterator filters out unwanted values for a RecursiveIterator. This class should be extended to implement custom filters. The RecursiveFilterIterator::accept() must be implemented in the subclass.",
         "new RecursiveFilterIterator ( RecursiveIterator $iterator )"
     ],
+    "RecursiveIterator": [
+        "Classes implementing RecursiveIterator can be used to iterate over iterators recursively."
+    ],
     "RecursiveIteratorIterator": [
-        "Construct a RecursiveIteratorIterator",
+        "Can be used to iterate through recursive iterators.",
         "new RecursiveIteratorIterator ( Traversable $iterator , int $mode = RecursiveIteratorIterator::LEAVES_ONLY , int $flags = 0 )"
     ],
     "RecursiveRegexIterator": [
-        "Creates a new RecursiveRegexIterator",
+        "This recursive iterator can filter another recursive iterator via a regular expression.",
         "new RecursiveRegexIterator ( RecursiveIterator $iterator , string $regex , int $mode = self::MATCH , int $flags = 0 , int $preg_flags = 0 )"
     ],
     "RecursiveTreeIterator": [
-        "Construct a RecursiveTreeIterator",
+        "Allows iterating over a RecursiveIterator to generate an ASCII graphic tree.",
         "new RecursiveTreeIterator ( RecursiveIterator|IteratorAggregate $it , int $flags = RecursiveTreeIterator::BYPASS_KEY , int $cit_flags = CachingIterator::CATCH_GET_CHILD , int $mode = RecursiveIteratorIterator::SELF_FIRST )"
     ],
+    "Reflection": [
+        "The reflection class."
+    ],
     "ReflectionClass": [
-        "Constructs a ReflectionClass",
+        "The ReflectionClass class reports information about a class.",
         "new ReflectionClass ( object|string $objectOrClass )"
     ],
     "ReflectionClassConstant": [
-        "Constructs a ReflectionClassConstant",
+        "The ReflectionClassConstant class reports information about a class constant.",
         "new ReflectionClassConstant ( object|string $class , string $constant )"
     ],
+    "ReflectionException": [
+        "The ReflectionException class."
+    ],
     "ReflectionExtension": [
-        "Constructs a ReflectionExtension",
+        "The ReflectionExtension class reports information about an extension.",
         "new ReflectionExtension ( string $name )"
     ],
     "ReflectionFunction": [
-        "Constructs a ReflectionFunction object",
+        "The ReflectionFunction class reports information about a function.",
         "new ReflectionFunction ( Closure|string $function )"
     ],
+    "ReflectionFunctionAbstract": [
+        "A parent class to ReflectionFunction, read its description for details."
+    ],
     "ReflectionGenerator": [
-        "Constructs a ReflectionGenerator object",
+        "The ReflectionGenerator class reports information about a generator.",
         "new ReflectionGenerator ( Generator $generator )"
     ],
     "ReflectionMethod": [
-        "Constructs a ReflectionMethod",
+        "The ReflectionMethod class reports information about a method.",
         "new ReflectionMethod ( object|string $objectOrMethod , string $method )",
         "new ReflectionMethod ( string $classMethod )"
     ],
     "ReflectionObject": [
-        "Constructs a ReflectionObject",
+        "The ReflectionObject class reports information about an object.",
         "new ReflectionObject ( object $object )"
     ],
     "ReflectionParameter": [
-        "Construct",
+        "The ReflectionParameter class retrieves information about function's or method's parameters.",
         "new ReflectionParameter ( string|array|object $function , int|string $param )"
     ],
     "ReflectionProperty": [
-        "Construct a ReflectionProperty object",
+        "The ReflectionProperty class reports information about class properties.",
         "new ReflectionProperty ( object|string $class , string $property )"
+    ],
+    "ReflectionReference": [
+        "The ReflectionReference class provides information about a reference."
+    ],
+    "ReflectionType": [
+        "The ReflectionType class reports information about a function's return type."
     ],
     "ReflectionZendExtension": [
         "Constructor",
         "new ReflectionZendExtension ( string $name )"
     ],
+    "Reflector": [
+        "Reflector is an interface implemented by all exportable Reflection classes."
+    ],
     "RegexIterator": [
-        "Create a new RegexIterator",
+        "This iterator can be used to filter another iterator based on a regular expression.",
         "new RegexIterator ( Iterator $iterator , string $regex , int $mode = self::MATCH , int $flags = 0 , int $preg_flags = 0 )"
     ],
     "register_shutdown_function": [
@@ -12178,15 +12504,15 @@
         "rrdc_disconnect ( ) : void"
     ],
     "RRDCreator": [
-        "Creates new RRDCreator instance",
+        "Class for creation of RRD database file.",
         "new RRDCreator ( string $path , string $startTime = ? , int $step = 0 )"
     ],
     "RRDGraph": [
-        "Creates new RRDGraph instance",
+        "Class for exporting data from RRD database to image file.",
         "new RRDGraph ( string $path )"
     ],
     "RRDUpdater": [
-        "Creates new RRDUpdater instance",
+        "Class for updating RDD database file.",
         "new RRDUpdater ( string $path )"
     ],
     "rsort": [
@@ -12269,6 +12595,9 @@
         "Returns information about the passed in value with data types, reference counts, etc",
         "runkit7_zval_inspect ( string $value ) : array"
     ],
+    "RuntimeException": [
+        "Exception thrown if an error which can only be found on runtime occurs."
+    ],
     "sapi_windows_cp_conv": [
         "Convert string from one codepage to another",
         "sapi_windows_cp_conv ( int|string $in_codepage , int|string $out_codepage , string $subject ) : string"
@@ -12321,6 +12650,9 @@
         "Get SeasLog version.",
         "seaslog_get_version ( ) : string"
     ],
+    "SeekableIterator": [
+        "The Seekable iterator."
+    ],
     "sem_acquire": [
         "Acquire a semaphore",
         "sem_acquire ( SysvSemaphore $semaphore , bool $non_blocking = false ) : bool"
@@ -12336,6 +12668,9 @@
     "sem_remove": [
         "Remove a semaphore",
         "sem_remove ( SysvSemaphore $semaphore ) : bool"
+    ],
+    "Serializable": [
+        "Interface for customized serializing."
     ],
     "serialize": [
         "Generates a storable representation of a value",
@@ -12439,6 +12774,18 @@
         "Write session data and end session",
         "session_write_close ( ) : bool"
     ],
+    "SessionHandler": [
+        "SessionHandler is a special class that can be used to expose the current internal PHP session save handler by inheritance. There are seven methods which wrap the seven internal session save handler callbacks (open, close, read, write, destroy, gc and create_sid). By default, this class will wrap whatever internal save handler is set as defined by the session.save_handler configuration directive which is usually files by default. Other internal session save handlers are provided by PHP extensions such as SQLite (as sqlite), Memcache (as memcache), and Memcached (as memcached)."
+    ],
+    "SessionHandlerInterface": [
+        "SessionHandlerInterface is an interface which defines the minimal prototype for creating a custom session handler. In order to pass a custom session handler to session_set_save_handler() using its OOP invocation, the class can implement this interface."
+    ],
+    "SessionIdInterface": [
+        "SessionIdInterface is an interface which defines optional methods for creating a custom session handler. In order to pass a custom session handler to session_set_save_handler() using its OOP invocation, the class can implement this interface."
+    ],
+    "SessionUpdateTimestampHandlerInterface": [
+        "SessionUpdateTimestampHandlerInterface is an interface which defines optional methods for creating a custom session handler. In order to pass a custom session handler to session_set_save_handler() using its OOP invocation, the class can implement this interface."
+    ],
     "set_error_handler": [
         "Sets a user-defined error handler function",
         "set_error_handler ( callable $error_handler , int $error_types = E_ALL | E_STRICT ) : mixed"
@@ -12522,6 +12869,9 @@
         "Removes a variable from shared memory",
         "shm_remove_var ( SysvSharedMemory $shm , int $key ) : bool"
     ],
+    "Shmop": [
+        "A fully opaque class which replaces shmop resources as of PHP 8.0.0."
+    ],
     "shmop_close": [
         "Close shared memory block",
         "shmop_close ( Shmop $shmop ) : void"
@@ -12567,8 +12917,11 @@
         "simplexml_load_string ( string $data , string $class_name = \"SimpleXMLElement\" , int $options = 0 , string $ns = \"\" , bool $is_prefix = false ) : SimpleXMLElement|false"
     ],
     "SimpleXMLElement": [
-        "Creates a new SimpleXMLElement object",
-        "final new SimpleXMLElement ( string $data , int $options = 0 , bool $data_is_url = false , string $ns = \"\" , bool $is_prefix = false )"
+        "Represents an element in an XML document.",
+        "new SimpleXMLElement ( string $data , int $options = 0 , bool $data_is_url = false , string $ns = \"\" , bool $is_prefix = false )"
+    ],
+    "SimpleXMLIterator": [
+        "The SimpleXMLIterator provides recursive iteration over all nodes of a SimpleXMLElement object."
     ],
     "sin": [
         "Sine",
@@ -12583,7 +12936,7 @@
         "sleep ( int $seconds ) : int"
     ],
     "SNMP": [
-        "Creates SNMP instance representing session to remote SNMP agent",
+        "Represents SNMP session.",
         "new SNMP ( int $version , string $hostname , string $community , int $timeout = -1 , int $retries = -1 )"
     ],
     "snmp2_get": [
@@ -12658,6 +13011,9 @@
         "Specify the method how the SNMP values will be returned",
         "snmp_set_valueretrieval ( int $method ) : bool"
     ],
+    "SNMPException": [
+        "Represents an error raised by SNMP. You should not throw a SNMPException from your own code. See Exceptions for more information about Exceptions in PHP."
+    ],
     "snmpget": [
         "Fetch an SNMP object",
         "snmpget ( string $hostname , string $community , array|string $object_id , int $timeout = -1 , int $retries = -1 ) : stdClass|array|string|bool"
@@ -12683,28 +13039,31 @@
         "snmpwalkoid ( string $hostname , string $community , array|string $object_id , int $timeout = -1 , int $retries = -1 ) : array|bool"
     ],
     "SoapClient": [
-        "SoapClient constructor",
+        "The SoapClient class provides a client for \u00bb\u00a0SOAP 1.1, \u00bb\u00a0SOAP 1.2 servers. It can be used in WSDL or non-WSDL mode.",
         "new SoapClient ( string|null $wsdl , array $options = [] )"
     ],
     "SoapFault": [
-        "SoapFault constructor",
+        "Represents a SOAP fault.",
         "new SoapFault ( array|string|null $code , string $string , string|null $actor = null , mixed $details = null , string|null $name = null , mixed $headerFault = null )"
     ],
     "SoapHeader": [
-        "SoapHeader constructor",
+        "Represents a SOAP header.",
         "SoapHeader::__construct ( string $namespace , string $name , mixed $data = ? , bool $mustunderstand = ? , string $actor = ? )"
     ],
     "SoapParam": [
-        "SoapParam constructor",
+        "Represents parameter to a SOAP call.",
         "new SoapParam ( mixed $data , string $name )"
     ],
     "SoapServer": [
-        "SoapServer constructor",
+        "The SoapServer class provides a server for the \u00bb\u00a0SOAP 1.1 and \u00bb\u00a0SOAP 1.2 protocols. It can be used with or without a WSDL service description.",
         "new SoapServer ( string|null $wsdl , array $options = [] )"
     ],
     "SoapVar": [
-        "SoapVar constructor",
+        "A class representing a variable or object for use with SOAP services.",
         "new SoapVar ( mixed $data , int|null $encoding , string $typeName = \"\" , string $typeNamespace = \"\" , string $nodeName = \"\" , string $nodeNamespace = \"\" )"
+    ],
+    "Socket": [
+        "A fully opaque class which replaces Socket resources as of PHP 8.0.0."
     ],
     "socket_accept": [
         "Accepts a connection on a socket",
@@ -13190,13 +13549,19 @@
         "Remove padding data",
         "sodium_unpad ( string $string , int $block_size ) : string"
     ],
+    "SodiumException": [
+        "Exceptions thrown by the sodium functions."
+    ],
     "solr_get_version": [
         "Returns the current version of the Apache Solr extension",
         "solr_get_version ( ) : string"
     ],
     "SolrClient": [
-        "Constructor for the SolrClient object",
+        "Used to send requests to a Solr server. Currently, cloning and serialization of SolrClient instances is not supported.",
         "new SolrClient ( array $clientOptions )"
+    ],
+    "SolrClientException": [
+        "An exception thrown when there is an error while making a request to the server from the client."
     ],
     "SolrCollapseFunction": [
         "Constructor",
@@ -13207,44 +13572,65 @@
         "new SolrDisMaxQuery ( string $q = ? )"
     ],
     "SolrDocument": [
-        "Constructor",
+        "Represents a Solr document retrieved from a query response.",
         "new SolrDocument ( )"
     ],
     "SolrDocumentField": [
-        "Constructor",
+        "This represents a field in a Solr document. All its properties are read-only.",
         "new SolrDocumentField ( )"
     ],
+    "SolrException": [
+        "This is the base class for all exception thrown by the Solr extension classes."
+    ],
     "SolrGenericResponse": [
-        "Constructor",
+        "Represents a response from the solr server.",
         "new SolrGenericResponse ( )"
     ],
+    "SolrIllegalArgumentException": [
+        "This object is thrown when an illegal or invalid argument is passed to a method."
+    ],
+    "SolrIllegalOperationException": [
+        "This object is thrown when an illegal or unsupported operation is performed on an object."
+    ],
     "SolrInputDocument": [
-        "Constructor",
+        "This class represents a Solr document that is about to be submitted to the Solr index.",
         "new SolrInputDocument ( )"
     ],
     "SolrModifiableParams": [
-        "Constructor",
+        "Represents a collection of name-value pairs sent to the Solr server during a request.",
         "new SolrModifiableParams ( )"
     ],
     "SolrObject": [
-        "Creates Solr object",
+        "This is an object whose properties can also by accessed using the array syntax. All its properties are read-only.",
         "new SolrObject ( )"
     ],
+    "SolrParams": [
+        "Represents a collection of name-value pairs sent to the Solr server during a request."
+    ],
     "SolrPingResponse": [
-        "Constructor",
+        "Represents a response to a ping request to the server",
         "new SolrPingResponse ( )"
     ],
     "SolrQuery": [
-        "Constructor",
+        "Represents a collection of name-value pairs sent to the Solr server during a request.",
         "new SolrQuery ( string $q = ? )"
     ],
     "SolrQueryResponse": [
-        "Constructor",
+        "Represents a response to a query request.",
         "new SolrQueryResponse ( )"
     ],
+    "SolrResponse": [
+        "Represents a response from the Solr server."
+    ],
+    "SolrServerException": [
+        "An exception thrown when there is an error produced by the Solr Server itself."
+    ],
     "SolrUpdateResponse": [
-        "Constructor",
+        "Represents a response to an update request.",
         "new SolrUpdateResponse ( )"
+    ],
+    "SolrUtils": [
+        "Contains utility methods for retrieving the current extension version and preparing query phrases."
     ],
     "sort": [
         "Sort an array",
@@ -13255,7 +13641,7 @@
         "soundex ( string $string ) : string"
     ],
     "SphinxClient": [
-        "Create a new SphinxClient object",
+        "The SphinxClient class provides object-oriented interface to Sphinx.",
         "new SphinxClient ( )"
     ],
     "spl_autoload": [
@@ -13295,23 +13681,23 @@
         "spl_object_id ( object $obj ) : int"
     ],
     "SplDoublyLinkedList": [
-        "Constructs a new doubly linked list",
+        "The SplDoublyLinkedList class provides the main functionalities of a doubly linked list.",
         "new SplDoublyLinkedList ( )"
     ],
     "SplFileInfo": [
-        "Construct a new SplFileInfo object",
+        "The SplFileInfo class offers a high-level object oriented interface to information for an individual file.",
         "new SplFileInfo ( string $file_name )"
     ],
     "SplFileObject": [
-        "Construct a new file object",
+        "The SplFileObject class offers an object oriented interface for a file.",
         "new SplFileObject ( string $filename , string $open_mode = \"r\" , bool $use_include_path = false , resource $context = ? )"
     ],
     "SplFixedArray": [
-        "Constructs a new fixed array",
+        "The SplFixedArray class provides the main functionalities of array. The main difference between a SplFixedArray and a normal PHP array is that the SplFixedArray must be resized manually and allows only integers within the range as indexes. The advantage is that it uses less memory than a standard array.",
         "new SplFixedArray ( int $size = 0 )"
     ],
     "SplHeap": [
-        "Constructs a new empty heap",
+        "The SplHeap class provides the main functionalities of a Heap.",
         "new SplHeap ( )"
     ],
     "split": [
@@ -13322,24 +13708,39 @@
         "Split string into array by regular expression case insensitive",
         "spliti ( string $pattern , string $string , int $limit = -1 ) : array"
     ],
+    "SplMaxHeap": [
+        "The SplMaxHeap class provides the main functionalities of a heap, keeping the maximum on the top."
+    ],
+    "SplMinHeap": [
+        "The SplMinHeap class provides the main functionalities of a heap, keeping the minimum on the top."
+    ],
+    "SplObjectStorage": [
+        "The SplObjectStorage class provides a map from objects to data or, by ignoring data, an object set. This dual purpose can be useful in many cases involving the need to uniquely identify objects."
+    ],
+    "SplObserver": [
+        "The SplObserver interface is used alongside SplSubject to implement the Observer Design Pattern."
+    ],
     "SplPriorityQueue": [
-        "Constructs a new empty queue",
+        "The SplPriorityQueue class provides the main functionalities of a prioritized queue, implemented using a max heap.",
         "new SplPriorityQueue ( )"
     ],
     "SplQueue": [
-        "Constructs a new queue implemented using a doubly linked list",
+        "The SplQueue class provides the main functionalities of a queue implemented using a doubly linked list.",
         "new SplQueue ( )"
     ],
     "SplStack": [
-        "Constructs a new stack implemented using a doubly linked list",
+        "The SplStack class provides the main functionalities of a stack implemented using a doubly linked list.",
         "new SplStack ( )"
     ],
+    "SplSubject": [
+        "The SplSubject interface is used alongside SplObserver to implement the Observer Design Pattern."
+    ],
     "SplTempFileObject": [
-        "Construct a new temporary file object",
+        "The SplTempFileObject class offers an object oriented interface for a temporary file.",
         "new SplTempFileObject ( int $max_memory = ? )"
     ],
     "Spoofchecker": [
-        "Constructor",
+        "This class is provided because Unicode contains large number of characters and incorporates the varied writing systems of the world and their incorrect usage can expose programs or systems to possible security attacks using characters similarity.",
         "new Spoofchecker ( )"
     ],
     "sprintf": [
@@ -13351,8 +13752,14 @@
         "sql_regcase ( string $string ) : string"
     ],
     "SQLite3": [
-        "Instantiates an SQLite3 object and opens an SQLite 3 database",
+        "A class that interfaces SQLite 3 databases.",
         "new SQLite3 ( string $filename , int $flags = SQLITE3_OPEN_READWRITE | SQLITE3_OPEN_CREATE , string $encryptionKey = \"\" )"
+    ],
+    "SQLite3Result": [
+        "A class that handles result sets for the SQLite 3 extension."
+    ],
+    "SQLite3Stmt": [
+        "A class that handles prepared statements for the SQLite 3 extension."
     ],
     "sqlsrv_begin_transaction": [
         "Begins a database transaction",
@@ -13895,7 +14302,7 @@
         "stats_variance ( array $a , bool $sample = false ) : float"
     ],
     "Stomp": [
-        "Opens a connection",
+        "Represents a connection between PHP and a Stomp compliant Message Broker.",
         "new Stomp ( string $broker = ini_get(\"stomp.default_broker_uri\") , string $username = ? , string $password = ? , array $headers = ? )"
     ],
     "stomp_abort": [
@@ -13966,8 +14373,11 @@
         "Gets the current stomp extension version",
         "stomp_version ( ) : string"
     ],
+    "StompException": [
+        "Represents an error raised by the stomp extension. See Exceptions for more information about Exceptions in PHP."
+    ],
     "StompFrame": [
-        "Constructor",
+        "Represents a message which was sent or received from a Stomp compliant Message Broker.",
         "StompFrame::__construct ( string $command = ? , array $headers = ? , string $body = ? )"
     ],
     "str_contains": [
@@ -14346,7 +14756,7 @@
         "new SVM ( )"
     ],
     "SVMModel": [
-        "Construct a new SVMModel",
+        "The SVMModel is the end result of the training process. It can be used to classify previously unseen data.",
         "new SVMModel ( string $filename = ? )"
     ],
     "svn_add": [
@@ -14654,23 +15064,23 @@
         "symlink ( string $target , string $link ) : bool"
     ],
     "SyncEvent": [
-        "Constructs a new SyncEvent object",
+        "A cross-platform, native implementation of named and unnamed event objects. Both automatic and manual event objects are supported.",
         "new SyncEvent ( string $name = ? , bool $manual = false , bool $prefire = false )"
     ],
     "SyncMutex": [
-        "Constructs a new SyncMutex object",
+        "A cross-platform, native implementation of named and unnamed countable mutex objects.",
         "new SyncMutex ( string $name = ? )"
     ],
     "SyncReaderWriter": [
-        "Constructs a new SyncReaderWriter object",
+        "A cross-platform, native implementation of named and unnamed reader-writer objects.",
         "new SyncReaderWriter ( string $name = ? , bool $autounlock = true )"
     ],
     "SyncSemaphore": [
-        "Constructs a new SyncSemaphore object",
+        "A cross-platform, native implementation of named and unnamed semaphore objects.",
         "new SyncSemaphore ( string $name = ? , int $initialval = 1 , bool $autounlock = true )"
     ],
     "SyncSharedMemory": [
-        "Constructs a new SyncSharedMemory object",
+        "A cross-platform, native, consistent implementation of named shared memory objects.",
         "new SyncSharedMemory ( string $name , int $size )"
     ],
     "sys_get_temp_dir": [
@@ -14713,8 +15123,17 @@
         "Sets the default domain",
         "textdomain ( string|null $domain ) : string"
     ],
+    "Thread": [
+        "When the start method of a Thread is invoked, the run method code will be executed in separate Thread, in parallel."
+    ],
+    "Threaded": [
+        "Threaded objects form the basis of pthreads ability to execute user code in parallel; they expose synchronization methods and various useful interfaces."
+    ],
+    "Throwable": [
+        "Throwable is the base interface for any object that can be thrown via a throw statement, including Error and Exception."
+    ],
     "tidy": [
-        "Constructs a new tidy object",
+        "An HTML node in an HTML file, as detected by tidy.",
         "new tidy ( string|null $filename = null , array|string|null $config = null , string|null $encoding = null , bool $useIncludePath = false )"
     ],
     "tidy_access_count": [
@@ -14813,6 +15232,9 @@
         "Returns the Number of Tidy warnings encountered for specified document",
         "tidy_warning_count ( tidy $tidy ) : int"
     ],
+    "tidyNode": [
+        "An HTML node in an HTML file, as detected by tidy."
+    ],
     "time": [
         "Return current Unix timestamp",
         "time ( ) : int"
@@ -14874,16 +15296,22 @@
         "token_name ( int $id ) : string"
     ],
     "TokyoTyrant": [
-        "Construct a new TokyoTyrant object",
+        "The main Tokyo Tyrant class",
         "new TokyoTyrant ( string $host = ? , int $port = TokyoTyrant::RDBDEF_PORT , array $options = ? )"
     ],
+    "tokyotyrantexception": [
+        "TokyoTyrantException"
+    ],
     "TokyoTyrantIterator": [
-        "Construct an iterator",
+        "Provides an iterator for TokyoTyrant and TokyoTyrantTable objects. The iterator iterates over all keys and values in the database. TokyoTyrantIterator was added in version 0.2.0.",
         "new TokyoTyrantIterator ( mixed $object )"
     ],
     "TokyoTyrantQuery": [
-        "Construct a new query",
+        "This class is used to query the table databases",
         "new TokyoTyrantQuery ( TokyoTyrantTable $table )"
+    ],
+    "TokyoTyrantTable": [
+        "Provides an API to the table databases. A table database can be create using the following command: ttserver -port 1979 \/tmp\/tt_table.tct. In Tokyo Tyrant the table API is a schemaless database which can store arbitrary amount of key-value pairs under a single primary key."
     ],
     "touch": [
         "Sets access and modification time of file",
@@ -15573,6 +16001,9 @@
         "Transliterate a string",
         "transliterator_transliterate ( mixed $transliterator , string $subject , int $start = ? , int $end = ? )"
     ],
+    "Traversable": [
+        "Interface to detect if a class is traversable using foreach."
+    ],
     "trigger_error": [
         "Generates a user-level error\/warning\/notice message",
         "trigger_error ( string $error_msg , int $error_type = E_USER_NOTICE ) : bool"
@@ -15580,6 +16011,9 @@
     "trim": [
         "Strip whitespace (or other characters) from the beginning and end of a string",
         "trim ( string $string , string $characters = \" \\n\\r\\t\\v\\0\" ) : string"
+    ],
+    "TypeError": [
+        "There are three scenarios where a TypeError may be thrown. The first is where the argument type being passed to a function does not match its corresponding declared parameter type. The second is where a value being returned from a function does not match the declared function return type. The third is where an invalid number of arguments are passed to a built-in PHP function (strict mode only)."
     ],
     "uasort": [
         "Sort an array with a user-defined comparison function and maintain index association",
@@ -15604,6 +16038,15 @@
     "umask": [
         "Changes the current umask",
         "umask ( int $mask = ? ) : int"
+    ],
+    "UnderflowException": [
+        "Exception thrown when performing an invalid operation on an empty container, such as removing an element."
+    ],
+    "UnexpectedValueException": [
+        "Exception thrown if a value does not match with a set of values. Typically this happens when a function calls another function and expects the return value to be of a certain type or value not including arithmetic or buffer related errors."
+    ],
+    "UnhandledMatchError": [
+        "An UnhandledMatchError is thrown when the subject passed to a match expression is not handled by any arm of the match expression."
     ],
     "uniqid": [
         "Generate a unique ID",
@@ -15807,8 +16250,11 @@
         "utf8_encode ( string $string ) : string"
     ],
     "V8Js": [
-        "Construct a new V8Js object",
+        "This is the core class for V8Js extension. Each instance created from this class has own context in which all JavaScript is compiled and executed.",
         "new V8Js ( string $object_name = \"PHP\" , array $variables = array() , array $extensions = array() , bool $report_uncaught_exceptions = true )"
+    ],
+    "ValueError": [
+        "A ValueError is thrown when the type of an argument is correct but the value of it is incorrect. For example, passing a negative integer when the function expects a positive one, or passing an empty string\/array when the function expects it to not be empty."
     ],
     "var_dump": [
         "Dumps information about a variable",
@@ -15819,7 +16265,7 @@
         "var_export ( mixed $value , bool $return = false ) : string|null"
     ],
     "variant": [
-        "variant class constructor",
+        "The VARIANT is COM's equivalent of the PHP zval; it is a structure that can contain a value with a range of different possible types. The variant class provided by the COM extension allows you to have more control over the way that PHP passes values to and from COM.",
         "new variant ( mixed $value = null , int $type = VT_EMPTY , int $codepage = CP_ACP )"
     ],
     "variant_abs": [
@@ -15951,6 +16397,9 @@
         "Perform an Apache sub-request",
         "virtual ( string $uri ) : bool"
     ],
+    "Volatile": [
+        "The Volatile class is new to pthreads v3. Its introduction is a consequence of the new immutability semantics of Threaded members of Threaded classes. The Volatile class enables for mutability of its Threaded members, and is also used to store PHP arrays in Threaded contexts."
+    ],
     "vprintf": [
         "Output a formatted string",
         "vprintf ( string $format , array $values ) : int"
@@ -15988,11 +16437,11 @@
         "new WeakMap ( )"
     ],
     "WeakRef": [
-        "Constructs a new weak reference",
+        "The WeakRef class provides a gateway to objects without preventing the garbage collector from freeing those objects. It also provides a way to turn a weak reference into a strong one.",
         "new Weakref ( object $object )"
     ],
     "WeakReference": [
-        "Constructor that disallows instantiation",
+        "Weak references allow the programmer to retain a reference to an object which does not prevent the object from being destroyed. They are useful for implementing cache like structures.",
         "new WeakReference ( )"
     ],
     "win32_continue_service": [
@@ -16046,6 +16495,9 @@
     "win32_stop_service": [
         "Stops a service",
         "win32_stop_service ( string $servicename , string $machine = ? ) : void"
+    ],
+    "Win32ServiceException": [
+        "The exception replaces the old mechanism where the error value needed to be compared to constants to detect which error was emitted. The Exception code is equal to the value of the error value and the exception message is based on the corresponding constant name."
     ],
     "wincache_fcache_fileinfo": [
         "Retrieves information about files cached in the file cache",
@@ -16140,6 +16592,9 @@
     "wordwrap": [
         "Wraps a string to a given number of characters",
         "wordwrap ( string $string , int $width = 75 , string $break = \"\\n\" , bool $cut_long_words = false ) : string"
+    ],
+    "Worker": [
+        "Worker Threads have a persistent context, as such should be used over Threads in most cases."
     ],
     "xattr_get": [
         "Get an extended attribute",
@@ -16328,6 +16783,12 @@
     "xml_set_unparsed_entity_decl_handler": [
         "Set up unparsed entity declaration handler",
         "xml_set_unparsed_entity_decl_handler ( XMLParser $parser , callable $handler ) : bool"
+    ],
+    "XmlParser": [
+        "A fully opaque class which replaces xml resources as of PHP 8.0.0."
+    ],
+    "XMLReader": [
+        "The XMLReader extension is an XML Pull parser. The reader acts as a cursor going forward on the document stream and stopping at each node on the way."
     ],
     "xmlrpc_decode": [
         "Decodes XML into native PHP types",
@@ -16561,12 +17022,21 @@
         "Constructor",
         "new Yac ( string $prefix = \"\" )"
     ],
+    "Yaconf": [
+        "Yaconf is a configurations container, it parses INIT files, stores the result in PHP when PHP is started, the result lives with the whole PHP lifecycle."
+    ],
+    "Yaf_Action_Abstract": [
+        "A action can be defined in a separate file in Yaf(see Yaf_Controller_Abstract). that is a action method can also be a Yaf_Action_Abstract class."
+    ],
     "Yaf_Application": [
         "Yaf_Application constructor",
         "new Yaf_Application ( mixed $config , string $envrion = ? )"
     ],
+    "Yaf_Bootstrap_Abstract": [
+        "Bootstrap is a mechanism used to do some initial config before a Application run."
+    ],
     "Yaf_Config_Ini": [
-        "Yaf_Config_Ini constructor",
+        "Yaf_Config_Ini enables developers to store configuration data in a familiar INI format and read them in the application by using nested object property syntax. The INI format is specialized to provide both the ability to have a hierarchy of configuration data keys and inheritance between configuration data sections. Configuration data hierarchies are supported by separating the keys with the dot or period character (\".\"). A section may extend or inherit from another section by following the section name with a colon character (\":\") and the name of the section from which data are to be inherited.",
         "new Yaf_Config_Ini ( string $config_file , string $section = ? )"
     ],
     "Yaf_Config_Simple": [
@@ -16574,56 +17044,73 @@
         "new Yaf_Config_Simple ( array $configs , bool $readonly = false )"
     ],
     "Yaf_Controller_Abstract": [
-        "Yaf_Controller_Abstract constructor",
-        "final private Yaf_Controller_Abstract::__construct ( )"
+        "Yaf_Controller_Abstract is the heart of Yaf's system. MVC stands for Model-View-Controller and is a design pattern targeted at separating application logic from display logic."
     ],
     "Yaf_Dispatcher": [
-        "Yaf_Dispatcher constructor",
+        "Yaf_Dispatcher purpose is to initialize the request environment, route the incoming request, and then dispatch any discovered actions; it aggregates any responses and returns them when the process is complete.",
         "new Yaf_Dispatcher ( )"
     ],
     "Yaf_Exception": [
         "The __construct purpose",
         "new Yaf_Exception ( )"
     ],
+    "Yaf_Loader": [
+        "Yaf_Loader introduces a comprehensive autoloading solution for Yaf."
+    ],
+    "Yaf_Plugin_Abstract": [
+        "Plugins allow for easy extensibility and customization of the framework."
+    ],
+    "Yaf_Registry": [
+        "All methods of Yaf_Registry declared as static, making it unversally accessible. This provides the ability to get or set any custom data from anyway in your code as necessary."
+    ],
     "Yaf_Request_Http": [
-        "Constructor of Yaf_Request_Http",
+        "Any request from client is initialized as a Yaf_Request_Http. you can get the request information like, uri query and post parameters via methods of this class.",
         "new Yaf_Request_Http ( string $request_uri = ? , string $base_uri = ? )"
     ],
     "Yaf_Request_Simple": [
-        "Constructor of Yaf_Request_Simple",
+        "Yaf_Request_Simple is particularlly used for test puporse. ie. simulate some espacial request under CLI mode.",
         "new Yaf_Request_Simple ( string $method = ? , string $module = ? , string $controller = ? , string $action = ? , array $params = ? )"
     ],
     "Yaf_Response_Abstract": [
         "The __construct purpose",
         "new Yaf_Response_Abstract ( )"
     ],
+    "Yaf_Route_Interface": [
+        "Yaf_Route_Interface used for developer defined their custom route."
+    ],
     "Yaf_Route_Map": [
-        "The __construct purpose",
+        "Yaf_Route_Map is a built-in route, it simply convert a URI endpoint (that part of the URI which comes after the base URI: see Yaf_Request_Abstract::setBaseUri()) to a controller name or action name(depends on the parameter passed to Yaf_Route_Map::__construct()) in following rule: A => controller A. A\/B\/C => controller A_B_C. A\/B\/C\/D\/E => controller A_B_C_D_E.",
         "new Yaf_Route_Map ( string $controller_prefer = false , string $delimiter = \"\" )"
     ],
     "Yaf_Route_Regex": [
-        "Yaf_Route_Regex constructor",
+        "Yaf_Route_Regex is the most flexible route among the Yaf built-in routes.",
         "new Yaf_Route_Regex ( string $match , array $route , array $map = ? , array $verify = ? , string $reverse = ? )"
     ],
     "Yaf_Route_Rewrite": [
-        "Yaf_Route_Rewrite constructor",
+        "For usage, please see the example section of Yaf_Route_Rewrite::__construct()",
         "new Yaf_Route_Rewrite ( string $match , array $route , array $verify = ? )"
     ],
     "Yaf_Route_Simple": [
-        "Yaf_Route_Simple constructor",
+        "Yaf_Route_Simple will match the query string, and find the route info.",
         "new Yaf_Route_Simple ( string $module_name , string $controller_name , string $action_name )"
+    ],
+    "Yaf_Route_Static": [
+        "Defaultly, Yaf_Router only have a Yaf_Route_Static as its default route."
     ],
     "Yaf_Route_Supervar": [
         "The __construct purpose",
         "new Yaf_Route_Supervar ( string $supervar_name )"
     ],
     "Yaf_Router": [
-        "Yaf_Router constructor",
+        "Yaf_Router is the standard framework router. Routing is the process of taking a URI endpoint (that part of the URI which comes after the base URI: see Yaf_Request_Abstract::setBaseUri()) and decomposing it into parameters to determine which module, controller, and action of that controller should receive the request. This values of the module, controller, action and other parameters are packaged into a Yaf_Request_Abstract object which is then processed by Yaf_Dispatcher. Routing occurs only once: when the request is initially received and before the first controller is dispatched. Yaf_Router is designed to allow for mod_rewrite-like functionality using pure PHP structures. It is very loosely based on Ruby on Rails routing and does not require any prior knowledge of webserver URL rewriting. It is designed to work with a single Apache mod_rewrite rule (one of):",
         "new Yaf_Router ( )"
     ],
+    "Yaf_View_Interface": [
+        "Yaf provides a ability for developers to use custom view engine instead of built-in engine which is Yaf_View_Simple. There is a example to explain how to do this, please see Yaf_Dispatcher::setView()."
+    ],
     "Yaf_View_Simple": [
-        "Constructor of Yaf_View_Simple",
-        "final new Yaf_View_Simple ( string $template_dir , array $options = ? )"
+        "Yaf_View_Simple is the built-in template engine in Yaf, it is a simple but fast template engine, and only support PHP script template.",
+        "new Yaf_View_Simple ( string $template_dir , array $options = ? )"
     ],
     "yaml_emit": [
         "Returns the YAML representation of a value",
@@ -16647,11 +17134,14 @@
     ],
     "Yar_Client": [
         "Create a client",
-        "final new Yar_Client ( string $url , array $options = ? )"
+        "new Yar_Client ( string $url , array $options = ? )"
     ],
     "Yar_Server": [
         "Register a server",
-        "final new Yar_Server ( Object $obj )"
+        "new Yar_Server ( Object $obj )"
+    ],
+    "Yar_Server_Exception": [
+        "If service threw exceptions, A Yar_Server_Exception will be threw in client side."
     ],
     "yaz_addinfo": [
         "Returns additional error information",
@@ -16802,6 +17292,9 @@
         "Read next entry in a ZIP file archive",
         "zip_read ( resource $zip ) : resource|false"
     ],
+    "ZipArchive": [
+        "A file archive, compressed with Zip."
+    ],
     "zlib_decode": [
         "Uncompress any raw\/gzip\/zlib encoded data",
         "zlib_decode ( string $data , int $max_length = 0 ) : string|false"
@@ -16827,11 +17320,35 @@
         "new ZMQSocket ( ZMQContext $context , int $type , string $persistent_id = null , callable $on_new_socket = null )"
     ],
     "Zookeeper": [
-        "Create a handle to used communicate with zookeeper",
+        "Represents ZooKeeper session.",
         "new Zookeeper ( string $host = '' , callable $watcher_cb = null , int $recv_timeout = 10000 )"
     ],
     "zookeeper_dispatch": [
         "Calls callbacks for pending operations",
         "zookeeper_dispatch ( ) : void"
+    ],
+    "ZookeeperAuthenticationException": [
+        "The ZooKeeper authentication exception handling class."
+    ],
+    "ZookeeperConfig": [
+        "The ZooKeeper Config handling class."
+    ],
+    "ZookeeperConnectionException": [
+        "The ZooKeeper connection exception handling class."
+    ],
+    "ZookeeperException": [
+        "The ZooKeeper exception handling class."
+    ],
+    "ZookeeperMarshallingException": [
+        "The ZooKeeper exception (while marshalling or unmarshalling data) handling class."
+    ],
+    "ZookeeperNoNodeException": [
+        "The ZooKeeper exception (when node does not exist) handling class."
+    ],
+    "ZookeeperOperationTimeoutException": [
+        "The ZooKeeper operation timeout exception handling class."
+    ],
+    "ZookeeperSessionException": [
+        "The ZooKeeper session exception handling class."
     ]
 }
