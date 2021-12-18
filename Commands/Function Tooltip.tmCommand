@@ -10,6 +10,8 @@
 
 require_once getenv('TM_BUNDLE_SUPPORT').'/lib/bootstrap.php';
 
+use TextMate\Dialog;
+
 // FIXME replace json with native php array
 $path = getenv('TM_BUNDLE_SUPPORT').'/resources/completions.json';
 $completions = json_decode(file_get_contents($path), true);
@@ -30,46 +32,13 @@ foreach (array_filter($options) as $option) {
 	if (!isset($completions[$option])) {
 		continue;
 	}
-	$html = sprintf(
-		&lt;&lt;&lt;HTML
-		&lt;style&gt;
-			body {
-				font-size: 12px;
-				color: #EEE;
-				font-family: "Fira Code", "Menlo";
-				background-color: rgba(0, 0, 0, 0.8);
-			}
-			p {
-				margin: 1em;
-			}
-			.lines p:first-child {
-				font-size: 1.1em;
-				font-weight: bold;
-				border-bottom: 1px solid #444;
-			}
-		&lt;/style&gt;
-		&lt;div class="lines"&gt;
-			%s
-		&lt;/div&gt;
-		HTML,
-		implode(
-			array_map(
-				function ($line) {
-					return "&lt;p&gt;{$line}&lt;/p&gt;";
-				},
-				$completions[$option],
-			)
-		)
-	);
-	shell_exec(sprintf(
-		'%s tooltip --html %s',
-		escapeshellarg($_SERVER['DIALOG']),
-		escapeshellarg($html),
-	));
+	(new Dialog($_SERVER['DIALOG']))
+		-&gt;tooltip(array_shift($completions[$option]), $completions[$option]);
 	exit;
 }
 
-echo 'Unable to parse function around cursor';
+(new Dialog($_SERVER['DIALOG']))
+	-&gt;tooltip('Unable to parse function around cursor', $options);
 </string>
 	<key>input</key>
 	<string>none</string>
