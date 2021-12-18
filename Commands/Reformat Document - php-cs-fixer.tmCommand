@@ -6,14 +6,14 @@
 	<string>nop</string>
 	<key>command</key>
 	<string>#!/usr/bin/env zsh
-[[ -f "${TM_SUPPORT_PATH}/lib/bash_init.sh" ]] &amp;&amp; . "${TM_SUPPORT_PATH}/lib/bash_init.sh"
 
-# FIXME Find a parent directory with .php_cs file
+# FIXME Find a parent directory with .php-cs-fixer.php file
 cd "$TM_PROJECT_DIRECTORY"
 
 # Prevent running with default configuration.
-if [ ! -f .php_cs ] &amp;&amp; [ ! -f .php_cs.dist ]; then
-	exit_show_tool_tip "Missing .php_cs or .php_cs.dist file."
+if [ ! -f .php-cs-fixer.php ] &amp;&amp; [ ! -f .php-cs-fixer.dist.php ]; then
+	echo "Missing .php-cs-fixer.php or .php-cs-fixer.dist.php file."
+	exit 206
 fi
 
 # The php-cs-fixer can not read from stdin or write to stdout.
@@ -28,7 +28,7 @@ ${TM_PHP:-php} ${TM_PHP_CS_FIXER:-php-cs-fixer} \
 	`# Trash all output, not very useful.` \
 	$tmpfile &gt;/dev/null
 
-# replace output with fixed contents
+# Replace output with fixed contents.
 cat $tmpfile
 </string>
 	<key>input</key>
