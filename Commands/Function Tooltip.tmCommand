@@ -45,7 +45,7 @@ foreach (array_filter($options) as $option) {
 	<key>inputFormat</key>
 	<string>text</string>
 	<key>keyEquivalent</key>
-	<string>~</string>
+	<string>§</string>
 	<key>name</key>
 	<string>Function Tooltip</string>
 	<key>outputCaret</key>
