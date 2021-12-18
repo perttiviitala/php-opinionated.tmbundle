@@ -17,9 +17,10 @@ class Dialog {
 			<style>
 				body {
 					position: absolute;
-					top: -40px;
-					left: -40px;
-					font-size: 12px;
+					top: -20px;
+					left: -20px;
+					font-size: 13px;
+					font-weight: 500;
 					font-family: "Fira Code", "Menlo";
 					background-color: transparent;
 				}
@@ -28,7 +29,7 @@ class Dialog {
 					padding: 8px;
 					margin: 40px 40px;
 					color: #eee;
-					background-color: #000;
+					background-color: #202020;
 					box-shadow: 0 11px 35px 2px rgba(0, 0, 0, 0.56);
 					border: 1px outset #000;
 					border-radius: 8px;
@@ -50,14 +51,17 @@ class Dialog {
 				}
 
 				@keyframes fadeIn {
-					0%% {
-						padding-top: 2em;
-						opacity: 0;
-					}
-					100%% {
-						opacity: 1;
-					}
+					from { opacity: 0; margin-top: 50px; }
 				}
+				
+				/* Used by function tooltips */
+				span.initializer  { color: #CE8462; }
+				span.methodname   { color: #9F7F51; }
+				span.methodparam  { color: #6E798D; }
+				span.modifier     { color: #F4EDAB; }
+				span.replaceable  { color: #808080; }
+				span.type         { color: #F4EDAB; }
+				span.type.false   { color: #CE8462; }
 			</style>
 			<div class="lines">
 				<p>%s</p>%s
