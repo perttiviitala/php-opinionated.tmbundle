@@ -23,6 +23,7 @@
 			<string>------------------------------------</string>
 			<string>9E6DDCD7-F043-443F-BC1D-F7051B2B50ED</string>
 			<string>A8C6B7E0-0FED-4E0F-8891-36197A9F703C</string>
+			<string>1E51E51B-2458-4FA6-8892-E8D7B29BAD11</string>
 			<string>------------------------------------</string>
 			<string>273ADF46-07E7-470A-B3E7-5040306A1589</string>
 			<string>D928AFFE-91E2-4656-BF37-401657426E6D</string>
@@ -78,6 +79,15 @@
 				</array>
 				<key>name</key>
 				<string>Reformat Document</string>
+			</dict>
+			<key>1E51E51B-2458-4FA6-8892-E8D7B29BAD11</key>
+			<dict>
+				<key>items</key>
+				<array>
+					<string>6C9CEDEF-5A94-40A3-A5FB-3A95997EAC85</string>
+				</array>
+				<key>name</key>
+				<string>Static Analysis</string>
 			</dict>
 		</dict>
 	</dict>

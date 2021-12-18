@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env zsh
+
+# FIXME Find a parent directory with phpstan.neon file
+cd "$TM_PROJECT_DIRECTORY"
+
+# Prevent running with default configuration.
+if [ ! -f phpstan.neon ] &amp;&amp; [ ! -f phpstan.neon.dist ]; then
+	echo "Missing phpstan.neon or phpstan.neon.dist file."
+	exit 206
+fi
+
+errors=$(COLUMNS=105 ${TM_PHPSTAN:-vendor/bin/phpstan} analyze --ansi --level=6 --error-format=table -- $TM_FILEPATH 2&gt;/dev/null)
+if [[ $? -eq 0 ]]; then
+	exit
+fi
+
+$TM_BUNDLE_SUPPORT/bin/tooltip "PHPStan" ${${(@f)errors}[4,-5]}
+</string>
+	<key>input</key>
+	<string>document</string>
+	<key>inputFormat</key>
+	<string>text</string>
+	<key>name</key>
+	<string>phpstan</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>text</string>
+	<key>outputLocation</key>
+	<string>toolTip</string>
+	<key>scope</key>
+	<string>source.php</string>
+	<key>semanticClass</key>
+	<string>callback.document.did-save</string>
+	<key>uuid</key>
+	<string>6C9CEDEF-5A94-40A3-A5FB-3A95997EAC85</string>
+	<key>version</key>
+	<integer>2</integer>
+</dict>
+</plist>
