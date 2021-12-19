@@ -1,5 +1,5 @@
 define PHP_DOCUMENTATION_LANGUAGES
-	require __DIR__."/../lib/bootstrap.php";
+	require __DIR__."/lib/bootstrap.php";
 	echo implode(" ", TextMate\Command\DocumentationForWord::LANGUAGES);
 endef
 
@@ -9,16 +9,16 @@ TARGETS := completions
 all: $(TARGETS)
 
 clean:
-	@rm -rf docs
+	@rm -rf dev/docs
 
-docs:
-	@mkdir -p docs
+dev/docs:
+	@mkdir -p dev/docs
 
-${addprefix docs/, ${LANGS}}: docs
+${addprefix dev/docs/, ${LANGS}}: dev/docs
 	@echo "Fetching $@"
 	@mkdir -p $@
 	@curl -s https://www.php.net/distributions/manual/php_manual_$(notdir $@).tar.gz \
 		| tar -xz -C $@ --strip 1
 
-completions: docs/en
+completions: dev/docs/en
 	@echo "TODO generate completions from docs"
