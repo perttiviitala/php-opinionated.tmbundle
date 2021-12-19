@@ -16,12 +16,37 @@ if [ ! -f phpstan.neon ] &amp;&amp; [ ! -f phpstan.neon.dist ]; then
 	exit 206
 fi
 
-errors=$(COLUMNS=105 ${TM_PHPSTAN:-vendor/bin/phpstan} analyze --ansi --level=6 --error-format=table -- $TM_FILEPATH 2&gt;/dev/null)
+# Mark has to be a pdf it seems.
+MARK="${TM_BUNDLE_SUPPORT}/resources/Warning.pdf"
+
+message=$(COLUMNS=105 ${TM_PHPSTAN:-vendor/bin/phpstan} analyze \
+	--no-progress \
+	--error-format=table \
+	--level=6 \
+	--ansi \
+	-- $TM_FILEPATH)
 if [[ $? -eq 0 ]]; then
+	# Remove potential gutter marks when no errors.
+	$TM_MATE --clear-mark=$MARK
 	exit
 fi
 
-$TM_BUNDLE_SUPPORT/bin/tooltip "PHPStan" ${${(@f)errors}[4,-5]}
+# Stripping header and footer.
+errors=(${${(@f)message}[4,-5]})
+
+# Each error is prepended by line number.
+lines=()
+for error in $errors; do
+	lines+=($(echo $error | awk '{ print $1 }'))
+done
+
+# Avoid gutter flush by issuing clear and set same time.
+$TM_MATE \
+	--clear-mark=$MARK --set-mark=$MARK \
+	--line=${(j:,:)lines} \
+	$TM_FILEPATH
+
+$TM_BUNDLE_SUPPORT/bin/tooltip "PHPStan" ${(v)errors}
 </string>
 	<key>input</key>
 	<string>document</string>

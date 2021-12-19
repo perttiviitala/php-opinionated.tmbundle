@@ -7,15 +7,20 @@
 	<key>command</key>
 	<string>#!/usr/bin/env zsh
 
+# Mark has to be a pdf it seems.
+MARK="${TM_BUNDLE_SUPPORT}/resources/Warning.pdf"
+
 original=$(cat /dev/stdin)
 message=$(printf '%s\n' $original | ${TM_PHP:-php} -l 2&gt; /dev/null)
 if [[ $? -eq 0 ]]; then
+	# Remove potential gutter marks when no errors.
+	$TM_MATE --clear-mark=$MARK
 	exit
 fi
 
 # echo $message
 # Attempt to fix unexpected error by inserting symbol to previous line.
-unexpected_ptrn="unexpected( token)? ['\"]([^\"']+)['\"].* on line ([0-9]+)"
+unexpected_ptrn="unexpected( [a-z]+)? ['\"]([^\"']+)['\"].* on line ([0-9]+)"
 if [[ $message =~ $unexpected_ptrn ]] &amp;&amp; line=$(( $match[3] - 1)); then
 	declare -a symbols
 	# If expected symbol is known add it to list first.
@@ -30,6 +35,8 @@ if [[ $message =~ $unexpected_ptrn ]] &amp;&amp; line=$(( $match[3] - 1)); then
 		printf '%s\n' $modified | ${TM_PHP:-php} -l &gt;/dev/null 2&gt;&amp;1
 		if [[ $? -eq 0 ]]; then
 			printf '%s\n' $modified
+			# Remove potential gutter marks when no errors.
+			$TM_MATE --clear-mark=$MARK
 			# Code 202 stands for to replace document with stdout.
 			# Helper exit_replace_document has an escaping bug with echo.
 			exit 202
@@ -43,10 +50,17 @@ message=${message/ in Standard input code/}
 message=${message/Parse error: syntax error, /}
 
 # Move cursor to end of the previous line of error.
-if [[ $message =~ 'on line ([0-9]+)' ]] &amp;&amp; line=$(( $match[1] - 1)); then
+if [[ $message =~ 'on line ([0-9]+)' ]] &amp;&amp; line=$match[1]; then
+	# Avoid gutter flush by issuing clear and set same time.
+	$TM_MATE \
+		--clear-mark=$MARK --set-mark=$MARK \
+		--line=$line \
+		$TM_FILEPATH
+
+	previous=$(( $line - 1))
 	# If cursor is already on the same line avoid moving cursor to the end.
-	if [[ $line != $TM_LINE_NUMBER ]]; then
-		open "txmt://open?line=${line}&amp;column=9999"
+	if [[ $previous != $TM_LINE_NUMBER ]]; then
+		open "txmt://open?line=${previous}&amp;column=9999"
 	fi
 fi
 
