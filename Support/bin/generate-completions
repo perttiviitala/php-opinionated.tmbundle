@@ -1,0 +1,132 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+require __DIR__.'/../lib/bootstrap.php';
+
+class Completion {
+	/** @var array<string, self> */
+	public static array $singleton = [];
+
+	/** @param array<string> $signatures */
+	private function __construct(
+		public string $name,
+		public ?string $description = null,
+		public array $signatures = [],
+	) {
+	}
+
+	public static function byName(string $name): self {
+		return self::$singleton[strtolower($name)] ??= new self($name);
+	}
+
+	/** @return self[] */
+	public static function all(): iterable {
+		yield from self::$singleton;
+	}
+}
+
+$trimWhitespace = fn (string $string) => $string
+	? (string) preg_replace("/\n\\s+|\\s{2,}/", ' ', trim($string))
+	: '';
+
+foreach (new DirectoryIterator(__DIR__.'/../dev/docs/en') as $doc) {
+	if ($doc->isDot() || $doc->isDir()) {
+		continue;
+	}
+
+	$dom = new DOMDocument();
+	$dom->loadHTMLFile($doc->getPathname(), \LIBXML_NOERROR);
+	$xpath = new DOMXpath($dom);
+
+	$xthrow = function (...$args) use ($xpath): DOMNodeList {
+		return $xpath->query(...$args) ?: throw new \RuntimeException('Query failed');
+	};
+
+	foreach ($xthrow("//div[@class='refentry']") as $reference) {
+		$description = $trimWhitespace(
+			$xthrow("div/p[@class='refpurpose']/span[@class='dc-title']", $reference)
+				->item(0)?->nodeValue ?? ''
+		);
+
+		$node = $xthrow("div[contains(@class, 'description')]", $reference)->item(0);
+		foreach ($xthrow("div[contains(@class, 'dc-description')]", $node) as $synopsis) {
+			$name = $xthrow("span[@class='methodname']", $synopsis)->item(0)?->nodeValue;
+			$signature = strip_tags(simplexml_import_dom($synopsis)?->asXML() ?: '', '<span>');
+			$signature = html_entity_decode($trimWhitespace($signature));
+
+			// Skip namespaced functions for now atleast.
+			if (!$name || strpos($name, '\\')) {
+				continue;
+			}
+
+			// Only include constructor as class completion.
+			if (strpos($name, '::')) {
+				if (!strpos($name, '::__construct')) {
+					continue;
+				}
+
+				// If constructor only use class name.
+				$name = str_replace('::__construct', '', $name);
+				if (strpos($name, '_')) {
+					continue;
+				}
+
+				$signature = (string) preg_replace(
+					'/<span([^>]+)>(public|final|static)<\/span>\s*/',
+					'',
+					$signature,
+				);
+				$signature = (string) preg_replace(
+					'/<span[^>]+>(.*?)::__construct/',
+					'<span class="keyword">new</span> <span class="classname">$1',
+					$signature,
+				);
+
+				// Skip if we cannot call it.
+				foreach (['abstract', 'protected', 'private'] as $skipWord) {
+					if (strpos($signature, ">{$skipWord}<")) {
+						continue 2;
+					}
+				}
+			}
+
+			$completion = Completion::byName($name);
+			if ($description) {
+				$completion->description ??= $description;
+			}
+			if ($signature) {
+				$completion->signatures[] = $signature;
+			}
+		}
+	}
+
+	foreach ($xthrow("//div[@class='reference']") as $reference) {
+		$name = $xthrow("//div[@class='classsynopsis']/div[@class='classsynopsisinfo']/span[@class='ooclass']/strong[@class='classname']")->item(0)?->nodeValue;
+		if (!$name || strpos($name, '::') || strpos($name, '\\')) {
+			continue;
+		}
+
+		$completion = Completion::byName($name);
+		$description = $trimWhitespace($xthrow("div/div/p[@class='para']", $reference)->item(0)?->nodeValue ?? '');
+		if ($description) {
+			$completion->description = $description;
+		}
+	}
+}
+
+$all = [];
+foreach (Completion::all() as $completion) {
+	$all[$completion->name] = array_values(array_filter(array_merge(
+		[wordwrap($completion->description ?? $completion->name, 85)],
+		array_unique($completion->signatures),
+	)));
+}
+
+uksort($all, fn ($a, $b) => strcasecmp($a, $b));
+
+file_put_contents(
+	__DIR__.'/../resources/completions.json',
+	json_encode(array_filter($all), \JSON_PRETTY_PRINT),
+);
