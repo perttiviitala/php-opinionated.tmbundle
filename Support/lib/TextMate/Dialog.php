@@ -11,9 +11,10 @@ class Dialog {
 		$this->path = $path;
 	}
 
-	public function tooltip(string $title, array $lines): void {
+	/** @param array<string> $lines */
+	public function tooltip(?string $title, array $lines): void {
 		$this->rawHtml(sprintf(
-			<<<HTML
+			<<<'HTML'
 			<style>
 				body {
 					position: absolute;
@@ -39,7 +40,6 @@ class Dialog {
 					margin: 0.5em 0 0 0;
 				}
 				.lines p:first-child {
-					font-size: 1.1em;
 					font-weight: bold;
 				}
 				.lines p:nth-child(2) {
@@ -53,9 +53,11 @@ class Dialog {
 				@keyframes fadeIn {
 					from { opacity: 0; margin-top: 50px; }
 				}
-				
+
 				/* Used by function tooltips */
 				span.initializer  { color: #CE8462; }
+				span.keyword      { color: #D2B780; }
+				span.classname    { color: #A999AC; }
 				span.methodname   { color: #9F7F51; }
 				span.methodparam  { color: #6E798D; }
 				span.modifier     { color: #F4EDAB; }
