@@ -1,0 +1,22 @@
+{
+    "name": "perttiviitala/php-opinionated.tmbundle",
+    "description": "TextMate Bundle for PHP",
+    "type": "project",
+    "license": "BSD-2-Clause",
+    "autoload": {
+        "psr-4": {
+            "TextMate\\": "lib/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Pertti Viitala",
+            "email": "pertti.viitala@gmail.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.4",
+        "phpstan/phpstan": "^1.2"
+    }
+}
