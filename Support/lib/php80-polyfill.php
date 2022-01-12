@@ -58,6 +58,7 @@ if (!function_exists('str_contains')) {
 }
 
 if (!function_exists('get_debug_type')) {
+	/** @param mixed $value */
 	function get_debug_type($value): string {
 		if ($value === null) {
 			return 'null';
@@ -83,7 +84,7 @@ if (!function_exists('get_debug_type')) {
 				return $class;
 			}
 
-			return (get_parent_class($class) ?: key(class_implements($class)) ?: 'class').'@anonymous';
+			return (get_parent_class($class) ?: key(class_implements($class) ?: []) ?: 'class').'@anonymous';
 		}
 		if (is_resource($value)) {
 			return sprintf('resource (%s)', get_resource_type($value));
@@ -94,6 +95,7 @@ if (!function_exists('get_debug_type')) {
 }
 
 if (!function_exists('get_resource_id')) {
+	/** @param mixed $res */
 	function get_resource_id($res): int {
 		if (!is_resource($res)) {
 			throw new \TypeError(sprintf('Argument 1 passed to get_resource_id() must be of the type resource, %s given', get_debug_type($res)));

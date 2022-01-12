@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 // assuming php to be version 7.3 (or slightly older)
 require_once __DIR__.'/php80-polyfill.php';
+require_once __DIR__.'/php81-polyfill.php';
 
 // default settings on macOS does not report notices
 error_reporting(\E_ALL);
@@ -36,7 +37,7 @@ set_error_handler(function (int $errno, string $errstr, ?string $errfile, ?int $
 	// remove our internal call to this handler
 	array_shift($trace);
 	// remove duplicate trigger_error call from the stack
-	if (($trace[0]['function'] ?? null) == 'trigger_error') {
+	if (($trace[0]['function'] ?? null) === 'trigger_error') {
 		array_shift($trace);
 	}
 
