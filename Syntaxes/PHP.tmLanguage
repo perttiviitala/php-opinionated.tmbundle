@@ -2711,7 +2711,7 @@
 			<array>
 				<dict>
 					<key>begin</key>
-					<string>(&lt;&lt;&lt;)\s*("?)(HTML)(\2)(\s*)$</string>
+					<string>(&lt;&lt;&lt;)\s*("?)(HTML)(\2)([^\S\r\n]*)$</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>0</key>
@@ -2768,7 +2768,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>(&lt;&lt;&lt;)\s*("?)(XML)(\2)(\s*)$</string>
+					<string>(&lt;&lt;&lt;)\s*("?)(XML)(\2)([^\S\r\n]*)$</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>0</key>
@@ -2825,7 +2825,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>(&lt;&lt;&lt;)\s*("?)(SQL)(\2)(\s*)$</string>
+					<string>(&lt;&lt;&lt;)\s*("?)(SQL)(\2)([^\S\r\n]*)$</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>0</key>
@@ -2882,7 +2882,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>(&lt;&lt;&lt;)\s*("?)(JAVASCRIPT|JS)(\2)(\s*)$</string>
+					<string>(&lt;&lt;&lt;)\s*("?)(JAVASCRIPT|JS)(\2)([^\S\r\n]*)$</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>0</key>
@@ -2939,7 +2939,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>(&lt;&lt;&lt;)\s*("?)(JSON)(\2)(\s*)$</string>
+					<string>(&lt;&lt;&lt;)\s*("?)(JSON)(\2)([^\S\r\n]*)$</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>0</key>
@@ -2996,7 +2996,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>(&lt;&lt;&lt;)\s*("?)(CSS)(\2)(\s*)$</string>
+					<string>(&lt;&lt;&lt;)\s*("?)(CSS)(\2)([^\S\r\n]*)$</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>0</key>
@@ -3053,7 +3053,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>(&lt;&lt;&lt;)\s*("?)(REGEXP?)(\2)(\s*)$</string>
+					<string>(&lt;&lt;&lt;)\s*("?)(REGEXP?)(\2)([^\S\r\n]*)$</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>0</key>
@@ -3229,7 +3229,7 @@
 			<array>
 				<dict>
 					<key>begin</key>
-					<string>(&lt;&lt;&lt;)\s*'(HTML)'(\s*)$</string>
+					<string>(&lt;&lt;&lt;)\s*'(HTML)'([^\S\r\n]*)$</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>0</key>
@@ -3282,7 +3282,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>(&lt;&lt;&lt;)\s*'(XML)'(\s*)$</string>
+					<string>(&lt;&lt;&lt;)\s*'(XML)'([^\S\r\n]*)$</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>0</key>
@@ -3335,7 +3335,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>(&lt;&lt;&lt;)\s*'(SQL)'(\s*)$</string>
+					<string>(&lt;&lt;&lt;)\s*'(SQL)'([^\S\r\n]*)$</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>0</key>
@@ -3388,7 +3388,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>(&lt;&lt;&lt;)\s*'(JAVASCRIPT|JS)'(\s*)$</string>
+					<string>(&lt;&lt;&lt;)\s*'(JAVASCRIPT|JS)'([^\S\r\n]*)$</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>0</key>
@@ -3441,7 +3441,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>(&lt;&lt;&lt;)\s*'(JSON)'(\s*)$</string>
+					<string>(&lt;&lt;&lt;)\s*'(JSON)'([^\S\r\n]*)$</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>0</key>
@@ -3494,7 +3494,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>(&lt;&lt;&lt;)\s*'(CSS)'(\s*)$</string>
+					<string>(&lt;&lt;&lt;)\s*'(CSS)'([^\S\r\n]*)$</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>0</key>
@@ -3547,7 +3547,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>(&lt;&lt;&lt;)\s*'(REGEXP?)'(\s*)$</string>
+					<string>(&lt;&lt;&lt;)\s*'(REGEXP?)'([^\S\r\n]*)$</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>0</key>
