@@ -11,8 +11,7 @@ class Dialog {
 		$this->path = $path;
 	}
 
-	/** @param array<string> $lines */
-	public function tooltip(?string $title, array $lines): void {
+	public function tooltip(string ...$lines): void {
 		$this->rawHtml(sprintf(
 			<<<'HTML'
 			<style>
@@ -66,19 +65,48 @@ class Dialog {
 				span.type.false   { color: #CE8462; }
 			</style>
 			<div class="lines">
-				<p>%s</p>%s
+				%s
 			</div>
 			HTML,
-			$title,
-			implode('', array_map(fn ($line) => "<p>{$line}</p>", $lines)),
+			implode("\n\t", array_map(fn ($line) => "<p>{$line}</p>", $lines)),
 		));
 	}
 
 	public function rawHtml(string $html): void {
 		shell_exec(sprintf(
-			'%s tooltip --html %s',
+			'%s tooltip --transparent --html %s',
 			escapeshellarg($this->path),
 			escapeshellarg($html),
+		));
+	}
+
+	public function completions(string $typed, string ...$found): void {
+		$suggestions = [];
+		foreach ($found as $signature) {
+			$display = strip_tags($signature);
+
+			preg_match_all('/\$(\w+)/', $display, $matches);
+			$counter = 1;
+			$params = array_map(
+				function ($param) use (&$counter) {
+					return sprintf('\$${%d:%s}', $counter++, $param);
+				},
+				$matches[1],
+			);
+
+			$suggestions[] = [
+				'image' => 'Snippet',
+				'display' => $display,
+				'match' => strtok($display, ' '),
+				'insert' => sprintf('(%s)', implode(', ', $params)),
+			];
+		}
+
+		shell_exec(sprintf(
+			'%s popup --alreadyTyped %s --caseInsensitive --suggestions %s',
+			escapeshellarg($this->path),
+			escapeshellarg($typed),
+			escapeshellarg((new Plist())->arrayToPlist($suggestions)),
 		));
 	}
 }

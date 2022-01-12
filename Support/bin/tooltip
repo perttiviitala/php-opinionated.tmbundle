@@ -6,7 +6,6 @@ require __DIR__.'/../lib/bootstrap.php';
 use TextMate\Dialog;
 
 array_shift($_SERVER['argv']);
-$title = htmlentities(array_shift($_SERVER['argv']));
 $lines = array_map(fn ($line) => $line, $_SERVER['argv']);
 
-(new Dialog($_SERVER['DIALOG']))->tooltip($title, $lines);
+(new Dialog($_SERVER['DIALOG']))->tooltip(...$lines);

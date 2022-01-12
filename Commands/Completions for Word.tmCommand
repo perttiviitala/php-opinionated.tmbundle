@@ -15,41 +15,31 @@ use TextMate\Dialog;
 // FIXME replace json with native php array
 $path = getenv('TM_BUNDLE_SUPPORT').'/resources/completions.json';
 $completions = json_decode(file_get_contents($path), true);
-$completions = array_change_key_case($completions);
 
-// always check current word first
-$options = [getenv('TM_CURRENT_WORD')];
-// these two are mutually exclusive
-if (getenv('TM_SELECTED_TEXT')) {
-	$options[] = getenv('TM_SELECTED_TEXT');
-}
-if (getenv('TM_CURRENT_LINE')) {
-	if (preg_match_all('/(\w+)\(/', substr(getenv('TM_CURRENT_LINE'), 0, getenv('TM_LINE_INDEX')), $matches)) {
-		$options = array_merge($options, array_reverse($matches[1]));
-	}
-}
+$word = getenv('TM_CURRENT_WORD');
+$wordLen = strlen($word);
 
-foreach (array_filter($options) as $option) {
-	$completion = $completions[strtolower($option)] ?? null;
-	if (!$completion) {
-		continue;
+$suggestions = [];
+foreach ($completions as $name =&gt; $tooltipLines) {
+	if (strncasecmp($name, $word, $wordLen) === 0) {
+		array_shift($tooltipLines);
+		$suggestions = array_merge($suggestions, $tooltipLines);
 	}
-	(new Dialog($_SERVER['DIALOG']))
-		-&gt;tooltip(...$completion);
-	exit;
 }
 
 (new Dialog($_SERVER['DIALOG']))
-	-&gt;tooltip('Unable to parse function around cursor', ...$options);
+	-&gt;completions($word, ...array_slice($suggestions, 0, 50));
 </string>
+	<key>fallbackInput</key>
+	<string>word</string>
 	<key>input</key>
 	<string>none</string>
 	<key>inputFormat</key>
 	<string>text</string>
 	<key>keyEquivalent</key>
-	<string>§</string>
+	<string>~</string>
 	<key>name</key>
-	<string>Function Tooltip</string>
+	<string>Completions for Word</string>
 	<key>outputCaret</key>
 	<string>afterOutput</string>
 	<key>outputFormat</key>
@@ -57,9 +47,9 @@ foreach (array_filter($options) as $option) {
 	<key>outputLocation</key>
 	<string>toolTip</string>
 	<key>scope</key>
-	<string>source.php,text.html.php</string>
+	<string>source.php</string>
 	<key>uuid</key>
-	<string>3C871C9E-B20A-4D69-A3F4-C0E723A20FDD</string>
+	<string>6F462C44-3560-45CB-88C9-20D9CCFCC2B4</string>
 	<key>version</key>
 	<integer>2</integer>
 </dict>
