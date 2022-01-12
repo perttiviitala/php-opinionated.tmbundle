@@ -21,22 +21,33 @@ MARK="${TM_BUNDLE_SUPPORT}/resources/Warning.pdf"
 
 message=$(COLUMNS=105 ${TM_PHPSTAN:-vendor/bin/phpstan} analyze \
 	--no-progress \
+	--memory-limit=-1 \
 	--error-format=raw \
-	--level=6 \
 	--no-ansi \
-	-- $TM_FILEPATH 2&gt;/dev/null)
-if [[ $? -eq 0 ]]; then
+	--verbose \
+	-- $TM_FILEPATH 2>&amp;1)
+code=$?
+if [[ $code -eq 0 ]]; then
 	# Remove potential gutter marks when no errors.
 	$TM_MATE --clear-mark=$MARK
+	exit
+fi
+if [[ $code -ne 1 ]]; then
+	$TM_BUNDLE_SUPPORT/bin/tooltip "PHPStan failed ($code)" $message
 	exit
 fi
 
 errors=(); lines=()
 for line in ${(@f)message}; do
 	if [[ $line =~ '.*:([0-9]+):(.*)' ]] &amp;&amp; linenro=$match[1] &amp;&amp; error=$match[2]; then
-		errors+=("$(printf "%-4s %s" $linenro $error | fold -w 85 | sed '2,$s/^/     /')")
+		errors+=("$(printf "%-4s %s" $linenro $error | fold -w 100 | sed '2,$s/^/     /')")
 		lines+=($linenro)
+		continue
 	fi
+	if [[ $line =~ '^Note: Using configuration|^Used memory:' ]]; then
+		continue
+	fi
+	errors+=("     $line")
 done
 
 # Avoid gutter flush by issuing clear and set same time.
