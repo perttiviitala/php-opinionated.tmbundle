@@ -3968,7 +3968,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>(?i)(\??-&gt;)\s*([a-z_\x{7f}-\x{ff}][a-z0-9_\x{7f}-\x{ff}]*)\s*(\()</string>
+					<string>(?i)(\??-&gt;)\s*[a-z_\x{7f}-\x{ff}][a-z0-9_\x{7f}-\x{ff}]*\s*(\()</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
@@ -3977,11 +3977,6 @@
 							<string>keyword.operator.class.php</string>
 						</dict>
 						<key>2</key>
-						<dict>
-							<key>name</key>
-							<string>entity.name.function.php</string>
-						</dict>
-						<key>3</key>
 						<dict>
 							<key>name</key>
 							<string>punctuation.definition.arguments.begin.bracket.round.php</string>
@@ -4615,18 +4610,13 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>(?i)(::)\s*([a-z_\x{7f}-\x{ff}][a-z0-9_\x{7f}-\x{ff}]*)\s*(\()</string>
+					<string>(?i)(::)\s*[a-z_\x{7f}-\x{ff}][a-z0-9_\x{7f}-\x{ff}]*\s*(\()</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
 						<dict>
 							<key>name</key>
 							<string>keyword.operator.class.php</string>
-						</dict>
-						<key>2</key>
-						<dict>
-							<key>name</key>
-							<string>entity.name.function.php</string>
 						</dict>
 						<key>3</key>
 						<dict>
