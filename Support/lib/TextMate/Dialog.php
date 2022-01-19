@@ -91,9 +91,16 @@ class Dialog {
 		}
 
 		shell_exec(sprintf(
-			'%s popup --alreadyTyped %s --caseInsensitive --suggestions %s',
+			<<<TEXT
+			%s popup \
+				--alreadyTyped %s \
+				--additionalWordCharacters %s \
+				--suggestions %s \
+				--caseInsensitive
+			TEXT,
 			escapeshellarg($this->path),
 			escapeshellarg($typed),
+			escapeshellarg('_'),
 			escapeshellarg((new Plist())->arrayToPlist($suggestions)),
 		));
 	}
