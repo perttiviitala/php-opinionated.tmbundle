@@ -5,7 +5,8 @@ declare(strict_types=1);
 namespace TextMate;
 
 class Plist {
-	public function arrayToPlist(mixed $input): string {
+	/** @param mixed $input */
+	public function arrayToPlist($input): string {
 		$output = '';
 		switch (\gettype($input)) {
 		case 'array':

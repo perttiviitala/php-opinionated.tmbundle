@@ -77,14 +77,15 @@ class Dialog {
 			$counter = 1;
 			$params = array_map(
 				function ($param) use (&$counter) {
-					return sprintf('\$${%d:%s}', $counter++, $param);
+					return sprintf('${%d:\\\\$${%d:%s}}', $counter++, $counter++, $param);
 				},
 				$matches[1],
 			);
 
 			$suggestions[] = [
 				'image' => 'Snippet',
-				'display' => $display,
+				// Using image pushes content out of box without whitespace padding.
+				'display' => $display.'       ',
 				'match' => strtok($display, ' '),
 				'insert' => sprintf('(%s)', implode(', ', $params)),
 			];
