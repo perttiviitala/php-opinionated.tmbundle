@@ -12,7 +12,7 @@ class Dialog {
 	}
 
 	public function tooltip(string ...$lines): void {
-		$this->rawHtml(sprintf(
+		$html = sprintf(
 			<<<'HTML'
 			<style>
 				body {
@@ -57,10 +57,8 @@ class Dialog {
 			</div>
 			HTML,
 			implode("\n\t", array_map(fn ($line) => "<p>{$line}</p>", $lines)),
-		));
-	}
+		);
 
-	public function rawHtml(string $html): void {
 		shell_exec(sprintf(
 			'%s tooltip --transparent --html %s',
 			escapeshellarg($this->path),
@@ -81,6 +79,8 @@ class Dialog {
 				},
 				$matches[1],
 			);
+
+			$display = str_replace('"', '\"', $display);
 
 			$suggestions[] = [
 				'image' => 'Snippet',

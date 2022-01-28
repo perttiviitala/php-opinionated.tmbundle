@@ -27,8 +27,13 @@ foreach ($completions as $name =&gt; $tooltipLines) {
 	}
 }
 
+// TODO If previous word is `new` only include those completions.
+$suggestions = array_filter($suggestions,
+	fn ($suggestion) =&gt; !str_starts_with($suggestion, 'new '),
+);
+
 (new Dialog($_SERVER['DIALOG']))
-	-&gt;completions($word, ...array_slice($suggestions, 0, 50));
+	-&gt;completions($word, ...$suggestions);
 </string>
 	<key>fallbackInput</key>
 	<string>word</string>
