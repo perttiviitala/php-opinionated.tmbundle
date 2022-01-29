@@ -18,10 +18,9 @@ class Dialog {
 				body {
 					position: absolute;
 					font-size: 13px;
-					font-weight: 500;
 					font-family: "Fira Code", "Menlo";
 				}
-				div {
+				.lines {
 					animation: fadeIn linear 0.15s;
 					padding: 8px;
 					color: #eee;
@@ -29,12 +28,18 @@ class Dialog {
 					border: 1px outset #000;
 					border-radius: 8px;
 				}
-				p {
+				.lines .row {
+					display: flex;
 					white-space: pre-wrap;
 					margin: 0.5em 0 0 0;
 				}
-				.lines p:last-child {
+				.lines > .row:last-child {
 					padding-bottom: 0.5em;
+				}
+				.lines .linenro {
+					display: block;
+					width: 50px;
+					color: #808080;
 				}
 
 				@keyframes fadeIn {
@@ -56,7 +61,10 @@ class Dialog {
 				%s
 			</div>
 			HTML,
-			implode("\n\t", array_map(fn ($line) => "<p>{$line}</p>", $lines)),
+			implode("\n\t", array_map(
+				fn ($line) => sprintf('<div class="row">%s</div>', $line),
+				$lines,
+			)),
 		);
 
 		shell_exec(sprintf(
