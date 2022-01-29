@@ -50,6 +50,11 @@ for line in ${(@f)message}; do
 	errors+=("     $line")
 done
 
+# Move cursor to end of the first line with errors.
+if [[ $lines[1] != $TM_LINE_NUMBER ]]; then
+	open "txmt://open?line=${lines[1]}&amp;column=9999"
+fi
+
 # Avoid gutter flush by issuing clear and set same time.
 $TM_MATE \
 	--clear-mark=$MARK --set-mark=$MARK \
