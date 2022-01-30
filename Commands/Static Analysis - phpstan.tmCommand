@@ -7,8 +7,13 @@
 	<key>command</key>
 	<string>#!/usr/bin/env zsh
 
+# Ignore unsaved files.
+if [ -z $TM_FILEPATH ]; then
+	exit
+fi
+
 # FIXME Find a parent directory with phpstan.neon file
-cd "$TM_PROJECT_DIRECTORY"
+cd $TM_PROJECT_DIRECTORY
 
 # Prevent running with default configuration.
 if [ ! -f phpstan.neon ] &amp;&amp; [ ! -f phpstan.neon.dist ]; then
@@ -16,52 +21,55 @@ if [ ! -f phpstan.neon ] &amp;&amp; [ ! -f phpstan.neon.dist ]; then
 	exit 206
 fi
 
-# Mark has to be a pdf it seems.
-MARK="${TM_BUNDLE_SUPPORT}/resources/Warning.pdf"
+# Running in background to avoid stalling mainthread.
+(
+	# Mark has to be a pdf it seems.
+	MARK="${TM_BUNDLE_SUPPORT}/resources/Warning.pdf"
 
-message=$(COLUMNS=105 ${TM_PHPSTAN:-vendor/bin/phpstan} analyze \
-	--no-progress \
-	--memory-limit=-1 \
-	--error-format=raw \
-	--no-ansi \
-	--verbose \
-	-- $TM_FILEPATH 2>&amp;1)
-code=$?
-if [[ $code -eq 0 ]]; then
-	# Remove potential gutter marks when no errors.
-	$TM_MATE --clear-mark=$MARK
-	exit
-fi
-if [[ $code -ne 1 ]]; then
-	$TM_BUNDLE_SUPPORT/bin/tooltip "PHPStan failed ($code)" $message
-	exit
-fi
-
-errors=(); lines=()
-for line in ${(@f)message}; do
-	if [[ $line =~ '.*:([0-9]+):(.*)' ]] &amp;&amp; linenro=$match[1] &amp;&amp; error=$match[2]; then
-		errors+=("$(printf '&lt;div class="linenro"&gt;%s&lt;/div&gt;&lt;span&gt;%s&lt;/span&gt;' $linenro $error)")
-		lines+=($linenro)
-		continue
+	message=$(COLUMNS=105 ${TM_PHPSTAN:-vendor/bin/phpstan} analyze \
+		--no-progress \
+		--memory-limit=-1 \
+		--error-format=raw \
+		--no-ansi \
+		--verbose \
+		-- $TM_FILEPATH 2&gt;&amp;1)
+	code=$?
+	if [[ $code -eq 0 ]]; then
+		# Remove potential gutter marks when no errors.
+		$TM_MATE --clear-mark=$MARK
+		exit
 	fi
-	if [[ $line =~ '^Note: Using configuration|^Used memory:' ]]; then
-		continue
+	if [[ $code -ne 1 ]]; then
+		$TM_BUNDLE_SUPPORT/bin/tooltip "PHPStan failed ($code)" $message
+		exit
 	fi
-	errors+=($line)
-done
 
-# Move cursor to end of the first line with errors.
-if [[ $lines[1] != $TM_LINE_NUMBER ]]; then
-	open "txmt://open?line=${lines[1]}&amp;column=9999"
-fi
+	errors=(); lines=()
+	for line in ${(@f)message}; do
+		if [[ $line =~ '.*:([0-9]+):(.*)' ]] &amp;&amp; linenro=$match[1] &amp;&amp; error=$match[2]; then
+			errors+=("$(printf '&lt;div class="linenro"&gt;%s&lt;/div&gt;&lt;span&gt;%s&lt;/span&gt;' $linenro $error)")
+			lines+=($linenro)
+			continue
+		fi
+		if [[ $line =~ '^Note: Using configuration|^Used memory:' ]]; then
+			continue
+		fi
+		errors+=($line)
+	done
 
-# Avoid gutter flush by issuing clear and set same time.
-$TM_MATE \
-	--clear-mark=$MARK --set-mark=$MARK \
-	--line=${(j:,:)lines} \
-	$TM_FILEPATH
+	# Move cursor to end of the first line with errors.
+	if [[ $lines[1] != $TM_LINE_NUMBER ]]; then
+		open "txmt://open?line=${lines[1]}&amp;column=9999"
+	fi
 
-$TM_BUNDLE_SUPPORT/bin/tooltip "&lt;strong&gt;PHPStan&lt;/strong&gt;" ${errors}
+	# Avoid gutter flush by issuing clear and set same time.
+	$TM_MATE \
+		--clear-mark=$MARK --set-mark=$MARK \
+		--line=${(j:,:)lines} \
+		$TM_FILEPATH
+
+	$TM_BUNDLE_SUPPORT/bin/tooltip "&lt;strong&gt;PHPStan&lt;/strong&gt;" ${errors}
+) &amp;&gt;/dev/null &amp;
 </string>
 	<key>input</key>
 	<string>document</string>
