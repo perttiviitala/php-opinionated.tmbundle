@@ -10,10 +10,14 @@
 # FIXME Find a parent directory with .php-cs-fixer.php file
 cd "$TM_PROJECT_DIRECTORY"
 
-# Prevent running with default configuration.
+args=()
+# If configuration contain risky rules, it has been chosen so.
+args+=(--allow-risky=yes)
+# Disabling cache as tempfiles should never match.
+args+=(--using-cache=no)
+# Defaulting to bundle rules if no config file found.
 if [ ! -f .php-cs-fixer.php ] &amp;&amp; [ ! -f .php-cs-fixer.dist.php ]; then
-	echo "Missing .php-cs-fixer.php or .php-cs-fixer.dist.php file."
-	exit 206
+	args+=(--config=${TM_PHP_CS_FIXER_CONFIG:-$TM_BUNDLE_SUPPORT/.php-cs-fixer.dist.php})
 fi
 
 # The php-cs-fixer can not read from stdin or write to stdout.
@@ -21,12 +25,8 @@ fi
 tmpfile=$(mktemp)
 cat /dev/stdin &gt; $tmpfile
 
-${TM_PHP:-php} ${TM_PHP_CS_FIXER:-php-cs-fixer} \
-	`# If configuration contain risky rules, it has been chosen so.` \
-	`# Disabling cache as tempfiles should never match.` \
-	fix --allow-risky=yes --using-cache=no \
-	`# Trash all output, not very useful.` \
-	$tmpfile &gt;/dev/null
+# Trash all output, not very useful.
+${TM_PHP:-php} ${TM_PHP_CS_FIXER:-php-cs-fixer} fix $args $tmpfile &gt;/dev/null
 
 # Replace output with fixed contents.
 cat $tmpfile
@@ -38,7 +38,7 @@ cat $tmpfile
 	<key>keyEquivalent</key>
 	<string>^H</string>
 	<key>name</key>
-	<string>php-cs-fixer</string>
+	<string>PHP Coding Standards Fixer</string>
 	<key>outputCaret</key>
 	<string>interpolateByLine</string>
 	<key>outputFormat</key>

@@ -10,11 +10,6 @@
 # FIXME Find a parent directory with phpcs.xml file
 cd "$TM_PROJECT_DIRECTORY"
 
-if [ ! -f phpcs.xml ]; then
-	echo "Missing phpcs.xml file, skipping."
-	exit 206
-fi
-
 # force -q to prevent output containing info from this
 ${TM_PHP:-php} ${TM_PHPCBF:-phpcbf} $TM_PHPCBF_OPTIONS -
 
@@ -30,7 +25,7 @@ exit 0
 	<key>keyEquivalent</key>
 	<string>^H</string>
 	<key>name</key>
-	<string>phpcbf</string>
+	<string>PHP Code Beautifier and Fixer</string>
 	<key>outputCaret</key>
 	<string>interpolateByLine</string>
 	<key>outputFormat</key>

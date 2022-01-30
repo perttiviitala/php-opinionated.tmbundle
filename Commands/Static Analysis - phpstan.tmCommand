@@ -75,8 +75,10 @@ fi
 	<string>document</string>
 	<key>inputFormat</key>
 	<string>text</string>
+	<key>keyEquivalent</key>
+	<string>^V</string>
 	<key>name</key>
-	<string>phpstan</string>
+	<string>PHPStan</string>
 	<key>outputCaret</key>
 	<string>afterOutput</string>
 	<key>outputFormat</key>

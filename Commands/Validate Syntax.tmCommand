@@ -72,7 +72,7 @@ $TM_BUNDLE_SUPPORT/bin/tooltip "Syntax error, $(echo $message | head -n 2 | tail
 	<key>inputFormat</key>
 	<string>text</string>
 	<key>keyEquivalent</key>
-	<string>^V</string>
+	<string>^v</string>
 	<key>name</key>
 	<string>Validate Syntax</string>
 	<key>outputCaret</key>
