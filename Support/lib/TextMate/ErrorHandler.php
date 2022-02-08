@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace TextMate;
 
 class ErrorHandler {
+	/** @param ?array<array<string, string>> $trace */
 	public function report(string $type, string $message, ?string $file, ?int $line, ?array $trace = []): void {
 		$trimPath = function ($path) {
 			$paths = [];
@@ -26,34 +27,49 @@ class ErrorHandler {
 		// add point of occurance to stack
 		$trace[] = ['function' => '{main}', 'file' => $file, 'line' => $line];
 
-		$backtrace = [];
-		foreach ($trace as $index => $trace) {
-			$method = isset($trace['class'])
-				? $trace['class'].$trace['type'].$trace['function']
-				: $trace['function'] ?? null;
+		$tableRows = [];
+		/** @var array{
+		 *     function: ?string,
+		 *     line: ?int,
+		 *     file: ?string,
+		 *     class: ?string,
+		 *     object: ?object,
+		 *     type: ?string,
+		 *     args: ?array<mixed>,
+		 * } $level */
+		foreach ($trace as $index => $level) {
+			$method = (isset($level['class'])
+				? $level['class'].$level['type'].$level['function']
+				: $level['function']) ?? '{unknown}';
 
 			// these are boring as hell and do not aid
-			if (!$file && (!$method || $method === '{closure}')) {
+			if (!$file && (!$method || $method[0] == '{')) {
 				continue;
 			}
 
-			$backtrace[] = sprintf(
+			$tableRows[] = sprintf(
 				<<<HTML
 				<tr>
-					<td><a class="near" href="txmt://open?url=file://%s&line=%d">%s</a></td>
+					<td>%s</td>
 					<td>in <strong>%s</strong> at line %d</td>
 				</tr>
 				HTML,
-				htmlentities($file),
-				$line,
+				$file
+					? sprintf(<<<'HTML'
+						<a class="near" href="txmt://open?url=file://%s&line=%d">%s</a>
+						HTML,
+						htmlentities($file),
+						$line,
+						htmlentities($trimPath($file)),
+					)
+					: 'unknown',
 				htmlentities($method),
-				htmlentities($file ? $trimPath($file) : 'unknown'),
 				$line,
 			);
 
 			// these are overwritten by purpose to offset file/line for humans
-			$file = $trace['file'] ?? $file;
-			$line = $trace['line'] ?? $line;
+			$file = $level['file'] ?? $file;
+			$line = $level['line'] ?? $line;
 		}
 
 		$backtrace = sprintf(
@@ -64,7 +80,7 @@ class ErrorHandler {
 				</table>
 			</blockquote>
 			HTML,
-			implode("\n", $backtrace),
+			implode("\n", $tableRows),
 		);
 
 		$handle = null;
