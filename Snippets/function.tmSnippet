@@ -7,9 +7,9 @@
 	${8:// ...}
 }$0</string>
 	<key>name</key>
-	<string>function</string>
+	<string>class method</string>
 	<key>scope</key>
-	<string>source.php</string>
+	<string>source.php meta.class.body.php</string>
 	<key>tabTrigger</key>
 	<string>fun</string>
 	<key>uuid</key>
