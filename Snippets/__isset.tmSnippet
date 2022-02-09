@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>public function __isset(string \$${1:name}): bool {
+	${2:return isset(\$this->$1);}
+}$0</string>
+	<key>name</key>
+	<string>isset</string>
+	<key>scope</key>
+	<string>source.php meta.class.body.php</string>
+	<key>tabTrigger</key>
+	<string>__</string>
+	<key>uuid</key>
+	<string>4B76C82F-CFCB-4E59-BB1D-5B3EFDD49491</string>
+</dict>
+</plist>

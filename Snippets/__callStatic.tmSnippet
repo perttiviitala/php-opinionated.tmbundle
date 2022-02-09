@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>public static function __callStatic(string \$${2:name}, array \$${3:arguments}): ${4:mixed} {
+	${5:// }
+}$0</string>
+	<key>name</key>
+	<string>callStatic</string>
+	<key>scope</key>
+	<string>source.php meta.class.body.php</string>
+	<key>tabTrigger</key>
+	<string>__</string>
+	<key>uuid</key>
+	<string>8D296141-6529-4745-B4A1-ACC2506D7E4D</string>
+</dict>
+</plist>

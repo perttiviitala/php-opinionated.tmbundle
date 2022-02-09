@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>public function _unset(string \$${1:name}): void {
+	${2:unset(\$this->$1);}
+}$0</string>
+	<key>name</key>
+	<string>unset</string>
+	<key>scope</key>
+	<string>source.php meta.class.body.php</string>
+	<key>tabTrigger</key>
+	<string>__</string>
+	<key>uuid</key>
+	<string>856746A6-511C-4712-A545-E426D55C186E</string>
+</dict>
+</plist>

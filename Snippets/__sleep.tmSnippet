@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>public function __sleep(): array {
+	return ${1:[$2]};
+}$0</string>
+	<key>name</key>
+	<string>sleep</string>
+	<key>scope</key>
+	<string>source.php meta.class.body.php</string>
+	<key>tabTrigger</key>
+	<string>__</string>
+	<key>uuid</key>
+	<string>DC08748B-5A2C-474B-B841-396B95DBF0B4</string>
+</dict>
+</plist>

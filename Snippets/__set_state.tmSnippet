@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>public function __set_state(array \$${2:properties}): ${3|self,static|} {
+	\$obj = new $3;
+	\$obj->${4:foo} = \$$2['$4'];
+	return \$obj;
+}$0</string>
+	<key>name</key>
+	<string>set_state</string>
+	<key>scope</key>
+	<string>source.php meta.class.body.php</string>
+	<key>tabTrigger</key>
+	<string>__</string>
+	<key>uuid</key>
+	<string>BD1F9FA6-4B56-4373-8D1D-EE544DF7518D</string>
+</dict>
+</plist>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>public function __unserialize(array \$${1:data}): void {
+	\$this->${2:foo} = \$$1['$2'];$3
+}$0</string>
+	<key>name</key>
+	<string>unserialize</string>
+	<key>scope</key>
+	<string>source.php meta.class.body.php</string>
+	<key>tabTrigger</key>
+	<string>__</string>
+	<key>uuid</key>
+	<string>DF670C74-48B0-41FF-882C-B9D4FC2FAFED</string>
+</dict>
+</plist>

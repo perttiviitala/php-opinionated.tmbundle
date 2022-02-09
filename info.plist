@@ -28,6 +28,7 @@
 			<string>------------------------------------</string>
 			<string>273ADF46-07E7-470A-B3E7-5040306A1589</string>
 			<string>D928AFFE-91E2-4656-BF37-401657426E6D</string>
+			<string>FFDA1D8D-78A7-4159-BF03-7814660881A6</string>
 			<string>359BED8E-86DA-43B7-8E2B-8ECBEAF0AE68</string>
 		</array>
 		<key>submenus</key>
@@ -90,6 +91,32 @@
 				</array>
 				<key>name</key>
 				<string>Static Analysis</string>
+			</dict>
+			<key>FFDA1D8D-78A7-4159-BF03-7814660881A6</key>
+			<dict>
+				<key>items</key>
+				<array>
+					<string>413052FA-3600-46A9-A748-80CD629C8C30</string>
+					<string>AA02AD36-541C-408F-A429-E5B91575A31C</string>
+					<string>------------------------------------</string>
+					<string>2FB1A0BF-EAF9-4CBF-A0A0-A05DAA726762</string>
+					<string>8D296141-6529-4745-B4A1-ACC2506D7E4D</string>
+					<string>773D42A5-6DF8-4EDD-8F56-D42C2472995D</string>
+					<string>A5747D2D-1FA0-413A-B252-21E38296905B</string>
+					<string>4B76C82F-CFCB-4E59-BB1D-5B3EFDD49491</string>
+					<string>856746A6-511C-4712-A545-E426D55C186E</string>
+					<string>DC08748B-5A2C-474B-B841-396B95DBF0B4</string>
+					<string>E81D4E75-F1DC-4808-A9D0-6F4F79EFB503</string>
+					<string>AB28A469-6C12-429D-9F6A-2EA01AC5CB86</string>
+					<string>DF670C74-48B0-41FF-882C-B9D4FC2FAFED</string>
+					<string>BFAE685E-8D65-4351-8A76-0788FBC06676</string>
+					<string>E518DBAB-7CF9-4339-A255-9444D298D4B6</string>
+					<string>BD1F9FA6-4B56-4373-8D1D-EE544DF7518D</string>
+					<string>B74B686C-1319-4B08-B6E2-C61D934AFC5C</string>
+					<string>F73359AC-F726-4B65-838A-117BACC643D1</string>
+				</array>
+				<key>name</key>
+				<string>Magic methods</string>
 			</dict>
 		</dict>
 	</dict>
