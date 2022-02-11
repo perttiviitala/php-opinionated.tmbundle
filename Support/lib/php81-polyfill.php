@@ -19,3 +19,12 @@ if (!function_exists('array_is_list')) {
 		return true;
 	}
 }
+
+if (!function_exists('enum_exists')) {
+	function enum_exists(string $enum, bool $autoload = true): bool {
+		if ($autoload) {
+			spl_autoload_call($enum);
+		}
+		return false;
+	}
+}
