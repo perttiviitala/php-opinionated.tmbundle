@@ -20,6 +20,7 @@ final class DocumentationForWord {
 		'array' => ['language.types.array'],
 		'iterable' => ['language.types.iterable'],
 		'object' => ['language.types.object'],
+		'enum' => ['language.types.enumerations'],
 		'resource' => ['language.types.resource'],
 		'null' => ['language.types.null'],
 		'callable' => ['language.types.callable'],

@@ -1460,7 +1460,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>(?i)\b(array|real|double|float|int(eger)?|bool(ean)?|string|class|var|function|interface|trait|parent|self|object|mixed)\b</string>
+			<string>(?i)\b(array|real|double|float|int(eger)?|bool(ean)?|string|class|var|function|interface|trait|parent|self|object|enum|mixed)\b</string>
 			<key>name</key>
 			<string>storage.type.php</string>
 		</dict>
