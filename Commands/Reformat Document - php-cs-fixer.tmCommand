@@ -26,7 +26,10 @@ tmpfile=$(mktemp)
 cat /dev/stdin &gt; $tmpfile
 
 # Trash all output, not very useful.
-${TM_PHP:-php} ${TM_PHP_CS_FIXER:-php-cs-fixer} fix $args $tmpfile &gt;/dev/null
+output=$(${TM_PHP:-php} ${TM_PHP_CS_FIXER:-php-cs-fixer} fix $args $tmpfile)
+if [ $? -gt 0 ]; then
+	$TM_BUNDLE_SUPPORT/bin/tooltip "Error running php-cs-fixer" $output
+fi
 
 # Replace output with fixed contents.
 cat $tmpfile
@@ -45,20 +48,6 @@ cat $tmpfile
 	<string>text</string>
 	<key>outputLocation</key>
 	<string>replaceInput</string>
-	<key>requiredCommands</key>
-	<array>
-		<dict>
-			<key>command</key>
-			<string>php-cs-fixer</string>
-			<key>locations</key>
-			<array>
-				<string>vendor/bin/php-cs-fixer</string>
-				<string>/usr/local/bin/php-cs-fixer</string>
-			</array>
-			<key>variable</key>
-			<string>TM_PHP_CS_FIXER</string>
-		</dict>
-	</array>
 	<key>scope</key>
 	<string>source.php,text.html.php</string>
 	<key>semanticClass</key>
