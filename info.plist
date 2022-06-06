@@ -23,7 +23,7 @@
 			<string>3C871C9E-B20A-4D69-A3F4-C0E723A20FDD</string>
 			<string>C36C7CD8-129B-4A87-8121-5B5AE5201558</string>
 			<string>------------------------------------</string>
-			<string>9E6DDCD7-F043-443F-BC1D-F7051B2B50ED</string>
+			<string>A18C4A34-76B1-447C-A9A1-AA4CB551AA73</string>
 			<string>A8C6B7E0-0FED-4E0F-8891-36197A9F703C</string>
 			<string>1E51E51B-2458-4FA6-8892-E8D7B29BAD11</string>
 			<string>------------------------------------</string>
@@ -74,12 +74,24 @@
 				<key>name</key>
 				<string>Idioms</string>
 			</dict>
+			<key>A18C4A34-76B1-447C-A9A1-AA4CB551AA73</key>
+			<dict>
+				<key>items</key>
+				<array>
+					<string>9E6DDCD7-F043-443F-BC1D-F7051B2B50ED</string>
+					<string>89E5313B-92FC-404C-B93F-ADE1D91E3208</string>
+				</array>
+				<key>name</key>
+				<string>Validate Syntax</string>
+			</dict>
 			<key>A8C6B7E0-0FED-4E0F-8891-36197A9F703C</key>
 			<dict>
 				<key>items</key>
 				<array>
 					<string>02B7C458-F237-47D5-8EF9-05F7E2708625</string>
 					<string>4EBE2C8F-DEDB-4E54-AA9D-3D82569036B6</string>
+					<string>0DDA4FEA-2824-4E4A-A689-102AC38FBD6F</string>
+					<string>7AF65457-67E3-467B-B8EF-082AB02508C5</string>
 				</array>
 				<key>name</key>
 				<string>Reformat Document</string>
