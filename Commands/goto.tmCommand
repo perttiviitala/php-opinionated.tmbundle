@@ -17,7 +17,8 @@ if (!$matches[1]) {
 }
 
 $labels = array_unique($matches[1]);
-echo sprintf('goto ${1|%s|};', implode(',', $labels));</string>
+echo sprintf('goto ${1|%s|};', implode(',', $labels));
+</string>
 	<key>input</key>
 	<string>scope</string>
 	<key>inputFormat</key>

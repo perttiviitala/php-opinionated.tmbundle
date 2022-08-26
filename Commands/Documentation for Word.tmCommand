@@ -8,17 +8,17 @@
 	<string>#!/usr/bin/env php
 &lt;?php
 
-require_once getenv('TM_BUNDLE_SUPPORT') . '/lib/bootstrap.php';
+require_once getenv('TM_BUNDLE_SUPPORT').'/lib/bootstrap.php';
 
 $word = getenv('TM_SELECTED_TEXT') ?: getenv('TM_CURRENT_WORD');
 if (!$word) {
-	fwrite(STDERR, 'Unable to parse a word');
+	fwrite(\STDERR, 'Unable to parse a word');
 	exit(206);
 }
 
 $url = \TextMate\Command\DocumentationForWord::manualUrlForWord($word);
 if (!$url) {
-	fwrite(STDERR, sprintf('No documentation found for "%s"', $word));
+	fwrite(\STDERR, sprintf('No documentation found for "%s"', $word));
 	exit(206);
 }
 

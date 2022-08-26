@@ -10,34 +10,34 @@
 
 use Composer\Autoload\ClassLoader;
 
-require_once getenv('TM_BUNDLE_SUPPORT') . '/lib/bootstrap.php';
+require_once getenv('TM_BUNDLE_SUPPORT').'/lib/bootstrap.php';
 
-# Only supports projects with Composer autoloader.
+// Only supports projects with Composer autoloader.
 $composer = getComposerClassLoader($_SERVER['TM_PROJECT_DIRECTORY']);
 if (!$composer) {
 	exit;
 }
 
 function getComposerClassLoader(string $projectRoot): ?ClassLoader {
-	$composer = $projectRoot . '/vendor/composer';
-	if (!file_exists($composer . '/ClassLoader.php')) {
+	$composer = $projectRoot.'/vendor/composer';
+	if (!file_exists($composer.'/ClassLoader.php')) {
 		return null;
 	}
 
-	require_once $composer . '/ClassLoader.php';
+	require_once $composer.'/ClassLoader.php';
 	$loader = new ClassLoader(dirname($composer));
 
-	$map = require $composer . '/autoload_namespaces.php';
+	$map = require $composer.'/autoload_namespaces.php';
 	foreach ($map as $namespace =&gt; $path) {
 		$loader-&gt;set($namespace, $path);
 	}
 
-	$map = require $composer . '/autoload_psr4.php';
+	$map = require $composer.'/autoload_psr4.php';
 	foreach ($map as $namespace =&gt; $path) {
 		$loader-&gt;setPsr4($namespace, $path);
 	}
 
-	$classMap = require $composer . '/autoload_classmap.php';
+	$classMap = require $composer.'/autoload_classmap.php';
 	if ($classMap) {
 		$loader-&gt;addClassMap($classMap);
 	}
@@ -100,7 +100,7 @@ function findClasses($ast): array {
 		foreach ($elem-&gt;children['uses']-&gt;children as $node) {
 			$name = $node-&gt;children['name'];
 			$alias = $node-&gt;children['alias'] ?? parseClassFromFqn($name);
-			$map[$alias] = $elem-&gt;children['prefix'] . '\\' . $name;
+			$map[$alias] = $elem-&gt;children['prefix'].'\\'.$name;
 		}
 	}
 	return $map;
@@ -109,7 +109,7 @@ function findClasses($ast): array {
 $line = $_SERVER['TM_LINE_NUMBER'];
 $word = $_SERVER['TM_CURRENT_WORD'];
 
-$ast = ast\parse_code(file_get_contents('php://stdin'), $version=80);
+$ast = ast\parse_code(file_get_contents('php://stdin'), $version = 80);
 
 // Current namespace of the file.
 $namespace = getRootNamespace($ast);
@@ -118,18 +118,18 @@ $classMap = findClasses($ast);
 // Attempt to fetch full token instead of just current word.
 $node = findByLineAndName($ast, $line, $word);
 
-$getFqnClassName = function($class) use ($namespace, $classMap): string {
+$getFqnClassName = function ($class) use ($namespace, $classMap): string {
 	$parts = explode('\\', $class);
 	if (isset($classMap[$parts[0]])) {
 		return sprintf(
 			'%s%s',
 			$classMap[$parts[0]],
 			isset($parts[1])
-				? '\\' . implode('\\', array_slice($parts, 1))
+				? '\\'.implode('\\', array_slice($parts, 1))
 				: '',
 		);
 	}
-	return ($namespace ? $namespace . '\\' : '') . $class;
+	return ($namespace ? $namespace.'\\' : '').$class;
 };
 
 $class = null;
@@ -137,7 +137,7 @@ if ($node) {
 	$class = $node-&gt;flags === ast\flags\NAME_NOT_FQ
 		? $getFqnClassName($node-&gt;children['name'])
 		: $node-&gt;children['name'];
-}	
+}
 if (!$class) {
 	$class = $getFqnClassName($word);
 }
