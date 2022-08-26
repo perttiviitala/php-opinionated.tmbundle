@@ -47,6 +47,11 @@ fi
 	errors=(); lines=()
 	for line in ${(@f)message}; do
 		if [[ $line =~ '^[^:]+:([0-9]+):(.*)' ]] &amp;&amp; linenro=$match[1] &amp;&amp; error=$match[2]; then
+			# HTML escape.
+			error=${error//&amp;/&amp;amp;}
+			error=${error//&lt;/&amp;lt;}
+			error=${error//&gt;/&amp;gt;}
+
 			errors+=("$(printf '&lt;div class="linenro"&gt;%s&lt;/div&gt;&lt;span&gt;%s&lt;/span&gt;' $linenro $error)")
 			lines+=($linenro)
 			continue
