@@ -94,7 +94,7 @@ class Dialog {
 				'image' => 'Snippet',
 				// Using image pushes content out of box without whitespace padding.
 				'display' => $display.'       ',
-				'match' => strtok($display, ' '),
+				'match' => strtok($display, '('),
 				'insert' => sprintf('(%s)', implode(', ', $params)),
 			];
 		}
