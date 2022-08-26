@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>saveActiveFile</string>
+	<key>command</key>
+	<string>#!/usr/bin/env osascript
+
+if application id "com.apple.SafariTechnologyPreview" is running then
+	tell application id "com.apple.SafariTechnologyPreview"
+		tell window 1
+			do JavaScript "window.location.reload(true)" in current tab
+		end tell
+	end tell
+else if application "Safari" is running then
+	tell application "Safari"
+		set sameURL to URL of current tab of front window
+		set URL of current tab of front window to sameURL
+	end tell
+end if
+</string>
+	<key>input</key>
+	<string>selection</string>
+	<key>inputFormat</key>
+	<string>text</string>
+	<key>keyEquivalent</key>
+	<string>@R</string>
+	<key>name</key>
+	<string>Refresh Safari</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>text</string>
+	<key>outputLocation</key>
+	<string>toolTip</string>
+	<key>scope</key>
+	<string>source.php,source.html,source.css,source.go</string>
+	<key>uuid</key>
+	<string>9E75987E-5870-4224-8781-25819F6FC4EF</string>
+	<key>version</key>
+	<integer>2</integer>
+</dict>
+</plist>
