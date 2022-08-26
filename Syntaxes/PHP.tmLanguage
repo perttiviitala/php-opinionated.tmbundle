@@ -53,93 +53,6 @@
 			<string>puncuation.section.embedded.end.php</string>
 		</dict>
 		<dict>
-			<key>begin</key>
-			<string>(?i)^\s*(interface)\s+([a-z_\x{7f}-\x{ff}][a-z0-9_\x{7f}-\x{ff}]*)\s*(extends)?\s*</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>storage.type.interface.php</string>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>entity.name.type.interface.php</string>
-				</dict>
-				<key>3</key>
-				<dict>
-					<key>name</key>
-					<string>storage.modifier.extends.php</string>
-				</dict>
-			</dict>
-			<key>end</key>
-			<string>(?i)((?:[a-z_\x{7f}-\x{ff}][a-z0-9_\x{7f}-\x{ff}]*\s*,\s*)*)([a-z_\x{7f}-\x{ff}][a-z0-9_\x{7f}-\x{ff}]*)?\s*(?:(?={)|$)</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>patterns</key>
-					<array>
-						<dict>
-							<key>match</key>
-							<string>(?i)[a-z_\x{7f}-\x{ff}][a-z0-9_\x{7f}-\x{ff}]*</string>
-							<key>name</key>
-							<string>entity.other.inherited-class.php</string>
-						</dict>
-						<dict>
-							<key>match</key>
-							<string>,</string>
-							<key>name</key>
-							<string>punctuation.separator.classes.php</string>
-						</dict>
-					</array>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>entity.other.inherited-class.php</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>meta.interface.php</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#namespace</string>
-				</dict>
-			</array>
-		</dict>
-		<dict>
-			<key>begin</key>
-			<string>(?i)^\s*(trait)\s+([a-z_\x{7f}-\x{ff}][a-z0-9_\x{7f}-\x{ff}]*)</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>storage.type.trait.php</string>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>entity.name.type.trait.php</string>
-				</dict>
-			</dict>
-			<key>end</key>
-			<string>(?={)</string>
-			<key>name</key>
-			<string>meta.trait.php</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#comments</string>
-				</dict>
-			</array>
-		</dict>
-		<dict>
 			<key>match</key>
 			<string>(?i)(?:^|(?&lt;=&lt;\?php))\s*(namespace)\s+([a-z0-9_\x{7f}-\x{ff}\\]+)(?=\s*;)</string>
 			<key>name</key>
@@ -395,6 +308,230 @@
 		<dict>
 			<key>begin</key>
 			<string>(?ix)
+\b(trait)\s+([a-z_\x{7f}-\x{ff}][a-z0-9_\x{7f}-\x{ff}]*)</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>storage.type.trait.php</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.type.trait.php</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>}|(?=\?&gt;)</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.trait.end.bracket.curly.php</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>meta.trait.php</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#comments</string>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>{</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.trait.begin.bracket.curly.php</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>(?=}|\?&gt;)</string>
+					<key>contentName</key>
+					<string>meta.trait.body.php</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>$self</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>(?ix)
+\b(interface)\s+([a-z_\x{7f}-\x{ff}][a-z0-9_\x{7f}-\x{ff}]*)</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>storage.type.interface.php</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.type.interface.php</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>}|(?=\?&gt;)</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.interface.end.bracket.curly.php</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>meta.interface.php</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#comments</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#interface-extends</string>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>{</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.interface.begin.bracket.curly.php</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>(?=}|\?&gt;)</string>
+					<key>contentName</key>
+					<string>meta.interface.body.php</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#class-constant</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>$self</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>(?ix)
+\b(enum)\s+([a-z_\x{7f}-\x{ff}][a-z0-9_\x{7f}-\x{ff}]*)
+(?: \s* (:) \s* (int | string) \b )?</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>storage.type.enum.php</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.type.enum.php</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator.return-value.php</string>
+				</dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.other.type.php</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>}|(?=\?&gt;)</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.enum.end.bracket.curly.php</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>meta.enum.php</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#comments</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#class-implements</string>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>{</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.enum.begin.bracket.curly.php</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>(?=}|\?&gt;)</string>
+					<key>contentName</key>
+					<string>meta.enum.body.php</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>match</key>
+							<string>(?i)\b(case)\s*([a-z_\x{7f}-\x{ff}][a-z0-9_\x{7f}-\x{ff}]*)</string>
+							<key>captures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>storage.modifier.php</string>
+								</dict>
+								<key>2</key>
+								<dict>
+									<key>name</key>
+									<string>constant.enum.php</string>
+								</dict>
+							</dict>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#class-constant</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>$self</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>(?ix)
 (?:
   \b(?:(abstract|final)\s+)?(class)\s+([a-z_\x{7f}-\x{ff}][a-z0-9_\x{7f}-\x{ff}]*)
   |\b(new)\b\s*(\#\[.*\])?\s*\b(class)\b # anonymous class
@@ -452,129 +589,51 @@
 			<key>patterns</key>
 			<array>
 				<dict>
+					<key>begin</key>
+					<string>(?&lt;=class)\s*(\()</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.arguments.begin.bracket.round.php</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>\)|(?=\?&gt;)</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.arguments.end.bracket.round.php</string>
+						</dict>
+					</dict>
+					<key>name</key>
+					<string>meta.function-call.php</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#named-arguments</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>$self</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
 					<key>include</key>
 					<string>#comments</string>
 				</dict>
 				<dict>
-					<key>begin</key>
-					<string>(?i)(extends)\s+</string>
-					<key>beginCaptures</key>
-					<dict>
-						<key>1</key>
-						<dict>
-							<key>name</key>
-							<string>storage.modifier.extends.php</string>
-						</dict>
-					</dict>
-					<key>contentName</key>
-					<string>meta.other.inherited-class.php</string>
-					<key>end</key>
-					<string>(?i)(?=[^a-z0-9_\x{7f}-\x{ff}\\])</string>
-					<key>patterns</key>
-					<array>
-						<dict>
-							<key>begin</key>
-							<string>(?i)(?=\\?[a-z_\x{7f}-\x{ff}][a-z0-9_\x{7f}-\x{ff}]*\\)</string>
-							<key>end</key>
-							<string>(?i)([a-z_\x{7f}-\x{ff}][a-z0-9_\x{7f}-\x{ff}]*)?(?=[^a-z0-9_\x{7f}-\x{ff}\\])</string>
-							<key>endCaptures</key>
-							<dict>
-								<key>1</key>
-								<dict>
-									<key>name</key>
-									<string>entity.other.inherited-class.php</string>
-								</dict>
-							</dict>
-							<key>patterns</key>
-							<array>
-								<dict>
-									<key>include</key>
-									<string>#namespace</string>
-								</dict>
-							</array>
-						</dict>
-						<dict>
-							<key>include</key>
-							<string>#class-builtin</string>
-						</dict>
-						<dict>
-							<key>include</key>
-							<string>#namespace</string>
-						</dict>
-						<dict>
-							<key>match</key>
-							<string>(?i)[a-z_\x{7f}-\x{ff}][a-z0-9_\x{7f}-\x{ff}]*</string>
-							<key>name</key>
-							<string>entity.other.inherited-class.php</string>
-						</dict>
-					</array>
+					<key>include</key>
+					<string>#class-extends</string>
 				</dict>
 				<dict>
-					<key>begin</key>
-					<string>(?i)(implements)\s+</string>
-					<key>beginCaptures</key>
-					<dict>
-						<key>1</key>
-						<dict>
-							<key>name</key>
-							<string>storage.modifier.implements.php</string>
-						</dict>
-					</dict>
-					<key>end</key>
-					<string>(?i)(?=[;{])</string>
-					<key>patterns</key>
-					<array>
-						<dict>
-							<key>include</key>
-							<string>#comments</string>
-						</dict>
-						<dict>
-							<key>begin</key>
-							<string>(?i)(?=[a-z0-9_\x{7f}-\x{ff}\\]+)</string>
-							<key>contentName</key>
-							<string>meta.other.inherited-class.php</string>
-							<key>end</key>
-							<string>(?i)(?:\s*(?:,|(?=[^a-z0-9_\x{7f}-\x{ff}\\\s]))\s*)</string>
-							<key>patterns</key>
-							<array>
-								<dict>
-									<key>begin</key>
-									<string>(?i)(?=\\?[a-z_\x{7f}-\x{ff}][a-z0-9_\x{7f}-\x{ff}]*\\)</string>
-									<key>end</key>
-									<string>(?i)([a-z_\x{7f}-\x{ff}][a-z0-9_\x{7f}-\x{ff}]*)?(?=[^a-z0-9_\x{7f}-\x{ff}\\])</string>
-									<key>endCaptures</key>
-									<dict>
-										<key>1</key>
-										<dict>
-											<key>name</key>
-											<string>entity.other.inherited-class.php</string>
-										</dict>
-									</dict>
-									<key>patterns</key>
-									<array>
-										<dict>
-											<key>include</key>
-											<string>#namespace</string>
-										</dict>
-									</array>
-								</dict>
-								<dict>
-									<key>include</key>
-									<string>#class-builtin</string>
-								</dict>
-								<dict>
-									<key>include</key>
-									<string>#namespace</string>
-								</dict>
-								<dict>
-									<key>match</key>
-									<string>(?i)[a-z_\x{7f}-\x{ff}][a-z0-9_\x{7f}-\x{ff}]*</string>
-									<key>name</key>
-									<string>entity.other.inherited-class.php</string>
-								</dict>
-							</array>
-						</dict>
-					</array>
+					<key>include</key>
+					<string>#class-implements</string>
 				</dict>
 				<dict>
 					<key>begin</key>
@@ -593,6 +652,10 @@
 					<string>meta.class.body.php</string>
 					<key>patterns</key>
 					<array>
+						<dict>
+							<key>include</key>
+							<string>#class-constant</string>
+						</dict>
 						<dict>
 							<key>include</key>
 							<string>$self</string>
@@ -624,7 +687,6 @@
 		<dict>
 			<key>match</key>
 			<string>(?x)
-\s* # FIXME: Removing this causes specs to fail. Investigate.
 \b(
   break|case|continue|declare|default|die|do|
   else(if)?|end(declare|for(each)?|if|switch|while)|exit|
@@ -1232,9 +1294,9 @@
 						</dict>
 						<dict>
 							<key>match</key>
-							<string>\b(noreturn)\b</string>
+							<string>\b(never)\b</string>
 							<key>name</key>
-							<string>keyword.other.type.noreturn.php</string>
+							<string>keyword.other.type.never.php</string>
 						</dict>
 						<dict>
 							<key>include</key>
@@ -1404,7 +1466,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>(?i)\b(global|abstract|const|extends|implements|final|private|protected|public|static)\b</string>
+			<string>(?i)\b(global|abstract|const|final|private|protected|public|static)\b</string>
 			<key>name</key>
 			<string>storage.modifier.php</string>
 		</dict>
@@ -1586,7 +1648,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>(?i)^\s*([a-z_\x{7f}-\x{ff}][a-z0-9_\x{7f}-\x{ff}]*)\s*:(?!:)</string>
+			<string>(?i)^\s*([a-z_\x{7f}-\x{ff}][a-z0-9_\x{7f}-\x{ff}]*(?&lt;!default))\s*:(?!:)</string>
 		</dict>
 		<dict>
 			<key>include</key>
@@ -1966,6 +2028,175 @@
 							<string>#namespace</string>
 						</dict>
 					</array>
+				</dict>
+			</array>
+		</dict>
+		<key>inheritance-single</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>begin</key>
+					<string>(?i)(?=\\?[a-z_\x{7f}-\x{ff}][a-z0-9_\x{7f}-\x{ff}]*\\)</string>
+					<key>end</key>
+					<string>(?i)([a-z_\x{7f}-\x{ff}][a-z0-9_\x{7f}-\x{ff}]*)?(?=[^a-z0-9_\x{7f}-\x{ff}\\])</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>entity.other.inherited-class.php</string>
+						</dict>
+					</dict>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#namespace</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#class-builtin</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#namespace</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)[a-z_\x{7f}-\x{ff}][a-z0-9_\x{7f}-\x{ff}]*</string>
+					<key>name</key>
+					<string>entity.other.inherited-class.php</string>
+				</dict>
+			</array>
+		</dict>
+		<key>class-extends</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>begin</key>
+					<string>(?i)(extends)\s+</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>storage.modifier.extends.php</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>(?i)(?=[^A-Za-z0-9_\x{7f}-\x{ff}\\])</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#comments</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#inheritance-single</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+		</dict>
+		<key>interface-extends</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>begin</key>
+					<string>(?i)(extends)\s+</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>storage.modifier.extends.php</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>(?i)(?={)</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#comments</string>
+						</dict>
+						<dict>
+							<key>match</key>
+							<string>,</string>
+							<key>name</key>
+							<string>punctuation.separator.classes.php</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#inheritance-single</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+		</dict>
+		<key>class-implements</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>begin</key>
+					<string>(?i)(implements)\s+</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>storage.modifier.implements.php</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>(?i)(?={)</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#comments</string>
+						</dict>
+						<dict>
+							<key>match</key>
+							<string>,</string>
+							<key>name</key>
+							<string>punctuation.separator.classes.php</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#inheritance-single</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+		</dict>
+		<key>class-constant</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>(?i)\b(const)\s*([a-z_\x{7f}-\x{ff}][a-z0-9_\x{7f}-\x{ff}]*)</string>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>storage.modifier.php</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>constant.other.php</string>
+						</dict>
+					</dict>
 				</dict>
 			</array>
 		</dict>
@@ -2825,7 +3056,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>(&lt;&lt;&lt;)\s*("?)(SQL)(\2)([^\S\r\n]*)$</string>
+					<string>(&lt;&lt;&lt;)\s*("?)([DS]QL)(\2)([^\S\r\n]*)$</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>0</key>
@@ -3184,6 +3415,59 @@
 				</dict>
 				<dict>
 					<key>begin</key>
+					<string>(&lt;&lt;&lt;)\s*("?)(BLADE)(\2)([^\S\r\n]*)$</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.section.embedded.begin.php</string>
+						</dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.string.php</string>
+						</dict>
+						<key>3</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.operator.heredoc.php</string>
+						</dict>
+						<key>5</key>
+						<dict>
+							<key>name</key>
+							<string>invalid.illegal.trailing-whitespace.php</string>
+						</dict>
+					</dict>
+					<key>contentName</key>
+					<string>text.html.php.blade</string>
+					<key>end</key>
+					<string>^\s*(\3)(?![A-Za-z0-9_\x{7f}-\x{ff}])</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.section.embedded.end.php</string>
+						</dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.operator.heredoc.php</string>
+						</dict>
+					</dict>
+					<key>name</key>
+					<string>meta.embedded.php.blade</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#interpolation</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
 					<string>(?i)(&lt;&lt;&lt;)\s*("?)([a-z_\x{7f}-\x{ff}]+[a-z0-9_\x{7f}-\x{ff}]*)(\2)([^\S\r\n]*)</string>
 					<key>beginCaptures</key>
 					<dict>
@@ -3335,7 +3619,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>(&lt;&lt;&lt;)\s*'(SQL)'([^\S\r\n]*)$</string>
+					<string>(&lt;&lt;&lt;)\s*'([DS]QL)'([^\S\r\n]*)$</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>0</key>
@@ -3674,6 +3958,52 @@
 				</dict>
 				<dict>
 					<key>begin</key>
+					<string>(&lt;&lt;&lt;)\s*'(BLADE)'([^\S\r\n]*)$</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.section.embedded.begin.php</string>
+						</dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.string.php</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.operator.nowdoc.php</string>
+						</dict>
+						<key>3</key>
+						<dict>
+							<key>name</key>
+							<string>invalid.illegal.trailing-whitespace.php</string>
+						</dict>
+					</dict>
+					<key>contentName</key>
+					<string>text.html.php.blade</string>
+					<key>end</key>
+					<string>^\s*(\2)(?![A-Za-z0-9_\x{7f}-\x{ff}])</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.section.embedded.end.php</string>
+						</dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.operator.nowdoc.php</string>
+						</dict>
+					</dict>
+					<key>name</key>
+					<string>meta.embedded.php.blade</string>
+				</dict>
+				<dict>
+					<key>begin</key>
 					<string>(?i)(&lt;&lt;&lt;)\s*'([a-z_\x{7f}-\x{ff}]+[a-z0-9_\x{7f}-\x{ff}]*)'([^\S\r\n]*)</string>
 					<key>beginCaptures</key>
 					<dict>
@@ -3968,7 +4298,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>(?i)(\??-&gt;)\s*[a-z_\x{7f}-\x{ff}][a-z0-9_\x{7f}-\x{ff}]*\s*(\()</string>
+					<string>(?i)(\??-&gt;)\s*([a-z_\x{7f}-\x{ff}][a-z0-9_\x{7f}-\x{ff}]*)\s*(\()</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
@@ -3977,6 +4307,11 @@
 							<string>keyword.operator.class.php</string>
 						</dict>
 						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>entity.name.function.php</string>
+						</dict>
+						<key>3</key>
 						<dict>
 							<key>name</key>
 							<string>punctuation.definition.arguments.begin.bracket.round.php</string>
@@ -4257,7 +4592,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>(@(?:global|param|property(-(read|write))?|return|throws|var))\s+(?=[A-Za-z_\x{7f}-\x{ff}\\]|\()</string>
+					<string>(@(?:global|param|property(-(read|write))?|return|throws|var))\s+(?=[?A-Za-z_\x{7f}-\x{ff}\\]|\()</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
@@ -4317,13 +4652,19 @@
 		<key>php_doc_types</key>
 		<dict>
 			<key>match</key>
-			<string>(?i)[a-z_\x{7f}-\x{ff}\\][a-z0-9_\x{7f}-\x{ff}\\]*([|&amp;][a-z_\x{7f}-\x{ff}\\][a-z0-9_\x{7f}-\x{ff}\\]*)*</string>
+			<string>(?i)\??[a-z_\x{7f}-\x{ff}\\][a-z0-9_\x{7f}-\x{ff}\\]*([|&amp;]\??[a-z_\x{7f}-\x{ff}\\][a-z0-9_\x{7f}-\x{ff}\\]*)*</string>
 			<key>captures</key>
 			<dict>
 				<key>0</key>
 				<dict>
 					<key>patterns</key>
 					<array>
+						<dict>
+							<key>match</key>
+							<string>\?</string>
+							<key>name</key>
+							<string>keyword.operator.nullable-type.php</string>
+						</dict>
 						<dict>
 							<key>match</key>
 							<string>(?x)\b
@@ -4610,13 +4951,18 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>(?i)(::)\s*[a-z_\x{7f}-\x{ff}][a-z0-9_\x{7f}-\x{ff}]*\s*(\()</string>
+					<string>(?i)(::)\s*([a-z_\x{7f}-\x{ff}][a-z0-9_\x{7f}-\x{ff}]*)\s*(\()</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
 						<dict>
 							<key>name</key>
 							<string>keyword.operator.class.php</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>entity.name.function.php</string>
 						</dict>
 						<key>3</key>
 						<dict>
@@ -5041,378 +5387,277 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>(?xi)
-\b
-apc_(
-  store|sma_info|compile_file|clear_cache|cas|cache_info|inc|dec|define_constants|delete(_file)?|
-  exists|fetch|load_constants|add|bin_(dump|load)(file)?
-)\b</string>
+					<string>(?i)\b(apache_(child_terminate|get(_(modules|version)|env)|lookup_uri|note|re(quest_headers|sponse_headers)|setenv)|getallheaders|virtual)\b</string>
 					<key>name</key>
-					<string>support.function.apc.php</string>
+					<string>support.function.apache.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?xi)\b
-(
-  shuffle|sizeof|sort|next|nat(case)?sort|count|compact|current|in_array|usort|uksort|uasort|
-  pos|prev|end|each|extract|ksort|key(_exists)?|krsort|list|asort|arsort|rsort|reset|range|
-  array(_(shift|sum|splice|search|slice|chunk|change_key_case|count_values|column|combine|
-          (diff|intersect)(_(u)?(key|assoc))?|u(diff|intersect)(_(u)?assoc)?|unshift|unique|
-          pop|push|pad|product|values|keys|key_exists|filter|fill(_keys)?|flip|walk(_recursive)?|
-          reduce|replace(_recursive)?|reverse|rand|multisort|merge(_recursive)?|map)?)
-)\b</string>
+					<string>(?i)\bapcu_(add|c(a(che_info|s)|lear_cache)|de(c|lete)|e(n(abled|try)|xists)|fetch|inc|key_info|s(ma_info|tore))\b</string>
+					<key>name</key>
+					<string>support.function.apcu.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\b(a(r(ray(_(c(h(ange_key_case|unk)|o(lumn|mbine|unt_values))|diff(_(assoc|key|u(assoc|key)))?|f(il(l(_keys)?|ter)|lip)|i(ntersect(_(assoc|key|u(assoc|key)))?|s_list)|key(_(exists|first|last)|s)|m(ap|erge(_recursive)?|ultisort)|p(ad|op|roduct|ush)|r(and|e(duce|place(_recursive)?|verse))|s(earch|hift|lice|plice|um)|u(diff(_(assoc|uassoc))?|intersect(_(assoc|uassoc))?|n(ique|shift))|values|walk(_recursive)?))?|sort)|sort)|c(o(mpact|unt)|urrent)|e(ach|nd|xtract)|in_array|k(ey|rsort|sort)|list|n(at(casesort|sort)|ext)|prev|r(ange|eset|sort)|s(huffle|ort)|u(asort|ksort|sort))\b</string>
 					<key>name</key>
 					<string>support.function.array.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?xi)\b
-(
-  show_source|sys_getloadavg|sleep|highlight_(file|string)|constant|connection_(aborted|status)|
-  time_(nanosleep|sleep_until)|ignore_user_abort|die|define(d)?|usleep|uniqid|unpack|__halt_compiler|
-  php_(check_syntax|strip_whitespace)|pack|eval|exit|get_browser
-)\b</string>
+					<string>(?i)\bbc(add|comp|div|m(od|ul)|pow(mod)?|s(cale|qrt|ub))\b</string>
 					<key>name</key>
-					<string>support.function.basic_functions.php</string>
+					<string>support.function.bc.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bbc(scale|sub|sqrt|comp|div|pow(mod)?|add|mod|mul)\b</string>
+					<string>(?i)\bbz(c(lose|ompress)|decompress|err(no|or|str)|flush|open|read|write)\b</string>
 					<key>name</key>
-					<string>support.function.bcmath.php</string>
+					<string>support.function.bzip2.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bblenc_encrypt\b</string>
-					<key>name</key>
-					<string>support.function.blenc.php</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>(?i)\bbz(compress|close|open|decompress|errstr|errno|error|flush|write|read)\b</string>
-					<key>name</key>
-					<string>support.function.bz2.php</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>(?xi)\b
-(
-  (French|Gregorian|Jewish|Julian)ToJD|cal_(to_jd|info|days_in_month|from_jd)|unixtojd|
-  jdto(unix|jewish)|easter_(date|days)|JD(MonthName|To(Gregorian|Julian|French)|DayOfWeek)
-)\b</string>
+					<string>(?i)\b(cal_(days_in_month|from_jd|info|to_jd)|easter_da(te|ys)|frenchtojd|gregoriantojd|j(d(dayofweek|monthname|to(french|gregorian|j(ewish|ulian)|unix))|ewishtojd|uliantojd)|unixtojd)\b</string>
 					<key>name</key>
 					<string>support.function.calendar.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?xi)\b
-(
-  class_alias|all_user_method(_array)?|is_(a|subclass_of)|__autoload|(class|interface|method|property|trait)_exists|
-  get_(class(_(vars|methods))?|(called|parent)_class|object_vars|declared_(classes|interfaces|traits))
-)\b</string>
+					<string>(?i)\b(__autoload|class_(alias|exists)|enum_exists|get_(c(alled_class|lass(_(methods|vars))?)|declared_(classes|interfaces|traits)|mangled_object_vars|object_vars|parent_class)|i(nterface_exists|s_(a|subclass_of))|method_exists|property_exists|trait_exists)\b</string>
 					<key>name</key>
 					<string>support.function.classobj.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?xi)\b
-(
-  com_(create_guid|print_typeinfo|event_sink|load_typelib|get_active_object|message_pump)|
-  variant_(sub|set(_type)?|not|neg|cast|cat|cmp|int|idiv|imp|or|div|date_(from|to)_timestamp|
-           pow|eqv|fix|and|add|abs|round|get_type|xor|mod|mul)
-)\b</string>
+					<string>(?i)\b(com_(create_guid|event_sink|get_active_object|load_typelib|message_pump|print_typeinfo)|variant_(a(bs|dd|nd)|c(a(st|t)|mp)|d(ate_(from_timestamp|to_timestamp)|iv)|eqv|fix|get_type|i(div|mp|nt)|m(od|ul)|n(eg|ot)|or|pow|round|s(et(_type)?|ub)|xor))\b</string>
 					<key>name</key>
 					<string>support.function.com.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\b(isset|unset|eval|empty|list)\b</string>
+					<string>(?i)\brandom_(bytes|int)\b</string>
 					<key>name</key>
-					<string>support.function.construct.php</string>
+					<string>support.function.csprng.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\b(print|echo)\b</string>
-					<key>name</key>
-					<string>support.function.construct.output.php</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>(?i)\bctype_(space|cntrl|digit|upper|punct|print|lower|alnum|alpha|graph|xdigit)\b</string>
+					<string>(?i)\bctype_(al(num|pha)|cntrl|digit|graph|lower|p(rint|unct)|space|upper|xdigit)\b</string>
 					<key>name</key>
 					<string>support.function.ctype.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?xi)\b
-curl_(
-  share_(close|init|setopt)|strerror|setopt(_array)?|copy_handle|close|init|unescape|pause|escape|
-  errno|error|exec|version|file_create|reset|getinfo|
-  multi_(strerror|setopt|select|close|init|info_read|(add|remove)_handle|getcontent|exec)
-)\b</string>
+					<string>(?i)\bcubrid_(bind|c(lose_(prepare|request)|o(l(_(get|size)|umn_(names|types))|mmit|nnect(_with_url)?)|urrent_oid)|d(isconnect|rop)|e(rror_(code(_facility)?|msg)|xecute)|f(etch|ree_result)|get(_(autocommit|c(harset|l(ass_name|ient_info))|db_parameter|query_timeout|server_info))?|i(nsert_id|s_instance)|lo(b(2_(bind|close|export|import|new|read|s(eek(64)?|ize(64)?)|tell(64)?|write)|_(close|export|get|s(end|ize)))|ck_(read|write))|move_cursor|n(ext_result|um_(cols|rows))|p(connect(_with_url)?|repare|ut)|rollback|s(chema|e(q_(drop|insert|put)|t_(a(dd|utocommit)|d(b_parameter|rop)|query_timeout)))|version)\b</string>
+					<key>name</key>
+					<string>support.function.cubrid.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\bcurl_(c(lose|opy_handle)|e(rr(no|or)|scape|xec)|getinfo|init|multi_(add_handle|close|e(rrno|xec)|getcontent|in(fo_read|it)|remove_handle|s(e(lect|topt)|trerror))|pause|reset|s(etopt(_array)?|hare_(close|errno|init|s(etopt|trerror))|trerror)|unescape|version)\b</string>
 					<key>name</key>
 					<string>support.function.curl.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?xi)\b
-(
-  strtotime|str[fp]time|checkdate|time|timezone_name_(from_abbr|get)|idate|
-  timezone_((location|offset|transitions|version)_get|(abbreviations|identifiers)_list|open)|
-  date(_(sun(rise|set)|sun_info|sub|create(_(immutable_)?from_format)?|timestamp_(get|set)|timezone_(get|set)|time_set|
-         isodate_set|interval_(create_from_date_string|format)|offset_get|diff|default_timezone_(get|set)|date_set|
-         parse(_from_format)?|format|add|get_last_errors|modify))?|
-  localtime|get(date|timeofday)|gm(strftime|date|mktime)|microtime|mktime
-)\b</string>
+					<string>(?i)\b(checkdate|date(_(create|default_timezone_(get|set)|parse(_from_format)?|sun(_info|rise|set)))?|g(et(date|timeofday)|m(date|mktime|strftime))|idate|localtime|m(icrotime|ktime)|str(ftime|ptime|totime)|time(zone_(name_from_abbr|version_get))?)\b</string>
 					<key>name</key>
 					<string>support.function.datetime.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bdba_(sync|handlers|nextkey|close|insert|optimize|open|delete|popen|exists|key_split|firstkey|fetch|list|replace)\b</string>
+					<string>(?i)\bdba_(close|delete|exists|f(etch|irstkey)|handlers|insert|key_split|list|nextkey|op(en|timize)|popen|replace|sync)\b</string>
 					<key>name</key>
 					<string>support.function.dba.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bdbx_(sort|connect|compare|close|escape_string|error|query|fetch_row)\b</string>
+					<string>(?i)\bdbase_(add_record|c(lose|reate)|delete_record|get_(header_info|record(_with_names)?)|num(fields|records)|open|pack|replace_record)\b</string>
 					<key>name</key>
-					<string>support.function.dbx.php</string>
+					<string>support.function.dbase.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\b(scandir|chdir|chroot|closedir|opendir|dir|rewinddir|readdir|getcwd)\b</string>
+					<string>(?i)\bdio_(close|fcntl|open|read|s(eek|tat)|t(csetattr|runcate)|write)\b</string>
+					<key>name</key>
+					<string>support.function.dio.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\b(c(h(dir|root)|losedir)|dir|getcwd|opendir|re(addir|winddir)|scandir)\b</string>
 					<key>name</key>
 					<string>support.function.dir.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?xi)\b
-eio_(
-  sync(fs)?|sync_file_range|symlink|stat(vfs)?|sendfile|set_min_parallel|set_max_(idle|poll_(reqs|time)|parallel)|
-  seek|n(threads|op|pending|reqs|ready)|chown|chmod|custom|close|cancel|truncate|init|open|dup2|unlink|utime|poll|
-  event_loop|f(sync|stat(vfs)?|chown|chmod|truncate|datasync|utime|allocate)|write|lstat|link|rename|realpath|
-  read(ahead|dir|link)?|rmdir|get_(event_stream|last_error)|grp(_(add|cancel|limit))?|mknod|mkdir|busy
-)\b</string>
+					<string>(?i)\bdom_import_simplexml\b</string>
+					<key>name</key>
+					<string>support.function.dom.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\beio_(busy|c(ancel|h(mod|own)|lose|ustom)|dup2|event_loop|f(allocate|ch(mod|own)|datasync|s(tat(vfs)?|ync)|truncate|utime)|g(et_(event_stream|last_error)|rp(_(add|cancel|limit))?)|init|l(ink|stat)|mk(dir|nod)|n(op|pending|re(ady|qs)|threads)|open|poll|r(e(a(d(ahead|dir|link)?|lpath)|name)|mdir)|s(e(ek|ndfile|t_m(ax_(idle|p(arallel|oll_(reqs|time)))|in_parallel))|tat(vfs)?|y(mlink|nc(_file_range|fs)?))|truncate|u(nlink|time)|write)\b</string>
 					<key>name</key>
 					<string>support.function.eio.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?xi)\b
-enchant_(
-  dict_(store_replacement|suggest|check|is_in_session|describe|quick_check|add_to_(personal|session)|get_error)|
-  broker_(set_ordering|init|dict_exists|describe|free(_dict)?|list_dicts|request_(pwl_)?dict|get_error)
-)\b</string>
+					<string>(?i)\benchant_(broker_(d(escribe|ict_exists)|free(_dict)?|get_(dict_path|error)|init|list_dicts|request_(dict|pwl_dict)|set_(dict_path|ordering))|dict_(add(_to_session)?|check|describe|get_error|is_added|quick_check|s(tore_replacement|uggest)))\b</string>
 					<key>name</key>
 					<string>support.function.enchant.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\b(split(i)?|sql_regcase|ereg(i)?(_replace)?)\b</string>
-					<key>name</key>
-					<string>support.function.ereg.php</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>(?i)\b((restore|set)_(error_handler|exception_handler)|trigger_error|debug_(print_)?backtrace|user_error|error_(log|reporting|get_last))\b</string>
+					<string>(?i)\b(debug_(backtrace|print_backtrace)|error_(clear_last|get_last|log|reporting)|restore_e(rror_handler|xception_handler)|set_e(rror_handler|xception_handler)|trigger_error)\b</string>
 					<key>name</key>
 					<string>support.function.errorfunc.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\b(shell_exec|system|passthru|proc_(nice|close|terminate|open|get_status)|escapeshell(arg|cmd)|exec)\b</string>
+					<string>(?i)\b(e(scapeshell(arg|cmd)|xec)|p(assthru|roc_(close|get_status|nice|open|terminate))|s(hell_exec|ystem))\b</string>
 					<key>name</key>
 					<string>support.function.exec.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\b(exif_(thumbnail|tagname|imagetype|read_data)|read_exif_data)\b</string>
+					<string>(?i)\bexif_(imagetype|read_data|t(agname|humbnail))\b</string>
 					<key>name</key>
 					<string>support.function.exif.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?xi)\b
-fann_(
-  (duplicate|length|merge|shuffle|subset)_train_data|scale_(train(_data)?|(input|output)(_train_data)?)|
-  set_(scaling_params|sarprop_(step_error_(shift|threshold_factor)|temperature|weight_decay_shift)|
-       cascade_(num_candidate_groups|candidate_(change_fraction|limit|stagnation_epochs)|
-                output_(change_fraction|stagnation_epochs)|weight_multiplier|activation_(functions|steepnesses)|
-                (max|min)_(cand|out)_epochs)|
-       callback|training_algorithm|train_(error|stop)_function|(input|output)_scaling_params|error_log|
-       quickprop_(decay|mu)|weight(_array)?|learning_(momentum|rate)|bit_fail_limit|
-       activation_(function|steepness)(_(hidden|layer|output))?|
-       rprop_((decrease|increase)_factor|delta_(max|min|zero)))|
-  save(_train)?|num_(input|output)_train_data|copy|clear_scaling_params|cascadetrain_on_(file|data)|
-  create_((sparse|shortcut|standard)(_array)?|train(_from_callback)?|from_file)|
-  test(_data)?|train(_(on_(file|data)|epoch))?|init_weights|descale_(input|output|train)|destroy(_train)?|
-  print_error|run|reset_(MSE|err(no|str))|read_train_from_file|randomize_weights|
-  get_(sarprop_(step_error_(shift|threshold_factor)|temperature|weight_decay_shift)|num_(input|output|layers)|
-       network_type|MSE|connection_(array|rate)|bias_array|bit_fail(_limit)?|
-       cascade_(num_(candidates|candidate_groups)|(candidate|output)_(change_fraction|limit|stagnation_epochs)|
-                weight_multiplier|activation_(functions|steepnesses)(_count)?|(max|min)_(cand|out)_epochs)|
-       total_(connections|neurons)|training_algorithm|train_(error|stop)_function|err(no|str)|
-       quickprop_(decay|mu)|learning_(momentum|rate)|layer_array|activation_(function|steepness)|
-       rprop_((decrease|increase)_factor|delta_(max|min|zero)))
-)\b</string>
+					<string>(?i)\bexpect_(expectl|popen)\b</string>
+					<key>name</key>
+					<string>support.function.expect.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\bfann_(c(ascadetrain_on_(data|file)|lear_scaling_params|opy|reate_(from_file|s(hortcut(_array)?|parse(_array)?|tandard(_array)?)|train(_from_callback)?))|d(es(cale_(input|output|train)|troy(_train)?)|uplicate_train_data)|get_(MSE|activation_(function|steepness)|bi(as_array|t_fail(_limit)?)|c(ascade_(activation_(functions(_count)?|steepnesses(_count)?)|candidate_(change_fraction|limit|stagnation_epochs)|m(ax_(cand_epochs|out_epochs)|in_(cand_epochs|out_epochs))|num_candidate(_groups|s)|output_(change_fraction|stagnation_epochs)|weight_multiplier)|onnection_(array|rate))|err(no|str)|l(ayer_array|earning_(momentum|rate))|n(etwork_type|um_(input|layers|output))|quickprop_(decay|mu)|rprop_(de(crease_factor|lta_(m(ax|in)|zero))|increase_factor)|sarprop_(step_error_(shift|threshold_factor)|temperature|weight_decay_shift)|t(otal_(connections|neurons)|rain(_(error_function|stop_function)|ing_algorithm)))|init_weights|length_train_data|merge_train_data|num_(input_train_data|output_train_data)|print_error|r(andomize_weights|e(ad_train_from_file|set_(MSE|err(no|str)))|un)|s(ave(_train)?|cale_(input(_train_data)?|output(_train_data)?|train(_data)?)|et_(activation_(function(_(hidden|layer|output))?|steepness(_(hidden|layer|output))?)|bit_fail_limit|ca(llback|scade_(activation_(functions|steepnesses)|candidate_(change_fraction|limit|stagnation_epochs)|m(ax_(cand_epochs|out_epochs)|in_(cand_epochs|out_epochs))|num_candidate_groups|output_(change_fraction|stagnation_epochs)|weight_multiplier))|error_log|input_scaling_params|learning_(momentum|rate)|output_scaling_params|quickprop_(decay|mu)|rprop_(de(crease_factor|lta_(m(ax|in)|zero))|increase_factor)|s(arprop_(step_error_(shift|threshold_factor)|temperature|weight_decay_shift)|caling_params)|train(_(error_function|stop_function)|ing_algorithm)|weight(_array)?)|huffle_train_data|ubset_train_data)|t(est(_data)?|rain(_(epoch|on_(data|file)))?))\b</string>
 					<key>name</key>
 					<string>support.function.fann.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?xi)\b
-(
-  symlink|stat|set_file_buffer|chown|chgrp|chmod|copy|clearstatcache|touch|tempnam|tmpfile|
-  is_(dir|(uploaded_)?file|executable|link|readable|writ(e)?able)|disk_(free|total)_space|diskfreespace|
-  dirname|delete|unlink|umask|pclose|popen|pathinfo|parse_ini_(file|string)|fscanf|fstat|fseek|fnmatch|
-  fclose|ftell|ftruncate|file(size|[acm]time|type|inode|owner|perms|group)?|file_(exists|(get|put)_contents)|
-  f(open|puts|putcsv|passthru|eof|flush|write|lock|read|gets(s)?|getc(sv)?)|lstat|lchown|lchgrp|link(info)?|
-  rename|rewind|read(file|link)|realpath(_cache_(get|size))?|rmdir|glob|move_uploaded_file|mkdir|basename
-)\b</string>
+					<string>(?i)\bfdf_(add_(doc_javascript|template)|c(lose|reate)|e(num_values|rr(no|or))|get_(a(p|ttachment)|encoding|f(ile|lags)|opt|status|v(alue|ersion))|header|next_field_name|open(_string)?|remove_item|s(ave(_string)?|et_(ap|encoding|f(ile|lags)|javascript_action|o(n_import_javascript|pt)|s(tatus|ubmit_form_action)|target_frame|v(alue|ersion))))\b</string>
 					<key>name</key>
-					<string>support.function.file.php</string>
+					<string>support.function.fdf.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\b(finfo_(set_flags|close|open|file|buffer)|mime_content_type)\b</string>
+					<string>(?i)\b(finfo(_(buffer|close|file|open|set_flags))?|mime_content_type)\b</string>
 					<key>name</key>
 					<string>support.function.fileinfo.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bfilter_(has_var|input(_array)?|id|var(_array)?|list)\b</string>
+					<string>(?i)\b(basename|c(h(grp|mod|own)|learstatcache|opy)|di(rname|sk_(free_space|total_space))|f(close|datasync|eof|flush|get(c(sv)?|s(s)?)|ile(_(exists|get_contents|put_contents)|atime|ctime|group|inode|mtime|owner|perms|size|type)?|lock|nmatch|open|p(assthru|utcsv)|read|s(canf|eek|tat|ync)|t(ell|runcate)|write)|glob|is_(dir|executable|file|link|readable|uploaded_file|writable)|l(ch(grp|own)|ink(info)?|stat)|m(kdir|ove_uploaded_file)|p(a(rse_ini_(file|string)|thinfo)|close|open)|r(e(a(d(file|link)|lpath(_cache_(get|size))?)|name|wind)|mdir)|s(tat|ymlink)|t(empnam|mpfile|ouch)|u(mask|nlink))\b</string>
+					<key>name</key>
+					<string>support.function.filesystem.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\bfilter_(has_var|i(d|nput(_array)?)|list|var(_array)?)\b</string>
 					<key>name</key>
 					<string>support.function.filter.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bfastcgi_finish_request\b</string>
+					<string>(?i)\bf(astcgi_finish_request|pm_get_status)\b</string>
 					<key>name</key>
 					<string>support.function.fpm.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\b(call_user_(func|method)(_array)?|create_function|unregister_tick_function|forward_static_call(_array)?|function_exists|func_(num_args|get_arg(s)?)|register_(shutdown|tick)_function|get_defined_functions)\b</string>
+					<string>(?i)\bftp_(a(lloc|ppend)|c(dup|h(dir|mod)|lose|onnect)|delete|exec|f(get|put)|get(_option)?|login|m(dtm|kdir|lsd)|n(b_(continue|f(get|put)|get|put)|list)|p(asv|ut|wd)|r(aw(list)?|ename|mdir)|s(et_option|i(te|ze)|sl_connect|ystype))\b</string>
+					<key>name</key>
+					<string>support.function.ftp.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\b(c(all_user_func(_array)?|reate_function)|f(orward_static_call(_array)?|unc(_(get_arg(s)?|num_args)|tion_exists))|get_defined_functions|register_(shutdown_function|tick_function)|unregister_tick_function)\b</string>
 					<key>name</key>
 					<string>support.function.funchand.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\b((n)?gettext|textdomain|d((n)?gettext|c(n)?gettext)|bind(textdomain|_textdomain_codeset))\b</string>
+					<string>(?i)\bgeoip_(asnum_by_name|co(ntinent_code_by_name|untry_(code(3_by_name|_by_name)|name_by_name))|d(atabase_info|b_(avail|filename|get_all_info)|omain_by_name)|i(d_by_name|sp_by_name)|netspeedcell_by_name|org_by_name|re(cord_by_name|gion_(by_name|name_by_code))|setup_custom_directory|time_zone_by_country_and_region)\b</string>
+					<key>name</key>
+					<string>support.function.geoip.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\b(bind(_textdomain_codeset|textdomain)|d(c(gettext|ngettext)|gettext|ngettext)|gettext|ngettext|textdomain)\b</string>
 					<key>name</key>
 					<string>support.function.gettext.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?xi)\b
-gmp_(
-  scan[01]|strval|sign|sub|setbit|sqrt(rem)?|hamdist|neg|nextprime|com|clrbit|cmp|testbit|
-  intval|init|invert|import|or|div(exact)?|div_(q|qr|r)|jacobi|popcount|pow(m)?|perfect_square|
-  prob_prime|export|fact|legendre|and|add|abs|root(rem)?|random(_(bits|range))?|gcd(ext)?|xor|mod|mul
-)\b</string>
+					<string>(?i)\bgmp_(a(bs|dd|nd)|binomial|c(lrbit|mp|om)|div(_(q(r)?|r)|exact)|export|fact|gcd(ext)?|hamdist|i(mport|n(it|tval|vert))|jacobi|kronecker|l(cm|egendre)|m(od|ul)|ne(g|xtprime)|or|p(erfect_(power|square)|o(pcount|w(m)?)|rob_prime)|r(andom(_(bits|range|seed))?|oot(rem)?)|s(can(1)?|etbit|ign|qrt(rem)?|trval|ub)|testbit|xor)\b</string>
 					<key>name</key>
 					<string>support.function.gmp.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bhash(_(hmac(_file)?|copy|init|update(_(file|stream))?|pbkdf2|equals|file|final|algos))?\b</string>
+					<string>(?i)\bgnupg_(add(decryptkey|encryptkey|signkey)|clear(decryptkeys|encryptkeys|signkeys)|de(crypt(verify)?|letekey)|e(ncrypt(sign)?|xport)|get(e(ngineinfo|rror(info)?)|protocol|trustlist)|i(mport|nit)|keyinfo|listsignatures|s(et(armor|errormode|signmode)|ign)|verify)\b</string>
+					<key>name</key>
+					<string>support.function.gnupg.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\bhash(_(algos|copy|equals|fi(le|nal)|h(kdf|mac(_(algos|file))?)|init|pbkdf2|update(_(file|stream))?))?\b</string>
 					<key>name</key>
 					<string>support.function.hash.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?xi)\b
-(
-  http_(support|send_(status|stream|content_(disposition|type)|data|file|last_modified)|head|
-        negotiate_(charset|content_type|language)|chunked_decode|cache_(etag|last_modified)|throttle|
-        inflate|deflate|date|post_(data|fields)|put_(data|file|stream)|persistent_handles_(count|clean|ident)|
-        parse_(cookie|headers|message|params)|redirect|request(_(method_(exists|name|(un)?register)|body_encode))?|
-        get(_request_(headers|body(_stream)?))?|match_(etag|modified|request_header)|build_(cookie|str|url))|
-  ob_(etag|deflate|inflate)handler
-)\b</string>
+					<string>(?i)\b(fbird_blob_cancel|ibase_(a(dd_user|ffected_rows)|b(ackup|lob_(add|c(ancel|lose|reate)|echo|get|i(mport|nfo)|open))|c(lose|o(mmit(_ret)?|nnect))|d(b_info|elete_user|rop_db)|e(rr(code|msg)|xecute)|f(etch_(assoc|object|row)|ield_info|ree_(event_handler|query|result))|gen_id|m(aintain_db|odify_user)|n(ame_result|um_(fields|params))|p(aram_info|connect|repare)|query|r(estore|ollback(_ret)?)|se(rv(er_info|ice_(attach|detach))|t_event_handler)|trans|wait_event))\b</string>
 					<key>name</key>
-					<string>support.function.http.php</string>
+					<string>support.function.ibase.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\b(iconv(_(str(pos|len|rpos)|substr|(get|set)_encoding|mime_(decode(_headers)?|encode)))?|ob_iconv_handler)\b</string>
+					<string>(?i)\bdb2_(autocommit|bind_param|c(l(ient_info|ose)|o(lumn(_privileges|s)|mmit|nn(_error(msg)?|ect))|ursor_type)|e(scape_string|xec(ute)?)|f(etch_(a(rray|ssoc)|both|object|row)|ield_(display_size|n(ame|um)|precision|scale|type|width)|oreign_keys|ree_(result|stmt))|get_option|l(ast_insert_id|ob_read)|n(ext_result|um_(fields|rows))|p(c(lose|onnect)|r(epare|imary_keys|ocedure(_columns|s)))|r(esult|ollback)|s(e(rver_info|t_option)|pecial_columns|t(atistics|mt_error(msg)?))|table(_privileges|s))\b</string>
+					<key>name</key>
+					<string>support.function.ibm-db2.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\b(iconv(_(get_encoding|mime_(decode(_headers)?|encode)|s(et_encoding|tr(len|pos|rpos)|ubstr)))?|ob_iconv_handler)\b</string>
 					<key>name</key>
 					<string>support.function.iconv.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\biis_((start|stop)_(service|server)|set_(script_map|server_rights|dir_security|app_settings)|(add|remove)_server|get_(script_map|service_state|server_(rights|by_(comment|path))|dir_security))\b</string>
+					<string>(?i)\bigbinary_(serialize|unserialize)\b</string>
 					<key>name</key>
-					<string>support.function.iisfunc.php</string>
+					<string>support.function.igbinary.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?xi)\b
-(
-  iptc(embed|parse)|(jpeg|png)2wbmp|gd_info|getimagesize(fromstring)?|
-  image(s[xy]|scale|(char|string)(up)?|set(style|thickness|tile|interpolation|pixel|brush)|savealpha|
-        convolution|copy(resampled|resized|merge(gray)?)?|colors(forindex|total)|
-        color(set|closest(alpha|hwb)?|transparent|deallocate|(allocate|exact|resolve)(alpha)?|at|match)|
-        crop(auto)?|create(truecolor|from(string|jpeg|png|wbmp|webp|gif|gd(2(part)?)?|xpm|xbm))?|
-        types|ttf(bbox|text)|truecolortopalette|istruecolor|interlace|2wbmp|destroy|dashedline|jpeg|
-        _type_to_(extension|mime_type)|ps(slantfont|text|(encode|extend|free|load)font|bbox)|png|polygon|
-        palette(copy|totruecolor)|ellipse|ft(text|bbox)|filter|fill|filltoborder|
-        filled(arc|ellipse|polygon|rectangle)|font(height|width)|flip|webp|wbmp|line|loadfont|layereffect|
-        antialias|affine(matrix(concat|get))?|alphablending|arc|rotate|rectangle|gif|gd(2)?|gammacorrect|
-        grab(screen|window)|xbm)
-)\b</string>
+					<string>(?i)\b(g(d_info|etimagesize(fromstring)?)|i(mage(2wbmp|_type_to_(extension|mime_type)|a(ffine(matrix(concat|get))?|lphablending|ntialias|rc|vif)|bmp|c(har(up)?|o(lor(a(llocate(alpha)?|t)|closest(alpha|hwb)?|deallocate|exact(alpha)?|match|resolve(alpha)?|s(et|forindex|total)|transparent)|nvolution|py(merge(gray)?|res(ampled|ized))?)|r(eate(from(avif|bmp|g(d(2(part)?)?|if)|jpeg|png|string|tga|w(bmp|ebp)|x(bm|pm))|truecolor)?|op(auto)?))|d(ashedline|estroy)|ellipse|f(il(l(ed(arc|ellipse|polygon|rectangle)|toborder)?|ter)|lip|ont(height|width)|t(bbox|text))|g(ammacorrect|d(2)?|et(clip|interpolation)|if|rab(screen|window))|i(nterlace|struecolor)|jpeg|l(ayereffect|ine|oadfont)|openpolygon|p(alette(copy|totruecolor)|ng|olygon)|r(e(ctangle|solution)|otate)|s(avealpha|cale|et(brush|clip|interpolation|pixel|style|t(hickness|ile))|tring(up)?|x|y)|t(ruecolortopalette|tf(bbox|text)|ypes)|w(bmp|ebp)|xbm)|ptc(embed|parse))|jpeg2wbmp|png2wbmp)\b</string>
 					<key>name</key>
 					<string>support.function.image.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?xi)\b
-(
-  sys_get_temp_dir|set_(time_limit|include_path|magic_quotes_runtime)|cli_(get|set)_process_title|
-  ini_(alter|get(_all)?|restore|set)|zend_(thread_id|version|logo_guid)|dl|php(credits|info|version)|
-  php_(sapi_name|ini_(scanned_files|loaded_file)|uname|logo_guid)|putenv|extension_loaded|version_compare|
-  assert(_options)?|restore_include_path|gc_(collect_cycles|disable|enable(d)?)|getopt|
-  get_(cfg_var|current_user|defined_constants|extension_funcs|include_path|included_files|loaded_extensions|
-       magic_quotes_(gpc|runtime)|required_files|resources)|
-  get(env|lastmod|rusage|my(inode|[gup]id))|
-  memory_get_(peak_)?usage|main|magic_quotes_runtime
-)\b</string>
+					<string>(?i)\bimap_(8bit|a(lerts|ppend)|b(ase64|inary|ody(struct)?)|c(heck|l(earflag_full|ose)|reatemailbox)|delete(mailbox)?|e(rrors|xpunge)|fetch(_overview|body|header|mime|structure)|g(c|et(_quota(root)?|acl|mailboxes|subscribed))|header(info|s)|l(ast_error|ist(scan)?|sub)|m(ail(_(co(mpose|py)|move)|boxmsginfo)?|ime_header_decode|sgno|utf7_to_utf8)|num_(msg|recent)|open|ping|qprint|r(e(namemailbox|open)|fc822_(parse_(adrlist|headers)|write_address))|s(avebody|e(arch|t(_quota|acl|flag_full))|ort|tatus|ubscribe)|t(hread|imeout)|u(id|n(delete|subscribe)|tf(7_(decode|encode)|8(_to_mutf7)?)))\b</string>
+					<key>name</key>
+					<string>support.function.imap.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\b(assert(_options)?|cli_(get_process_title|set_process_title)|dl|extension_loaded|g(c_(collect_cycles|disable|enable(d)?|mem_caches|status)|et(_(c(fg_var|urrent_user)|defined_constants|extension_funcs|include(_path|d_files)|loaded_extensions|magic_quotes_(gpc|runtime)|resources)|env|lastmod|my(gid|inode|pid|uid)|opt|rusage))|ini_(get(_all)?|restore|set)|memory_get_(peak_usage|usage)|p(hp(_(ini_(loaded_file|scanned_files)|sapi_name|uname)|credits|info|version)|utenv)|restore_include_path|s(et_(include_path|time_limit)|ys_get_temp_dir)|version_compare|zend_(thread_id|version))\b</string>
 					<key>name</key>
 					<string>support.function.info.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?xi)\b
-ibase_(
-  set_event_handler|service_(attach|detach)|server_info|num_(fields|params)|name_result|connect|
-  commit(_ret)?|close|trans|delete_user|drop_db|db_info|pconnect|param_info|prepare|err(code|msg)|
-  execute|query|field_info|fetch_(assoc|object|row)|free_(event_handler|query|result)|wait_event|
-  add_user|affected_rows|rollback(_ret)?|restore|gen_id|modify_user|maintain_db|backup|
-  blob_(cancel|close|create|import|info|open|echo|add|get)
-)\b</string>
+					<string>(?i)\binotify_(add_watch|init|queue_len|r(ead|m_watch))\b</string>
 					<key>name</key>
-					<string>support.function.interbase.php</string>
+					<string>support.function.inotify.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?xi)\b
-(
-  normalizer_(normalize|is_normalized)|idn_to_(unicode|utf8|ascii)|
-  numfmt_(set_(symbol|(text_)?attribute|pattern)|create|(parse|format)(_currency)?|
-          get_(symbol|(text_)?attribute|pattern|error_(code|message)|locale))|
-  collator_(sort(_with_sort_keys)?|set_(attribute|strength)|compare|create|asort|
-            get_(strength|sort_key|error_(code|message)|locale|attribute))|
-  transliterator_(create(_(inverse|from_rules))?|transliterate|list_ids|get_error_(code|message))|
-  intl(cal|tz)_get_error_(code|message)|intl_(is_failure|error_name|get_error_(code|message))|
-  datefmt_(set_(calendar|lenient|pattern|timezone(_id)?)|create|is_lenient|parse|format(_object)?|localtime|
-           get_(calendar(_object)?|time(type|zone(_id)?)|datetype|pattern|error_(code|message)|locale))|
-  locale_(set_default|compose|canonicalize|parse|filter_matches|lookup|accept_from_http|
-          get_(script|display_(script|name|variant|language|region)|default|primary_language|keywords|all_variants|region))|
-  resourcebundle_(create|count|locales|get(_(error_(code|message)))?)|
-  grapheme_(str(i?str|r?i?pos|len)|substr|extract)|
-  msgfmt_(set_pattern|create|(format|parse)(_message)?|get_(pattern|error_(code|message)|locale))
-)\b</string>
+					<string>(?i)\b(grapheme_(extract|s(tr(i(pos|str)|len|pos|r(ipos|pos)|str)|ubstr))|i(dn_to_(ascii|utf8)|ntl_(error_name|get_error_(code|message)|is_failure)))\b</string>
 					<key>name</key>
 					<string>support.function.intl.php</string>
 				</dict>
@@ -5424,22 +5669,21 @@ ibase_(
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?xi)\b
-ldap_(
-  start|tls|sort|search|sasl_bind|set_(option|rebind_proc)|(first|next)_(attribute|entry|reference)|
-  connect|control_paged_result(_response)?|count_entries|compare|close|t61_to_8859|8859_to_t61|
-  dn2ufn|delete|unbind|parse_(reference|result)|escape|errno|err2str|error|explode_dn|bind|
-  free_result|list|add|rename|read|get_(option|dn|entries|values(_len)?|attributes)|modify(_batch)?|
-  mod_(add|del|replace)
-)\b</string>
+					<string>(?i)\bldap_(8859_to_t61|add(_ext)?|bind(_ext)?|co(mpare|n(nect|trol_paged_result(_response)?)|unt_(entries|references))|d(elete(_ext)?|n2ufn)|e(rr(2str|no|or)|scape|x(op(_(passwd|refresh|whoami))?|plode_dn))|f(irst_(attribute|entry|reference)|ree_result)|get_(attributes|dn|entries|option|values(_len)?)|list|mod(_(add(_ext)?|del(_ext)?|replace(_ext)?)|ify_batch)|next_(attribute|entry|reference)|parse_(exop|re(ference|sult))|re(ad|name(_ext)?)|s(asl_bind|e(arch|t_(option|rebind_proc))|ort|tart_tls)|t61_to_8859|unbind)\b</string>
 					<key>name</key>
 					<string>support.function.ldap.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\blibxml_(set_(streams_context|external_entity_loader)|clear_errors|disable_entity_loader|use_internal_errors|get_(errors|last_error))\b</string>
+					<string>(?i)\blibxml_(clear_errors|disable_entity_loader|get_(errors|last_error)|set_(external_entity_loader|streams_context)|use_internal_errors)\b</string>
 					<key>name</key>
 					<string>support.function.libxml.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\blzf_(compress|decompress|optimized_for)\b</string>
+					<key>name</key>
+					<string>support.function.lzf.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
@@ -5449,42 +5693,25 @@ ldap_(
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?xi)\b
-(
-  (a)?(cos|sin|tan)(h)?|sqrt|srand|hypot|hexdec|ceil|is_(nan|(in)?finite)|octdec|dec(hex|oct|bin)|deg2rad|
-  pi|pow|exp(m1)?|floor|fmod|lcg_value|log(1(p|0))?|atan2|abs|round|rand|rad2deg|getrandmax|
-  mt_(srand|rand|getrandmax)|max|min|bindec|base_convert
-)\b</string>
+					<string>(?i)\bmailparse_(determine_best_xfer_encoding|msg_(create|extract_(part(_file)?|whole_part_file)|free|get_(part(_data)?|structure)|parse(_file)?)|rfc822_parse_addresses|stream_encode|uudecode_all)\b</string>
+					<key>name</key>
+					<string>support.function.mailparse.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\b(a(bs|cos(h)?|sin(h)?|tan(2|h)?)|b(ase_convert|indec)|c(eil|os(h)?)|de(c(bin|hex|oct)|g2rad)|exp(m1)?|f(div|loor|mod)|getrandmax|h(exdec|ypot)|i(ntdiv|s_(finite|infinite|nan))|l(cg_value|og(1(p)?)?)|m(ax|in|t_(getrandmax|rand|srand))|octdec|p(i|ow)|r(a(d2deg|nd)|ound)|s(in(h)?|qrt|rand)|tan(h)?)\b</string>
 					<key>name</key>
 					<string>support.function.math.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?xi)\b
-mb_(
-  str(cut|str|to(lower|upper)|istr|ipos|imwidth|pos|width|len|rchr|richr|ripos|rpos)|
-  substitute_character|substr(_count)?|split|send_mail|http_(input|output)|check_encoding|
-  convert_(case|encoding|kana|variables)|internal_encoding|output_handler|decode_(numericentity|mimeheader)|
-  detect_(encoding|order)|parse_str|preferred_mime_name|encoding_aliases|encode_(numericentity|mimeheader)|
-  ereg(i(_replace)?)?|ereg_(search(_(get(pos|regs)|init|regs|(set)?pos))?|replace(_callback)?|match)|
-  list_encodings|language|regex_(set_options|encoding)|get_info
-)\b</string>
+					<string>(?i)\bmb_(c(h(eck_encoding|r)|onvert_(case|encoding|kana|variables))|de(code_(mimeheader|numericentity)|tect_(encoding|order))|e(ncod(e_(mimeheader|numericentity)|ing_aliases)|reg(_(match|replace(_callback)?|search(_(get(pos|regs)|init|pos|regs|setpos))?)|i(_replace)?)?)|get_info|http_(input|output)|internal_encoding|l(anguage|ist_encodings)|o(rd|utput_handler)|p(arse_str|referred_mime_name)|regex_(encoding|set_options)|s(crub|end_mail|plit|tr(_split|cut|i(mwidth|pos|str)|len|pos|r(chr|i(chr|pos)|pos)|str|to(lower|upper)|width)|ubst(itute_character|r(_count)?)))\b</string>
 					<key>name</key>
 					<string>support.function.mbstring.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?xi)\b
-(
-  mcrypt_(
-    cfb|create_iv|cbc|ofb|decrypt|encrypt|ecb|list_(algorithms|modes)|generic(_((de)?init|end))?|
-    enc_(self_test|is_block_(algorithm|algorithm_mode|mode)|
-    get_(supported_key_sizes|(block|iv|key)_size|(algorithms|modes)_name))|
-    get_(cipher_name|(block|iv|key)_size)|
-    module_(close|self_test|is_block_(algorithm|algorithm_mode|mode)|open|
-            get_(supported_key_sizes|algo_(block|key)_size)))|
-  mdecrypt_generic
-)\b</string>
+					<string>(?i)\bm(crypt_(create_iv|decrypt|enc(_(get_(algorithms_name|block_size|iv_size|key_size|modes_name|supported_key_sizes)|is_block_(algorithm(_mode)?|mode)|self_test)|rypt)|ge(neric(_(deinit|init))?|t_(block_size|cipher_name|iv_size|key_size))|list_(algorithms|modes)|module_(close|get_(algo_(block_size|key_size)|supported_key_sizes)|is_block_(algorithm(_mode)?|mode)|open|self_test))|decrypt_generic)\b</string>
 					<key>name</key>
 					<string>support.function.mcrypt.php</string>
 				</dict>
@@ -5496,335 +5723,205 @@ mb_(
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bmhash(_(count|keygen_s2k|get_(hash_name|block_size)))?\b</string>
+					<string>(?i)\bmhash(_(count|get_(block_size|hash_name)|keygen_s2k))?\b</string>
 					<key>name</key>
 					<string>support.function.mhash.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\b(log_(cmd_(insert|delete|update)|killcursor|write_batch|reply|getmore)|bson_(decode|encode))\b</string>
+					<string>(?i)\b(__halt_compiler|con(nection_(aborted|status)|stant)|define(d)?|e(val|xit)|get_browser|h(ighlight_(file|string)|rtime)|ignore_user_abort|p(ack|hp_strip_whitespace)|s(api_windows_(cp_(conv|get|is_utf8|set)|generate_ctrl_event|set_ctrl_handler|vt100_support)|leep|ys_getloadavg)|time_(nanosleep|sleep_until)|u(n(iqid|pack)|sleep))\b</string>
 					<key>name</key>
-					<string>support.function.mongo.php</string>
+					<string>support.function.misc.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?xi)\b
-mysql_(
-  stat|set_charset|select_db|num_(fields|rows)|connect|client_encoding|close|create_db|escape_string|
-  thread_id|tablename|insert_id|info|data_seek|drop_db|db_(name|query)|unbuffered_query|pconnect|ping|
-  errno|error|query|field_(seek|name|type|table|flags|len)|fetch_(object|field|lengths|assoc|array|row)|
-  free_result|list_(tables|dbs|processes|fields)|affected_rows|result|real_escape_string|
-  get_(client|host|proto|server)_info
-)\b</string>
+					<string>(?i)\bmqseries_(b(ack|egin)|c(lose|mit|onn(x)?)|disc|get|inq|open|put(1)?|s(et|trerror))\b</string>
+					<key>name</key>
+					<string>support.function.mqseries.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\bmysql_(affected_rows|c(l(ient_encoding|ose)|onnect|reate_db)|d(ata_seek|b_(name|query)|rop_db)|e(rr(no|or)|scape_string)|f(etch_(a(rray|ssoc)|field|lengths|object|row)|ield_(flags|len|name|seek|t(able|ype))|ree_result)|get_(client_info|host_info|proto_info|server_info)|in(fo|sert_id)|list_(dbs|fields|processes|tables)|num_(fields|rows)|p(connect|ing)|query|re(al_escape_string|sult)|s(e(lect_db|t_charset)|tat)|t(ablename|hread_id)|unbuffered_query)\b</string>
 					<key>name</key>
 					<string>support.function.mysql.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?xi)\b
-mysqli_(
-  ssl_set|store_result|stat|send_(query|long_data)|set_(charset|opt|local_infile_(default|handler))|
-  stmt_(store_result|send_long_data|next_result|close|init|data_seek|prepare|execute|fetch|free_result|
-        attr_(get|set)|result_metadata|reset|get_(result|warnings)|more_results|bind_(param|result))|
-  select_db|slave_query|savepoint|next_result|change_user|character_set_name|connect|commit|
-  client_encoding|close|thread_safe|init|options|(enable|disable)_(reads_from_master|rpl_parse)|
-  dump_debug_info|debug|data_seek|use_result|ping|poll|param_count|prepare|escape_string|execute|
-  embedded_server_(start|end)|kill|query|field_seek|free_result|autocommit|rollback|report|refresh|
-  fetch(_(object|fields|field(_direct)?|assoc|all|array|row))?|rpl_(parse_enabled|probe|query_type)|
-  release_savepoint|reap_async_query|real_(connect|escape_string|query)|more_results|multi_query|
-  get_(charset|connection_stats|client_(stats|info|version)|cache_stats|warnings|links_stats|metadata)|
-  master_query|bind_(param|result)|begin_transaction
-)\b</string>
+					<string>(?i)\bmysqli_get_(client_stats|links_stats)\b</string>
 					<key>name</key>
 					<string>support.function.mysqli.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bmysqlnd_memcache_(set|get_config)\b</string>
-					<key>name</key>
-					<string>support.function.mysqlnd-memcache.php</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>(?i)\bmysqlnd_ms_(set_(user_pick_server|qos)|dump_servers|query_is_select|fabric_select_(shard|global)|get_(stats|last_(used_connection|gtid))|xa_(commit|rollback|gc|begin)|match_wild)\b</string>
-					<key>name</key>
-					<string>support.function.mysqlnd-ms.php</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>(?i)\bmysqlnd_qc_(set_(storage_handler|cache_condition|is_select|user_handlers)|clear_cache|get_(normalized_query_trace_log|core_stats|cache_info|query_trace_log|available_handlers))\b</string>
-					<key>name</key>
-					<string>support.function.mysqlnd-qc.php</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>(?i)\bmysqlnd_uh_(set_(statement|connection)_proxy|convert_to_mysqlnd)\b</string>
-					<key>name</key>
-					<string>support.function.mysqlnd-uh.php</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>(?xi)\b
-(
-  syslog|socket_(set_(blocking|timeout)|get_status)|set(raw)?cookie|http_response_code|openlog|
-  headers_(list|sent)|header(_(register_callback|remove))?|checkdnsrr|closelog|inet_(ntop|pton)|ip2long|
-  openlog|dns_(check_record|get_(record|mx))|define_syslog_variables|(p)?fsockopen|long2ip|
-  get(servby(name|port)|host(name|by(name(l)?|addr))|protoby(name|number)|mxrr)
-)\b</string>
+					<string>(?i)\b(c(heckdnsrr|loselog)|dns_get_record|fsockopen|get(host(by(addr|name(l)?)|name)|mxrr|protobyn(ame|umber)|servby(name|port))|h(eader(_re(gister_callback|move)|s_(list|sent))?|ttp_response_code)|i(net_(ntop|pton)|p2long)|long2ip|net_get_interfaces|openlog|pfsockopen|s(et(cookie|rawcookie)|yslog))\b</string>
 					<key>name</key>
 					<string>support.function.network.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bnsapi_(virtual|response_headers|request_headers)\b</string>
+					<string>(?i)\boauth_(get_sbs|urlencode)\b</string>
 					<key>name</key>
-					<string>support.function.nsapi.php</string>
+					<string>support.function.oauth.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?xi)\b
-(
-  oci(statementtype|setprefetch|serverversion|savelob(file)?|numcols|new(collection|cursor|descriptor)|nlogon|
-      column(scale|size|name|type(raw)?|isnull|precision)|coll(size|trim|assign(elem)?|append|getelem|max)|commit|
-      closelob|cancel|internaldebug|definebyname|plogon|parse|error|execute|fetch(statement|into)?|
-      free(statement|collection|cursor|desc)|write(temporarylob|lobtofile)|loadlob|log(on|off)|rowcount|rollback|
-      result|bindbyname)|
-  oci_(statement_type|set_(client_(info|identifier)|prefetch|edition|action|module_name)|server_version|
-       num_(fields|rows)|new_(connect|collection|cursor|descriptor)|connect|commit|client_version|close|cancel|
-       internal_debug|define_by_name|pconnect|password_change|parse|error|execute|bind_(array_)?by_name|
-       field_(scale|size|name|type(_raw)?|is_null|precision)|fetch(_(object|assoc|all|array|row))?|
-       free_(statement|descriptor)|lob_(copy|is_equal)|rollback|result|get_implicit_resultset)
-)\b</string>
+					<string>(?i)\boci_(bind_(array_by_name|by_name)|c(ancel|l(ient_version|ose)|o(mmit|nnect))|define_by_name|e(rror|xecute)|f(etch(_(a(ll|rray|ssoc)|object|row))?|ield_(is_null|name|precision|s(cale|ize)|type(_raw)?)|ree_(descriptor|statement))|get_implicit_resultset|lob_(copy|is_equal)|n(ew_(c(o(llection|nnect)|ursor)|descriptor)|um_(fields|rows))|p(a(rse|ssword_change)|connect)|r(e(gister_taf_callback|sult)|ollback)|s(e(rver_version|t_(action|c(all_timeout|lient_i(dentifier|nfo))|db_operation|edition|module_name|prefetch(_lob)?))|tatement_type)|unregister_taf_callback)\b</string>
 					<key>name</key>
 					<string>support.function.oci8.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bopcache_(compile_file|invalidate|reset|get_(status|configuration))\b</string>
+					<string>(?i)\bopcache_(compile_file|get_(configuration|status)|i(nvalidate|s_script_cached)|reset)\b</string>
 					<key>name</key>
 					<string>support.function.opcache.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?xi)\b
-openssl_(
-  sign|spki_(new|export(_challenge)?|verify)|seal|csr_(sign|new|export(_to_file)?|get_(subject|public_key))|
-  cipher_iv_length|open|dh_compute_key|digest|decrypt|public_(decrypt|encrypt)|encrypt|error_string|
-  pkcs12_(export(_to_file)?|read)|pkcs7_(sign|decrypt|encrypt|verify)|verify|free_key|random_pseudo_bytes|
-  pkey_(new|export(_to_file)?|free|get_(details|public|private))|private_(decrypt|encrypt)|pbkdf2|
-  get_((cipher|md)_methods|cert_locations|(public|private)key)|
-  x509_(check_private_key|checkpurpose|parse|export(_to_file)?|fingerprint|free|read)
-)\b</string>
+					<string>(?i)\bopenal_(buffer_(create|d(ata|estroy)|get|loadwav)|context_(c(reate|urrent)|destroy|process|suspend)|device_(close|open)|listener_(get|set)|s(ource_(create|destroy|get|p(ause|lay)|rewind|s(et|top))|tream))\b</string>
+					<key>name</key>
+					<string>support.function.openal.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\bopenssl_(c(ipher_iv_length|ms_(decrypt|encrypt|read|sign|verify)|sr_(export(_to_file)?|get_(public_key|subject)|new|sign))|d(ecrypt|h_compute_key|igest)|e(ncrypt|rror_string)|free_key|get_(c(ert_locations|ipher_methods|urve_names)|md_methods)|open|p(bkdf2|k(cs(12_(export(_to_file)?|read)|7_(decrypt|encrypt|read|sign|verify))|ey_(derive|export(_to_file)?|free|get_(details|p(rivate|ublic))|new))|rivate_(decrypt|encrypt)|ublic_(decrypt|encrypt))|random_pseudo_bytes|s(eal|ign|pki_(export(_challenge)?|new|verify))|verify|x509_(check(_private_key|purpose)|export(_to_file)?|f(ingerprint|ree)|parse|read|verify))\b</string>
 					<key>name</key>
 					<string>support.function.openssl.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?xi)\b
-(
-  output_(add_rewrite_var|reset_rewrite_vars)|flush|
-  ob_(start|clean|implicit_flush|end_(clean|flush)|flush|list_handlers|gzhandler|
-      get_(status|contents|clean|flush|length|level))
-)\b</string>
+					<string>(?i)\b(flush|o(b_(clean|end_(clean|flush)|flush|g(et_(c(lean|ontents)|flush|le(ngth|vel)|status)|zhandler)|implicit_flush|list_handlers|start)|utput_(add_rewrite_var|reset_rewrite_vars)))\b</string>
 					<key>name</key>
-					<string>support.function.output.php</string>
+					<string>support.function.outcontrol.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bpassword_(hash|needs_rehash|verify|get_info)\b</string>
+					<string>(?i)\bpassword_(algos|get_info|hash|needs_rehash|verify)\b</string>
 					<key>name</key>
 					<string>support.function.password.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?xi)\b
-pcntl_(
-  strerror|signal(_dispatch)?|sig(timedwait|procmask|waitinfo)|setpriority|errno|exec|fork|
-  w(stopsig|termsig|if(stopped|signaled|exited))|wait(pid)?|alarm|getpriority|get_last_error
-)\b</string>
+					<string>(?i)\bpcntl_(a(larm|sync_signals)|exec|fork|get(_last_error|priority)|rfork|s(etpriority|ig(nal(_(dispatch|get_handler))?|procmask|timedwait|waitinfo)|trerror)|unshare|w(ait(pid)?|exitstatus|if(exited|s(ignaled|topped))|stopsig|termsig))\b</string>
 					<key>name</key>
 					<string>support.function.pcntl.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?xi)\b
-pg_(
-  socket|send_(prepare|execute|query(_params)?)|set_(client_encoding|error_verbosity)|select|host|
-  num_(fields|rows)|consume_input|connection_(status|reset|busy)|connect(_poll)?|convert|copy_(from|to)|
-  client_encoding|close|cancel_query|tty|transaction_status|trace|insert|options|delete|dbname|untrace|
-  unescape_bytea|update|pconnect|ping|port|put_line|parameter_status|prepare|version|query(_params)?|
-  escape_(string|identifier|literal|bytea)|end_copy|execute|flush|free_result|last_(notice|error|oid)|
-  field_(size|num|name|type(_oid)?|table|is_null|prtlen)|affected_rows|result_(status|seek|error(_field)?)|
-  fetch_(object|assoc|all(_columns)?|array|row|result)|get_(notify|pid|result)|meta_data|
-  lo_(seek|close|create|tell|truncate|import|open|unlink|export|write|read(_all)?)|
-)\b</string>
+					<string>(?i)\bpreg_(filter|grep|last_error(_msg)?|match(_all)?|quote|replace(_callback(_array)?)?|split)\b</string>
+					<key>name</key>
+					<string>support.function.pcre.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\bpg_(affected_rows|c(ancel_query|l(ient_encoding|ose)|o(n(nect(_poll|ion_(busy|reset|status))?|sume_input|vert)|py_(from|to)))|d(bname|elete)|e(nd_copy|scape_(bytea|identifier|literal|string)|xecute)|f(etch_(a(ll(_columns)?|rray|ssoc)|object|r(esult|ow))|ield_(is_null|n(ame|um)|prtlen|size|t(able|ype(_oid)?))|lush|ree_result)|get_(notify|pid|result)|host|insert|l(ast_(error|notice|oid)|o_(c(lose|reate)|export|import|open|read(_all)?|seek|t(ell|runcate)|unlink|write))|meta_data|num_(fields|rows)|options|p(arameter_status|connect|ing|ort|repare|ut_line)|query(_params)?|result_(error(_field)?|s(eek|tatus))|s(e(lect|nd_(execute|prepare|query(_params)?)|t_(client_encoding|error_verbosity))|ocket)|t(ra(ce|nsaction_status)|ty)|u(n(escape_bytea|trace)|pdate)|version)\b</string>
 					<key>name</key>
 					<string>support.function.pgsql.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\b(virtual|getallheaders|apache_((get|set)env|note|child_terminate|lookup_uri|response_headers|reset_timeout|request_headers|get_(version|modules)))\b</string>
+					<string>(?i)\bphpdbg_(break_(f(ile|unction)|method|next)|c(lear|olor)|e(nd_oplog|xec)|get_executable|prompt|start_oplog)\b</string>
 					<key>name</key>
-					<string>support.function.php_apache.php</string>
+					<string>support.function.phpdbg.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bdom_import_simplexml\b</string>
-					<key>name</key>
-					<string>support.function.php_dom.php</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>(?xi)\b
-ftp_(
-  ssl_connect|systype|site|size|set_option|nlist|nb_(continue|f?(put|get))|ch(dir|mod)|connect|cdup|close|
-  delete|put|pwd|pasv|exec|quit|f(put|get)|login|alloc|rename|raw(list)?|rmdir|get(_option)?|mdtm|mkdir
-)\b</string>
-					<key>name</key>
-					<string>support.function.php_ftp.php</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>(?xi)\b
-imap_(
-  (create|delete|list|rename|scan)(mailbox)?|status|sort|subscribe|set_quota|set(flag_full|acl)|search|savebody|
-  num_(recent|msg)|check|close|clearflag_full|thread|timeout|open|header(info)?|headers|append|alerts|reopen|
-  8bit|unsubscribe|undelete|utf7_(decode|encode)|utf8|uid|ping|errors|expunge|qprint|gc|
-  fetch(structure|header|text|mime|body)|fetch_overview|lsub|list(scan|subscribed)|last_error|
-  rfc822_(parse_(headers|adrlist)|write_address)|get(subscribed|acl|mailboxes)|get_quota(root)?|
-  msgno|mime_header_decode|mail_(copy|compose|move)|mail|mailboxmsginfo|binary|body(struct)?|base64
-)\b</string>
-					<key>name</key>
-					<string>support.function.php_imap.php</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>(?xi)\b
-mssql_(
-  select_db|num_(fields|rows)|next_result|connect|close|init|data_seek|pconnect|execute|query|
-  field_(seek|name|type|length)|fetch_(object|field|assoc|array|row|batch)|free_(statement|result)|
-  rows_affected|result|guid_string|get_last_message|min_(error|message)_severity|bind
-)\b</string>
-					<key>name</key>
-					<string>support.function.php_mssql.php</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>(?xi)\b
-odbc_(
-  statistics|specialcolumns|setoption|num_(fields|rows)|next_result|connect|columns|columnprivileges|commit|
-  cursor|close(_all)?|tables|tableprivileges|do|data_source|pconnect|primarykeys|procedures|procedurecolumns|
-  prepare|error(msg)?|exec(ute)?|field_(scale|num|name|type|precision|len)|foreignkeys|free_result|
-  fetch_(into|object|array|row)|longreadlen|autocommit|rollback|result(_all)?|gettypeinfo|binmode
-)\b</string>
-					<key>name</key>
-					<string>support.function.php_odbc.php</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>(?i)\bpreg_(split|quote|filter|last_error|replace(_callback)?|grep|match(_all)?)\b</string>
-					<key>name</key>
-					<string>support.function.php_pcre.php</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>(?i)\b(spl_(classes|object_hash|autoload(_(call|unregister|extensions|functions|register))?)|class_(implements|uses|parents)|iterator_(count|to_array|apply))\b</string>
-					<key>name</key>
-					<string>support.function.php_spl.php</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>(?i)\bzip_(close|open|entry_(name|compressionmethod|compressedsize|close|open|filesize|read)|read)\b</string>
-					<key>name</key>
-					<string>support.function.php_zip.php</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>(?xi)\b
-posix_(
-  strerror|set(s|e?u|[ep]?g)id|ctermid|ttyname|times|isatty|initgroups|uname|errno|kill|access|
-  get(sid|cwd|uid|pid|ppid|pwnam|pwuid|pgid|pgrp|euid|egid|login|rlimit|gid|grnam|groups|grgid)|
-  get_last_error|mknod|mkfifo
-)\b</string>
+					<string>(?i)\bposix_(access|ctermid|get(_last_error|cwd|e(gid|uid)|g(id|r(gid|nam|oups))|login|p(g(id|rp)|id|pid|w(nam|uid))|rlimit|sid|uid)|i(nitgroups|satty)|kill|mk(fifo|nod)|s(et(e(gid|uid)|gid|pgid|rlimit|sid|uid)|trerror)|t(imes|tyname)|uname)\b</string>
 					<key>name</key>
 					<string>support.function.posix.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bset(thread|proc)title\b</string>
+					<string>(?i)\bps_(a(dd_(bookmark|l(aunchlink|ocallink)|note|pdflink|weblink)|rc(n)?)|begin_(pa(ge|ttern)|template)|c(ircle|l(ip|ose(_image|path(_stroke)?)?)|ontinue_text|urveto)|delete|end_(pa(ge|ttern)|template)|fi(ll(_stroke)?|ndfont)|get_(buffer|parameter|value)|hyphenate|include_file|lineto|m(akespotcolor|oveto)|new|open_(file|image(_file)?|memory_image)|place_image|r(e(ct|store)|otate)|s(ave|cale|et(_(border_(color|dash|style)|info|parameter|text_pos|value)|color|dash|f(lat|ont)|gray|line(cap|join|width)|miterlimit|overprintmode|polydash)|h(ading(_pattern)?|fill|ow(2|_(boxed|xy(2)?))?)|tr(ing(_geometry|width)|oke)|ymbol(_(name|width))?)|translate)\b</string>
 					<key>name</key>
-					<string>support.function.proctitle.php</string>
+					<string>support.function.ps.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?xi)\b
-pspell_(
-  store_replacement|suggest|save_wordlist|new(_(config|personal))?|check|clear_session|
-  config_(save_repl|create|ignore|(data|dict)_dir|personal|runtogether|repl|mode)|add_to_(session|personal)
-)\b</string>
+					<string>(?i)\bpspell_(add_to_(personal|session)|c(heck|lear_session|onfig_(create|d(ata_dir|ict_dir)|ignore|mode|personal|r(epl|untogether)|save_repl))|new(_(config|personal))?|s(ave_wordlist|tore_replacement|uggest))\b</string>
 					<key>name</key>
 					<string>support.function.pspell.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\breadline(_(completion_function|clear_history|callback_(handler_(install|remove)|read_char)|info|on_new_line|write_history|list_history|add_history|redisplay|read_history))?\b</string>
+					<string>(?i)\bradius_(a(cct_open|dd_server|uth_open)|c(lose|onfig|reate_request|vt_(addr|int|string))|demangle(_mppe_key)?|get_(attr|tagged_attr_(data|tag)|vendor_attr)|put_(a(ddr|ttr)|int|string|vendor_(a(ddr|ttr)|int|string))|request_authenticator|s(alt_encrypt_attr|e(nd_request|rver_secret)|trerror))\b</string>
+					<key>name</key>
+					<string>support.function.radius.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\brar_wrapper_cache_stats\b</string>
+					<key>name</key>
+					<string>support.function.rar.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\breadline(_(add_history|c(allback_(handler_(install|remove)|read_char)|lear_history|ompletion_function)|info|list_history|on_new_line|re(ad_history|display)|write_history))?\b</string>
 					<key>name</key>
 					<string>support.function.readline.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\brecode(_(string|file))?\b</string>
+					<string>(?i)\brecode_(file|string)\b</string>
 					<key>name</key>
 					<string>support.function.recode.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\brrd(c_disconnect|_(create|tune|info|update|error|version|first|fetch|last(update)?|restore|graph|xport))\b</string>
+					<string>(?i)\brpm(addtag|db(info|search)|info|vercmp)\b</string>
+					<key>name</key>
+					<string>support.function.rpminfo.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\brrd(_(create|error|f(etch|irst)|graph|info|last(update)?|restore|tune|update|version|xport)|c_disconnect)\b</string>
 					<key>name</key>
 					<string>support.function.rrd.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?xi)\b
-(
-  shm_((get|has|remove|put)_var|detach|attach|remove)|sem_(acquire|release|remove|get)|ftok|
-  msg_((get|remove|set|stat)_queue|send|queue_exists|receive)
-)\b</string>
+					<string>(?i)\brunkit7_(constant_(add|re(define|move))|function_(add|copy|re(define|move|name))|import|method_(add|copy|re(define|move|name))|object_id|superglobals|zval_inspect)\b</string>
+					<key>name</key>
+					<string>support.function.runkit7.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\bscoutapm_(get_calls|list_instrumented_functions)\b</string>
+					<key>name</key>
+					<string>support.function.scoutapm.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\bseaslog_get_(author|version)\b</string>
+					<key>name</key>
+					<string>support.function.seaslog.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\b(ftok|msg_(get_queue|queue_exists|re(ceive|move_queue)|s(e(nd|t_queue)|tat_queue))|s(em_(acquire|get|re(lease|move))|hm_(attach|detach|get_var|has_var|put_var|remove(_var)?)))\b</string>
 					<key>name</key>
 					<string>support.function.sem.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?xi)\b
-session_(
-  status|start|set_(save_handler|cookie_params)|save_path|name|commit|cache_(expire|limiter)|
-  is_registered|id|destroy|decode|unset|unregister|encode|write_close|abort|reset|register(_shutdown)?|
-  regenerate_id|get_cookie_params|module_name
-)\b</string>
+					<string>(?i)\bsession_(abort|c(ache_(expire|limiter)|reate_id)|de(code|stroy)|encode|g(c|et_cookie_params)|id|module_name|name|re(g(enerate_id|ister_shutdown)|set)|s(ave_path|et_(cookie_params|save_handler)|ta(rt|tus))|unset|write_close)\b</string>
 					<key>name</key>
 					<string>support.function.session.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bshmop_(size|close|open|delete|write|read)\b</string>
+					<string>(?i)\bshmop_(close|delete|open|read|size|write)\b</string>
 					<key>name</key>
 					<string>support.function.shmop.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bsimplexml_(import_dom|load_(string|file))\b</string>
+					<string>(?i)\bsimplexml_(import_dom|load_(file|string))\b</string>
 					<key>name</key>
 					<string>support.function.simplexml.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?xi)\b
-(
-  snmp(walk(oid)?|realwalk|get(next)?|set)|
-  snmp_(set_(valueretrieval|quick_print|enum_print|oid_(numeric_print|output_format))|read_mib|
-        get_(valueretrieval|quick_print))|
-  snmp[23]_(set|walk|real_walk|get(next)?)
-)\b</string>
+					<string>(?i)\bsnmp(2_(get(next)?|real_walk|set|walk)|3_(get(next)?|real_walk|set|walk)|_(get_(quick_print|valueretrieval)|read_mib|set_(enum_print|oid_(numeric_print|output_format)|quick_print|valueretrieval))|get(next)?|realwalk|set|walk(oid)?)\b</string>
 					<key>name</key>
 					<string>support.function.snmp.php</string>
 				</dict>
@@ -5836,234 +5933,219 @@ session_(
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?xi)\b
-socket_(
-  shutdown|strerror|send(to|msg)?|set_((non)?block|option)|select|connect|close|clear_error|bind|
-  create(_(pair|listen))?|cmsg_space|import_stream|write|listen|last_error|accept|recv(from|msg)?|
-  read|get(peer|sock)name|get_option
-)\b</string>
+					<string>(?i)\bsocket_(a(ccept|ddrinfo_(bind|connect|explain|lookup))|bind|c(l(ear_error|ose)|msg_space|onnect|reate(_(listen|pair))?)|export_stream|get(_option|peername|sockname)|import_stream|l(ast_error|isten)|re(ad|cv(from|msg)?)|s(e(lect|nd(msg|to)?|t_(block|nonblock|option))|hutdown|trerror)|w(rite|saprotocol_info_(export|import|release)))\b</string>
 					<key>name</key>
 					<string>support.function.sockets.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?xi)\b
-sqlite_(
-  single_query|seek|has_(more|prev)|num_(fields|rows)|next|changes|column|current|close|
-  create_(aggregate|function)|open|unbuffered_query|udf_(decode|encode)_binary|popen|prev|
-  escape_string|error_string|exec|valid|key|query|field_name|factory|
-  fetch_(string|single|column_types|object|all|array)|lib(encoding|version)|
-  last_(insert_rowid|error)|array_query|rewind|busy_timeout
-)\b</string>
+					<string>(?i)\bsodium_(add|b(ase642bin|in2(base64|hex))|c(ompare|rypto_(a(ead_(aes256gcm_(decrypt|encrypt|is_available|keygen)|chacha20poly1305_(decrypt|encrypt|ietf_(decrypt|encrypt|keygen)|keygen)|xchacha20poly1305_ietf_(decrypt|encrypt|keygen))|uth(_(keygen|verify))?)|box(_(keypair(_from_secretkey_and_publickey)?|open|publickey(_from_secretkey)?|se(al(_open)?|cretkey|ed_keypair)))?|core_ristretto255_(add|from_hash|is_valid_point|random|s(calar_(add|complement|invert|mul|negate|r(andom|educe)|sub)|ub))|generichash(_(final|init|keygen|update))?|k(df_(derive_from_key|keygen)|x_(client_session_keys|keypair|publickey|se(cretkey|ed_keypair|rver_session_keys)))|pwhash(_s(cryptsalsa208sha256(_str(_verify)?)?|tr(_(needs_rehash|verify))?))?|s(calarmult(_ristretto255(_base)?)?|ecret(box(_(keygen|open))?|stream_xchacha20poly1305_(init_pu(ll|sh)|keygen|pu(ll|sh)|rekey))|horthash(_keygen)?|ign(_(detached|ed25519_(pk_to_curve25519|sk_to_curve25519)|keypair(_from_secretkey_and_publickey)?|open|publickey(_from_secretkey)?|se(cretkey|ed_keypair)|verify_detached))?|tream(_(keygen|x(chacha2(0_(keygen|xor))?|or)))?)))|hex2bin|increment|mem(cmp|zero)|pad|unpad)\b</string>
 					<key>name</key>
-					<string>support.function.sqlite.php</string>
+					<string>support.function.sodium.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?xi)\b
-sqlsrv_(
-  send_stream_data|server_info|has_rows|num_(fields|rows)|next_result|connect|configure|commit|
-  client_info|close|cancel|prepare|errors|execute|query|field_metadata|fetch(_(array|object))?|
-  free_stmt|rows_affected|rollback|get_(config|field)|begin_transaction
-)\b</string>
+					<string>(?i)\bsolr_get_version\b</string>
+					<key>name</key>
+					<string>support.function.solr.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\b(class_(implements|parents|uses)|iterator_(apply|count|to_array)|spl_(autoload(_(call|extensions|functions|register|unregister))?|classes|object_(hash|id)))\b</string>
+					<key>name</key>
+					<string>support.function.spl.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\bsqlsrv_(begin_transaction|c(ancel|l(ient_info|ose)|o(mmit|n(figure|nect)))|e(rrors|xecute)|f(etch(_(array|object))?|ield_metadata|ree_stmt)|get_(config|field)|has_rows|n(ext_result|um_(fields|rows))|prepare|query|ro(llback|ws_affected)|se(nd_stream_data|rver_info))\b</string>
 					<key>name</key>
 					<string>support.function.sqlsrv.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?xi)\b
-stats_(
-  harmonic_mean|covariance|standard_deviation|skew|
-  cdf_(noncentral_(chisquare|f)|negative_binomial|chisquare|cauchy|t|uniform|poisson|exponential|f|weibull|
-       logistic|laplace|gamma|binomial|beta)|
-  stat_(noncentral_t|correlation|innerproduct|independent_t|powersum|percentile|paired_t|gennch|binomial_coef)|
-  dens_(normal|negative_binomial|chisquare|cauchy|t|pmf_(hypergeometric|poisson|binomial)|exponential|f|
-        weibull|logistic|laplace|gamma|beta)|
-  den_uniform|variance|kurtosis|absolute_deviation|
-  rand_(setall|phrase_to_seeds|ranf|get_seeds|
-        gen_(noncentral_[ft]|noncenral_chisquare|normal|chisquare|t|int|
-             i(uniform|poisson|binomial(_negative)?)|exponential|f(uniform)?|gamma|beta))
-)\b</string>
+					<string>(?i)\bssdeep_fuzzy_(compare|hash(_filename)?)\b</string>
+					<key>name</key>
+					<string>support.function.ssdeep.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\bssh2_(auth_(agent|hostbased_file|none|p(assword|ubkey_file))|connect|disconnect|exec|f(etch_stream|ingerprint|orward_(accept|listen))|methods_negotiated|p(oll|ublickey_(add|init|list|remove))|s(cp_(recv|send)|end_eof|ftp(_(chmod|lstat|mkdir|r(e(a(dlink|lpath)|name)|mdir)|s(tat|ymlink)|unlink))?|hell)|tunnel)\b</string>
+					<key>name</key>
+					<string>support.function.ssh2.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\bstats_(absolute_deviation|c(df_(b(eta|inomial)|c(auchy|hisquare)|exponential|f|gamma|l(aplace|ogistic)|n(egative_binomial|o(ncentral_(chisquare|f|t)|rmal))|poisson|t|uniform|weibull)|ovariance)|dens_(beta|c(auchy|hisquare)|exponential|f|gamma|l(aplace|ogistic)|normal|pmf_(binomial|hypergeometric|negative_binomial|poisson)|t|uniform|weibull)|harmonic_mean|kurtosis|rand_(ge(n_(beta|chisquare|exponential|f(uniform)?|gamma|i(binomial(_negative)?|nt|poisson|uniform)|no(ncentral_(chisquare|f|t)|rmal)|t)|t_seeds)|phrase_to_seeds|ranf|setall)|s(kew|ta(ndard_deviation|t_(binomial_coef|correlation|factorial|in(dependent_t|nerproduct)|p(aired_t|ercentile|owersum))))|variance)\b</string>
 					<key>name</key>
 					<string>support.function.stats.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?xi)\b
-(
-  set_socket_blocking|
-  stream_(socket_(shutdown|sendto|server|client|pair|enable_crypto|accept|recvfrom|get_name)|
-    set_(chunk_size|timeout|(read|write)_buffer|blocking)|select|notification_callback|supports_lock|
-    context_(set_(option|default|params)|create|get_(options|default|params))|copy_to_stream|is_local|
-    encoding|filter_(append|prepend|register|remove)|wrapper_((un)?register|restore)|
-    resolve_include_path|register_wrapper|get_(contents|transports|filters|wrappers|line|meta_data)|
-    bucket_(new|prepend|append|make_writeable)
-  )
-)\b</string>
+					<string>(?i)\bstomp_(connect_error|version)\b</string>
 					<key>name</key>
-					<string>support.function.streamsfuncs.php</string>
+					<string>support.function.stomp.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?xi)\b
-(
-  money_format|md5(_file)?|metaphone|bin2hex|sscanf|sha1(_file)?|
-  str(str|c?spn|n(at)?(case)?cmp|chr|coll|(case)?cmp|to(upper|lower)|tok|tr|istr|pos|pbrk|len|rchr|ri?pos|rev)|
-  str_(getcsv|ireplace|pad|repeat|replace|rot13|shuffle|split|word_count)|
-  strip(c?slashes|os)|strip_tags|similar_text|soundex|substr(_(count|compare|replace))?|setlocale|
-  html(specialchars(_decode)?|entities)|html_entity_decode|hex2bin|hebrev(c)?|number_format|nl2br|nl_langinfo|
-  chop|chunk_split|chr|convert_(cyr_string|uu(decode|encode))|count_chars|crypt|crc32|trim|implode|ord|
-  uc(first|words)|join|parse_str|print(f)?|echo|explode|v?[fs]?printf|quoted_printable_(decode|encode)|
-  quotemeta|wordwrap|lcfirst|[lr]trim|localeconv|levenshtein|addc?slashes|get_html_translation_table
-)\b</string>
+					<string>(?i)\bstream_(bucket_(append|make_writeable|new|prepend)|co(ntext_(create|get_(default|options|params)|set_(default|option|params))|py_to_stream)|filter_(append|prepend|re(gister|move))|get_(contents|filters|line|meta_data|transports|wrappers)|is(_local|atty)|notification_callback|resolve_include_path|s(e(lect|t_(blocking|chunk_size|read_buffer|timeout|write_buffer))|ocket_(accept|client|enable_crypto|get_name|pair|recvfrom|s(e(ndto|rver)|hutdown))|upports_lock)|wrapper_(re(gister|store)|unregister))\b</string>
 					<key>name</key>
-					<string>support.function.string.php</string>
+					<string>support.function.stream.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?xi)\b
-sybase_(
-  set_message_handler|select_db|num_(fields|rows)|connect|close|deadlock_retry_count|data_seek|
-  unbuffered_query|pconnect|query|field_seek|fetch_(object|field|assoc|array|row)|free_result|
-  affected_rows|result|get_last_message|min_(client|error|message|server)_severity
-)\b</string>
+					<string>(?i)\b(add(cslashes|slashes)|bin2hex|c(h(r|unk_split)|o(nvert_(cyr_string|uu(decode|encode))|unt_chars)|r(c32|ypt))|e(cho|xplode)|fprintf|get_html_translation_table|h(e(brev(c)?|x2bin)|tml(_entity_decode|entities|specialchars(_decode)?))|implode|l(cfirst|evenshtein|ocaleconv|trim)|m(d5(_file)?|etaphone|oney_format)|n(l(2br|_langinfo)|umber_format)|ord|p(arse_str|rint(f)?)|quote(d_printable_(decode|encode)|meta)|rtrim|s(etlocale|ha1(_file)?|imilar_text|oundex|printf|scanf|tr(_(contains|ends_with|getcsv|ireplace|pad|r(ep(eat|lace)|ot13)|s(huffle|plit|tarts_with)|word_count)|c(asecmp|mp|oll|spn)|i(p(_tags|cslashes|os|slashes)|str)|len|n(atc(asecmp|mp)|c(asecmp|mp))|p(brk|os)|r(chr|ev|ipos|pos)|s(pn|tr)|t(o(k|lower|upper)|r))|ubstr(_(co(mpare|unt)|replace))?)|trim|u(c(first|words)|tf8_(decode|encode))|v(fprintf|printf|sprintf)|wordwrap)\b</string>
 					<key>name</key>
-					<string>support.function.sybase.php</string>
+					<string>support.function.strings.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\b(taint|is_tainted|untaint)\b</string>
+					<string>(?i)\bsvn_(a(dd|uth_(get_parameter|set_parameter))|blame|c(at|heckout|l(eanup|ient_version)|ommit)|d(elete|iff)|export|fs_(a(bort_txn|pply_text)|begin_txn2|c(h(ange_node_prop|eck_path)|o(ntents_changed|py))|d(elete|ir_entries)|file_(contents|length)|is_(dir|file)|make_(dir|file)|node_(created_rev|prop)|props_changed|revision_(prop|root)|txn_root|youngest_rev)|import|l(og|s)|mkdir|re(pos_(create|fs(_(begin_txn_for_commit|commit_txn))?|hotcopy|open|recover)|vert)|status|update)\b</string>
+					<key>name</key>
+					<string>support.function.svn.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\bswoole_(async_(dns_lookup|read(file)?|set|write(file)?)|c(l(ear_error|ient_select)|pu_num)|e(rr(no|or_log)|vent_(add|de(fer|l)|exit|set|w(ait|rite)))|get_local_ip|l(ast_error|oad_module)|s(e(lect|t_process_name)|trerror)|timer_(after|exists|tick)|version)\b</string>
+					<key>name</key>
+					<string>support.function.swoole-funcs.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\b(is_tainted|taint|untaint)\b</string>
 					<key>name</key>
 					<string>support.function.taint.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?xi)\b
-(
-  tidy_((get|set)opt|set_encoding|save_config|config_count|clean_repair|is_(xhtml|xml)|diagnose|
-        (access|error|warning)_count|load_config|reset_config|(parse|repair)_(string|file)|
-        get_(status|html(_ver)?|head|config|output|opt_doc|root|release|body))|
-  ob_tidyhandler
-)\b</string>
+					<string>(?i)\btcpwrap_check\b</string>
+					<key>name</key>
+					<string>support.function.tcpwrap.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\b(ob_tidyhandler|tidy_(access_count|config_count|error_count|get_output|warning_count))\b</string>
 					<key>name</key>
 					<string>support.function.tidy.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\btoken_(name|get_all)\b</string>
+					<string>(?i)\btoken_(get_all|name)\b</string>
 					<key>name</key>
 					<string>support.function.tokenizer.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?xi)\b
-trader_(
-  stoch(f|r|rsi)?|stddev|sin(h)?|sum|sub|set_(compat|unstable_period)|sqrt|sar(ext)?|sma|
-  ht_(sine|trend(line|mode)|dc(period|phase)|phasor)|natr|cci|cos(h)?|correl|
-  cdl(shootingstar|shortline|sticksandwich|stalledpattern|spinningtop|separatinglines|
-      hikkake(mod)?|highwave|homingpigeon|hangingman|harami(cross)?|hammer|concealbabyswall|
-      counterattack|closingmarubozu|thrusting|tasukigap|takuri|tristar|inneck|invertedhammer|
-      identical3crows|2crows|onneck|doji(star)?|darkcloudcover|dragonflydoji|unique3river|
-      upsidegap2crows|3(starsinsouth|inside|outside|whitesoldiers|linestrike|blackcrows)|
-      piercing|engulfing|evening(doji)?star|kicking(bylength)?|longline|longleggeddoji|
-      ladderbottom|advanceblock|abandonedbaby|risefall3methods|rickshawman|gapsidesidewhite|
-      gravestonedoji|xsidegap3methods|morning(doji)?star|mathold|matchinglow|marubozu|
-      belthold|breakaway)|
-  ceil|cmo|tsf|typprice|t3|tema|tan(h)?|trix|trima|trange|obv|div|dema|dx|ultosc|ppo|
-  plus_d[im]|errno|exp|ema|var|kama|floor|wclprice|willr|wma|ln|log10|bop|beta|bbands|
-  linearreg(_(slope|intercept|angle))?|asin|acos|atan|atr|adosc|ad|add|adx(r)?|apo|avgprice|
-  aroon(osc)?|rsi|roc|rocp|rocr(100)?|get_(compat|unstable_period)|min(index)?|minus_d[im]|
-  minmax(index)?|mid(point|price)|mom|mult|medprice|mfi|macd(ext|fix)?|mavp|max(index)?|ma(ma)?
-)\b</string>
+					<string>(?i)\btrader_(a(cos|d(d|osc|x(r)?)?|po|roon(osc)?|sin|t(an|r)|vgprice)|b(bands|eta|op)|c(ci|dl(2crows|3(blackcrows|inside|linestrike|outside|starsinsouth|whitesoldiers)|a(bandonedbaby|dvanceblock)|b(elthold|reakaway)|c(losingmarubozu|o(ncealbabyswall|unterattack))|d(arkcloudcover|oji(star)?|ragonflydoji)|e(ngulfing|vening(dojistar|star))|g(apsidesidewhite|ravestonedoji)|h(a(mmer|ngingman|rami(cross)?)|i(ghwave|kkake(mod)?)|omingpigeon)|i(dentical3crows|n(neck|vertedhammer))|kicking(bylength)?|l(adderbottom|ongl(eggeddoji|ine))|m(a(rubozu|t(chinglow|hold))|orning(dojistar|star))|onneck|piercing|ri(ckshawman|sefall3methods)|s(eparatinglines|ho(otingstar|rtline)|pinningtop|t(alledpattern|icksandwich))|t(a(kuri|sukigap)|hrusting|ristar)|u(nique3river|psidegap2crows)|xsidegap3methods)|eil|mo|o(rrel|s(h)?))|d(ema|iv|x)|e(ma|rrno|xp)|floor|get_(compat|unstable_period)|ht_(dcp(eriod|hase)|phasor|sine|trend(line|mode))|kama|l(inearreg(_(angle|intercept|slope))?|n|og1)|m(a(cd(ext|fix)?|ma|vp|x(index)?)?|edprice|fi|i(dp(oint|rice)|n(index|max(index)?|us_d(i|m))?)|om|ult)|natr|obv|p(lus_d(i|m)|po)|r(oc(p|r(10)?)?|si)|s(ar(ext)?|et_(compat|unstable_period)|in(h)?|ma|qrt|t(ddev|och(f|rsi)?)|u(b|m))|t(3|an(h)?|ema|r(ange|i(ma|x))|sf|ypprice)|ultosc|var|w(clprice|illr|ma))\b</string>
 					<key>name</key>
 					<string>support.function.trader.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\buopz_(copy|compose|implement|overload|delete|undefine|extend|function|flags|restore|rename|redefine|backup)\b</string>
+					<string>(?i)\bodbc_(autocommit|binmode|c(lose(_all)?|o(lumn(privileges|s)|mmit|nnect)|ursor)|data_source|e(rror(msg)?|xec(ute)?)|f(etch_(array|into|object|row)|ield_(len|n(ame|um)|scale|type)|oreignkeys|ree_result)|gettypeinfo|longreadlen|n(ext_result|um_(fields|rows))|p(connect|r(epare|imarykeys|ocedure(columns|s)))|r(esult(_all)?|ollback)|s(etoption|pecialcolumns|tatistics)|table(privileges|s))\b</string>
+					<key>name</key>
+					<string>support.function.uodbc.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\buopz_(a(dd_function|llow_exit)|backup|co(mpose|py)|del(_function|ete)|extend|f(lags|unction)|get_(exit_status|hook|mock|property|return|static)|implement|overload|re(define|name|store)|set_(hook|mock|property|return|static)|un(define|set_(hook|mock|return)))\b</string>
 					<key>name</key>
 					<string>support.function.uopz.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\b(http_build_query|(raw)?url(decode|encode)|parse_url|get_(headers|meta_tags)|base64_(decode|encode))\b</string>
+					<string>(?i)\b(base64_(decode|encode)|get_(headers|meta_tags)|http_build_query|parse_url|rawurl(decode|encode)|url(decode|encode))\b</string>
 					<key>name</key>
 					<string>support.function.url.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?xi)\b
-(
-  strval|settype|serialize|(bool|double|float)val|debug_zval_dump|intval|import_request_variables|isset|
-  is_(scalar|string|null|numeric|callable|int(eger)?|object|double|float|long|array|resource|real|bool)|
-  unset|unserialize|print_r|empty|var_(dump|export)|gettype|get_(defined_vars|resource_type)
-)\b</string>
+					<string>(?i)\bvar_representation\b</string>
+					<key>name</key>
+					<string>support.function.var-representation.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\b(boolval|debug_zval_dump|empty|floatval|get(_(de(bug_type|fined_vars)|resource_(id|type))|type)|i(ntval|s(_(array|bool|c(allable|ountable)|float|i(nt|terable)|nu(ll|meric)|object|resource|s(calar|tring))|set))|print_r|s(e(rialize|ttype)|trval)|unse(rialize|t)|var_(dump|export))\b</string>
 					<key>name</key>
 					<string>support.function.var.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bwddx_(serialize_(value|vars)|deserialize|packet_(start|end)|add_vars)\b</string>
+					<string>(?i)\bwddx_(add_vars|deserialize|packet_(end|start)|serialize_va(lue|rs))\b</string>
 					<key>name</key>
 					<string>support.function.wddx.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bxhprof_(sample_)?(disable|enable)\b</string>
+					<string>(?i)\bwin32_(c(ontinue_service|reate_service)|delete_service|get_last_control_message|pause_service|query_service_status|s(e(nd_custom_control|t_service_(exit_(code|mode)|status))|t(art_service(_ctrl_dispatcher)?|op_service)))\b</string>
+					<key>name</key>
+					<string>support.function.win32service.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\bwincache_(fcache_(fileinfo|meminfo)|lock|ocache_(fileinfo|meminfo)|r(efresh_if_changed|plist_(fileinfo|meminfo))|scache_(info|meminfo)|u(cache_(add|c(as|lear)|de(c|lete)|exists|get|in(c|fo)|meminfo|set)|nlock))\b</string>
+					<key>name</key>
+					<string>support.function.wincache.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\bxattr_(get|list|remove|s(et|upported))\b</string>
+					<key>name</key>
+					<string>support.function.xattr.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\bxdiff_(file_(b(diff(_size)?|patch)|diff(_binary)?|merge3|patch(_binary)?|rabdiff)|string_(b(diff(_size)?|patch)|diff|merge3|patch(_binary)?))\b</string>
+					<key>name</key>
+					<string>support.function.xdiff.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\bxhprof_(disable|enable|sample_(disable|enable))\b</string>
 					<key>name</key>
 					<string>support.function.xhprof.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?xi)
-\b
-(
-  utf8_(decode|encode)|
-  xml_(set_((notation|(end|start)_namespace|unparsed_entity)_decl_handler|
-            (character_data|default|element|external_entity_ref|processing_instruction)_handler|object)|
-       parse(_into_struct)?|parser_((get|set)_option|create(_ns)?|free)|error_string|
-       get_(current_((column|line)_number|byte_index)|error_code))
-)\b</string>
+					<string>(?i)\bxml_(error_string|get_(current_(byte_index|column_number|line_number)|error_code)|parse(_into_struct|r_(create(_ns)?|free|get_option|set_option))?|set_(character_data_handler|default_handler|e(lement_handler|nd_namespace_decl_handler|xternal_entity_ref_handler)|notation_decl_handler|object|processing_instruction_handler|start_namespace_decl_handler|unparsed_entity_decl_handler))\b</string>
 					<key>name</key>
 					<string>support.function.xml.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?xi)\b
-xmlrpc_(
-  server_(call_method|create|destroy|add_introspection_data|register_(introspection_callback|method))|
-  is_fault|decode(_request)?|parse_method_descriptions|encode(_request)?|(get|set)_type
-)\b</string>
+					<string>(?i)\bxmlrpc_(decode(_request)?|encode(_request)?|get_type|is_fault|parse_method_descriptions|se(rver_(add_introspection_data|c(all_method|reate)|destroy|register_(introspection_callback|method))|t_type))\b</string>
 					<key>name</key>
 					<string>support.function.xmlrpc.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?xi)\b
-xmlwriter_(
-  (end|start|write)_(comment|cdata|dtd(_(attlist|entity|element))?|document|pi|attribute|element)|
-  (start|write)_(attribute|element)_ns|write_raw|set_indent(_string)?|text|output_memory|open_(memory|uri)|
-  full_end_element|flush|
-)\b</string>
+					<string>(?i)\byaml_(emit(_file)?|parse(_(file|url))?)\b</string>
 					<key>name</key>
-					<string>support.function.xmlwriter.php</string>
+					<string>support.function.yaml.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?xi)\b
-(
-  zlib_(decode|encode|get_coding_type)|readgzfile|
-  gz(seek|compress|close|tell|inflate|open|decode|deflate|uncompress|puts|passthru|encode|eof|file|
-     write|rewind|read|getc|getss?)
-)\b</string>
+					<string>(?i)\byaz_(addinfo|c(cl_(conf|parse)|lose|onnect)|database|e(lement|rr(no|or)|s(_result)?)|get_option|hits|itemorder|present|r(ange|ecord)|s(c(an(_result)?|hema)|e(arch|t_option)|ort|yntax)|wait)\b</string>
+					<key>name</key>
+					<string>support.function.yaz.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\bzip_(close|entry_(c(lose|ompress(edsize|ionmethod))|filesize|name|open|read)|open|read)\b</string>
+					<key>name</key>
+					<string>support.function.zip.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\b(deflate_(add|init)|gz(c(lose|ompress)|de(code|flate)|e(ncode|of)|file|get(c|s(s)?)|inflate|open|passthru|re(ad|wind)|seek|tell|uncompress|write)|inflate_(add|get_(read_len|status)|init)|readgzfile|zlib_(decode|encode|get_coding_type))\b</string>
 					<key>name</key>
 					<string>support.function.zlib.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bis_int(eger)?\b</string>
+					<string>(?i)\bzookeeper_dispatch\b</string>
 					<key>name</key>
-					<string>support.function.alias.php</string>
+					<string>support.function.zookeeper.php</string>
 				</dict>
 			</array>
 		</dict>
