@@ -8,55 +8,19 @@
 	</array>
 	<key>injections</key>
 	<dict>
-		<key>R:text.html.php - (meta.embedded.block.php | comment)</key>
+		<key>text.html.php - (meta.embedded | meta.tag), L:((text.html.php meta.tag) - (meta.embedded.block.php | meta.embedded.line.php)), L:(source.js - (meta.embedded.block.php | meta.embedded.line.php)), L:(source.css - (meta.embedded.block.php | meta.embedded.line.php))</key>
 		<dict>
 			<key>patterns</key>
 			<array>
 				<dict>
-					<key>begin</key>
-					<string>(?=&lt;\?(php|=)?(?!\?&gt;))</string>
-					<key>contentName</key>
-					<string>meta.embedded.block.php</string>
-					<key>end</key>
-					<string>(?!\G)(\s*$\n)?</string>
-					<key>patterns</key>
-					<array>
-						<dict>
-							<key>begin</key>
-							<string>(&lt;\?(php|=)?)</string>
-							<key>beginCaptures</key>
-							<dict>
-								<key>0</key>
-								<dict>
-									<key>name</key>
-									<string>punctuation.section.embedded.begin.php</string>
-								</dict>
-							</dict>
-							<key>contentName</key>
-							<string>source.php</string>
-							<key>end</key>
-							<string>(\?)&gt;</string>
-							<key>endCaptures</key>
-							<dict>
-								<key>0</key>
-								<dict>
-									<key>name</key>
-									<string>punctuation.section.embedded.end.php</string>
-								</dict>
-							</dict>
-							<key>patterns</key>
-							<array>
-								<dict>
-									<key>include</key>
-									<string>source.php</string>
-								</dict>
-							</array>
-						</dict>
-					</array>
+					<key>include</key>
+					<string>#php-tag</string>
 				</dict>
 			</array>
 		</dict>
 	</dict>
+	<key>keyEquivalent</key>
+	<string>^~P</string>
 	<key>name</key>
 	<string>HTML (PHP)</string>
 	<key>patterns</key>
@@ -66,6 +30,85 @@
 			<string>text.html.basic</string>
 		</dict>
 	</array>
+	<key>repository</key>
+	<dict>
+		<key>php-tag</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>begin</key>
+					<string>&lt;\?(?i:php|=)?(?![^?]*\?&gt;)</string>
+					<key>beginCaptures</key>
+					<array>
+						<dict>
+							<key>name</key>
+							<string>punctuation.section.embedded.begin.php</string>
+						</dict>
+					</array>
+					<key>contentName</key>
+					<string>source.php</string>
+					<key>end</key>
+					<string>(\?)&gt;</string>
+					<key>endCaptures</key>
+					<array>
+						<dict>
+							<key>name</key>
+							<string>punctuation.section.embedded.end.php</string>
+						</dict>
+						<dict>
+							<key>name</key>
+							<string>source.php</string>
+						</dict>
+					</array>
+					<key>name</key>
+					<string>meta.embedded.block.php</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>source.php</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>&lt;\?(?i:php|=)?</string>
+					<key>beginCaptures</key>
+					<array>
+						<dict>
+							<key>name</key>
+							<string>punctuation.section.embedded.begin.php</string>
+						</dict>
+					</array>
+					<key>contentName</key>
+					<string>source.php</string>
+					<key>end</key>
+					<string>(\?)&gt;</string>
+					<key>endCaptures</key>
+					<array>
+						<dict>
+							<key>name</key>
+							<string>punctuation.section.embedded.end.php</string>
+						</dict>
+						<dict>
+							<key>name</key>
+							<string>source.php</string>
+						</dict>
+					</array>
+					<key>name</key>
+					<string>meta.embedded.line.php</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>source.php</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+		</dict>
+	</dict>
 	<key>scopeName</key>
 	<string>text.html.php</string>
 	<key>uuid</key>
