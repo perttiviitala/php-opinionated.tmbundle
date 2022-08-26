@@ -35,8 +35,6 @@ fi
 		-- $TM_FILEPATH 2&gt;&amp;1)
 	code=$?
 	if [[ $code -eq 0 ]]; then
-		# Remove potential gutter marks when no errors.
-		$TM_MATE --clear-mark=$MARK
 		exit
 	fi
 	if [[ $code -ne 1 ]]; then
@@ -44,16 +42,21 @@ fi
 		exit
 	fi
 
-	errors=(); lines=()
+	errors=();
 	for line in ${(@f)message}; do
 		if [[ $line =~ '^[^:]+:([0-9]+):(.*)' ]] &amp;&amp; linenro=$match[1] &amp;&amp; error=$match[2]; then
+			if [[ $error =~ '^Ignored error pattern .* was not matched in reported errors.$' ]]; then
+				continue
+			fi
+
+			$TM_MATE --line=$linenro --set-mark="$MARK:$error"
+
 			# HTML escape.
 			error=${error//&amp;/&amp;amp;}
 			error=${error//&lt;/&amp;lt;}
 			error=${error//&gt;/&amp;gt;}
 
 			errors+=("$(printf '&lt;div class="linenro"&gt;%s&lt;/div&gt;&lt;span&gt;%s&lt;/span&gt;' $linenro $error)")
-			lines+=($linenro)
 			continue
 		fi
 		if [[ $line =~ '^Note: Using configuration|^Used memory:' ]]; then
@@ -62,18 +65,9 @@ fi
 		errors+=($line)
 	done
 
-	# Move cursor to end of the first line with errors.
-	if [[ $lines[1] != $TM_LINE_NUMBER ]]; then
-		open "txmt://open?line=${lines[1]}&amp;column=9999"
+	if [[ ! -z $errors ]]; then
+		$TM_BUNDLE_SUPPORT/bin/tooltip "&lt;strong&gt;PHPStan&lt;/strong&gt;" ${errors}
 	fi
-
-	# Avoid gutter flush by issuing clear and set same time.
-	$TM_MATE \
-		--clear-mark=$MARK --set-mark=$MARK \
-		--line=${(j:,:)lines} \
-		$TM_FILEPATH
-
-	$TM_BUNDLE_SUPPORT/bin/tooltip "&lt;strong&gt;PHPStan&lt;/strong&gt;" ${errors}
 ) &amp;&gt;/dev/null &amp;
 </string>
 	<key>input</key>
