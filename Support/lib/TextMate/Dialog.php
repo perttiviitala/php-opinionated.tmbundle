@@ -110,7 +110,7 @@ class Dialog {
 			escapeshellarg($this->path),
 			escapeshellarg($typed),
 			escapeshellarg('_'),
-			escapeshellarg((new Plist($suggestions))->toJson()),
+			escapeshellarg((new Plist($suggestions))->toOpenStep()),
 		));
 	}
 }

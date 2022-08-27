@@ -4,35 +4,33 @@ declare(strict_types=1);
 
 namespace TextMate;
 
-class Plist {
-	/** @var array<int|string, mixed> */
-	public array $data;
-
-	/** @param array<int|string, mixed> $input */
-	public function __construct(array $input = null) {
-		$this->data = $input ?? [];
+final class Plist {
+	public function __construct(
+		/** @var array<int|string, mixed> */
+		public array $data = []
+	) {
 	}
 
-	public function toJson(): string {
-		return $this->encodeJson($this->data);
+	public function toOpenStep(): string {
+		return $this->encodeOpenStep($this->data);
 	}
 
 	/** @param mixed $input */
-	private function encodeJson($input): string {
+	private function encodeOpenStep($input): string {
 		switch (\gettype($input)) {
 		case 'array':
 			/** @var array<mixed, mixed> $input */
 			if (array_is_list($input)) {
 				$pieces = [];
 				foreach ($input as $value) {
-					$pieces[] = $this->encodeJson($value);
+					$pieces[] = $this->encodeOpenStep($value);
 				}
 				return sprintf('( %s )', implode(', ', $pieces));
 			}
 
 			$pieces = [];
 			foreach ($input as $key => $value) {
-				$pieces[] = sprintf('%s = %s', $key, $this->encodeJson($value));
+				$pieces[] = sprintf('%s = %s', $key, $this->encodeOpenStep($value));
 			}
 			return sprintf('{ %s; }', implode('; ', $pieces));
 		case 'string':
