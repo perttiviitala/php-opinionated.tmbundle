@@ -38,7 +38,7 @@ foreach (new DirectoryIterator(__DIR__.'/../dev/docs/en') as $doc) {
 
 	$dom = new DOMDocument();
 	$dom->loadHTMLFile($doc->getPathname(), \LIBXML_NOERROR);
-	$xpath = new DOMXpath($dom);
+	$xpath = new DOMXPath($dom);
 
 	$xthrow = function (...$args) use ($xpath): DOMNodeList {
 		return $xpath->query(...$args) ?: throw new \RuntimeException('Query failed');
