@@ -7,8 +7,22 @@
 	<key>command</key>
 	<string>#!/usr/bin/env zsh
 
-# FIXME Find a parent directory with .php-cs-fixer.php file
-cd "$TM_PROJECT_DIRECTORY"
+# FIXME Find a parent directory with .php-cs-fixer.php file.
+cd $TM_PROJECT_DIRECTORY
+
+search_path () {
+	if [ -v TM_PHP_CS_FIXER ]; then
+		echo $TM_PHP_CS_FIXER
+		return
+	fi
+	if [ -f vendor/bin/php-cs-fixer ]; then
+		echo vendor/bin/php-cs-fixer
+		return
+	fi
+	which php-cs-fixer
+	return
+}
+binpath=$(search_path)
 
 args=()
 # If configuration contain risky rules, it has been chosen so.
@@ -26,9 +40,10 @@ tmpfile=$(mktemp)
 cat /dev/stdin &gt; $tmpfile
 
 # Trash all output, not very useful.
-output=$(${TM_PHP:-php} ${TM_PHP_CS_FIXER:-php-cs-fixer} fix $args $tmpfile)
+output=$(${TM_PHP:-php} $binpath fix $args -vvv $tmpfile 2&gt;&amp;1)
 if [ $? -gt 0 ]; then
-	$TM_BUNDLE_SUPPORT/bin/tooltip "Error running php-cs-fixer" $output
+	# This will block UI thread and saving file until the tooltip is longer visible.
+	($TM_BUNDLE_SUPPORT/bin/tooltip "Error running php-cs-fixer" $output) &amp;&gt;/dev/null &amp;
 fi
 
 # Replace output with fixed contents.
