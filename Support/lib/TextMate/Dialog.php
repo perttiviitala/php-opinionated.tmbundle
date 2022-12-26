@@ -42,10 +42,6 @@ class Dialog {
 					color: #808080;
 				}
 
-				@keyframes fadeIn {
-					from { opacity: 0; margin-top: 50px; }
-				}
-
 				/* Used by function tooltips */
 				span.initializer  { color: #CE8462; }
 				span.keyword      { color: #D2B780; }
