@@ -126,7 +126,4 @@ foreach (Completion::all() as $completion) {
 
 uksort($all, fn ($a, $b) => strcasecmp($a, $b));
 
-file_put_contents(
-	__DIR__.'/../resources/completions.json',
-	json_encode(array_filter($all), \JSON_PRETTY_PRINT),
-);
+echo json_encode(array_filter($all), \JSON_PRETTY_PRINT);

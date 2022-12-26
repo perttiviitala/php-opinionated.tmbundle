@@ -1,0 +1,118 @@
+#!/usr/bin/env php
+<?php
+
+require __DIR__.'/../vendor/autoload.php';
+
+use TextMate\Formatter\CompactRegexListFormatter;
+use TextMate\Plist;
+
+$sections = [];
+foreach (new DirectoryIterator(__DIR__.'/../dev/docs/en') as $doc) {
+	if ($doc->isDot() || $doc->isDir()) {
+		continue;
+	}
+	$dom = new DOMDocument();
+	$dom->loadHTMLFile($doc->getPathname(), \LIBXML_NOERROR);
+	$xpath = new DOMXPath($dom);
+	$section = array_map(
+		fn ($href) => explode('.', $href->value)[1],
+		array_filter(
+			iterator_to_array($xpath->query("//div[@id='breadcrumbs']//a/@href")),
+			fn ($href) => str_starts_with($href->value, 'ref.')
+		),
+	);
+	if (!$section) {
+		continue;
+	}
+	foreach ($xpath->query("//div[@class='refentry']") as $reference) {
+		$node = $xpath->query("div[contains(@class, 'description')]", $reference)->item(0);
+		foreach ($xpath->query("div[contains(@class, 'dc-description')]", $node) as $synopsis) {
+			$name = $xpath->query("span[@class='methodname']", $synopsis)->item(0)->nodeValue;
+			// skip namespaced functions for now atleast
+			if (strpos($name, '\\')) {
+				continue;
+			}
+			// only include constructor as class completion
+			if (strpos($name, '::')) {
+				if (!strpos($name, '::__construct')) {
+					continue;
+				}
+				$name = strstr($name, '::', true);
+			}
+			$sections[reset($section)][] = $name;
+		}
+	}
+}
+ksort($sections);
+$regexFmt = new CompactRegexListFormatter();
+$patterns = [];
+foreach ($sections as $section => $functions) {
+	$patterns[] = (object) [
+		'match' => $regexFmt->formatIterable($functions),
+		'name' => "support.function.{$section}.php",
+	];
+}
+unset($section);
+unset($regexFmt);
+
+$file = file_get_contents(__DIR__.'/../dev/php.tmLanguage.json');
+if (!$file) {
+	throw new \RuntimeException('php.tmLanguage.json not found');
+}
+
+// Restoring range in documentation.
+// Considering it a bug PHP allows identifiers outside of documented range.
+$file = str_replace('\\\\x{7f}-\\\\x{10ffff}', '\\\\x{7f}-\\\\x{ff}', $file);
+// Restoring whitespace match.
+$file = str_replace('(\\\\s*)', '([^\\\\S\\\\r\\\\n]*)', $file);
+
+/** @var \stdClass */
+$data = json_decode($file);
+
+$data->repository->support->patterns = $patterns;
+
+// Add our variation for opening and closing php tags.
+$insertAt = fn (array &$array, int $position, array $insert) => $array = array_merge(
+	array_slice($array, 0, $position),
+	$insert,
+	array_slice($array, $position, null),
+);
+$insertAt($data->patterns, 2, [
+	(object) [
+		'captures' => (object) [
+			1 => ['name' => 'comment'],
+		],
+		'match' => '^(<\?php)',
+		'name' => 'puncuation.section.embedded.begin.php',
+	],
+	(object) [
+		'captures' => (object) [
+			1 => ['name' => 'invalid.illegal'],
+		],
+		'match' => '(\?>\n?)',
+		'name' => 'puncuation.section.embedded.end.php',
+	],
+]);
+
+$plist = new Plist([
+	'fileTypes' => [],
+	'firstLineMatch' => '<?php',
+	'foldingStartMarker' => "(/\*|\{\s*$)",
+	'foldingStopMarker' => "(\*/|^\s*\})",
+	'keyEquivalent' => '^~P',
+	'name' => 'PHP',
+	'patterns' => $data->patterns,
+	'repository' => $data->repository,
+	'scopeName' => 'source.php',
+	'uuid' => '22986475-8CA5-11D9-AEDD-000D93C8BE28',
+]);
+
+// This is not a safe way to change indentation.
+echo preg_replace_callback(
+	'/>\n(\s+)</',
+	(fn (int $width, int $adjust = 0) => fn ($line) => sprintf(
+		">\n%s<",
+		str_repeat("\t", (strlen($line[1]) - ($width * -$adjust)) / $width),
+	))(2, -1),
+	$plist->toDom()->saveXml(),
+);

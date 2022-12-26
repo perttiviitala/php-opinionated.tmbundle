@@ -6071,15 +6071,15 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bvar_representation\b</string>
-					<key>name</key>
-					<string>support.function.var-representation.php</string>
-				</dict>
-				<dict>
-					<key>match</key>
 					<string>(?i)\b(boolval|debug_zval_dump|empty|floatval|get(_(de(bug_type|fined_vars)|resource_(id|type))|type)|i(ntval|s(_(array|bool|c(allable|ountable)|float|i(nt|terable)|nu(ll|meric)|object|resource|s(calar|tring))|set))|print_r|s(e(rialize|ttype)|trval)|unse(rialize|t)|var_(dump|export))\b</string>
 					<key>name</key>
 					<string>support.function.var.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\bvar_representation\b</string>
+					<key>name</key>
+					<string>support.function.var-representation.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
