@@ -5435,12 +5435,6 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\brandom_(bytes|int)\b</string>
-					<key>name</key>
-					<string>support.function.csprng.php</string>
-				</dict>
-				<dict>
-					<key>match</key>
 					<string>(?i)\bctype_(al(num|pha)|cntrl|digit|graph|lower|p(rint|unct)|space|upper|xdigit)\b</string>
 					<key>name</key>
 					<string>support.function.ctype.php</string>
@@ -5453,7 +5447,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bcurl_(c(lose|opy_handle)|e(rr(no|or)|scape|xec)|getinfo|init|multi_(add_handle|close|e(rrno|xec)|getcontent|in(fo_read|it)|remove_handle|s(e(lect|topt)|trerror))|pause|reset|s(etopt(_array)?|hare_(close|errno|init|s(etopt|trerror))|trerror)|unescape|version)\b</string>
+					<string>(?i)\bcurl_(c(lose|opy_handle)|e(rr(no|or)|scape|xec)|getinfo|init|multi_(add_handle|close|e(rrno|xec)|getcontent|in(fo_read|it)|remove_handle|s(e(lect|topt)|trerror))|pause|reset|s(etopt(_array)?|hare_(close|errno|init|s(etopt|trerror))|trerror)|u(nescape|pkeep)|version)\b</string>
 					<key>name</key>
 					<string>support.function.curl.php</string>
 				</dict>
@@ -5645,7 +5639,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\b(assert(_options)?|cli_(get_process_title|set_process_title)|dl|extension_loaded|g(c_(collect_cycles|disable|enable(d)?|mem_caches|status)|et(_(c(fg_var|urrent_user)|defined_constants|extension_funcs|include(_path|d_files)|loaded_extensions|magic_quotes_(gpc|runtime)|resources)|env|lastmod|my(gid|inode|pid|uid)|opt|rusage))|ini_(get(_all)?|restore|set)|memory_get_(peak_usage|usage)|p(hp(_(ini_(loaded_file|scanned_files)|sapi_name|uname)|credits|info|version)|utenv)|restore_include_path|s(et_(include_path|time_limit)|ys_get_temp_dir)|version_compare|zend_(thread_id|version))\b</string>
+					<string>(?i)\b(assert(_options)?|cli_(get_process_title|set_process_title)|dl|extension_loaded|g(c_(collect_cycles|disable|enable(d)?|mem_caches|status)|et(_(c(fg_var|urrent_user)|defined_constants|extension_funcs|include(_path|d_files)|loaded_extensions|magic_quotes_(gpc|runtime)|resources)|env|lastmod|my(gid|inode|pid|uid)|opt|rusage))|ini_(get(_all)?|parse_quantity|restore|set)|memory_(get_(peak_usage|usage)|reset_peak_usage)|p(hp(_(ini_(loaded_file|scanned_files)|sapi_name|uname)|credits|info|version)|utenv)|restore_include_path|s(et_(include_path|time_limit)|ys_get_temp_dir)|version_compare|zend_(thread_id|version))\b</string>
 					<key>name</key>
 					<string>support.function.info.php</string>
 				</dict>
@@ -5675,7 +5669,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\blibxml_(clear_errors|disable_entity_loader|get_(errors|last_error)|set_(external_entity_loader|streams_context)|use_internal_errors)\b</string>
+					<string>(?i)\blibxml_(clear_errors|disable_entity_loader|get_(e(rrors|xternal_entity_loader)|last_error)|set_(external_entity_loader|streams_context)|use_internal_errors)\b</string>
 					<key>name</key>
 					<string>support.function.libxml.php</string>
 				</dict>
@@ -5699,7 +5693,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\b(a(bs|cos(h)?|sin(h)?|tan(2|h)?)|b(ase_convert|indec)|c(eil|os(h)?)|de(c(bin|hex|oct)|g2rad)|exp(m1)?|f(div|loor|mod)|getrandmax|h(exdec|ypot)|i(ntdiv|s_(finite|infinite|nan))|l(cg_value|og(1(p)?)?)|m(ax|in|t_(getrandmax|rand|srand))|octdec|p(i|ow)|r(a(d2deg|nd)|ound)|s(in(h)?|qrt|rand)|tan(h)?)\b</string>
+					<string>(?i)\b(a(bs|cos(h)?|sin(h)?|tan(2|h)?)|b(ase_convert|indec)|c(eil|os(h)?)|de(c(bin|hex|oct)|g2rad)|exp(m1)?|f(div|loor|mod)|h(exdec|ypot)|i(ntdiv|s_(finite|infinite|nan))|log(1(p)?)?|m(ax|in)|octdec|p(i|ow)|r(ad2deg|ound)|s(in(h)?|qrt)|tan(h)?)\b</string>
 					<key>name</key>
 					<string>support.function.math.php</string>
 				</dict>
@@ -5783,7 +5777,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bopenssl_(c(ipher_iv_length|ms_(decrypt|encrypt|read|sign|verify)|sr_(export(_to_file)?|get_(public_key|subject)|new|sign))|d(ecrypt|h_compute_key|igest)|e(ncrypt|rror_string)|free_key|get_(c(ert_locations|ipher_methods|urve_names)|md_methods)|open|p(bkdf2|k(cs(12_(export(_to_file)?|read)|7_(decrypt|encrypt|read|sign|verify))|ey_(derive|export(_to_file)?|free|get_(details|p(rivate|ublic))|new))|rivate_(decrypt|encrypt)|ublic_(decrypt|encrypt))|random_pseudo_bytes|s(eal|ign|pki_(export(_challenge)?|new|verify))|verify|x509_(check(_private_key|purpose)|export(_to_file)?|f(ingerprint|ree)|parse|read|verify))\b</string>
+					<string>(?i)\bopenssl_(c(ipher_(iv_length|key_length)|ms_(decrypt|encrypt|read|sign|verify)|sr_(export(_to_file)?|get_(public_key|subject)|new|sign))|d(ecrypt|h_compute_key|igest)|e(ncrypt|rror_string)|free_key|get_(c(ert_locations|ipher_methods|urve_names)|md_methods)|open|p(bkdf2|k(cs(12_(export(_to_file)?|read)|7_(decrypt|encrypt|read|sign|verify))|ey_(derive|export(_to_file)?|free|get_(details|p(rivate|ublic))|new))|rivate_(decrypt|encrypt)|ublic_(decrypt|encrypt))|random_pseudo_bytes|s(eal|ign|pki_(export(_challenge)?|new|verify))|verify|x509_(check(_private_key|purpose)|export(_to_file)?|f(ingerprint|ree)|parse|read|verify))\b</string>
 					<key>name</key>
 					<string>support.function.openssl.php</string>
 				</dict>
@@ -5849,6 +5843,12 @@
 				</dict>
 				<dict>
 					<key>match</key>
+					<string>(?i)\b(getrandmax|lcg_value|mt_(getrandmax|rand|srand)|rand(om_(bytes|int))?|srand)\b</string>
+					<key>name</key>
+					<string>support.function.random.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
 					<string>(?i)\brar_wrapper_cache_stats\b</string>
 					<key>name</key>
 					<string>support.function.rar.php</string>
@@ -5864,6 +5864,12 @@
 					<string>(?i)\brecode_(file|string)\b</string>
 					<key>name</key>
 					<string>support.function.recode.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i)\brnp_(backend_(string|version)|d(ecrypt|ump_packets(_to_json)?)|ffi_(create|destroy|set_pass_provider)|import_(keys|signatures)|key_(export(_(autocrypt|revocation))?|get_info|re(move|voke))|l(ist_keys|o(ad_keys(_from_path)?|cate_key))|op_(encrypt|generate_key|sign(_(cleartext|detached))?|verify(_detached)?)|s(ave_keys(_to_path)?|upported_features)|version_string(_full)?)\b</string>
+					<key>name</key>
+					<string>support.function.rnp.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
@@ -5915,13 +5921,19 @@
 				</dict>
 				<dict>
 					<key>match</key>
+					<string>(?i)\bsimdjson_(decode|is_valid|key_(count|exists|value))\b</string>
+					<key>name</key>
+					<string>support.function.simdjson.php</string>
+				</dict>
+				<dict>
+					<key>match</key>
 					<string>(?i)\bsimplexml_(import_dom|load_(file|string))\b</string>
 					<key>name</key>
 					<string>support.function.simplexml.php</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bsnmp(2_(get(next)?|real_walk|set|walk)|3_(get(next)?|real_walk|set|walk)|_(get_(quick_print|valueretrieval)|read_mib|set_(enum_print|oid_(numeric_print|output_format)|quick_print|valueretrieval))|get(next)?|realwalk|set|walk(oid)?)\b</string>
+					<string>(?i)\bsnmp(2_(get(next)?|real_walk|set|walk)|3_(get(next)?|real_walk|set|walk)|_(get_(quick_print|valueretrieval)|read_mib|set_(enum_print|oid_output_format|quick_print|valueretrieval))|get(next)?|realwalk|set|walk(oid)?)\b</string>
 					<key>name</key>
 					<string>support.function.snmp.php</string>
 				</dict>
@@ -5939,7 +5951,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bsodium_(add|b(ase642bin|in2(base64|hex))|c(ompare|rypto_(a(ead_(aes256gcm_(decrypt|encrypt|is_available|keygen)|chacha20poly1305_(decrypt|encrypt|ietf_(decrypt|encrypt|keygen)|keygen)|xchacha20poly1305_ietf_(decrypt|encrypt|keygen))|uth(_(keygen|verify))?)|box(_(keypair(_from_secretkey_and_publickey)?|open|publickey(_from_secretkey)?|se(al(_open)?|cretkey|ed_keypair)))?|core_ristretto255_(add|from_hash|is_valid_point|random|s(calar_(add|complement|invert|mul|negate|r(andom|educe)|sub)|ub))|generichash(_(final|init|keygen|update))?|k(df_(derive_from_key|keygen)|x_(client_session_keys|keypair|publickey|se(cretkey|ed_keypair|rver_session_keys)))|pwhash(_s(cryptsalsa208sha256(_str(_verify)?)?|tr(_(needs_rehash|verify))?))?|s(calarmult(_ristretto255(_base)?)?|ecret(box(_(keygen|open))?|stream_xchacha20poly1305_(init_pu(ll|sh)|keygen|pu(ll|sh)|rekey))|horthash(_keygen)?|ign(_(detached|ed25519_(pk_to_curve25519|sk_to_curve25519)|keypair(_from_secretkey_and_publickey)?|open|publickey(_from_secretkey)?|se(cretkey|ed_keypair)|verify_detached))?|tream(_(keygen|x(chacha2(0_(keygen|xor))?|or)))?)))|hex2bin|increment|mem(cmp|zero)|pad|unpad)\b</string>
+					<string>(?i)\bsodium_(add|b(ase642bin|in2(base64|hex))|c(ompare|rypto_(a(ead_(aes256gcm_(decrypt|encrypt|is_available|keygen)|chacha20poly1305_(decrypt|encrypt|ietf_(decrypt|encrypt|keygen)|keygen)|xchacha20poly1305_ietf_(decrypt|encrypt|keygen))|uth(_(keygen|verify))?)|box(_(keypair(_from_secretkey_and_publickey)?|open|publickey(_from_secretkey)?|se(al(_open)?|cretkey|ed_keypair)))?|core_ristretto255_(add|from_hash|is_valid_point|random|s(calar_(add|complement|invert|mul|negate|r(andom|educe)|sub)|ub))|generichash(_(final|init|keygen|update))?|k(df_(derive_from_key|keygen)|x_(client_session_keys|keypair|publickey|se(cretkey|ed_keypair|rver_session_keys)))|pwhash(_s(cryptsalsa208sha256(_str(_verify)?)?|tr(_(needs_rehash|verify))?))?|s(calarmult(_ristretto255(_base)?)?|ecret(box(_(keygen|open))?|stream_xchacha20poly1305_(init_pu(ll|sh)|keygen|pu(ll|sh)|rekey))|horthash(_keygen)?|ign(_(detached|ed25519_(pk_to_curve25519|sk_to_curve25519)|keypair(_from_secretkey_and_publickey)?|open|publickey(_from_secretkey)?|se(cretkey|ed_keypair)|verify_detached))?|tream(_(keygen|x(chacha2(0_(keygen|xor(_ic)?))?|or)))?)))|hex2bin|increment|mem(cmp|zero)|pad|unpad)\b</string>
 					<key>name</key>
 					<string>support.function.sodium.php</string>
 				</dict>
@@ -6041,7 +6053,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\bodbc_(autocommit|binmode|c(lose(_all)?|o(lumn(privileges|s)|mmit|nnect)|ursor)|data_source|e(rror(msg)?|xec(ute)?)|f(etch_(array|into|object|row)|ield_(len|n(ame|um)|scale|type)|oreignkeys|ree_result)|gettypeinfo|longreadlen|n(ext_result|um_(fields|rows))|p(connect|r(epare|imarykeys|ocedure(columns|s)))|r(esult(_all)?|ollback)|s(etoption|pecialcolumns|tatistics)|table(privileges|s))\b</string>
+					<string>(?i)\bodbc_(autocommit|binmode|c(lose(_all)?|o(lumn(privileges|s)|mmit|nnect(ion_string_(is_quoted|quote|should_quote))?)|ursor)|data_source|e(rror(msg)?|xec(ute)?)|f(etch_(array|into|object|row)|ield_(len|n(ame|um)|scale|type)|oreignkeys|ree_result)|gettypeinfo|longreadlen|n(ext_result|um_(fields|rows))|p(connect|r(epare|imarykeys|ocedure(columns|s)))|r(esult(_all)?|ollback)|s(etoption|pecialcolumns|tatistics)|table(privileges|s))\b</string>
 					<key>name</key>
 					<string>support.function.uodbc.php</string>
 				</dict>
