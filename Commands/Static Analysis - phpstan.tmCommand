@@ -3,37 +3,51 @@
 <plist version="1.0">
 <dict>
 	<key>beforeRunningCommand</key>
-	<string>nop</string>
+	<string>saveActiveFile</string>
 	<key>command</key>
 	<string>#!/usr/bin/env zsh
 
-# Ignore unsaved files.
-if [ -z $TM_FILEPATH ]; then
-	exit
-fi
-
-# FIXME Find a parent directory with phpstan.neon file
+# FIXME Find a parent directory with phpstan.neon file.
 cd $TM_PROJECT_DIRECTORY
 
-# Prevent running with default configuration.
+search_path () {
+	if [ -v TM_PHPSTAN ]; then
+		echo $TM_PHPSTAN
+		return
+	fi
+	if [ -f vendor/bin/phpstan ]; then
+		echo vendor/bin/phpstan
+		return
+	fi
+	which phpstan
+	return
+}
+binpath=$(search_path)
+
+args=()
+args+=(--no-progress)
+args+=(--memory-limit=-1)
+args+=(--error-format=raw)
+args+=(--no-ansi)
+args+=(--verbose)
+
+# Defaulting to bundle rules if no config file found.
 if [ ! -f phpstan.neon ] &amp;&amp; [ ! -f phpstan.neon.dist ]; then
-	echo "Missing phpstan.neon or phpstan.neon.dist file."
-	exit 206
+	args+=(--configuration=${TM_PHPSTAN_CONFIG:-$TM_BUNDLE_SUPPORT/phpstan.neon.dist})
 fi
 
 # Running in background to avoid stalling mainthread.
 (
+	# To support errors ignored in the baseline we cannot use temporary files.
+	# This forces us to save the current document before running.
+	message=$($binpath analyze $args $TM_FILEPATH 2&gt;&amp;1)
+	code=$?
+
 	# Mark has to be a pdf it seems.
 	MARK="${TM_BUNDLE_SUPPORT}/resources/Warning.pdf"
+	# Remove potential previous gutter marks, after phpstan has been run to reduce gutter flash.
+	$TM_MATE --clear-mark=$MARK
 
-	message=$(COLUMNS=105 ${TM_PHPSTAN:-vendor/bin/phpstan} analyze \
-		--no-progress \
-		--memory-limit=-1 \
-		--error-format=raw \
-		--no-ansi \
-		--verbose \
-		-- $TM_FILEPATH 2&gt;&amp;1)
-	code=$?
 	if [[ $code -eq 0 ]]; then
 		exit
 	fi
