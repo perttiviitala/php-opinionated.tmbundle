@@ -18,33 +18,6 @@ if [[ $? -eq 0 ]]; then
 	exit
 fi
 
-# echo $message
-# Attempt to fix unexpected error by inserting symbol to previous line.
-unexpected_ptrn="unexpected( [a-z]+)? ['\"]([^\"']+)['\"].* on line ([0-9]+)"
-if [[ $message =~ $unexpected_ptrn ]] &amp;&amp; line=$(( $match[3] - 1)); then
-	declare -a symbols
-	# If expected symbol is known add it to list first.
-	if [[ $message =~ "expecting ['\"]([^\"']+)['\"]( or ['\"]([^\"']+)['\"])?" ]]; then
-		symbols+=($match[1] $match[3])
-	fi
-	# Rest of symbols to try.
-	symbols+=("," ";")
-
-	for symbol in $symbols; do
-		modified="$(printf '%s' $original | sed -e "${line}s/$/${symbol}/")"
-		printf '%s\n' $modified | ${TM_PHP:-php} -l &gt;/dev/null 2&gt;&amp;1
-		if [[ $? -eq 0 ]]; then
-			printf '%s\n' $modified
-			# Remove potential gutter marks when no errors.
-			$TM_MATE --clear-mark=$MARK
-			# Code 202 stands for to replace document with stdout.
-			# Helper exit_replace_document has an escaping bug with echo.
-			exit 202
-		fi
-	done
-fi
-
-# Unable to fix by inserting expected character to end of the previous line.
 # Tidy up message by removing some extra noise.
 message=${message/ in Standard input code/}
 message=${message/Parse error: syntax error, /}
@@ -83,8 +56,6 @@ $TM_BUNDLE_SUPPORT/bin/tooltip "Syntax error, $(echo $message | head -n 2 | tail
 	<string>toolTip</string>
 	<key>scope</key>
 	<string>source.php,text.html.php</string>
-	<key>semanticClass</key>
-	<string>callback.document.will-save</string>
 	<key>uuid</key>
 	<string>9E6DDCD7-F043-443F-BC1D-F7051B2B50ED</string>
 	<key>version</key>

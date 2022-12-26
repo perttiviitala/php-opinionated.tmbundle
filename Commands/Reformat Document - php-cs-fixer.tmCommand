@@ -39,6 +39,30 @@ fi
 tmpfile=$(mktemp)
 cat /dev/stdin &gt; $tmpfile
 
+# Attempt to fix unexpected error by inserting missing symbol to previous line.
+message=$(${TM_PHP:-php} -l $tmpfile 2&gt; /dev/null)
+unexpected_ptrn="unexpected( [a-z]+)? ['\"]([^\"']+)['\"].* on line ([0-9]+)"
+if [[ $message =~ $unexpected_ptrn ]] &amp;&amp; line=$(($match[3] - 1)); then
+	declare -a symbols
+	# If expected symbol is known add it to list first.
+	if [[ $message =~ "expecting ['\"]([^\"']+)['\"]( or ['\"]([^\"']+)['\"])?" ]]; then
+		symbols+=($match[1] $match[3])
+	fi
+	# Rest of symbols to try.
+	symbols+=("," ";")
+
+	# Loop trough unique symbols.
+	for symbol in ${(u)symbols}; do
+		modified="$(cat $tmpfile | sed -e "${line}s/$/${symbol}\n/")"
+		# Avoid modifying tmpfile unless syntax check passes.
+		printf '%s\n' $modified | ${TM_PHP:-php} -l &gt;/dev/null 2&gt;&amp;1
+		if [[ $? -eq 0 ]]; then
+			printf '%s\n' $modified &gt; $tmpfile
+			break
+		fi
+	done
+fi
+
 # Trash all output, not very useful.
 output=$(${TM_PHP:-php} $binpath fix $args -vvv $tmpfile 2&gt;&amp;1)
 if [ $? -gt 0 ]; then
