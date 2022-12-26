@@ -30,6 +30,9 @@
         "Quote string with slashes",
         "<span class=\"methodname\">addslashes<\/span>(<span class=\"methodparam\"><span class=\"type\">string<\/span> $string<\/span>): <span class=\"type\">string<\/span>"
     ],
+    "AllowDynamicProperties": [
+        "This attribute is used to mark classes that allow dynamic properties."
+    ],
     "apache_child_terminate": [
         "Terminate apache process after this request",
         "<span class=\"methodname\">apache_child_terminate<\/span>(): <span class=\"type\"><span class=\"type void\">void<\/span><\/span>"
@@ -237,7 +240,7 @@
     "array_keys": [
         "Return all the keys or a subset of the keys of an array",
         "<span class=\"methodname\">array_keys<\/span>(<span class=\"methodparam\"><span class=\"type\">array<\/span> $array<\/span>): <span class=\"type\">array<\/span>",
-        "<span class=\"methodname\">array_keys<\/span>(<span class=\"methodparam\"><span class=\"type\">array<\/span> $array<\/span>, <span class=\"methodparam\"><span class=\"type\">mixed<\/span> $search_value<\/span>, <span class=\"methodparam\"><span class=\"type\">bool<\/span> $strict<span class=\"initializer\"> = false<\/span><\/span>): <span class=\"type\">array<\/span>"
+        "<span class=\"methodname\">array_keys<\/span>(<span class=\"methodparam\"><span class=\"type\">array<\/span> $array<\/span>, <span class=\"methodparam\"><span class=\"type\">mixed<\/span> $filter_value<\/span>, <span class=\"methodparam\"><span class=\"type\">bool<\/span> $strict<span class=\"initializer\"> = false<\/span><\/span>): <span class=\"type\">array<\/span>"
     ],
     "array_map": [
         "Applies the callback to the elements of the given arrays",
@@ -402,6 +405,9 @@
     "atanh": [
         "Inverse hyperbolic tangent",
         "<span class=\"methodname\">atanh<\/span>(<span class=\"methodparam\"><span class=\"type\">float<\/span> $num<\/span>): <span class=\"type\">float<\/span>"
+    ],
+    "Attribute": [
+        "Attributes offer the ability to add structured, machine-readable metadata information\non declarations in code: Classes, methods, functions, parameters, properties and\nclass constants can be the target of an attribute. The metadata defined by attributes\ncan then be inspected at runtime using the Reflection APIs. Attributes could\ntherefore be thought of as a configuration language embedded directly into code."
     ],
     "BadFunctionCallException": [
         "Exception thrown if a callback refers to an undefined function or if some arguments\nare missing."
@@ -1357,6 +1363,10 @@
         "Decodes the given URL encoded string",
         "<span class=\"methodname\">curl_unescape<\/span>(<span class=\"methodparam\"><span class=\"type\">CurlHandle<\/span> $handle<\/span>, <span class=\"methodparam\"><span class=\"type\">string<\/span> $string<\/span>): <span class=\"type\"><span class=\"type\">string<\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
     ],
+    "curl_upkeep": [
+        "Performs any connection upkeep checks",
+        "<span class=\"methodname\">curl_upkeep<\/span>(<span class=\"methodparam\"><span class=\"type\">CurlHandle<\/span> $handle<\/span>): <span class=\"type\">bool<\/span>"
+    ],
     "curl_version": [
         "Gets cURL version information",
         "<span class=\"methodname\">curl_version<\/span>(): <span class=\"type\"><span class=\"type\">array<\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
@@ -1806,8 +1816,8 @@
     ],
     "dba_fetch": [
         "Fetch data specified by key",
-        "<span class=\"methodname\">dba_fetch<\/span>(<span class=\"methodparam\"><span class=\"type\">string<\/span> $key<\/span>, <span class=\"methodparam\"><span class=\"type\">resource<\/span> $handle<\/span>): <span class=\"type\">string<\/span>",
-        "<span class=\"methodname\">dba_fetch<\/span>(<span class=\"methodparam\"><span class=\"type\">string<\/span> $key<\/span>, <span class=\"methodparam\"><span class=\"type\">int<\/span> $skip<\/span>, <span class=\"methodparam\"><span class=\"type\">resource<\/span> $handle<\/span>): <span class=\"type\">string<\/span>"
+        "<span class=\"methodname\">dba_fetch<\/span>(<span class=\"methodparam\"><span class=\"type\"><span class=\"type\">string<\/span>|<span class=\"type\">array<\/span><\/span> $key<\/span>, <span class=\"methodparam\"><span class=\"type\">resource<\/span> $dba<\/span>, <span class=\"methodparam\"><span class=\"type\">int<\/span> $skip<span class=\"initializer\"> = 0<\/span><\/span>): <span class=\"type\"><span class=\"type\">string<\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>",
+        "<span class=\"methodname\">dba_fetch<\/span>(<span class=\"methodparam\"><span class=\"type\">string<\/span> $key<\/span>, <span class=\"methodparam\"><span class=\"type\">int<\/span> $skip<\/span>, <span class=\"methodparam\"><span class=\"type\">resource<\/span> $dba<\/span>): <span class=\"type\">string<\/span>"
     ],
     "dba_firstkey": [
         "Fetch first key",
@@ -1835,7 +1845,7 @@
     ],
     "dba_open": [
         "Open database",
-        "<span class=\"methodname\">dba_open<\/span>(\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">string<\/span> $path<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">string<\/span> $mode<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">string<\/span> $handler<span class=\"initializer\"> = ?<\/span><\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">string<\/span> ...$args<\/span>): <span class=\"type\"><span class=\"type\">resource<\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
+        "<span class=\"methodname\">dba_open<\/span>(\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">string<\/span> $path<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">string<\/span> $mode<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">?<\/span><span class=\"type\"><span class=\"type\">string<\/span><span class=\"type\"\/><\/span> $handler<span class=\"initializer\"> = null<\/span><\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">int<\/span> $permission<span class=\"initializer\"> = 0644<\/span><\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">int<\/span> $map_size<span class=\"initializer\"> = 0<\/span><\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">?<\/span><span class=\"type\"><span class=\"type\">int<\/span><span class=\"type\"\/><\/span> $flags<span class=\"initializer\"> = null<\/span><\/span>): <span class=\"type\"><span class=\"type\">resource<\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
     ],
     "dba_optimize": [
         "Optimize database",
@@ -1843,7 +1853,7 @@
     ],
     "dba_popen": [
         "Open database persistently",
-        "<span class=\"methodname\">dba_popen<\/span>(\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">string<\/span> $path<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">string<\/span> $mode<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">string<\/span> $handler<span class=\"initializer\"> = ?<\/span><\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">mixed<\/span> ...$args<\/span>): <span class=\"type\"><span class=\"type\">resource<\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
+        "<span class=\"methodname\">dba_popen<\/span>(\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">string<\/span> $path<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">string<\/span> $mode<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">?<\/span><span class=\"type\"><span class=\"type\">string<\/span><span class=\"type\"\/><\/span> $handler<span class=\"initializer\"> = null<\/span><\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">int<\/span> $permission<span class=\"initializer\"> = 0644<\/span><\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">int<\/span> $map_size<span class=\"initializer\"> = 0<\/span><\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">?<\/span><span class=\"type\"><span class=\"type\">int<\/span><span class=\"type\"\/><\/span> $flags<span class=\"initializer\"> = null<\/span><\/span>): <span class=\"type\"><span class=\"type\">resource<\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
     ],
     "dba_replace": [
         "Replace or insert entry",
@@ -1950,7 +1960,8 @@
         "<span class=\"methodname\">deflate_init<\/span>(<span class=\"methodparam\"><span class=\"type\">int<\/span> $encoding<\/span>, <span class=\"methodparam\"><span class=\"type\">array<\/span> $options<span class=\"initializer\"> = []<\/span><\/span>): <span class=\"type\"><span class=\"type\">DeflateContext<\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
     ],
     "DeflateContext": [
-        "A fully opaque class which replaces zlib.deflate resources as of PHP 8.0.0."
+        "A fully opaque class which replaces zlib.deflate resources as of PHP 8.0.0.",
+        "<span class=\"keyword\">new<\/span> <span class=\"classname\">DeflateContext<\/span>()"
     ],
     "deg2rad": [
         "Converts the number in degrees to the radian equivalent",
@@ -3585,7 +3596,7 @@
     ],
     "fpm_get_status": [
         "Returns the current FPM pool status",
-        "<span class=\"methodname\">fpm_get_status<\/span>(): <span class=\"type\">array<\/span>"
+        "<span class=\"methodname\">fpm_get_status<\/span>(): <span class=\"type\"><span class=\"type\">array<\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
     ],
     "fprintf": [
         "Write a formatted string to a stream",
@@ -4987,7 +4998,7 @@
         "<span class=\"methodname\">iconv_substr<\/span>(\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">string<\/span> $string<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">int<\/span> $offset<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">?<\/span><span class=\"type\"><span class=\"type\">int<\/span><span class=\"type\"\/><\/span> $length<span class=\"initializer\"> = null<\/span><\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">?<\/span><span class=\"type\"><span class=\"type\">string<\/span><span class=\"type\"\/><\/span> $encoding<span class=\"initializer\"> = null<\/span><\/span>): <span class=\"type\"><span class=\"type\">string<\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
     ],
     "idate": [
-        "Format a local time\/date as integer",
+        "Format a local time\/date part as integer",
         "<span class=\"methodname\">idate<\/span>(<span class=\"methodparam\"><span class=\"type\">string<\/span> $format<\/span>, <span class=\"methodparam\"><span class=\"type\">?<\/span><span class=\"type\"><span class=\"type\">int<\/span><span class=\"type\"\/><\/span> $timestamp<span class=\"initializer\"> = null<\/span><\/span>): <span class=\"type\"><span class=\"type\">int<\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
     ],
     "idn_to_ascii": [
@@ -5112,7 +5123,7 @@
     ],
     "imagecolorset": [
         "Set the color for the specified palette index",
-        "<span class=\"methodname\">imagecolorset<\/span>(\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">GdImage<\/span> $image<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">int<\/span> $color<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">int<\/span> $red<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">int<\/span> $green<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">int<\/span> $blue<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">int<\/span> $alpha<span class=\"initializer\"> = 0<\/span><\/span>): <span class=\"type\"><span class=\"type\">?<\/span><span class=\"type\">bool<\/span><\/span>"
+        "<span class=\"methodname\">imagecolorset<\/span>(\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">GdImage<\/span> $image<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">int<\/span> $color<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">int<\/span> $red<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">int<\/span> $green<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">int<\/span> $blue<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">int<\/span> $alpha<span class=\"initializer\"> = 0<\/span><\/span>): <span class=\"type\"><span class=\"type\">?<\/span><span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
     ],
     "imagecolorsforindex": [
         "Get the colors for an index",
@@ -5374,7 +5385,7 @@
         "<span class=\"methodname\">imagerotate<\/span>(\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">GdImage<\/span> $image<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">float<\/span> $angle<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">int<\/span> $background_color<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">bool<\/span> $ignore_transparent<span class=\"initializer\"> = false<\/span><\/span>): <span class=\"type\"><span class=\"type\">GdImage<\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
     ],
     "imagesavealpha": [
-        "Whether to retain full alpha channel information when saving PNG images",
+        "Whether to retain full alpha channel information when saving images",
         "<span class=\"methodname\">imagesavealpha<\/span>(<span class=\"methodparam\"><span class=\"type\">GdImage<\/span> $image<\/span>, <span class=\"methodparam\"><span class=\"type\">bool<\/span> $enable<\/span>): <span class=\"type\">bool<\/span>"
     ],
     "imagescale": [
@@ -5498,11 +5509,11 @@
     ],
     "imap_bodystruct": [
         "Read the structure of a specified body section of a specific message",
-        "<span class=\"methodname\">imap_bodystruct<\/span>(<span class=\"methodparam\"><span class=\"type\">IMAP\\Connection<\/span> $imap<\/span>, <span class=\"methodparam\"><span class=\"type\">int<\/span> $message_num<\/span>, <span class=\"methodparam\"><span class=\"type\">string<\/span> $section<\/span>): <span class=\"type\"><span class=\"type\"><span class=\"type stdClass\">stdClass<\/span><\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
+        "<span class=\"methodname\">imap_bodystruct<\/span>(<span class=\"methodparam\"><span class=\"type\">IMAP\\Connection<\/span> $imap<\/span>, <span class=\"methodparam\"><span class=\"type\">int<\/span> $message_num<\/span>, <span class=\"methodparam\"><span class=\"type\">string<\/span> $section<\/span>): <span class=\"type\"><span class=\"type\">stdClass<\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
     ],
     "imap_check": [
         "Check current mailbox",
-        "<span class=\"methodname\">imap_check<\/span>(<span class=\"methodparam\"><span class=\"type\">IMAP\\Connection<\/span> $imap<\/span>): <span class=\"type\"><span class=\"type\"><span class=\"type stdClass\">stdClass<\/span><\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
+        "<span class=\"methodname\">imap_check<\/span>(<span class=\"methodparam\"><span class=\"type\">IMAP\\Connection<\/span> $imap<\/span>): <span class=\"type\"><span class=\"type\">stdClass<\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
     ],
     "imap_clearflag_full": [
         "Clears flags on messages",
@@ -5550,7 +5561,7 @@
     ],
     "imap_fetchstructure": [
         "Read the structure of a particular message",
-        "<span class=\"methodname\">imap_fetchstructure<\/span>(<span class=\"methodparam\"><span class=\"type\">IMAP\\Connection<\/span> $imap<\/span>, <span class=\"methodparam\"><span class=\"type\">int<\/span> $message_num<\/span>, <span class=\"methodparam\"><span class=\"type\">int<\/span> $flags<span class=\"initializer\"> = 0<\/span><\/span>): <span class=\"type\"><span class=\"type\"><span class=\"type stdClass\">stdClass<\/span><\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
+        "<span class=\"methodname\">imap_fetchstructure<\/span>(<span class=\"methodparam\"><span class=\"type\">IMAP\\Connection<\/span> $imap<\/span>, <span class=\"methodparam\"><span class=\"type\">int<\/span> $message_num<\/span>, <span class=\"methodparam\"><span class=\"type\">int<\/span> $flags<span class=\"initializer\"> = 0<\/span><\/span>): <span class=\"type\"><span class=\"type\">stdClass<\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
     ],
     "imap_gc": [
         "Clears IMAP cache",
@@ -5578,7 +5589,7 @@
     ],
     "imap_headerinfo": [
         "Read the header of the message",
-        "<span class=\"methodname\">imap_headerinfo<\/span>(\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">IMAP\\Connection<\/span> $imap<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">int<\/span> $message_num<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">int<\/span> $from_length<span class=\"initializer\"> = 0<\/span><\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">int<\/span> $subject_length<span class=\"initializer\"> = 0<\/span><\/span>): <span class=\"type\"><span class=\"type\"><span class=\"type stdClass\">stdClass<\/span><\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
+        "<span class=\"methodname\">imap_headerinfo<\/span>(\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">IMAP\\Connection<\/span> $imap<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">int<\/span> $message_num<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">int<\/span> $from_length<span class=\"initializer\"> = 0<\/span><\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">int<\/span> $subject_length<span class=\"initializer\"> = 0<\/span><\/span>): <span class=\"type\"><span class=\"type\">stdClass<\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
     ],
     "imap_headers": [
         "Returns headers for all messages in a mailbox",
@@ -5618,7 +5629,7 @@
     ],
     "imap_mailboxmsginfo": [
         "Get information about the current mailbox",
-        "<span class=\"methodname\">imap_mailboxmsginfo<\/span>(<span class=\"methodparam\"><span class=\"type\">IMAP\\Connection<\/span> $imap<\/span>): <span class=\"type\"><span class=\"type stdClass\">stdClass<\/span><\/span>"
+        "<span class=\"methodname\">imap_mailboxmsginfo<\/span>(<span class=\"methodparam\"><span class=\"type\">IMAP\\Connection<\/span> $imap<\/span>): <span class=\"type\">stdClass<\/span>"
     ],
     "imap_mime_header_decode": [
         "Decode MIME header elements",
@@ -5666,7 +5677,7 @@
     ],
     "imap_rfc822_parse_headers": [
         "Parse mail headers from a string",
-        "<span class=\"methodname\">imap_rfc822_parse_headers<\/span>(<span class=\"methodparam\"><span class=\"type\">string<\/span> $headers<\/span>, <span class=\"methodparam\"><span class=\"type\">string<\/span> $default_hostname<span class=\"initializer\"> = \"UNKNOWN\"<\/span><\/span>): <span class=\"type\"><span class=\"type stdClass\">stdClass<\/span><\/span>"
+        "<span class=\"methodname\">imap_rfc822_parse_headers<\/span>(<span class=\"methodparam\"><span class=\"type\">string<\/span> $headers<\/span>, <span class=\"methodparam\"><span class=\"type\">string<\/span> $default_hostname<span class=\"initializer\"> = \"UNKNOWN\"<\/span><\/span>): <span class=\"type\">stdClass<\/span>"
     ],
     "imap_rfc822_write_address": [
         "Returns a properly formatted email address given the mailbox, host, and personal info",
@@ -5698,7 +5709,7 @@
     ],
     "imap_status": [
         "Returns status information on a mailbox",
-        "<span class=\"methodname\">imap_status<\/span>(<span class=\"methodparam\"><span class=\"type\">IMAP\\Connection<\/span> $imap<\/span>, <span class=\"methodparam\"><span class=\"type\">string<\/span> $mailbox<\/span>, <span class=\"methodparam\"><span class=\"type\">int<\/span> $flags<\/span>): <span class=\"type\"><span class=\"type\"><span class=\"type stdClass\">stdClass<\/span><\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
+        "<span class=\"methodname\">imap_status<\/span>(<span class=\"methodparam\"><span class=\"type\">IMAP\\Connection<\/span> $imap<\/span>, <span class=\"methodparam\"><span class=\"type\">string<\/span> $mailbox<\/span>, <span class=\"methodparam\"><span class=\"type\">int<\/span> $flags<\/span>): <span class=\"type\"><span class=\"type\">stdClass<\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
     ],
     "imap_subscribe": [
         "Subscribe to a mailbox",
@@ -5779,7 +5790,8 @@
         "<span class=\"methodname\">inflate_init<\/span>(<span class=\"methodparam\"><span class=\"type\">int<\/span> $encoding<\/span>, <span class=\"methodparam\"><span class=\"type\">array<\/span> $options<span class=\"initializer\"> = []<\/span><\/span>): <span class=\"type\"><span class=\"type\">InflateContext<\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
     ],
     "InflateContext": [
-        "A fully opaque class which replaces zlib.inflate resources as of PHP 8.0.0."
+        "A fully opaque class which replaces zlib.inflate resources as of PHP 8.0.0.",
+        "<span class=\"keyword\">new<\/span> <span class=\"classname\">InflateContext<\/span>()"
     ],
     "ini_get": [
         "Gets the value of a configuration option",
@@ -5788,6 +5800,10 @@
     "ini_get_all": [
         "Gets all configuration options",
         "<span class=\"methodname\">ini_get_all<\/span>(<span class=\"methodparam\"><span class=\"type\">?<\/span><span class=\"type\"><span class=\"type\">string<\/span><span class=\"type\"\/><\/span> $extension<span class=\"initializer\"> = null<\/span><\/span>, <span class=\"methodparam\"><span class=\"type\">bool<\/span> $details<span class=\"initializer\"> = true<\/span><\/span>): <span class=\"type\"><span class=\"type\">array<\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
+    ],
+    "ini_parse_quantity": [
+        "Get interpreted size from ini shorthand syntax",
+        "<span class=\"methodname\">ini_parse_quantity<\/span>(<span class=\"methodparam\"><span class=\"type\">string<\/span> $shorthand<\/span>): <span class=\"type\">int<\/span>"
     ],
     "ini_restore": [
         "Restores the value of a configuration option",
@@ -5824,6 +5840,9 @@
     "interface_exists": [
         "Checks if the interface has been defined",
         "<span class=\"methodname\">interface_exists<\/span>(<span class=\"methodparam\"><span class=\"type\">string<\/span> $interface<\/span>, <span class=\"methodparam\"><span class=\"type\">bool<\/span> $autoload<span class=\"initializer\"> = true<\/span><\/span>): <span class=\"type\">bool<\/span>"
+    ],
+    "InternalIterator": [
+        "Class to ease implementing IteratorAggregate for internal classes."
     ],
     "intl_error_name": [
         "Get symbolic name for a given error code",
@@ -6040,7 +6059,7 @@
     ],
     "IntlDatePatternGenerator": [
         "Creates a new IntlDatePatternGenerator instance",
-        "<span class=\"keyword\">new<\/span> <span class=\"classname\">IntlDatePatternGenerator<\/span>(<span class=\"methodparam\"><span class=\"type\">string<\/span> $locale<span class=\"initializer\"> = null<\/span><\/span>)"
+        "<span class=\"keyword\">new<\/span> <span class=\"classname\">IntlDatePatternGenerator<\/span>(<span class=\"methodparam\"><span class=\"type\">?<\/span><span class=\"type\"><span class=\"type\">string<\/span><span class=\"type\"\/><\/span> $locale<span class=\"initializer\"> = null<\/span><\/span>)"
     ],
     "IntlException": [
         "This class is used for generating exceptions when errors occur inside intl functions.\nSuch exceptions are only generated when intl.use_exceptions is enabled."
@@ -6180,7 +6199,7 @@
         "<span class=\"methodname\">iptcparse<\/span>(<span class=\"methodparam\"><span class=\"type\">string<\/span> $iptc_block<\/span>): <span class=\"type\"><span class=\"type\">array<\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
     ],
     "is_a": [
-        "Checks if the object is of this class or has this class as one of its parents",
+        "Checks whether the object is of a given type or subtype",
         "<span class=\"methodname\">is_a<\/span>(<span class=\"methodparam\"><span class=\"type\">mixed<\/span> $object_or_class<\/span>, <span class=\"methodparam\"><span class=\"type\">string<\/span> $class<\/span>, <span class=\"methodparam\"><span class=\"type\">bool<\/span> $allow_string<span class=\"initializer\"> = false<\/span><\/span>): <span class=\"type\">bool<\/span>"
     ],
     "is_array": [
@@ -6297,11 +6316,11 @@
     ],
     "iterator_count": [
         "Count the elements in an iterator",
-        "<span class=\"methodname\">iterator_count<\/span>(<span class=\"methodparam\"><span class=\"type\">Traversable<\/span> $iterator<\/span>): <span class=\"type\">int<\/span>"
+        "<span class=\"methodname\">iterator_count<\/span>(<span class=\"methodparam\"><span class=\"type\"><span class=\"type\">Traversable<\/span>|<span class=\"type\">array<\/span><\/span> $iterator<\/span>): <span class=\"type\">int<\/span>"
     ],
     "iterator_to_array": [
         "Copy the iterator into an array",
-        "<span class=\"methodname\">iterator_to_array<\/span>(<span class=\"methodparam\"><span class=\"type\">Traversable<\/span> $iterator<\/span>, <span class=\"methodparam\"><span class=\"type\">bool<\/span> $preserve_keys<span class=\"initializer\"> = true<\/span><\/span>): <span class=\"type\">array<\/span>"
+        "<span class=\"methodname\">iterator_to_array<\/span>(<span class=\"methodparam\"><span class=\"type\"><span class=\"type\">Traversable<\/span>|<span class=\"type\">array<\/span><\/span> $iterator<\/span>, <span class=\"methodparam\"><span class=\"type\">bool<\/span> $preserve_keys<span class=\"initializer\"> = true<\/span><\/span>): <span class=\"type\">array<\/span>"
     ],
     "IteratorIterator": [
         "This iterator wrapper allows the conversion of anything that is Traversable into an\nIterator. It is important to understand that most classes that do not implement\nIterators have reasons as most likely they do not allow the full Iterator feature\nset. If so, techniques should be provided to prevent misuse, otherwise expect\nexceptions or fatal errors.",
@@ -6421,7 +6440,7 @@
     "ldap_connect": [
         "Connect to an LDAP server",
         "<span class=\"methodname\">ldap_connect<\/span>(<span class=\"methodparam\"><span class=\"type\">?<\/span><span class=\"type\"><span class=\"type\">string<\/span><span class=\"type\"\/><\/span> $uri<span class=\"initializer\"> = null<\/span><\/span>): <span class=\"type\"><span class=\"type\">LDAP\\Connection<\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>",
-        "<span class=\"methodname\">ldap_connect<\/span>(<span class=\"methodparam\"><span class=\"type\">?<\/span><span class=\"type\"><span class=\"type\">string<\/span><span class=\"type\"\/><\/span> $uri<span class=\"initializer\"> = null<\/span><\/span>, <span class=\"methodparam\"><span class=\"type\">int<\/span> $port<span class=\"initializer\"> = 389<\/span><\/span>): <span class=\"type\"><span class=\"type\">LDAP\\Connection<\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
+        "<span class=\"methodname\">ldap_connect<\/span>(<span class=\"methodparam\"><span class=\"type\">?<\/span><span class=\"type\"><span class=\"type\">string<\/span><span class=\"type\"\/><\/span> $host<span class=\"initializer\"> = null<\/span><\/span>, <span class=\"methodparam\"><span class=\"type\">int<\/span> $port<span class=\"initializer\"> = 389<\/span><\/span>): <span class=\"type\"><span class=\"type\">LDAP\\Connection<\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
     ],
     "ldap_control_paged_result": [
         "Send LDAP pagination control",
@@ -6645,6 +6664,10 @@
     "libxml_get_errors": [
         "Retrieve array of errors",
         "<span class=\"methodname\">libxml_get_errors<\/span>(): <span class=\"type\">array<\/span>"
+    ],
+    "libxml_get_external_entity_loader": [
+        "Get the current external entity loader",
+        "<span class=\"methodname\">libxml_get_external_entity_loader<\/span>(): <span class=\"type\"><span class=\"type\">?<\/span><span class=\"type\">callable<\/span><\/span>"
     ],
     "libxml_get_last_error": [
         "Retrieve last error from libxml",
@@ -7282,7 +7305,7 @@
     ],
     "Memcached": [
         "Represents a connection to a set of memcached servers.",
-        "<span class=\"keyword\">new<\/span> <span class=\"classname\">Memcached<\/span>(<span class=\"methodparam\"><span class=\"type\">string<\/span> $persistent_id<span class=\"initializer\"> = ?<\/span><\/span>)"
+        "<span class=\"keyword\">new<\/span> <span class=\"classname\">Memcached<\/span>(<span class=\"methodparam\"><span class=\"type\">?<\/span><span class=\"type\"><span class=\"type\">string<\/span><span class=\"type\"\/><\/span> $persistent_id<span class=\"initializer\"> = null<\/span><\/span>)"
     ],
     "MemcachedException": [
         "MemcachedException"
@@ -7294,6 +7317,10 @@
     "memory_get_usage": [
         "Returns the amount of memory allocated to PHP",
         "<span class=\"methodname\">memory_get_usage<\/span>(<span class=\"methodparam\"><span class=\"type\">bool<\/span> $real_usage<span class=\"initializer\"> = false<\/span><\/span>): <span class=\"type\">int<\/span>"
+    ],
+    "memory_reset_peak_usage": [
+        "Reset the peak memory usage",
+        "<span class=\"methodname\">memory_reset_peak_usage<\/span>(): <span class=\"type\"><span class=\"type void\">void<\/span><\/span>"
     ],
     "MessageFormatter": [
         "Constructs a new Message Formatter",
@@ -7767,6 +7794,10 @@
     "mysqli_error_list": [
         "Returns a list of errors from the last command executed",
         "<span class=\"methodname\">mysqli_error_list<\/span>(<span class=\"methodparam\"><span class=\"type\">mysqli<\/span> $mysql<\/span>): <span class=\"type\">array<\/span>"
+    ],
+    "mysqli_execute_query": [
+        "Prepares, binds parameters, and executes SQL statement",
+        "<span class=\"methodname\">mysqli_execute_query<\/span>(<span class=\"methodparam\"><span class=\"type\">mysqli<\/span> $mysql<\/span>, <span class=\"methodparam\"><span class=\"type\">string<\/span> $query<\/span>, <span class=\"methodparam\"><span class=\"type\">?<\/span><span class=\"type\"><span class=\"type\">array<\/span><span class=\"type\"\/><\/span> $params<span class=\"initializer\"> = null<\/span><\/span>): <span class=\"type\"><span class=\"type\">mysqli_result<\/span>|<span class=\"type\">bool<\/span><\/span>"
     ],
     "mysqli_fetch_all": [
         "Fetch all result rows as an associative array, a numeric array, or both",
@@ -8384,7 +8415,7 @@
     ],
     "oci_fetch_object": [
         "Returns the next row from a query as an object",
-        "<span class=\"methodname\">oci_fetch_object<\/span>(<span class=\"methodparam\"><span class=\"type\">resource<\/span> $statement<\/span>, <span class=\"methodparam\"><span class=\"type\">int<\/span> $mode<span class=\"initializer\"> = OCI_ASSOC | OCI_RETURN_NULLS<\/span><\/span>): <span class=\"type\"><span class=\"type\"><span class=\"type stdClass\">stdClass<\/span><\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
+        "<span class=\"methodname\">oci_fetch_object<\/span>(<span class=\"methodparam\"><span class=\"type\">resource<\/span> $statement<\/span>, <span class=\"methodparam\"><span class=\"type\">int<\/span> $mode<span class=\"initializer\"> = OCI_ASSOC | OCI_RETURN_NULLS<\/span><\/span>): <span class=\"type\"><span class=\"type\">stdClass<\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
     ],
     "oci_fetch_row": [
         "Returns the next row from a query as a numeric array",
@@ -8581,6 +8612,18 @@
         "Connect to a datasource",
         "<span class=\"methodname\">odbc_connect<\/span>(\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">string<\/span> $dsn<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">string<\/span> $user<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">string<\/span> $password<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">int<\/span> $cursor_option<span class=\"initializer\"> = SQL_CUR_USE_DRIVER<\/span><\/span>): <span class=\"type\"><span class=\"type\">resource<\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
     ],
+    "odbc_connection_string_is_quoted": [
+        "Determines if an ODBC connection string value is quoted",
+        "<span class=\"methodname\">odbc_connection_string_is_quoted<\/span>(<span class=\"methodparam\"><span class=\"type\">string<\/span> $str<\/span>): <span class=\"type\">bool<\/span>"
+    ],
+    "odbc_connection_string_quote": [
+        "Quotes an ODBC connection string value",
+        "<span class=\"methodname\">odbc_connection_string_quote<\/span>(<span class=\"methodparam\"><span class=\"type\">string<\/span> $str<\/span>): <span class=\"type\">string<\/span>"
+    ],
+    "odbc_connection_string_should_quote": [
+        "Determines if an ODBC connection string value should be quoted",
+        "<span class=\"methodname\">odbc_connection_string_should_quote<\/span>(<span class=\"methodparam\"><span class=\"type\">string<\/span> $str<\/span>): <span class=\"type\">bool<\/span>"
+    ],
     "odbc_cursor": [
         "Get cursorname",
         "<span class=\"methodname\">odbc_cursor<\/span>(<span class=\"methodparam\"><span class=\"type\">resource<\/span> $statement<\/span>): <span class=\"type\"><span class=\"type\">string<\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
@@ -8615,7 +8658,7 @@
     ],
     "odbc_fetch_object": [
         "Fetch a result row as an object",
-        "<span class=\"methodname\">odbc_fetch_object<\/span>(<span class=\"methodparam\"><span class=\"type\">resource<\/span> $statement<\/span>, <span class=\"methodparam\"><span class=\"type\">int<\/span> $row<span class=\"initializer\"> = -1<\/span><\/span>): <span class=\"type\"><span class=\"type\"><span class=\"type stdClass\">stdClass<\/span><\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
+        "<span class=\"methodname\">odbc_fetch_object<\/span>(<span class=\"methodparam\"><span class=\"type\">resource<\/span> $statement<\/span>, <span class=\"methodparam\"><span class=\"type\">int<\/span> $row<span class=\"initializer\"> = -1<\/span><\/span>): <span class=\"type\"><span class=\"type\">stdClass<\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
     ],
     "odbc_fetch_row": [
         "Fetch a row",
@@ -8848,6 +8891,10 @@
     "openssl_cipher_iv_length": [
         "Gets the cipher iv length",
         "<span class=\"methodname\">openssl_cipher_iv_length<\/span>(<span class=\"methodparam\"><span class=\"type\">string<\/span> $cipher_algo<\/span>): <span class=\"type\"><span class=\"type\">int<\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
+    ],
+    "openssl_cipher_key_length": [
+        "Gets the cipher key length",
+        "<span class=\"methodname\">openssl_cipher_key_length<\/span>(<span class=\"methodparam\"><span class=\"type\">string<\/span> $cipher_algo<\/span>): <span class=\"type\"><span class=\"type\">int<\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
     ],
     "openssl_cms_decrypt": [
         "Decrypt a CMS message",
@@ -9148,7 +9195,7 @@
     ],
     "passthru": [
         "Execute an external program and display raw output",
-        "<span class=\"methodname\">passthru<\/span>(<span class=\"methodparam\"><span class=\"type\">string<\/span> $command<\/span>, <span class=\"methodparam\"><span class=\"type\">int<\/span> &$result_code<span class=\"initializer\"> = null<\/span><\/span>): <span class=\"type\"><span class=\"type\">?<\/span><span class=\"type\">bool<\/span><\/span>"
+        "<span class=\"methodname\">passthru<\/span>(<span class=\"methodparam\"><span class=\"type\">string<\/span> $command<\/span>, <span class=\"methodparam\"><span class=\"type\">int<\/span> &$result_code<span class=\"initializer\"> = null<\/span><\/span>): <span class=\"type\"><span class=\"type\">?<\/span><span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
     ],
     "password_algos": [
         "Get available password hashing algorithm IDs",
@@ -10540,11 +10587,11 @@
         "<span class=\"methodname\">rand<\/span>(<span class=\"methodparam\"><span class=\"type\">int<\/span> $min<\/span>, <span class=\"methodparam\"><span class=\"type\">int<\/span> $max<\/span>): <span class=\"type\">int<\/span>"
     ],
     "random_bytes": [
-        "Generates cryptographically secure pseudo-random bytes",
+        "Get cryptographically secure random bytes",
         "<span class=\"methodname\">random_bytes<\/span>(<span class=\"methodparam\"><span class=\"type\">int<\/span> $length<\/span>): <span class=\"type\">string<\/span>"
     ],
     "random_int": [
-        "Generates cryptographically secure pseudo-random integers",
+        "Get a cryptographically secure, uniformly selected integer",
         "<span class=\"methodname\">random_int<\/span>(<span class=\"methodparam\"><span class=\"type\">int<\/span> $min<\/span>, <span class=\"methodparam\"><span class=\"type\">int<\/span> $max<\/span>): <span class=\"type\">int<\/span>"
     ],
     "range": [
@@ -10816,7 +10863,7 @@
     ],
     "register_shutdown_function": [
         "Register a function for execution on shutdown",
-        "<span class=\"methodname\">register_shutdown_function<\/span>(<span class=\"methodparam\"><span class=\"type\">callable<\/span> $callback<\/span>, <span class=\"methodparam\"><span class=\"type\">mixed<\/span> ...$args<\/span>): <span class=\"type\"><span class=\"type\">?<\/span><span class=\"type\">bool<\/span><\/span>"
+        "<span class=\"methodname\">register_shutdown_function<\/span>(<span class=\"methodparam\"><span class=\"type\">callable<\/span> $callback<\/span>, <span class=\"methodparam\"><span class=\"type\">mixed<\/span> ...$args<\/span>): <span class=\"type\"><span class=\"type void\">void<\/span><\/span>"
     ],
     "register_tick_function": [
         "Register a function for execution on each tick",
@@ -10870,6 +10917,9 @@
         "Restores the value of the include_path configuration option",
         "<span class=\"methodname\">restore_include_path<\/span>(): <span class=\"type\"><span class=\"type void\">void<\/span><\/span>"
     ],
+    "ReturnTypeWillChange": [
+        "Most non-final internal methods now require overriding methods to declare a\ncompatible return type, otherwise a deprecated notice is emitted during inheritance\nvalidation. In case the return type cannot be declared for an overriding method due\nto PHP cross-version compatibility concerns, a #[ReturnTypeWillChange] attribute can\nbe added to silence the deprecation notice."
+    ],
     "rewind": [
         "Rewind the position of a file pointer",
         "<span class=\"methodname\">rewind<\/span>(<span class=\"methodparam\"><span class=\"type\">resource<\/span> $stream<\/span>): <span class=\"type\">bool<\/span>"
@@ -10881,6 +10931,137 @@
     "rmdir": [
         "Removes directory",
         "<span class=\"methodname\">rmdir<\/span>(<span class=\"methodparam\"><span class=\"type\">string<\/span> $directory<\/span>, <span class=\"methodparam\"><span class=\"type\">?<\/span><span class=\"type\"><span class=\"type\">resource<\/span><span class=\"type\"\/><\/span> $context<span class=\"initializer\"> = null<\/span><\/span>): <span class=\"type\">bool<\/span>"
+    ],
+    "rnp_backend_string": [
+        "Return cryptographic backend library name",
+        "<span class=\"methodname\">rnp_backend_string<\/span>(): <span class=\"type\">string<\/span>"
+    ],
+    "rnp_backend_version": [
+        "Return cryptographic backend library version",
+        "<span class=\"methodname\">rnp_backend_version<\/span>(): <span class=\"type\">string<\/span>"
+    ],
+    "rnp_decrypt": [
+        "Decrypt PGP message",
+        "<span class=\"methodname\">rnp_decrypt<\/span>(<span class=\"methodparam\"><span class=\"type\">RnpFFI<\/span> $ffi<\/span>, <span class=\"methodparam\"><span class=\"type\">string<\/span> $input<\/span>): <span class=\"type\"><span class=\"type\">string<\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
+    ],
+    "rnp_dump_packets": [
+        "Dump OpenPGP packets stream information in humand-readable format",
+        "<span class=\"methodname\">rnp_dump_packets<\/span>(<span class=\"methodparam\"><span class=\"type\">string<\/span> $input<\/span>, <span class=\"methodparam\"><span class=\"type\">int<\/span> $flags<\/span>): <span class=\"type\"><span class=\"type\">string<\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
+    ],
+    "rnp_dump_packets_to_json": [
+        "Dump OpenPGP packets stream information to the JSON string",
+        "<span class=\"methodname\">rnp_dump_packets_to_json<\/span>(<span class=\"methodparam\"><span class=\"type\">string<\/span> $input<\/span>, <span class=\"methodparam\"><span class=\"type\">int<\/span> $flags<\/span>): <span class=\"type\"><span class=\"type\">string<\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
+    ],
+    "rnp_ffi_create": [
+        "Create the top-level object used for interacting with the library",
+        "<span class=\"methodname\">rnp_ffi_create<\/span>(<span class=\"methodparam\"><span class=\"type\">string<\/span> $pub_format<\/span>, <span class=\"methodparam\"><span class=\"type\">string<\/span> $sec_format<\/span>): <span class=\"type\"><span class=\"type\">RnpFFI<\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
+    ],
+    "rnp_ffi_destroy": [
+        "Destroy the top-level object used for interacting with the library",
+        "<span class=\"methodname\">rnp_ffi_destroy<\/span>(<span class=\"methodparam\"><span class=\"type\">RnpFFI<\/span> $ffi<\/span>): <span class=\"type\"><span class=\"type void\">void<\/span><\/span>"
+    ],
+    "rnp_ffi_set_pass_provider": [
+        "Set password provider callback function",
+        "<span class=\"methodname\">rnp_ffi_set_pass_provider<\/span>(<span class=\"methodparam\"><span class=\"type\">RnpFFI<\/span> $ffi<\/span>, <span class=\"methodparam\"><span class=\"type\">callable<\/span> $password_callback<\/span>): <span class=\"type\">bool<\/span>"
+    ],
+    "rnp_import_keys": [
+        "Import keys from PHP string to the keyring and receive JSON describing new\/updated\nkeys",
+        "<span class=\"methodname\">rnp_import_keys<\/span>(<span class=\"methodparam\"><span class=\"type\">RnpFFI<\/span> $ffi<\/span>, <span class=\"methodparam\"><span class=\"type\">string<\/span> $input<\/span>, <span class=\"methodparam\"><span class=\"type\">int<\/span> $flags<\/span>): <span class=\"type\"><span class=\"type\">string<\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
+    ],
+    "rnp_import_signatures": [
+        "Import standalone signatures to the keyring and receive JSON describing updated keys",
+        "<span class=\"methodname\">rnp_import_signatures<\/span>(<span class=\"methodparam\"><span class=\"type\">RnpFFI<\/span> $ffi<\/span>, <span class=\"methodparam\"><span class=\"type\">string<\/span> $input<\/span>, <span class=\"methodparam\"><span class=\"type\">int<\/span> $flags<\/span>): <span class=\"type\"><span class=\"type\">string<\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
+    ],
+    "rnp_key_export": [
+        "Export a key",
+        "<span class=\"methodname\">rnp_key_export<\/span>(<span class=\"methodparam\"><span class=\"type\">RnpFFI<\/span> $ffi<\/span>, <span class=\"methodparam\"><span class=\"type\">string<\/span> $key_fp<\/span>, <span class=\"methodparam\"><span class=\"type\">int<\/span> $flags<\/span>): <span class=\"type\"><span class=\"type\">string<\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
+    ],
+    "rnp_key_export_autocrypt": [
+        "Export minimal key for autocrypt feature (just 5 packets: key, uid, signature,\nencryption subkey, signature)",
+        "<span class=\"methodname\">rnp_key_export_autocrypt<\/span>(\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">RnpFFI<\/span> $ffi<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">string<\/span> $key_fp<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">string<\/span> $subkey_fp<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">string<\/span> $uid<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">int<\/span> $flags<\/span>): <span class=\"type\"><span class=\"type\">string<\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
+    ],
+    "rnp_key_export_revocation": [
+        "Generate and export primary key revocation signature",
+        "<span class=\"methodname\">rnp_key_export_revocation<\/span>(\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">RnpFFI<\/span> $ffi<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">string<\/span> $key_fp<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">int<\/span> $flags<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">array<\/span> $options<span class=\"initializer\"> = ?<\/span><\/span>): <span class=\"type\"><span class=\"type\">string<\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
+    ],
+    "rnp_key_get_info": [
+        "Get information about the key",
+        "<span class=\"methodname\">rnp_key_get_info<\/span>(<span class=\"methodparam\"><span class=\"type\">RnpFFI<\/span> $ffi<\/span>, <span class=\"methodparam\"><span class=\"type\">string<\/span> $key_fp<\/span>): <span class=\"type\"><span class=\"type\">array<\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
+    ],
+    "rnp_key_remove": [
+        "Remove a key from keyring(s)",
+        "<span class=\"methodname\">rnp_key_remove<\/span>(<span class=\"methodparam\"><span class=\"type\">RnpFFI<\/span> $ffi<\/span>, <span class=\"methodparam\"><span class=\"type\">string<\/span> $key_fp<\/span>, <span class=\"methodparam\"><span class=\"type\">int<\/span> $flags<\/span>): <span class=\"type\">bool<\/span>"
+    ],
+    "rnp_key_revoke": [
+        "Revoke a key or subkey by generating and adding revocation signature",
+        "<span class=\"methodname\">rnp_key_revoke<\/span>(\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">RnpFFI<\/span> $ffi<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">string<\/span> $key_fp<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">int<\/span> $flags<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">array<\/span> $options<span class=\"initializer\"> = ?<\/span><\/span>): <span class=\"type\">bool<\/span>"
+    ],
+    "rnp_list_keys": [
+        "Enumerate all keys present in a keyring by specified identifer type",
+        "<span class=\"methodname\">rnp_list_keys<\/span>(<span class=\"methodparam\"><span class=\"type\">RnpFFI<\/span> $ffi<\/span>, <span class=\"methodparam\"><span class=\"type\">string<\/span> $identifier_type<\/span>): <span class=\"type\"><span class=\"type\">array<\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
+    ],
+    "rnp_load_keys": [
+        "Load keys from PHP string",
+        "<span class=\"methodname\">rnp_load_keys<\/span>(\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">RnpFFI<\/span> $ffi<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">string<\/span> $format<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">string<\/span> $input<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">int<\/span> $flags<\/span>): <span class=\"type\">bool<\/span>"
+    ],
+    "rnp_load_keys_from_path": [
+        "Load keys from specified path",
+        "<span class=\"methodname\">rnp_load_keys_from_path<\/span>(\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">RnpFFI<\/span> $ffi<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">string<\/span> $format<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">string<\/span> $input_path<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">int<\/span> $flags<\/span>): <span class=\"type\">bool<\/span>"
+    ],
+    "rnp_locate_key": [
+        "Search for the key",
+        "<span class=\"methodname\">rnp_locate_key<\/span>(<span class=\"methodparam\"><span class=\"type\">RnpFFI<\/span> $ffi<\/span>, <span class=\"methodparam\"><span class=\"type\">string<\/span> $identifier_type<\/span>, <span class=\"methodparam\"><span class=\"type\">string<\/span> $identifier<\/span>): <span class=\"type\"><span class=\"type\">string<\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
+    ],
+    "rnp_op_encrypt": [
+        "Encrypt message",
+        "<span class=\"methodname\">rnp_op_encrypt<\/span>(\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">RnpFFI<\/span> $ffi<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">string<\/span> $message<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">array<\/span> $recipient_keys_fp<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">array<\/span> $options<span class=\"initializer\"> = ?<\/span><\/span>): <span class=\"type\"><span class=\"type\">string<\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
+    ],
+    "rnp_op_generate_key": [
+        "Generate key",
+        "<span class=\"methodname\">rnp_op_generate_key<\/span>(\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">RnpFFI<\/span> $ffi<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">string<\/span> $userid<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">string<\/span> $key_alg<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">string<\/span> $sub_alg<span class=\"initializer\"> = ?<\/span><\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">array<\/span> $options<span class=\"initializer\"> = ?<\/span><\/span>): <span class=\"type\"><span class=\"type\">string<\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
+    ],
+    "rnp_op_sign": [
+        "Perform signing operation on a binary data, return embedded signature(s)",
+        "<span class=\"methodname\">rnp_op_sign<\/span>(\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">RnpFFI<\/span> $ffi<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">string<\/span> $data<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">array<\/span> $keys_fp<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">array<\/span> $options<span class=\"initializer\"> = ?<\/span><\/span>): <span class=\"type\"><span class=\"type\">string<\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
+    ],
+    "rnp_op_sign_cleartext": [
+        "Perform signing operation on a textual data, return cleartext signed message",
+        "<span class=\"methodname\">rnp_op_sign_cleartext<\/span>(\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">RnpFFI<\/span> $ffi<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">string<\/span> $data<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">array<\/span> $keys_fp<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">array<\/span> $options<span class=\"initializer\"> = ?<\/span><\/span>): <span class=\"type\"><span class=\"type\">string<\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
+    ],
+    "rnp_op_sign_detached": [
+        "Perform signing operation, return detached signature(s)",
+        "<span class=\"methodname\">rnp_op_sign_detached<\/span>(\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">RnpFFI<\/span> $ffi<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">string<\/span> $data<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">array<\/span> $keys_fp<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">array<\/span> $options<span class=\"initializer\"> = ?<\/span><\/span>): <span class=\"type\"><span class=\"type\">string<\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
+    ],
+    "rnp_op_verify": [
+        "Verify embedded or cleartext signatures",
+        "<span class=\"methodname\">rnp_op_verify<\/span>(<span class=\"methodparam\"><span class=\"type\">RnpFFI<\/span> $ffi<\/span>, <span class=\"methodparam\"><span class=\"type\">string<\/span> $data<\/span>): <span class=\"type\"><span class=\"type\">array<\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
+    ],
+    "rnp_op_verify_detached": [
+        "Verify detached signatures",
+        "<span class=\"methodname\">rnp_op_verify_detached<\/span>(<span class=\"methodparam\"><span class=\"type\">RnpFFI<\/span> $ffi<\/span>, <span class=\"methodparam\"><span class=\"type\">string<\/span> $data<\/span>, <span class=\"methodparam\"><span class=\"type\">string<\/span> $signature<\/span>): <span class=\"type\"><span class=\"type\">array<\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
+    ],
+    "rnp_save_keys": [
+        "Save keys to PHP string",
+        "<span class=\"methodname\">rnp_save_keys<\/span>(\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">RnpFFI<\/span> $ffi<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">string<\/span> $format<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">string<\/span> &$output<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">int<\/span> $flags<\/span>): <span class=\"type\">bool<\/span>"
+    ],
+    "rnp_save_keys_to_path": [
+        "Save keys to specified path",
+        "<span class=\"methodname\">rnp_save_keys_to_path<\/span>(\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">RnpFFI<\/span> $ffi<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">string<\/span> $format<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">string<\/span> $output_path<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">int<\/span> $flags<\/span>): <span class=\"type\">bool<\/span>"
+    ],
+    "rnp_supported_features": [
+        "Get supported features in JSON format",
+        "<span class=\"methodname\">rnp_supported_features<\/span>(<span class=\"methodparam\"><span class=\"type\">string<\/span> $type<\/span>): <span class=\"type\"><span class=\"type\">string<\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
+    ],
+    "rnp_version_string": [
+        "RNP library version",
+        "<span class=\"methodname\">rnp_version_string<\/span>(): <span class=\"type\">string<\/span>"
+    ],
+    "rnp_version_string_full": [
+        "Full version string of RNP library",
+        "<span class=\"methodname\">rnp_version_string_full<\/span>(): <span class=\"type\">string<\/span>"
+    ],
+    "RnpFFI": [
+        "RnpFFI"
     ],
     "round": [
         "Rounds a float",
@@ -11125,6 +11306,9 @@
         "Remove a semaphore",
         "<span class=\"methodname\">sem_remove<\/span>(<span class=\"methodparam\"><span class=\"type\">SysvSemaphore<\/span> $semaphore<\/span>): <span class=\"type\">bool<\/span>"
     ],
+    "SensitiveParameter": [
+        "This attribute is used to mark a parameter that is sensitive and should have its\nvalue redacted if present in a stack trace."
+    ],
     "serialize": [
         "Generates a storable representation of a value",
         "<span class=\"methodname\">serialize<\/span>(<span class=\"methodparam\"><span class=\"type\">mixed<\/span> $value<\/span>): <span class=\"type\">string<\/span>"
@@ -11328,6 +11512,32 @@
         "Shuffle an array",
         "<span class=\"methodname\">shuffle<\/span>(<span class=\"methodparam\"><span class=\"type\">array<\/span> &$array<\/span>): <span class=\"type\">bool<\/span>"
     ],
+    "simdjson_decode": [
+        "Decodes a JSON string",
+        "<span class=\"methodname\">simdjson_decode<\/span>(<span class=\"methodparam\"><span class=\"type\">string<\/span> $json<\/span>, <span class=\"methodparam\"><span class=\"type\">bool<\/span> $associative<span class=\"initializer\"> = false<\/span><\/span>, <span class=\"methodparam\"><span class=\"type\">int<\/span> $depth<span class=\"initializer\"> = 512<\/span><\/span>): <span class=\"type\">mixed<\/span>"
+    ],
+    "simdjson_is_valid": [
+        "Check if a JSON string is valid",
+        "<span class=\"methodname\">simdjson_is_valid<\/span>(<span class=\"methodparam\"><span class=\"type\">string<\/span> $json<span class=\"initializer\"> = false<\/span><\/span>, <span class=\"methodparam\"><span class=\"type\">int<\/span> $depth<span class=\"initializer\"> = 512<\/span><\/span>): <span class=\"type\">bool<\/span>"
+    ],
+    "simdjson_key_count": [
+        "Returns the value at a JSON pointer.",
+        "<span class=\"methodname\">simdjson_key_count<\/span>(\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">string<\/span> $json<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">string<\/span> $key<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">int<\/span> $depth<span class=\"initializer\"> = 512<\/span><\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">bool<\/span> $throw_if_uncountable<span class=\"initializer\"> = false<\/span><\/span>): <span class=\"type\">int<\/span>"
+    ],
+    "simdjson_key_exists": [
+        "Check if the JSON contains the value referred to by a JSON pointer.",
+        "<span class=\"methodname\">simdjson_key_exists<\/span>(<span class=\"methodparam\"><span class=\"type\">string<\/span> $json<\/span>, <span class=\"methodparam\"><span class=\"type\">string<\/span> $key<\/span>, <span class=\"methodparam\"><span class=\"type\">int<\/span> $depth<span class=\"initializer\"> = ?<\/span><\/span>): <span class=\"type\">bool<\/span>"
+    ],
+    "simdjson_key_value": [
+        "Decodes the value of a JSON string located at the requested JSON pointer.",
+        "<span class=\"methodname\">simdjson_key_value<\/span>(\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">string<\/span> $json<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">string<\/span> $key<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">bool<\/span> $associative<span class=\"initializer\"> = false<\/span><\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">int<\/span> $depth<span class=\"initializer\"> = 512<\/span><\/span>): <span class=\"type\">mixed<\/span>"
+    ],
+    "SimdJsonException": [
+        "Exception thrown if simdjson_decode(), simdjson_key_count(), simdjson_key_exists(),\nor simdjson_key_value(). For possible values see the simdjson error codes constants."
+    ],
+    "SimdJsonValueError": [
+        "A SimdJsonValueError is thrown when the type of an argument to a function from\nsimdjson is correct but the value of it is incorrect. E.g. when the JSON decoding\n$depth is not positive or the $depth is too large."
+    ],
     "similar_text": [
         "Calculate the similarity between two strings",
         "<span class=\"methodname\">similar_text<\/span>(<span class=\"methodparam\"><span class=\"type\">string<\/span> $string1<\/span>, <span class=\"methodparam\"><span class=\"type\">string<\/span> $string2<\/span>, <span class=\"methodparam\"><span class=\"type\">float<\/span> &$percent<span class=\"initializer\"> = null<\/span><\/span>): <span class=\"type\">int<\/span>"
@@ -11422,10 +11632,6 @@
     "snmp_set_enum_print": [
         "Return all values that are enums with their enum value instead of the raw integer",
         "<span class=\"methodname\">snmp_set_enum_print<\/span>(<span class=\"methodparam\"><span class=\"type\">bool<\/span> $enable<\/span>): <span class=\"type\">bool<\/span>"
-    ],
-    "snmp_set_oid_numeric_print": [
-        "Set the OID output format",
-        "<span class=\"methodname\">snmp_set_oid_numeric_print<\/span>(<span class=\"methodparam\"><span class=\"type\">int<\/span> $format<\/span>): <span class=\"type\">bool<\/span>"
     ],
     "snmp_set_oid_output_format": [
         "Set the OID output format",
@@ -12021,6 +12227,10 @@
         "Encrypts a message using a nonce and a secret key (no authentication)",
         "<span class=\"methodname\">sodium_crypto_stream_xchacha20_xor<\/span>(<span class=\"methodparam\"><span class=\"type\">string<\/span> $message<\/span>, <span class=\"methodparam\"><span class=\"type\">string<\/span> $nonce<\/span>, <span class=\"methodparam\"><span class=\"type\">string<\/span> $key<\/span>): <span class=\"type\">string<\/span>"
     ],
+    "sodium_crypto_stream_xchacha20_xor_ic": [
+        "Encrypts a message using a nonce and a secret key (no authentication)",
+        "<span class=\"methodname\">sodium_crypto_stream_xchacha20_xor_ic<\/span>(\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">string<\/span> $message<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">string<\/span> $nonce<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">int<\/span> $counter<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">string<\/span> $key<\/span>): <span class=\"type\">string<\/span>"
+    ],
     "sodium_crypto_stream_xor": [
         "Encrypt a message without authentication",
         "<span class=\"methodname\">sodium_crypto_stream_xor<\/span>(<span class=\"methodparam\"><span class=\"type\">string<\/span> $message<\/span>, <span class=\"methodparam\"><span class=\"type\">string<\/span> $nonce<\/span>, <span class=\"methodparam\"><span class=\"type\">string<\/span> $key<\/span>): <span class=\"type\">string<\/span>"
@@ -12497,7 +12707,7 @@
     ],
     "ssh2_shell": [
         "Request an interactive shell",
-        "<span class=\"methodname\">ssh2_shell<\/span>(\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">resource<\/span> $session<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">string<\/span> $term_type<span class=\"initializer\"> = \"vanilla\"<\/span><\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">?<\/span><span class=\"type\"><span class=\"type\">array<\/span><span class=\"type\"\/><\/span> $env<span class=\"initializer\"> = null<\/span><\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">int<\/span> $width<span class=\"initializer\"> = 80<\/span><\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">int<\/span> $height<span class=\"initializer\"> = 25<\/span><\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">int<\/span> $width_height_type<span class=\"initializer\"> = SSH2_TERM_UNIT_CHARS<\/span><\/span>): <span class=\"type\"><span class=\"type\">resource<\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
+        "<span class=\"methodname\">ssh2_shell<\/span>(\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">resource<\/span> $session<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">string<\/span> $termtype<span class=\"initializer\"> = \"vanilla\"<\/span><\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">?<\/span><span class=\"type\"><span class=\"type\">array<\/span><span class=\"type\"\/><\/span> $env<span class=\"initializer\"> = null<\/span><\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">int<\/span> $width<span class=\"initializer\"> = 80<\/span><\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">int<\/span> $height<span class=\"initializer\"> = 25<\/span><\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">int<\/span> $width_height_type<span class=\"initializer\"> = SSH2_TERM_UNIT_CHARS<\/span><\/span>): <span class=\"type\"><span class=\"type\">resource<\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
     ],
     "ssh2_tunnel": [
         "Open a tunnel through a remote server",
@@ -12782,6 +12992,9 @@
     "stats_variance": [
         "Returns the variance",
         "<span class=\"methodname\">stats_variance<\/span>(<span class=\"methodparam\"><span class=\"type\">array<\/span> $a<\/span>, <span class=\"methodparam\"><span class=\"type\">bool<\/span> $sample<span class=\"initializer\"> = false<\/span><\/span>): <span class=\"type\">float<\/span>"
+    ],
+    "stdClass": [
+        "A generic empty class with dynamic properties."
     ],
     "Stomp": [
         "Represents a connection between PHP and a Stomp compliant Message Broker.",
@@ -13756,7 +13969,7 @@
         "<span class=\"methodname\">timezone_location_get<\/span>(<span class=\"methodparam\"><span class=\"type\">DateTimeZone<\/span> $object<\/span>): <span class=\"type\"><span class=\"type\">array<\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
     ],
     "timezone_name_from_abbr": [
-        "Returns the timezone name from abbreviation",
+        "Returns a timezone name by guessing from abbreviation and UTC offset",
         "<span class=\"methodname\">timezone_name_from_abbr<\/span>(<span class=\"methodparam\"><span class=\"type\">string<\/span> $abbr<\/span>, <span class=\"methodparam\"><span class=\"type\">int<\/span> $utcOffset<span class=\"initializer\"> = -1<\/span><\/span>, <span class=\"methodparam\"><span class=\"type\">int<\/span> $isDST<span class=\"initializer\"> = -1<\/span><\/span>): <span class=\"type\"><span class=\"type\">string<\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
     ],
     "timezone_name_get": [
@@ -15113,7 +15326,7 @@
         "<span class=\"methodname\">xdiff_file_diff<\/span>(\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">string<\/span> $old_file<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">string<\/span> $new_file<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">string<\/span> $dest<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">int<\/span> $context<span class=\"initializer\"> = 3<\/span><\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">bool<\/span> $minimal<span class=\"initializer\"> = false<\/span><\/span>): <span class=\"type\">bool<\/span>"
     ],
     "xdiff_file_diff_binary": [
-        "Alias of xdiff_file_bdiff",
+        "Alias of xdiff_file_bdiff()",
         "<span class=\"methodname\">xdiff_file_diff_binary<\/span>(<span class=\"methodparam\"><span class=\"type\">string<\/span> $old_file<\/span>, <span class=\"methodparam\"><span class=\"type\">string<\/span> $new_file<\/span>, <span class=\"methodparam\"><span class=\"type\">string<\/span> $dest<\/span>): <span class=\"type\">bool<\/span>"
     ],
     "xdiff_file_merge3": [
@@ -15125,7 +15338,7 @@
         "<span class=\"methodname\">xdiff_file_patch<\/span>(\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">string<\/span> $file<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">string<\/span> $patch<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">string<\/span> $dest<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">int<\/span> $flags<span class=\"initializer\"> = DIFF_PATCH_NORMAL<\/span><\/span>): <span class=\"type\">mixed<\/span>"
     ],
     "xdiff_file_patch_binary": [
-        "Alias of xdiff_file_bpatch",
+        "Alias of xdiff_file_bpatch()",
         "<span class=\"methodname\">xdiff_file_patch_binary<\/span>(<span class=\"methodparam\"><span class=\"type\">string<\/span> $file<\/span>, <span class=\"methodparam\"><span class=\"type\">string<\/span> $patch<\/span>, <span class=\"methodparam\"><span class=\"type\">string<\/span> $dest<\/span>): <span class=\"type\">bool<\/span>"
     ],
     "xdiff_file_rabdiff": [
@@ -15157,7 +15370,7 @@
         "<span class=\"methodname\">xdiff_string_patch<\/span>(\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">string<\/span> $str<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">string<\/span> $patch<\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">int<\/span> $flags<span class=\"initializer\"> = ?<\/span><\/span>,\u00a0\u00a0\u00a0\u00a0<span class=\"methodparam\"><span class=\"type\">string<\/span> &$error<span class=\"initializer\"> = ?<\/span><\/span>): <span class=\"type\">string<\/span>"
     ],
     "xdiff_string_patch_binary": [
-        "Alias of xdiff_string_bpatch",
+        "Alias of xdiff_string_bpatch()",
         "<span class=\"methodname\">xdiff_string_patch_binary<\/span>(<span class=\"methodparam\"><span class=\"type\">string<\/span> $str<\/span>, <span class=\"methodparam\"><span class=\"type\">string<\/span> $patch<\/span>): <span class=\"type\">string<\/span>"
     ],
     "xhprof_disable": [
@@ -15264,11 +15477,13 @@
         "Set up unparsed entity declaration handler",
         "<span class=\"methodname\">xml_set_unparsed_entity_decl_handler<\/span>(<span class=\"methodparam\"><span class=\"type\">XMLParser<\/span> $parser<\/span>, <span class=\"methodparam\"><span class=\"type\">callable<\/span> $handler<\/span>): <span class=\"type\">bool<\/span>"
     ],
-    "XmlParser": [
-        "A fully opaque class which replaces xml resources as of PHP 8.0.0."
+    "XMLParser": [
+        "A fully opaque class which replaces xml resources as of PHP 8.0.0.",
+        "<span class=\"keyword\">new<\/span> <span class=\"classname\">XMLParser<\/span>()"
     ],
     "XMLReader": [
-        "The XMLReader extension is an XML Pull parser. The reader acts as a cursor going\nforward on the document stream and stopping at each node on the way."
+        "The XMLReader extension is an XML Pull parser. The reader acts as a cursor going\nforward on the document stream and stopping at each node on the way.",
+        "<span class=\"keyword\">new<\/span> <span class=\"classname\">XMLReader<\/span>()"
     ],
     "xmlrpc_decode": [
         "Decodes XML into native PHP types",
@@ -15327,7 +15542,8 @@
         "<span class=\"methodname\">xmlrpc_set_type<\/span>(<span class=\"methodparam\"><span class=\"type\">string<\/span> &$value<\/span>, <span class=\"methodparam\"><span class=\"type\">string<\/span> $type<\/span>): <span class=\"type\">bool<\/span>"
     ],
     "XMLWriter": [
-        "XMLWriter"
+        "Construct a new XMLWriter instance",
+        "<span class=\"keyword\">new<\/span> <span class=\"classname\">XMLWriter<\/span>()"
     ],
     "xmlwriter_end_attribute": [
         "End attribute",
@@ -15798,7 +16014,8 @@
         "<span class=\"methodname\">zip_read<\/span>(<span class=\"methodparam\"><span class=\"type\">resource<\/span> $zip<\/span>): <span class=\"type\"><span class=\"type\">resource<\/span>|<span class=\"type\"><span class=\"type false\">false<\/span><\/span><\/span>"
     ],
     "ZipArchive": [
-        "A file archive, compressed with Zip."
+        "A file archive, compressed with Zip.",
+        "<span class=\"keyword\">new<\/span> <span class=\"classname\">ZipArchive<\/span>()"
     ],
     "zlib_decode": [
         "Uncompress any raw\/gzip\/zlib encoded data",
