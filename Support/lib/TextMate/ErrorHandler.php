@@ -112,7 +112,6 @@ class ErrorHandler {
 		static $counter = 0;
 		if (++$counter >= ($_SERVER['TM_PHP_ERROR_LIMIT'] ?? 5)) {
 			trigger_error('Limiting errors to 5, stopping execution', \E_USER_ERROR);
-			exit(1);
 		}
 	}
 }

@@ -15,8 +15,7 @@ final class Plist {
 		return $this->encodeOpenStep($this->data);
 	}
 
-	/** @param mixed $input */
-	private function encodeOpenStep($input): string {
+	private function encodeOpenStep(mixed $input): string {
 		switch (\gettype($input)) {
 		case 'array':
 			/** @var array<mixed, mixed> $input */
@@ -67,17 +66,18 @@ final class Plist {
 		return $dom;
 	}
 
-	/** @param mixed $input */
-	private function encodeXml(\DOMNode $node, $input) {
+	private function encodeXml(\DOMNode $node, mixed $input): \DOMNode {
 		switch (\gettype($input)) {
 		case 'object':
 			$dict = $node->ownerDocument->createElement('dict');
 			foreach ($input as $key => $value) {
+				/** @var int|string $key */
 				$dict->appendChild($node->ownerDocument->createElement('key', (string) $key));
 				$dict->appendChild($this->encodeXml($node, $value));
 			}
 			return $node->appendChild($dict);
 		case 'array':
+			/** @var array<int|string,mixed> $input */
 			if (!array_is_list($input)) {
 				return $this->encodeXml($node, (object) $input);
 			}
