@@ -28,6 +28,7 @@ return (new PhpCsFixer\Config())
 		'phpdoc_to_comment' => false,
 		'TextMate/switch_indent' => true,
 	])
+	->setRiskyAllowed(true)
 	->setFinder(
 		PhpCsFixer\Finder::create()
 			->exclude('vendor')

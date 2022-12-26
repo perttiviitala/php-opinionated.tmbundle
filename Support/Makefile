@@ -9,7 +9,7 @@ TARGETS := resources/completions.json
 all: $(TARGETS)
 
 clean:
-	@rm -rf dev/docs composer.phar
+	@rm -rf dev/docs
 
 dev/docs:
 	@mkdir -p dev/docs
@@ -23,10 +23,11 @@ ${addprefix dev/docs/, ${LANGS}}: dev/docs
 resources/completions.json: dev/docs/en vendor/autoload.php
 	@bin/generate-completions
 
-composer.phar:
-	@php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-	@php -r "if (hash_file('sha384', 'composer-setup.php') === '906a84df04cea2aa72f40b5f787e49f22d4c2f19492ac310e8cba5b96ac8b64115ac402c8cd292b8a03482574915d1a8') exit(0); echo 'Installer corrupt' . PHP_EOL; unlink('composer-setup.php'); exit(1);"
-	@php composer-setup.php --version=2.2.x && rm composer-setup.php
+vendor/autoload.php: composer.json composer.lock
+	@composer install
 
-vendor/autoload.php: composer.phar
-	@php composer.phar install
+dev/functions.json: dev/docs/en
+	@php dev/generate-new.php
+
+dev/php.tmLanguage.json:
+	curl https://raw.githubusercontent.com/microsoft/vscode/main/extensions/php/syntaxes/php.tmLanguage.json > $@

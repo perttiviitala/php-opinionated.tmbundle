@@ -5,7 +5,7 @@
     "license": "BSD-2-Clause",
     "autoload": {
         "psr-4": {
-            "TextMate\\": "lib/"
+            "TextMate\\": "lib/TextMate/"
         }
     },
     "authors": [

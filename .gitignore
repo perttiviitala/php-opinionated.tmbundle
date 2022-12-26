@@ -1,3 +1,4 @@
 /Support/dev/docs
+/Support/dev/php.tmLanguage.json
 /Support/vendor
-/Support/composer.phar
+/Support/.php-cs-fixer.cache
