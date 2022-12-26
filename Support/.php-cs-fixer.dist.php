@@ -1,7 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
+// FIXME Manual require should not be needed?
+require_once __DIR__.'/lib/TextMate/Formatter/AbstractFormatter.php';
+require_once __DIR__.'/lib/TextMate/Formatter/SwitchIndentFixer.php';
+
 return (new PhpCsFixer\Config())
 	->setIndent("\t")
+	->registerCustomFixers([
+		new TextMate\Formatter\SwitchIndentFixer(),
+	])
 	->setRules([
 		'@Symfony' => true,
 		'@Symfony:risky' => true,
@@ -17,6 +26,7 @@ return (new PhpCsFixer\Config())
 		],
 		'blank_line_before_statement' => [],
 		'phpdoc_to_comment' => false,
+		'TextMate/switch_indent' => true,
 	])
 	->setFinder(
 		PhpCsFixer\Finder::create()
