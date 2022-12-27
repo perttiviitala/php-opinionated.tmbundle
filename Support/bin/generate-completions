@@ -27,8 +27,15 @@ class Completion {
 	}
 }
 
+$removeWhitespace = fn (string $string) => str_replace([
+	"\xC2\xA0",     // NO-BREAK SPACE
+	"\xE2\x80\xAF", // NARROW NO-BREAK SPACE
+	"\xEF\xBB\x8B", // ZERO WIDTH SPACE
+	"\xEF\xBB\xBF", // ZERO WIDTH NO-BREAK SPACE
+], '', $string);
+
 $trimWhitespace = fn (string $string) => $string
-	? (string) preg_replace("/\n\\s+|\\s{2,}/", ' ', trim($string))
+	? (string) preg_replace("/\n\\s+|\\s{2,}/", ' ', trim($removeWhitespace($string)))
 	: '';
 
 foreach (new DirectoryIterator(__DIR__.'/../dev/docs/en') as $doc) {
