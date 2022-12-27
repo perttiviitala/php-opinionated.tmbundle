@@ -18,6 +18,7 @@
 			<string>addcslashes</string>
 			<string>AddressInfo</string>
 			<string>addslashes</string>
+			<string>AllowDynamicProperties</string>
 			<string>apache_child_terminate</string>
 			<string>apache_get_modules</string>
 			<string>apache_get_version</string>
@@ -65,6 +66,7 @@
 			<string>array_intersect_key</string>
 			<string>array_intersect_uassoc</string>
 			<string>array_intersect_ukey</string>
+			<string>array_is_list</string>
 			<string>array_key_exists</string>
 			<string>array_key_first</string>
 			<string>array_key_last</string>
@@ -98,7 +100,6 @@
 			<string>array_values</string>
 			<string>array_walk</string>
 			<string>array_walk_recursive</string>
-			<string>ArrayAccess</string>
 			<string>ArrayIterator</string>
 			<string>ArrayObject</string>
 			<string>arsort</string>
@@ -111,6 +112,7 @@
 			<string>atan</string>
 			<string>atan2</string>
 			<string>atanh</string>
+			<string>Attribute</string>
 			<string>BadFunctionCallException</string>
 			<string>BadMethodCallException</string>
 			<string>base64_decode</string>
@@ -132,8 +134,6 @@
 			<string>bindec</string>
 			<string>bindtextdomain</string>
 			<string>boolval</string>
-			<string>bson_decode</string>
-			<string>bson_encode</string>
 			<string>bzclose</string>
 			<string>bzcompress</string>
 			<string>bzdecompress</string>
@@ -167,12 +167,6 @@
 			<string>class_implements</string>
 			<string>class_parents</string>
 			<string>class_uses</string>
-			<string>classkit_import</string>
-			<string>classkit_method_add</string>
-			<string>classkit_method_copy</string>
-			<string>classkit_method_redefine</string>
-			<string>classkit_method_remove</string>
-			<string>classkit_method_rename</string>
 			<string>clearstatcache</string>
 			<string>cli_get_process_title</string>
 			<string>cli_set_process_title</string>
@@ -193,7 +187,6 @@
 			<string>collator_set_strength</string>
 			<string>collator_sort</string>
 			<string>collator_sort_with_sort_keys</string>
-			<string>Collectable</string>
 			<string>com</string>
 			<string>com_create_guid</string>
 			<string>com_event_sink</string>
@@ -205,7 +198,6 @@
 			<string>compact</string>
 			<string>COMPersistHelper</string>
 			<string>CompileError</string>
-			<string>Cond</string>
 			<string>connection_aborted</string>
 			<string>connection_status</string>
 			<string>constant</string>
@@ -217,7 +209,6 @@
 			<string>cosh</string>
 			<string>count</string>
 			<string>count_chars</string>
-			<string>Countable</string>
 			<string>crc32</string>
 			<string>create_function</string>
 			<string>crypt</string>
@@ -361,11 +352,13 @@
 			<string>curl_share_strerror</string>
 			<string>curl_strerror</string>
 			<string>curl_unescape</string>
+			<string>curl_upkeep</string>
 			<string>curl_version</string>
 			<string>CURLFile</string>
 			<string>CurlHandle</string>
 			<string>CurlMultiHandle</string>
 			<string>CurlShareHandle</string>
+			<string>CURLStringFile</string>
 			<string>current</string>
 			<string>date</string>
 			<string>date_add</string>
@@ -417,7 +410,6 @@
 			<string>DatePeriod</string>
 			<string>DateTime</string>
 			<string>DateTimeImmutable</string>
-			<string>DateTimeInterface</string>
 			<string>DateTimeZone</string>
 			<string>db2_autocommit</string>
 			<string>db2_bind_param</string>
@@ -497,53 +489,6 @@
 			<string>dbase_open</string>
 			<string>dbase_pack</string>
 			<string>dbase_replace_record</string>
-			<string>dbplus_add</string>
-			<string>dbplus_aql</string>
-			<string>dbplus_chdir</string>
-			<string>dbplus_close</string>
-			<string>dbplus_curr</string>
-			<string>dbplus_errcode</string>
-			<string>dbplus_errno</string>
-			<string>dbplus_find</string>
-			<string>dbplus_first</string>
-			<string>dbplus_flush</string>
-			<string>dbplus_freealllocks</string>
-			<string>dbplus_freelock</string>
-			<string>dbplus_freerlocks</string>
-			<string>dbplus_getlock</string>
-			<string>dbplus_getunique</string>
-			<string>dbplus_info</string>
-			<string>dbplus_last</string>
-			<string>dbplus_lockrel</string>
-			<string>dbplus_next</string>
-			<string>dbplus_open</string>
-			<string>dbplus_prev</string>
-			<string>dbplus_rchperm</string>
-			<string>dbplus_rcreate</string>
-			<string>dbplus_rcrtexact</string>
-			<string>dbplus_rcrtlike</string>
-			<string>dbplus_resolve</string>
-			<string>dbplus_restorepos</string>
-			<string>dbplus_rkeys</string>
-			<string>dbplus_ropen</string>
-			<string>dbplus_rquery</string>
-			<string>dbplus_rrename</string>
-			<string>dbplus_rsecindex</string>
-			<string>dbplus_runlink</string>
-			<string>dbplus_rzap</string>
-			<string>dbplus_savepos</string>
-			<string>dbplus_setindex</string>
-			<string>dbplus_setindexbynumber</string>
-			<string>dbplus_sql</string>
-			<string>dbplus_tcl</string>
-			<string>dbplus_tremove</string>
-			<string>dbplus_undo</string>
-			<string>dbplus_undoprepare</string>
-			<string>dbplus_unlockrel</string>
-			<string>dbplus_unselect</string>
-			<string>dbplus_update</string>
-			<string>dbplus_xlockrel</string>
-			<string>dbplus_xunlockrel</string>
 			<string>dcgettext</string>
 			<string>dcngettext</string>
 			<string>debug_backtrace</string>
@@ -689,10 +634,7 @@
 			<string>EnchantBroker</string>
 			<string>EnchantDictionary</string>
 			<string>end</string>
-			<string>ereg</string>
-			<string>ereg_replace</string>
-			<string>eregi</string>
-			<string>eregi_replace</string>
+			<string>enum_exists</string>
 			<string>Error</string>
 			<string>error_clear_last</string>
 			<string>error_get_last</string>
@@ -887,66 +829,8 @@
 			<string>FANNConnection</string>
 			<string>fastcgi_finish_request</string>
 			<string>fbird_blob_cancel</string>
-			<string>fbsql_affected_rows</string>
-			<string>fbsql_autocommit</string>
-			<string>fbsql_blob_size</string>
-			<string>fbsql_change_user</string>
-			<string>fbsql_clob_size</string>
-			<string>fbsql_close</string>
-			<string>fbsql_commit</string>
-			<string>fbsql_connect</string>
-			<string>fbsql_create_blob</string>
-			<string>fbsql_create_clob</string>
-			<string>fbsql_create_db</string>
-			<string>fbsql_data_seek</string>
-			<string>fbsql_database</string>
-			<string>fbsql_database_password</string>
-			<string>fbsql_db_query</string>
-			<string>fbsql_db_status</string>
-			<string>fbsql_drop_db</string>
-			<string>fbsql_errno</string>
-			<string>fbsql_error</string>
-			<string>fbsql_fetch_array</string>
-			<string>fbsql_fetch_assoc</string>
-			<string>fbsql_fetch_field</string>
-			<string>fbsql_fetch_lengths</string>
-			<string>fbsql_fetch_object</string>
-			<string>fbsql_fetch_row</string>
-			<string>fbsql_field_flags</string>
-			<string>fbsql_field_len</string>
-			<string>fbsql_field_name</string>
-			<string>fbsql_field_seek</string>
-			<string>fbsql_field_table</string>
-			<string>fbsql_field_type</string>
-			<string>fbsql_free_result</string>
-			<string>fbsql_get_autostart_info</string>
-			<string>fbsql_hostname</string>
-			<string>fbsql_insert_id</string>
-			<string>fbsql_list_dbs</string>
-			<string>fbsql_list_fields</string>
-			<string>fbsql_list_tables</string>
-			<string>fbsql_next_result</string>
-			<string>fbsql_num_fields</string>
-			<string>fbsql_num_rows</string>
-			<string>fbsql_password</string>
-			<string>fbsql_pconnect</string>
-			<string>fbsql_query</string>
-			<string>fbsql_read_blob</string>
-			<string>fbsql_read_clob</string>
-			<string>fbsql_result</string>
-			<string>fbsql_rollback</string>
-			<string>fbsql_rows_fetched</string>
-			<string>fbsql_select_db</string>
-			<string>fbsql_set_characterset</string>
-			<string>fbsql_set_lob_mode</string>
-			<string>fbsql_set_password</string>
-			<string>fbsql_set_transaction</string>
-			<string>fbsql_start_db</string>
-			<string>fbsql_stop_db</string>
-			<string>fbsql_table_name</string>
-			<string>fbsql_username</string>
-			<string>fbsql_warnings</string>
 			<string>fclose</string>
+			<string>fdatasync</string>
 			<string>fdf_add_doc_javascript</string>
 			<string>fdf_add_template</string>
 			<string>fdf_close</string>
@@ -990,6 +874,8 @@
 			<string>fgetcsv</string>
 			<string>fgets</string>
 			<string>fgetss</string>
+			<string>Fiber</string>
+			<string>FiberError</string>
 			<string>file</string>
 			<string>file_exists</string>
 			<string>file_get_contents</string>
@@ -1001,13 +887,6 @@
 			<string>filemtime</string>
 			<string>fileowner</string>
 			<string>fileperms</string>
-			<string>filepro</string>
-			<string>filepro_fieldcount</string>
-			<string>filepro_fieldname</string>
-			<string>filepro_fieldtype</string>
-			<string>filepro_fieldwidth</string>
-			<string>filepro_retrieve</string>
-			<string>filepro_rowcount</string>
 			<string>filesize</string>
 			<string>FilesystemIterator</string>
 			<string>filetype</string>
@@ -1035,6 +914,7 @@
 			<string>forward_static_call</string>
 			<string>forward_static_call_array</string>
 			<string>fpassthru</string>
+			<string>fpm_get_status</string>
 			<string>fprintf</string>
 			<string>fputcsv</string>
 			<string>fread</string>
@@ -1043,6 +923,7 @@
 			<string>fseek</string>
 			<string>fsockopen</string>
 			<string>fstat</string>
+			<string>fsync</string>
 			<string>ftell</string>
 			<string>ftok</string>
 			<string>ftp_alloc</string>
@@ -1093,6 +974,7 @@
 			<string>gc_mem_caches</string>
 			<string>gc_status</string>
 			<string>gd_info</string>
+			<string>GdFont</string>
 			<string>GdImage</string>
 			<string>GearmanClient</string>
 			<string>GearmanException</string>
@@ -1126,6 +1008,7 @@
 			<string>get_class_methods</string>
 			<string>get_class_vars</string>
 			<string>get_current_user</string>
+			<string>get_debug_type</string>
 			<string>get_declared_classes</string>
 			<string>get_declared_interfaces</string>
 			<string>get_declared_traits</string>
@@ -1140,6 +1023,7 @@
 			<string>get_loaded_extensions</string>
 			<string>get_magic_quotes_gpc</string>
 			<string>get_magic_quotes_runtime</string>
+			<string>get_mangled_object_vars</string>
 			<string>get_meta_tags</string>
 			<string>get_object_vars</string>
 			<string>get_parent_class</string>
@@ -1240,14 +1124,19 @@
 			<string>gnupg_clearsignkeys</string>
 			<string>gnupg_decrypt</string>
 			<string>gnupg_decryptverify</string>
+			<string>gnupg_deletekey</string>
 			<string>gnupg_encrypt</string>
 			<string>gnupg_encryptsign</string>
 			<string>gnupg_export</string>
+			<string>gnupg_getengineinfo</string>
 			<string>gnupg_geterror</string>
+			<string>gnupg_geterrorinfo</string>
 			<string>gnupg_getprotocol</string>
+			<string>gnupg_gettrustlist</string>
 			<string>gnupg_import</string>
 			<string>gnupg_init</string>
 			<string>gnupg_keyinfo</string>
+			<string>gnupg_listsignatures</string>
 			<string>gnupg_setarmor</string>
 			<string>gnupg_seterrormode</string>
 			<string>gnupg_setsignmode</string>
@@ -1378,6 +1267,8 @@
 			<string>idate</string>
 			<string>idn_to_ascii</string>
 			<string>idn_to_utf8</string>
+			<string>igbinary_serialize</string>
+			<string>igbinary_unserialize</string>
 			<string>ignore_user_abort</string>
 			<string>image2wbmp</string>
 			<string>image_type_to_extension</string>
@@ -1388,6 +1279,7 @@
 			<string>imagealphablending</string>
 			<string>imageantialias</string>
 			<string>imagearc</string>
+			<string>imageavif</string>
 			<string>imagebmp</string>
 			<string>imagechar</string>
 			<string>imagecharup</string>
@@ -1414,6 +1306,7 @@
 			<string>imagecopyresampled</string>
 			<string>imagecopyresized</string>
 			<string>imagecreate</string>
+			<string>imagecreatefromavif</string>
 			<string>imagecreatefrombmp</string>
 			<string>imagecreatefromgd</string>
 			<string>imagecreatefromgd2</string>
@@ -1422,6 +1315,7 @@
 			<string>imagecreatefromjpeg</string>
 			<string>imagecreatefrompng</string>
 			<string>imagecreatefromstring</string>
+			<string>imagecreatefromtga</string>
 			<string>imagecreatefromwbmp</string>
 			<string>imagecreatefromwebp</string>
 			<string>imagecreatefromxbm</string>
@@ -1568,42 +1462,9 @@
 			<string>inflate_get_status</string>
 			<string>inflate_init</string>
 			<string>InflateContext</string>
-			<string>ingres_autocommit</string>
-			<string>ingres_autocommit_state</string>
-			<string>ingres_charset</string>
-			<string>ingres_close</string>
-			<string>ingres_commit</string>
-			<string>ingres_connect</string>
-			<string>ingres_cursor</string>
-			<string>ingres_errno</string>
-			<string>ingres_error</string>
-			<string>ingres_errsqlstate</string>
-			<string>ingres_escape_string</string>
-			<string>ingres_execute</string>
-			<string>ingres_fetch_array</string>
-			<string>ingres_fetch_assoc</string>
-			<string>ingres_fetch_object</string>
-			<string>ingres_fetch_proc_return</string>
-			<string>ingres_fetch_row</string>
-			<string>ingres_field_length</string>
-			<string>ingres_field_name</string>
-			<string>ingres_field_nullable</string>
-			<string>ingres_field_precision</string>
-			<string>ingres_field_scale</string>
-			<string>ingres_field_type</string>
-			<string>ingres_free_result</string>
-			<string>ingres_next_error</string>
-			<string>ingres_num_fields</string>
-			<string>ingres_num_rows</string>
-			<string>ingres_pconnect</string>
-			<string>ingres_prepare</string>
-			<string>ingres_query</string>
-			<string>ingres_result_seek</string>
-			<string>ingres_rollback</string>
-			<string>ingres_set_environment</string>
-			<string>ingres_unbuffered_query</string>
 			<string>ini_get</string>
 			<string>ini_get_all</string>
+			<string>ini_parse_quantity</string>
 			<string>ini_restore</string>
 			<string>ini_set</string>
 			<string>inotify_add_watch</string>
@@ -1613,6 +1474,7 @@
 			<string>inotify_rm_watch</string>
 			<string>intdiv</string>
 			<string>interface_exists</string>
+			<string>InternalIterator</string>
 			<string>intl_error_name</string>
 			<string>intl_get_error_code</string>
 			<string>intl_get_error_message</string>
@@ -1667,6 +1529,7 @@
 			<string>IntlChar</string>
 			<string>IntlCodePointBreakIterator</string>
 			<string>IntlDateFormatter</string>
+			<string>IntlDatePatternGenerator</string>
 			<string>IntlException</string>
 			<string>IntlGregorianCalendar</string>
 			<string>IntlIterator</string>
@@ -1730,11 +1593,9 @@
 			<string>is_uploaded_file</string>
 			<string>is_writable</string>
 			<string>isset</string>
-			<string>Iterator</string>
 			<string>iterator_apply</string>
 			<string>iterator_count</string>
 			<string>iterator_to_array</string>
-			<string>IteratorAggregate</string>
 			<string>IteratorIterator</string>
 			<string>jddayofweek</string>
 			<string>jdmonthname</string>
@@ -1750,7 +1611,6 @@
 			<string>json_last_error</string>
 			<string>json_last_error_msg</string>
 			<string>JsonException</string>
-			<string>JsonSerializable</string>
 			<string>juliantojd</string>
 			<string>key</string>
 			<string>krsort</string>
@@ -1769,6 +1629,7 @@
 			<string>ldap_control_paged_result</string>
 			<string>ldap_control_paged_result_response</string>
 			<string>ldap_count_entries</string>
+			<string>ldap_count_references</string>
 			<string>ldap_delete</string>
 			<string>ldap_delete_ext</string>
 			<string>ldap_dn2ufn</string>
@@ -1821,6 +1682,7 @@
 			<string>libxml_clear_errors</string>
 			<string>libxml_disable_entity_loader</string>
 			<string>libxml_get_errors</string>
+			<string>libxml_get_external_entity_loader</string>
 			<string>libxml_get_last_error</string>
 			<string>libxml_set_external_entity_loader</string>
 			<string>libxml_set_streams_context</string>
@@ -1853,13 +1715,6 @@
 			<string>log</string>
 			<string>log10</string>
 			<string>log1p</string>
-			<string>log_cmd_delete</string>
-			<string>log_cmd_insert</string>
-			<string>log_cmd_update</string>
-			<string>log_getmore</string>
-			<string>log_killcursor</string>
-			<string>log_reply</string>
-			<string>log_write_batch</string>
 			<string>LogicException</string>
 			<string>long2ip</string>
 			<string>lstat</string>
@@ -1953,11 +1808,8 @@
 			<string>mb_substitute_character</string>
 			<string>mb_substr</string>
 			<string>mb_substr_count</string>
-			<string>mcrypt_cbc</string>
-			<string>mcrypt_cfb</string>
 			<string>mcrypt_create_iv</string>
 			<string>mcrypt_decrypt</string>
-			<string>mcrypt_ecb</string>
 			<string>mcrypt_enc_get_algorithms_name</string>
 			<string>mcrypt_enc_get_block_size</string>
 			<string>mcrypt_enc_get_iv_size</string>
@@ -1971,7 +1823,6 @@
 			<string>mcrypt_encrypt</string>
 			<string>mcrypt_generic</string>
 			<string>mcrypt_generic_deinit</string>
-			<string>mcrypt_generic_end</string>
 			<string>mcrypt_generic_init</string>
 			<string>mcrypt_get_block_size</string>
 			<string>mcrypt_get_cipher_name</string>
@@ -1988,7 +1839,6 @@
 			<string>mcrypt_module_is_block_mode</string>
 			<string>mcrypt_module_open</string>
 			<string>mcrypt_module_self_test</string>
-			<string>mcrypt_ofb</string>
 			<string>md5</string>
 			<string>md5_file</string>
 			<string>mdecrypt_generic</string>
@@ -1998,6 +1848,7 @@
 			<string>MemcachedException</string>
 			<string>memory_get_peak_usage</string>
 			<string>memory_get_usage</string>
+			<string>memory_reset_peak_usage</string>
 			<string>MessageFormatter</string>
 			<string>metaphone</string>
 			<string>method_exists</string>
@@ -2012,43 +1863,6 @@
 			<string>mkdir</string>
 			<string>mktime</string>
 			<string>money_format</string>
-			<string>Mongo</string>
-			<string>MongoBinData</string>
-			<string>MongoClient</string>
-			<string>MongoCode</string>
-			<string>MongoCollection</string>
-			<string>MongoCommandCursor</string>
-			<string>MongoConnectionException</string>
-			<string>MongoCursor</string>
-			<string>MongoCursorException</string>
-			<string>MongoCursorInterface</string>
-			<string>MongoCursorTimeoutException</string>
-			<string>MongoDate</string>
-			<string>MongoDB</string>
-			<string>MongoDBRef</string>
-			<string>MongoDeleteBatch</string>
-			<string>MongoDuplicateKeyException</string>
-			<string>MongoException</string>
-			<string>MongoExecutionTimeoutException</string>
-			<string>MongoGridFS</string>
-			<string>MongoGridFSCursor</string>
-			<string>MongoGridFSException</string>
-			<string>MongoGridFSFile</string>
-			<string>MongoId</string>
-			<string>MongoInsertBatch</string>
-			<string>MongoInt32</string>
-			<string>MongoInt64</string>
-			<string>MongoLog</string>
-			<string>MongoMaxKey</string>
-			<string>MongoMinKey</string>
-			<string>MongoPool</string>
-			<string>MongoProtocolException</string>
-			<string>MongoRegex</string>
-			<string>MongoResultException</string>
-			<string>MongoTimestamp</string>
-			<string>MongoUpdateBatch</string>
-			<string>MongoWriteBatch</string>
-			<string>MongoWriteConcernException</string>
 			<string>move_uploaded_file</string>
 			<string>mqseries_back</string>
 			<string>mqseries_begin</string>
@@ -2085,7 +1899,6 @@
 			<string>mt_rand</string>
 			<string>mt_srand</string>
 			<string>MultipleIterator</string>
-			<string>Mutex</string>
 			<string>mysql_affected_rows</string>
 			<string>mysql_client_encoding</string>
 			<string>mysql_close</string>
@@ -2154,9 +1967,11 @@
 			<string>mysqli_errno</string>
 			<string>mysqli_error</string>
 			<string>mysqli_error_list</string>
+			<string>mysqli_execute_query</string>
 			<string>mysqli_fetch_all</string>
 			<string>mysqli_fetch_array</string>
 			<string>mysqli_fetch_assoc</string>
+			<string>mysqli_fetch_column</string>
 			<string>mysqli_fetch_field</string>
 			<string>mysqli_fetch_field_direct</string>
 			<string>mysqli_fetch_fields</string>
@@ -2243,199 +2058,9 @@
 			<string>mysqli_use_result</string>
 			<string>mysqli_warning</string>
 			<string>mysqli_warning_count</string>
-			<string>mysqlnd_memcache_get_config</string>
-			<string>mysqlnd_memcache_set</string>
-			<string>mysqlnd_ms_dump_servers</string>
-			<string>mysqlnd_ms_fabric_select_global</string>
-			<string>mysqlnd_ms_fabric_select_shard</string>
-			<string>mysqlnd_ms_get_last_gtid</string>
-			<string>mysqlnd_ms_get_last_used_connection</string>
-			<string>mysqlnd_ms_get_stats</string>
-			<string>mysqlnd_ms_match_wild</string>
-			<string>mysqlnd_ms_query_is_select</string>
-			<string>mysqlnd_ms_set_qos</string>
-			<string>mysqlnd_ms_set_user_pick_server</string>
-			<string>mysqlnd_ms_xa_begin</string>
-			<string>mysqlnd_ms_xa_commit</string>
-			<string>mysqlnd_ms_xa_gc</string>
-			<string>mysqlnd_ms_xa_rollback</string>
-			<string>mysqlnd_qc_clear_cache</string>
-			<string>mysqlnd_qc_get_available_handlers</string>
-			<string>mysqlnd_qc_get_cache_info</string>
-			<string>mysqlnd_qc_get_core_stats</string>
-			<string>mysqlnd_qc_get_normalized_query_trace_log</string>
-			<string>mysqlnd_qc_get_query_trace_log</string>
-			<string>mysqlnd_qc_set_cache_condition</string>
-			<string>mysqlnd_qc_set_is_select</string>
-			<string>mysqlnd_qc_set_storage_handler</string>
-			<string>mysqlnd_qc_set_user_handlers</string>
-			<string>mysqlnd_uh_convert_to_mysqlnd</string>
-			<string>mysqlnd_uh_set_connection_proxy</string>
-			<string>mysqlnd_uh_set_statement_proxy</string>
-			<string>MysqlndUhConnection</string>
-			<string>MysqlndUhPreparedStatement</string>
 			<string>natcasesort</string>
 			<string>natsort</string>
-			<string>ncurses_addch</string>
-			<string>ncurses_addchnstr</string>
-			<string>ncurses_addchstr</string>
-			<string>ncurses_addnstr</string>
-			<string>ncurses_addstr</string>
-			<string>ncurses_assume_default_colors</string>
-			<string>ncurses_attroff</string>
-			<string>ncurses_attron</string>
-			<string>ncurses_attrset</string>
-			<string>ncurses_baudrate</string>
-			<string>ncurses_beep</string>
-			<string>ncurses_bkgd</string>
-			<string>ncurses_bkgdset</string>
-			<string>ncurses_border</string>
-			<string>ncurses_bottom_panel</string>
-			<string>ncurses_can_change_color</string>
-			<string>ncurses_cbreak</string>
-			<string>ncurses_clear</string>
-			<string>ncurses_clrtobot</string>
-			<string>ncurses_clrtoeol</string>
-			<string>ncurses_color_content</string>
-			<string>ncurses_color_set</string>
-			<string>ncurses_curs_set</string>
-			<string>ncurses_def_prog_mode</string>
-			<string>ncurses_def_shell_mode</string>
-			<string>ncurses_define_key</string>
-			<string>ncurses_del_panel</string>
-			<string>ncurses_delay_output</string>
-			<string>ncurses_delch</string>
-			<string>ncurses_deleteln</string>
-			<string>ncurses_delwin</string>
-			<string>ncurses_doupdate</string>
-			<string>ncurses_echo</string>
-			<string>ncurses_echochar</string>
-			<string>ncurses_end</string>
-			<string>ncurses_erase</string>
-			<string>ncurses_erasechar</string>
-			<string>ncurses_filter</string>
-			<string>ncurses_flash</string>
-			<string>ncurses_flushinp</string>
-			<string>ncurses_getch</string>
-			<string>ncurses_getmaxyx</string>
-			<string>ncurses_getmouse</string>
-			<string>ncurses_getyx</string>
-			<string>ncurses_halfdelay</string>
-			<string>ncurses_has_colors</string>
-			<string>ncurses_has_ic</string>
-			<string>ncurses_has_il</string>
-			<string>ncurses_has_key</string>
-			<string>ncurses_hide_panel</string>
-			<string>ncurses_hline</string>
-			<string>ncurses_inch</string>
-			<string>ncurses_init</string>
-			<string>ncurses_init_color</string>
-			<string>ncurses_init_pair</string>
-			<string>ncurses_insch</string>
-			<string>ncurses_insdelln</string>
-			<string>ncurses_insertln</string>
-			<string>ncurses_insstr</string>
-			<string>ncurses_instr</string>
-			<string>ncurses_isendwin</string>
-			<string>ncurses_keyok</string>
-			<string>ncurses_keypad</string>
-			<string>ncurses_killchar</string>
-			<string>ncurses_longname</string>
-			<string>ncurses_meta</string>
-			<string>ncurses_mouse_trafo</string>
-			<string>ncurses_mouseinterval</string>
-			<string>ncurses_mousemask</string>
-			<string>ncurses_move</string>
-			<string>ncurses_move_panel</string>
-			<string>ncurses_mvaddch</string>
-			<string>ncurses_mvaddchnstr</string>
-			<string>ncurses_mvaddchstr</string>
-			<string>ncurses_mvaddnstr</string>
-			<string>ncurses_mvaddstr</string>
-			<string>ncurses_mvcur</string>
-			<string>ncurses_mvdelch</string>
-			<string>ncurses_mvgetch</string>
-			<string>ncurses_mvhline</string>
-			<string>ncurses_mvinch</string>
-			<string>ncurses_mvvline</string>
-			<string>ncurses_mvwaddstr</string>
-			<string>ncurses_napms</string>
-			<string>ncurses_new_panel</string>
-			<string>ncurses_newpad</string>
-			<string>ncurses_newwin</string>
-			<string>ncurses_nl</string>
-			<string>ncurses_nocbreak</string>
-			<string>ncurses_noecho</string>
-			<string>ncurses_nonl</string>
-			<string>ncurses_noqiflush</string>
-			<string>ncurses_noraw</string>
-			<string>ncurses_pair_content</string>
-			<string>ncurses_panel_above</string>
-			<string>ncurses_panel_below</string>
-			<string>ncurses_panel_window</string>
-			<string>ncurses_pnoutrefresh</string>
-			<string>ncurses_prefresh</string>
-			<string>ncurses_putp</string>
-			<string>ncurses_qiflush</string>
-			<string>ncurses_raw</string>
-			<string>ncurses_refresh</string>
-			<string>ncurses_replace_panel</string>
-			<string>ncurses_reset_prog_mode</string>
-			<string>ncurses_reset_shell_mode</string>
-			<string>ncurses_resetty</string>
-			<string>ncurses_savetty</string>
-			<string>ncurses_scr_dump</string>
-			<string>ncurses_scr_init</string>
-			<string>ncurses_scr_restore</string>
-			<string>ncurses_scr_set</string>
-			<string>ncurses_scrl</string>
-			<string>ncurses_show_panel</string>
-			<string>ncurses_slk_attr</string>
-			<string>ncurses_slk_attroff</string>
-			<string>ncurses_slk_attron</string>
-			<string>ncurses_slk_attrset</string>
-			<string>ncurses_slk_clear</string>
-			<string>ncurses_slk_color</string>
-			<string>ncurses_slk_init</string>
-			<string>ncurses_slk_noutrefresh</string>
-			<string>ncurses_slk_refresh</string>
-			<string>ncurses_slk_restore</string>
-			<string>ncurses_slk_set</string>
-			<string>ncurses_slk_touch</string>
-			<string>ncurses_standend</string>
-			<string>ncurses_standout</string>
-			<string>ncurses_start_color</string>
-			<string>ncurses_termattrs</string>
-			<string>ncurses_termname</string>
-			<string>ncurses_timeout</string>
-			<string>ncurses_top_panel</string>
-			<string>ncurses_typeahead</string>
-			<string>ncurses_ungetch</string>
-			<string>ncurses_ungetmouse</string>
-			<string>ncurses_update_panels</string>
-			<string>ncurses_use_default_colors</string>
-			<string>ncurses_use_env</string>
-			<string>ncurses_use_extended_names</string>
-			<string>ncurses_vidattr</string>
-			<string>ncurses_vline</string>
-			<string>ncurses_waddch</string>
-			<string>ncurses_waddstr</string>
-			<string>ncurses_wattroff</string>
-			<string>ncurses_wattron</string>
-			<string>ncurses_wattrset</string>
-			<string>ncurses_wborder</string>
-			<string>ncurses_wclear</string>
-			<string>ncurses_wcolor_set</string>
-			<string>ncurses_werase</string>
-			<string>ncurses_wgetch</string>
-			<string>ncurses_whline</string>
-			<string>ncurses_wmouse_trafo</string>
-			<string>ncurses_wmove</string>
-			<string>ncurses_wnoutrefresh</string>
-			<string>ncurses_wrefresh</string>
-			<string>ncurses_wstandend</string>
-			<string>ncurses_wstandout</string>
-			<string>ncurses_wvline</string>
+			<string>net_get_interfaces</string>
 			<string>next</string>
 			<string>ngettext</string>
 			<string>nl2br</string>
@@ -2534,6 +2159,7 @@
 			<string>oci_set_edition</string>
 			<string>oci_set_module_name</string>
 			<string>oci_set_prefetch</string>
+			<string>oci_set_prefetch_lob</string>
 			<string>oci_statement_type</string>
 			<string>oci_unregister_taf_callback</string>
 			<string>OCICollection</string>
@@ -2547,6 +2173,9 @@
 			<string>odbc_columns</string>
 			<string>odbc_commit</string>
 			<string>odbc_connect</string>
+			<string>odbc_connection_string_is_quoted</string>
+			<string>odbc_connection_string_quote</string>
+			<string>odbc_connection_string_should_quote</string>
 			<string>odbc_cursor</string>
 			<string>odbc_data_source</string>
 			<string>odbc_error</string>
@@ -2614,6 +2243,7 @@
 			<string>opendir</string>
 			<string>openlog</string>
 			<string>openssl_cipher_iv_length</string>
+			<string>openssl_cipher_key_length</string>
 			<string>openssl_cms_decrypt</string>
 			<string>openssl_cms_encrypt</string>
 			<string>openssl_cms_read</string>
@@ -2678,7 +2308,6 @@
 			<string>OpenSSLCertificate</string>
 			<string>OpenSSLCertificateSigningRequest</string>
 			<string>ord</string>
-			<string>OuterIterator</string>
 			<string>OutOfBoundsException</string>
 			<string>OutOfRangeException</string>
 			<string>output_add_rewrite_var</string>
@@ -2705,6 +2334,7 @@
 			<string>pcntl_fork</string>
 			<string>pcntl_get_last_error</string>
 			<string>pcntl_getpriority</string>
+			<string>pcntl_rfork</string>
 			<string>pcntl_setpriority</string>
 			<string>pcntl_signal</string>
 			<string>pcntl_signal_dispatch</string>
@@ -2713,6 +2343,7 @@
 			<string>pcntl_sigtimedwait</string>
 			<string>pcntl_sigwaitinfo</string>
 			<string>pcntl_strerror</string>
+			<string>pcntl_unshare</string>
 			<string>pcntl_wait</string>
 			<string>pcntl_waitpid</string>
 			<string>pcntl_wexitstatus</string>
@@ -3000,31 +2631,6 @@
 			<string>pspell_store_replacement</string>
 			<string>pspell_suggest</string>
 			<string>putenv</string>
-			<string>px_close</string>
-			<string>px_create_fp</string>
-			<string>px_date2string</string>
-			<string>px_delete</string>
-			<string>px_delete_record</string>
-			<string>px_get_field</string>
-			<string>px_get_info</string>
-			<string>px_get_parameter</string>
-			<string>px_get_record</string>
-			<string>px_get_schema</string>
-			<string>px_get_value</string>
-			<string>px_insert_record</string>
-			<string>px_new</string>
-			<string>px_numfields</string>
-			<string>px_numrecords</string>
-			<string>px_open_fp</string>
-			<string>px_put_record</string>
-			<string>px_retrieve_record</string>
-			<string>px_set_blob_file</string>
-			<string>px_set_parameter</string>
-			<string>px_set_tablename</string>
-			<string>px_set_targetencoding</string>
-			<string>px_set_value</string>
-			<string>px_timestamp2string</string>
-			<string>px_update_record</string>
 			<string>QuickHashIntHash</string>
 			<string>QuickHashIntSet</string>
 			<string>QuickHashIntStringHash</string>
@@ -3107,18 +2713,23 @@
 			<string>RecursiveCallbackFilterIterator</string>
 			<string>RecursiveDirectoryIterator</string>
 			<string>RecursiveFilterIterator</string>
-			<string>RecursiveIterator</string>
 			<string>RecursiveIteratorIterator</string>
 			<string>RecursiveRegexIterator</string>
 			<string>RecursiveTreeIterator</string>
 			<string>Reflection</string>
+			<string>ReflectionAttribute</string>
 			<string>ReflectionClass</string>
 			<string>ReflectionClassConstant</string>
+			<string>ReflectionEnum</string>
+			<string>ReflectionEnumBackedCase</string>
+			<string>ReflectionEnumUnitCase</string>
 			<string>ReflectionException</string>
 			<string>ReflectionExtension</string>
+			<string>ReflectionFiber</string>
 			<string>ReflectionFunction</string>
 			<string>ReflectionFunctionAbstract</string>
 			<string>ReflectionGenerator</string>
+			<string>ReflectionIntersectionType</string>
 			<string>ReflectionMethod</string>
 			<string>ReflectionNamedType</string>
 			<string>ReflectionObject</string>
@@ -3128,7 +2739,6 @@
 			<string>ReflectionType</string>
 			<string>ReflectionUnionType</string>
 			<string>ReflectionZendExtension</string>
-			<string>Reflector</string>
 			<string>RegexIterator</string>
 			<string>register_shutdown_function</string>
 			<string>register_tick_function</string>
@@ -3144,9 +2754,43 @@
 			<string>restore_error_handler</string>
 			<string>restore_exception_handler</string>
 			<string>restore_include_path</string>
+			<string>ReturnTypeWillChange</string>
 			<string>rewind</string>
 			<string>rewinddir</string>
 			<string>rmdir</string>
+			<string>rnp_backend_string</string>
+			<string>rnp_backend_version</string>
+			<string>rnp_decrypt</string>
+			<string>rnp_dump_packets</string>
+			<string>rnp_dump_packets_to_json</string>
+			<string>rnp_ffi_create</string>
+			<string>rnp_ffi_destroy</string>
+			<string>rnp_ffi_set_pass_provider</string>
+			<string>rnp_import_keys</string>
+			<string>rnp_import_signatures</string>
+			<string>rnp_key_export</string>
+			<string>rnp_key_export_autocrypt</string>
+			<string>rnp_key_export_revocation</string>
+			<string>rnp_key_get_info</string>
+			<string>rnp_key_remove</string>
+			<string>rnp_key_revoke</string>
+			<string>rnp_list_keys</string>
+			<string>rnp_load_keys</string>
+			<string>rnp_load_keys_from_path</string>
+			<string>rnp_locate_key</string>
+			<string>rnp_op_encrypt</string>
+			<string>rnp_op_generate_key</string>
+			<string>rnp_op_sign</string>
+			<string>rnp_op_sign_cleartext</string>
+			<string>rnp_op_sign_detached</string>
+			<string>rnp_op_verify</string>
+			<string>rnp_op_verify_detached</string>
+			<string>rnp_save_keys</string>
+			<string>rnp_save_keys_to_path</string>
+			<string>rnp_supported_features</string>
+			<string>rnp_version_string</string>
+			<string>rnp_version_string_full</string>
+			<string>RnpFFI</string>
 			<string>round</string>
 			<string>rpmaddtag</string>
 			<string>rpmdbinfo</string>
@@ -3203,12 +2847,11 @@
 			<string>SeasLog</string>
 			<string>seaslog_get_author</string>
 			<string>seaslog_get_version</string>
-			<string>SeekableIterator</string>
 			<string>sem_acquire</string>
 			<string>sem_get</string>
 			<string>sem_release</string>
 			<string>sem_remove</string>
-			<string>Serializable</string>
+			<string>SensitiveParameter</string>
 			<string>serialize</string>
 			<string>session_abort</string>
 			<string>session_cache_expire</string>
@@ -3220,7 +2863,6 @@
 			<string>session_gc</string>
 			<string>session_get_cookie_params</string>
 			<string>session_id</string>
-			<string>session_is_registered</string>
 			<string>session_module_name</string>
 			<string>session_name</string>
 			<string>session_regenerate_id</string>
@@ -3231,22 +2873,16 @@
 			<string>session_set_save_handler</string>
 			<string>session_start</string>
 			<string>session_status</string>
-			<string>session_unregister</string>
 			<string>session_unset</string>
 			<string>session_write_close</string>
 			<string>SessionHandler</string>
-			<string>SessionHandlerInterface</string>
-			<string>SessionIdInterface</string>
-			<string>SessionUpdateTimestampHandlerInterface</string>
 			<string>set_error_handler</string>
 			<string>set_exception_handler</string>
 			<string>set_include_path</string>
 			<string>set_time_limit</string>
 			<string>setcookie</string>
 			<string>setlocale</string>
-			<string>setproctitle</string>
 			<string>setrawcookie</string>
-			<string>setthreadtitle</string>
 			<string>settype</string>
 			<string>sha1</string>
 			<string>sha1_file</string>
@@ -3266,6 +2902,13 @@
 			<string>shmop_size</string>
 			<string>shmop_write</string>
 			<string>shuffle</string>
+			<string>simdjson_decode</string>
+			<string>simdjson_is_valid</string>
+			<string>simdjson_key_count</string>
+			<string>simdjson_key_exists</string>
+			<string>simdjson_key_value</string>
+			<string>SimdJsonException</string>
+			<string>SimdJsonValueError</string>
 			<string>similar_text</string>
 			<string>simplexml_import_dom</string>
 			<string>simplexml_load_file</string>
@@ -3290,7 +2933,6 @@
 			<string>snmp_get_valueretrieval</string>
 			<string>snmp_read_mib</string>
 			<string>snmp_set_enum_print</string>
-			<string>snmp_set_oid_numeric_print</string>
 			<string>snmp_set_oid_output_format</string>
 			<string>snmp_set_quick_print</string>
 			<string>snmp_set_valueretrieval</string>
@@ -3376,6 +3018,19 @@
 			<string>sodium_crypto_box_seal_open</string>
 			<string>sodium_crypto_box_secretkey</string>
 			<string>sodium_crypto_box_seed_keypair</string>
+			<string>sodium_crypto_core_ristretto255_add</string>
+			<string>sodium_crypto_core_ristretto255_from_hash</string>
+			<string>sodium_crypto_core_ristretto255_is_valid_point</string>
+			<string>sodium_crypto_core_ristretto255_random</string>
+			<string>sodium_crypto_core_ristretto255_scalar_add</string>
+			<string>sodium_crypto_core_ristretto255_scalar_complement</string>
+			<string>sodium_crypto_core_ristretto255_scalar_invert</string>
+			<string>sodium_crypto_core_ristretto255_scalar_mul</string>
+			<string>sodium_crypto_core_ristretto255_scalar_negate</string>
+			<string>sodium_crypto_core_ristretto255_scalar_random</string>
+			<string>sodium_crypto_core_ristretto255_scalar_reduce</string>
+			<string>sodium_crypto_core_ristretto255_scalar_sub</string>
+			<string>sodium_crypto_core_ristretto255_sub</string>
 			<string>sodium_crypto_generichash</string>
 			<string>sodium_crypto_generichash_final</string>
 			<string>sodium_crypto_generichash_init</string>
@@ -3397,6 +3052,8 @@
 			<string>sodium_crypto_pwhash_str_needs_rehash</string>
 			<string>sodium_crypto_pwhash_str_verify</string>
 			<string>sodium_crypto_scalarmult</string>
+			<string>sodium_crypto_scalarmult_ristretto255</string>
+			<string>sodium_crypto_scalarmult_ristretto255_base</string>
 			<string>sodium_crypto_secretbox</string>
 			<string>sodium_crypto_secretbox_keygen</string>
 			<string>sodium_crypto_secretbox_open</string>
@@ -3422,6 +3079,10 @@
 			<string>sodium_crypto_sign_verify_detached</string>
 			<string>sodium_crypto_stream</string>
 			<string>sodium_crypto_stream_keygen</string>
+			<string>sodium_crypto_stream_xchacha20</string>
+			<string>sodium_crypto_stream_xchacha20_keygen</string>
+			<string>sodium_crypto_stream_xchacha20_xor</string>
+			<string>sodium_crypto_stream_xchacha20_xor_ic</string>
 			<string>sodium_crypto_stream_xor</string>
 			<string>sodium_hex2bin</string>
 			<string>sodium_increment</string>
@@ -3455,7 +3116,6 @@
 			<string>SolrUtils</string>
 			<string>sort</string>
 			<string>soundex</string>
-			<string>SphinxClient</string>
 			<string>spl_autoload</string>
 			<string>spl_autoload_call</string>
 			<string>spl_autoload_extensions</string>
@@ -3470,20 +3130,15 @@
 			<string>SplFileObject</string>
 			<string>SplFixedArray</string>
 			<string>SplHeap</string>
-			<string>split</string>
-			<string>spliti</string>
 			<string>SplMaxHeap</string>
 			<string>SplMinHeap</string>
 			<string>SplObjectStorage</string>
-			<string>SplObserver</string>
 			<string>SplPriorityQueue</string>
 			<string>SplQueue</string>
 			<string>SplStack</string>
-			<string>SplSubject</string>
 			<string>SplTempFileObject</string>
 			<string>Spoofchecker</string>
 			<string>sprintf</string>
-			<string>sql_regcase</string>
 			<string>SQLite3</string>
 			<string>SQLite3Result</string>
 			<string>SQLite3Stmt</string>
@@ -3539,6 +3194,7 @@
 			<string>ssh2_publickey_remove</string>
 			<string>ssh2_scp_recv</string>
 			<string>ssh2_scp_send</string>
+			<string>ssh2_send_eof</string>
 			<string>ssh2_sftp</string>
 			<string>ssh2_sftp_chmod</string>
 			<string>ssh2_sftp_lstat</string>
@@ -3622,6 +3278,7 @@
 			<string>stats_stat_percentile</string>
 			<string>stats_stat_powersum</string>
 			<string>stats_variance</string>
+			<string>stdClass</string>
 			<string>Stomp</string>
 			<string>stomp_abort</string>
 			<string>stomp_ack</string>
@@ -3790,9 +3447,11 @@
 			<string>swoole_async_set</string>
 			<string>swoole_async_write</string>
 			<string>swoole_async_writefile</string>
+			<string>swoole_clear_error</string>
 			<string>swoole_client_select</string>
 			<string>swoole_cpu_num</string>
 			<string>swoole_errno</string>
+			<string>swoole_error_log</string>
 			<string>swoole_event_add</string>
 			<string>swoole_event_defer</string>
 			<string>swoole_event_del</string>
@@ -3821,6 +3480,9 @@
 			<string>sys_getloadavg</string>
 			<string>syslog</string>
 			<string>system</string>
+			<string>SysvMessageQueue</string>
+			<string>SysvSemaphore</string>
+			<string>SysvSharedMemory</string>
 			<string>taint</string>
 			<string>tan</string>
 			<string>tanh</string>
@@ -3829,7 +3491,6 @@
 			<string>textdomain</string>
 			<string>Thread</string>
 			<string>Threaded</string>
-			<string>Throwable</string>
 			<string>tidy</string>
 			<string>tidy_access_count</string>
 			<string>tidy_clean_repair</string>
@@ -3871,11 +3532,6 @@
 			<string>tmpfile</string>
 			<string>token_get_all</string>
 			<string>token_name</string>
-			<string>TokyoTyrant</string>
-			<string>tokyotyrantexception</string>
-			<string>TokyoTyrantIterator</string>
-			<string>TokyoTyrantQuery</string>
-			<string>TokyoTyrantTable</string>
 			<string>touch</string>
 			<string>trader_acos</string>
 			<string>trader_ad</string>
@@ -4049,7 +3705,6 @@
 			<string>transliterator_get_error_message</string>
 			<string>transliterator_list_ids</string>
 			<string>transliterator_transliterate</string>
-			<string>Traversable</string>
 			<string>trigger_error</string>
 			<string>trim</string>
 			<string>TypeError</string>
@@ -4112,6 +3767,7 @@
 			<string>ValueError</string>
 			<string>var_dump</string>
 			<string>var_export</string>
+			<string>var_representation</string>
 			<string>variant</string>
 			<string>variant_abs</string>
 			<string>variant_add</string>
@@ -4155,7 +3811,6 @@
 			<string>wddx_serialize_value</string>
 			<string>wddx_serialize_vars</string>
 			<string>WeakMap</string>
-			<string>WeakRef</string>
 			<string>WeakReference</string>
 			<string>win32_continue_service</string>
 			<string>win32_create_service</string>
@@ -4242,7 +3897,7 @@
 			<string>xml_set_processing_instruction_handler</string>
 			<string>xml_set_start_namespace_decl_handler</string>
 			<string>xml_set_unparsed_entity_decl_handler</string>
-			<string>XmlParser</string>
+			<string>XMLParser</string>
 			<string>XMLReader</string>
 			<string>xmlrpc_decode</string>
 			<string>xmlrpc_decode_request</string>
@@ -4305,7 +3960,6 @@
 			<string>Yac</string>
 			<string>Yaconf</string>
 			<string>Yaf_Action_Abstract</string>
-			<string>Yaf_Application</string>
 			<string>Yaf_Bootstrap_Abstract</string>
 			<string>Yaf_Config_Abstract</string>
 			<string>Yaf_Config_Ini</string>
