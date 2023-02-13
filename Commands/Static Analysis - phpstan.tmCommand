@@ -26,7 +26,7 @@ binpath=$(search_path)
 
 args=()
 args+=(--no-progress)
-args+=(--memory-limit=-1)
+args+=(--memory-limit=1G)
 args+=(--error-format=raw)
 args+=(--no-ansi)
 args+=(--verbose)
@@ -70,7 +70,7 @@ fi
 			error=${error//&lt;/&amp;lt;}
 			error=${error//&gt;/&amp;gt;}
 
-			errors+=("$(printf '&lt;div class="linenro"&gt;%s&lt;/div&gt;&lt;span&gt;%s&lt;/span&gt;' $linenro $error)")
+			errors+=("$(printf '&lt;div class="linenro"&gt;&lt;span&gt;%s&lt;/span&gt;&lt;/div&gt;&lt;span&gt;%s&lt;/span&gt;' $linenro $error)")
 			continue
 		fi
 		if [[ $line =~ '^Note: Using configuration|^Used memory:' ]]; then

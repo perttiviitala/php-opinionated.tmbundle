@@ -36,9 +36,9 @@ class Dialog {
 				.lines > .row:last-child {
 					padding-bottom: 0.5em;
 				}
-				.lines .linenro {
+				.lines .linenro span {
 					display: block;
-					width: 50px;
+					width: 50px !important;
 					color: #808080;
 				}
 

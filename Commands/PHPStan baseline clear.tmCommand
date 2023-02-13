@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env php
+&lt;?php
+
+require_once getenv('TM_BUNDLE_SUPPORT').'/lib/bootstrap.php';
+
+use TextMate\Dialog;
+
+$absolutePath = getenv('TM_FILEPATH');
+$projectDir = getenv('TM_PROJECT_DIRECTORY');
+$filepath = str_replace("{$projectDir}/", '', $absolutePath);
+
+$baselinePath = $projectDir . '/phpstan-baseline.neon';
+if (!file_exists($baselinePath)) {
+	exit;
+}
+$baseline = file_get_contents($projectDir . '/phpstan-baseline.neon');
+
+$pattern = sprintf(
+	&lt;&lt;&lt;'TEXT'
+			-
+				message: "([^\n]+)"
+				count: \d+
+				path: %s
+	TEXT,
+	preg_quote($filepath, '/'),
+);
+$regex = sprintf(
+	'/\n%s\n/m',
+	str_replace(
+		["\n", "\t"],
+		['\n', '\t'],
+		$pattern,
+	),
+);
+
+preg_match_all($regex, $baseline, $matches);
+if (!$matches || !$matches[1]) {
+	exit;
+}
+
+file_put_contents($baselinePath, preg_replace($regex, '', $baseline));
+
+$messages = $matches[1];
+$messages = array_map(fn ($str) =&gt; stripslashes(stripslashes($str)), $messages);
+$messages = array_map(fn ($str) =&gt; substr($str, 2, -2), $messages);
+
+(new Dialog($_SERVER['DIALOG']))
+	-&gt;tooltip(
+		'&lt;strong&gt;PHPStan&lt;/strong&gt;',
+		sprintf('Baseline errors removed for %s', $filepath),
+		'&lt;ul&gt;'.implode("\n", array_map(fn ($str) =&gt; "&lt;li&gt;{$str}&lt;/li&gt;", $messages)).'&lt;/ul&gt;',
+	);
+</string>
+	<key>input</key>
+	<string>selection</string>
+	<key>inputFormat</key>
+	<string>text</string>
+	<key>keyEquivalent</key>
+	<string>^V</string>
+	<key>name</key>
+	<string>PHPStan baseline clear</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>text</string>
+	<key>outputLocation</key>
+	<string>toolTip</string>
+	<key>scope</key>
+	<string>source.php</string>
+	<key>uuid</key>
+	<string>8480F66D-D0A6-445E-81A0-98E933BD82A5</string>
+	<key>version</key>
+	<integer>2</integer>
+</dict>
+</plist>
