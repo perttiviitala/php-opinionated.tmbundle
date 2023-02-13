@@ -15,12 +15,20 @@ require_once getenv('TM_BUNDLE_SUPPORT').'/lib/bootstrap.php';
 // Only supports projects with Composer autoloader.
 $composer = getComposerClassLoader($_SERVER['TM_PROJECT_DIRECTORY']);
 if (!$composer) {
+	(new TextMate\Dialog($_SERVER['DIALOG']))-&gt;tooltip("No composer in project [{$_SERVER['TM_PROJECT_DIRECTORY']}]");
 	exit;
 }
 
 function getComposerClassLoader(string $projectRoot): ?ClassLoader {
-	$composer = $projectRoot.'/vendor/composer';
-	if (!file_exists($composer.'/ClassLoader.php')) {
+	$composer = null;
+	foreach (["{$projectRoot}/vendor/composer", "{$projectRoot}/composer"] as $detectRoot) {
+		if (!file_exists($detectRoot.'/ClassLoader.php')) {
+			continue;
+		}
+		$composer = $detectRoot;
+		break;
+	}
+	if (!$composer) {
 		return null;
 	}
 
@@ -144,7 +152,7 @@ if (!$class) {
 
 $filename = $composer-&gt;findFile($class);
 if (!$filename) {
-	echo "Unable to find $class";
+	(new TextMate\Dialog($_SERVER['DIALOG']))-&gt;tooltip("Unable to find $class");
 	exit;
 }
 
