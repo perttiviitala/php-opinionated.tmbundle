@@ -7,13 +7,21 @@
 	<key>command</key>
 	<string>#!/usr/bin/env osascript
 
-if application id "com.apple.SafariTechnologyPreview" is running then
-	tell application id "com.apple.SafariTechnologyPreview"
-		tell window 1
-			do JavaScript "window.location.reload(true)" in current tab
-		end tell
-	end tell
-else if application "Safari" is running then
+-- crashes if SafariTechnologyPreview is not installed
+
+-- if application id "com.apple.SafariTechnologyPreview" is running then
+-- 	tell application id "com.apple.SafariTechnologyPreview"
+-- 		set sameURL to URL of current tab of front window
+-- 		set URL of current tab of front window to sameURL
+-- 	end tell
+-- else if application "Safari" is running then
+-- 	tell application "Safari"
+-- 		set sameURL to URL of current tab of front window
+-- 		set URL of current tab of front window to sameURL
+-- 	end tell
+-- end if
+
+if application "Safari" is running then
 	tell application "Safari"
 		set sameURL to URL of current tab of front window
 		set URL of current tab of front window to sameURL

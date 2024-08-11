@@ -20,11 +20,10 @@ return (new PhpCsFixer\Config())
 			'identical' => false,
 			'less_and_greater' => false,
 		],
-		'braces' => [
-			'allow_single_line_closure' => true,
-			'position_after_functions_and_oop_constructs' => 'same',
+		'curly_braces_position' => [
+			'functions_opening_brace' => 'same_line',
 		],
-		'blank_line_before_statement' => [],
+		'blank_line_before_statement' => ['statements' => []],
 		'phpdoc_to_comment' => false,
 		'TextMate/switch_indent' => true,
 	])
